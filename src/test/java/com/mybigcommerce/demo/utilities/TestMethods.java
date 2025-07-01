@@ -1499,6 +1499,59 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid User Account Creation Test Result - Existing User Email");
     }
 
+    //invalid user account creation test method - invalid user password / confirm password format (strings only)
+    protected void invalidUserAccountCreationInvalidPasswordConfirmTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
+        RegisterPageInvalidSingularInputFormat registerPageInvalidSingularInputFormat = new RegisterPageInvalidSingularInputFormat(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //register page web element assert
+        isRegisterPageWebElementDisplayed(registerPage);
+        //register page text element assert
+        isRegisterPageTextElementAsExpected(registerPage);
+        //capture screenshot of the register page before data input
+        captureScreenshot(driver, "Register Page Display Before Data Input");
+        //invalid user register data getter - invalid user password / confirm password format (strings only)
+        registerPageInvalidSingularInputFormat.invalidUserRegisterDataInvalidPasswordConfirmFormatGetter();
+        //input valid user email into email input field
+        registerPageInvalidSingularInputFormat.inputValidRegisterEmailIntoEmailInputField();
+        //input invalid user password format into password input field
+        registerPageInvalidSingularInputFormat.inputInvalidRegisterPasswordFormatIntoPasswordInputField();
+        //input invalid user confirm password format into confirm password input field
+        registerPageInvalidSingularInputFormat.inputInvalidRegisterConfirmPasswordFormatIntoConfirmPasswordInputField();
+        //input valid user first name into first name input field
+        registerPageInvalidSingularInputFormat.inputValidRegisterFirstNameIntoFirstNameInputField();
+        //input valid user last name into last name input field
+        registerPageInvalidSingularInputFormat.inputValidRegisterLastNameIntoLastNameInputField();
+        //input valid user address 1 into address 1 input field
+        registerPageInvalidSingularInputFormat.inputValidRegisterAddressIntoAddressInputField();
+        //input valid user city into city input field
+        registerPageInvalidSingularInputFormat.inputValidRegisterCityIntoCityInputField();
+        //click 'State' dropdown menu
+        registerPage.clickStateDropdownMenu();
+        //select 'Illinois' option
+        registerPage.selectIllinoisOption();
+        //input valid user post code into post code input field
+        registerPageInvalidSingularInputFormat.inputValidRegisterPostCodeIntoPostCodeInputField();
+        //input valid user phone into phone input field
+        registerPageInvalidSingularInputFormat.inputValidRegisterPhoneIntoPhoneNumberInputField();
+        //capture screenshot of the register page after invalid data input - invalid user password / confirm password format (strings only)
+        captureScreenshot(driver, "Register Page Display After Invalid Data Input - Invalid User Password and Confirm Password");
+        //click 'Create account' button
+        registerPage.clickCreateAccountButton();
+        //assert the user gets expected error message, log the issue otherwise
+        try {
+            assertEquals("Passwords must be at least 7 characters and contain both alphabetic and numeric characters.", registerPage.getRegisterPageSingularInputError(), "The user account creation invalid user password and confirm password input error doesn't match expectations");
+        } catch (Exception e) {
+            logger.error("The invalid user password and confirm password input error wasn't triggered, test has failed.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - Invalid User Password and Confirm Password");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)

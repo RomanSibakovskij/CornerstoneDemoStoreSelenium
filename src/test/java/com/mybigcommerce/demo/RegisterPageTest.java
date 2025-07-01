@@ -356,4 +356,16 @@ public class RegisterPageTest extends TestMethods {
         invalidUserAccountCreationExistingEmailTest();
     }
 
+    //Test 002ab -> invalid user account creation test - invalid user password and confirm password format (strings only)
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Invalid User Password / Confirm Password Format")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidAccountCreationInvalidUserPasswordConfirmFormatTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //invalid user account creation test - invalid user password and confirm password format (strings only)
+        invalidUserAccountCreationInvalidPasswordConfirmTest();
+    }
+
 }

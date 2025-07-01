@@ -40,6 +40,7 @@ public class RegisterPageInvalidSingularInputFormat extends BasePage{
     //invalid user register input data - invalid singular input
     private String invalidUserRegisterEmailFormat;
     private String invalidUserExistingEmail;
+    private String invalidUserRegisterPasswordFormat;
 
 
     public RegisterPageInvalidSingularInputFormat(WebDriver driver) {super(driver);}
@@ -100,9 +101,38 @@ public class RegisterPageInvalidSingularInputFormat extends BasePage{
         System.out.println("\n");
     }
 
+    //invalid user register data getter - invalid user password / confirm password (string chars only)
+    public void invalidUserRegisterDataInvalidPasswordConfirmFormatGetter(){
+
+        validRegisterEmail = TestDataGenerator.generateRandomEmailAddress(6);
+        invalidUserRegisterPasswordFormat = "Stokersdesx";
+        validRegisterFirstName = TestDataGenerator.getRandomFirstName();
+        validRegisterLastName = TestDataGenerator.getRandomLastName();
+        validRegisterAddress = TestDataGenerator.generateRandomAddress(6);
+        validRegisterCity = TestDataGenerator.getRandomCity();
+        validRegisterPostCode = TestDataGenerator.getRandomPostalCode();
+        validRegisterPhone = TestDataGenerator.generatePhoneNumber(9);
+
+        System.out.println("Invalid user register generated data (invalid user password / confirm password): " + "\n");
+
+        logger.info("Valid generated user email address (too long user password / confirm password): " + validRegisterEmail);
+        logger.info("Invalid user password format: " + invalidUserRegisterPasswordFormat);
+        logger.info("Invalid matching user confirm password format: " + invalidUserRegisterPasswordFormat);
+        logger.info("Valid generated user first name (too long user password / confirm password): " + validRegisterFirstName);
+        logger.info("Valid generated user last name (too long user password / confirm password): " + validRegisterLastName);
+        logger.info("Valid generated user address (too long user password / confirm password): " + validRegisterAddress);
+        logger.info("Valid generated user city (too long user password / confirm password): " + validRegisterCity);
+        logger.info("Valid generated user post code (too long user password / confirm password): " + validRegisterPostCode);
+        logger.info("Valid generated user phone number (too long user password / confirm password): " + validRegisterPhone);
+
+        System.out.println("\n");
+    }
+
     //invalid register data input methods - invalid singular input format
     public void inputInvalidRegisterEmailFormatIntoEmailInputField(){registerPageEmailInputField.sendKeys(invalidUserRegisterEmailFormat);}
     public void inputExistingRegEmailFormatIntoEmailInputField(){registerPageEmailInputField.sendKeys(invalidUserExistingEmail);}
+    public void inputInvalidRegisterPasswordFormatIntoPasswordInputField(){registerPagePasswordInputField.sendKeys(invalidUserRegisterPasswordFormat);}
+    public void inputInvalidRegisterConfirmPasswordFormatIntoConfirmPasswordInputField(){registerPageConfirmPasswordInputField.sendKeys(invalidUserRegisterPasswordFormat);}
 
     //valid register data input methods (for remaining inputs)
     public void inputValidRegisterEmailIntoEmailInputField(){registerPageEmailInputField.sendKeys(validRegisterEmail);}
