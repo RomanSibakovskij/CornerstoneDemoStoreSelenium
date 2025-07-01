@@ -405,4 +405,16 @@ public class RegisterPageTest extends TestMethods {
         invalidUserAccountCreationInvalidLastNameFormatTest();
     }
 
+    //Test 002af -> invalid user account creation test - invalid user address format (special symbols only) (the user account got created, test has failed)
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Invalid User Address Format")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidAccountCreationInvalidAddressFormatTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //invalid user account creation test - invalid user address format (special symbols only)
+        invalidUserAccountCreationInvalidAddressFormatTest();
+    }
+
 }
