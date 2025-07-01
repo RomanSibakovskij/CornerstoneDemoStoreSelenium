@@ -26,8 +26,62 @@ public class RegisterPageTooShortSingularInput extends BasePage{
     @FindBy(xpath = "//input[@id='FormField_7_input']")
     private WebElement registerPagePhoneInputField;
 
+    //valid user register data (for remaining inputs)
+    private static String validRegisterEmail;
+    private static String validRegisterPassword;
+    private String validRegisterConfirmPassword;
+    private static String validRegisterFirstName;
+    private static String validRegisterLastName;
+    private static String validRegisterAddress;
+    private String validRegisterCity;
+    private int validRegisterPostCode;
+    private String validRegisterPhone;
+
+    //invalid user register input data - too short singular input
+    private String tooShortUserRegisterEmail;
+
     public RegisterPageTooShortSingularInput(WebDriver driver) {super(driver);}
 
+    //invalid user register data getter - too short user email (1 char -> name, domain)
+    public void invalidUserRegisterDataTooShortEmailGetter(){
 
+        tooShortUserRegisterEmail = TestDataGenerator.generateRandomTooShortEmailAddress(1);
+        validRegisterPassword = TestDataGenerator.generateRandomPassword();
+        validRegisterConfirmPassword = validRegisterPassword;
+        validRegisterFirstName = TestDataGenerator.getRandomFirstName();
+        validRegisterLastName = TestDataGenerator.getRandomLastName();
+        validRegisterAddress = TestDataGenerator.generateRandomAddress(6);
+        validRegisterCity = TestDataGenerator.getRandomCity();
+        validRegisterPostCode = TestDataGenerator.getRandomPostalCode();
+        validRegisterPhone = TestDataGenerator.generatePhoneNumber(9);
+
+        System.out.println("Invalid user register generated data (too short user email): " + "\n");
+
+        logger.info("Too short user email address: " + tooShortUserRegisterEmail);
+        logger.info("Valid generated user password (too short user email): " + validRegisterPassword);
+        logger.info("Valid matching user confirm password (too short user email): " + validRegisterConfirmPassword);
+        logger.info("Valid generated user first name (too short user email): " + validRegisterFirstName);
+        logger.info("Valid generated user last name (too short user email): " + validRegisterLastName);
+        logger.info("Valid generated user address (too short user email): " + validRegisterAddress);
+        logger.info("Valid generated user city (too short user email): " + validRegisterCity);
+        logger.info("Valid generated user post code (too short user email): " + validRegisterPostCode);
+        logger.info("Valid generated user phone number (too short user email): " + validRegisterPhone);
+
+        System.out.println("\n");
+    }
+
+    //invalid register data input methods - too short singular input
+    public void inputTooShortRegisterEmailIntoEmailInputField(){registerPageEmailInputField.sendKeys(tooShortUserRegisterEmail);}
+
+    //valid register data input methods (for remaining inputs)
+    public void inputValidRegisterEmailIntoEmailInputField(){registerPageEmailInputField.sendKeys(validRegisterEmail);}
+    public void inputValidRegisterPasswordIntoPasswordInputField(){registerPagePasswordInputField.sendKeys(validRegisterPassword);}
+    public void inputValidRegisterConfirmPasswordIntoConfirmPasswordInputField(){registerPageConfirmPasswordInputField.sendKeys(validRegisterConfirmPassword);}
+    public void inputValidRegisterFirstNameIntoFirstNameInputField(){registerPageFirstNameInputField.sendKeys(validRegisterFirstName);}
+    public void inputValidRegisterLastNameIntoLastNameInputField(){registerPageLastNameInputField.sendKeys(validRegisterLastName);}
+    public void inputValidRegisterAddressIntoAddressInputField(){registerPageAddress1InputField.sendKeys(validRegisterAddress);}
+    public void inputValidRegisterCityIntoCityInputField(){registerPageCityInputField.sendKeys(validRegisterCity);}
+    public void inputValidRegisterPostCodeIntoPostCodeInputField(){registerPagePostCodeInputField.sendKeys(String.valueOf(validRegisterPostCode));}
+    public void inputValidRegisterPhoneIntoPhoneNumberInputField(){registerPagePhoneInputField.sendKeys(validRegisterPhone);}
 
 }

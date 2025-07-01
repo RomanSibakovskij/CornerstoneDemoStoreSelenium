@@ -145,7 +145,7 @@ public class TestDataGenerator extends BasePage{
     //random too short email generator
     public static String generateRandomTooShortEmailAddress(int length) {
         String emailAddress = generateRandomString(UPPER + LOWER, length);
-        return emailAddress + "@e.com";
+        return emailAddress + "@z.com";
     }
     //random too long email generator
     public static String generateRandomTooLongEmailAddress(int length) {
