@@ -294,6 +294,55 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid User Account Creation Test Result - No User First Name");
     }
 
+    //invalid user account creation test method - no user last name
+    protected void invalidUserAccountCreationNoLastNameTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
+        RegisterPageNoSingularInput registerPageNoSingularInput = new RegisterPageNoSingularInput(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //register page web element assert
+        isRegisterPageWebElementDisplayed(registerPage);
+        //register page text element assert
+        isRegisterPageTextElementAsExpected(registerPage);
+        //capture screenshot of the register page before data input
+        captureScreenshot(driver, "Register Page Display Before Data Input");
+        //invalid user register data getter - no user last name
+        registerPageNoSingularInput.invalidUserRegisterDataNoLastNameGetter();
+        //input valid user email into email input field
+        registerPageNoSingularInput.inputValidRegisterEmailIntoEmailInputField();
+        //input valid user password into password input field
+        registerPageNoSingularInput.inputValidRegisterPasswordIntoPasswordInputField();
+        //input valid matching user confirm password into confirm password input field
+        registerPageNoSingularInput.inputValidRegisterConfirmPasswordIntoConfirmPasswordInputField();
+        //input valid user first name into first name input field
+        registerPageNoSingularInput.inputValidRegisterFirstNameIntoFirstNameInputField();
+        //don't input user last name into last name input field
+        registerPageNoSingularInput.inputNoRegisterLastNameIntoLastNameInputField();
+        //input valid user address 1 into address 1 input field
+        registerPageNoSingularInput.inputValidRegisterAddressIntoAddressInputField();
+        //input valid user city into city input field
+        registerPageNoSingularInput.inputValidRegisterCityIntoCityInputField();
+        //click 'State' dropdown menu
+        registerPage.clickStateDropdownMenu();
+        //select 'Illinois' option
+        registerPage.selectIllinoisOption();
+        //input valid user post code into post code input field
+        registerPageNoSingularInput.inputValidRegisterPostCodeIntoPostCodeInputField();
+        //input valid user phone into phone input field
+        registerPageNoSingularInput.inputValidRegisterPhoneIntoPhoneNumberInputField();
+        //capture screenshot of the register page after invalid data input - no user last name
+        captureScreenshot(driver, "Register Page Display After Invalid Data Input - No User Last Name");
+        //click 'Create account' button
+        registerPage.clickCreateAccountButton();
+        //assert the user gets expected error message
+        assertEquals("Last Name field cannot be blank.", registerPage.getRegisterPageSingularInputError(), "The user account creation missing last name input error doesn't match expectations or the error wasn't triggered.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - No User Last Name");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)
