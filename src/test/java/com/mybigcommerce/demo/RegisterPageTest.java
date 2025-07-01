@@ -441,4 +441,16 @@ public class RegisterPageTest extends TestMethods {
         invalidUserAccountCreationInvalidPostCodeFormatTest();
     }
 
+    //Test 002ai -> invalid user account creation test - invalid user phone format (special symbols only) (the user account got created, test has failed)
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Invalid User Phone Format")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidAccountCreationInvalidPhoneFormatTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //invalid user account creation test - invalid user phone format (special symbols only)
+        invalidUserAccountCreationInvalidPhoneFormatTest();
+    }
+
 }
