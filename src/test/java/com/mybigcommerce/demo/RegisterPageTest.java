@@ -305,4 +305,16 @@ public class RegisterPageTest extends TestMethods {
         invalidUserAccountCreationTooLongCityTest();
     }
 
+    //Test 002x -> invalid user account creation test - too long user post code (6 digits) (the user account gets created, test has failed)
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Too Long User Post Code")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Too_Long_Singular_Input")
+    void invalidAccountCreationTooLongUserPostCodeTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //invalid user account creation test - too long user post code (6 digits)
+        invalidUserAccountCreationTooLongPostCodeTest();
+    }
+
 }
