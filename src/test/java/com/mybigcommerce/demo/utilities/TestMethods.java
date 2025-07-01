@@ -806,6 +806,59 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid User Account Creation Test Result - Too Short User Address");
     }
 
+    //invalid user account creation test method - too short user city (1 char)
+    protected void invalidUserAccountCreationTooShortCityTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
+        RegisterPageTooShortSingularInput registerPageTooShortSingularInput = new RegisterPageTooShortSingularInput(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //register page web element assert
+        isRegisterPageWebElementDisplayed(registerPage);
+        //register page text element assert
+        isRegisterPageTextElementAsExpected(registerPage);
+        //capture screenshot of the register page before data input
+        captureScreenshot(driver, "Register Page Display Before Data Input");
+        //invalid user register data getter - too short user city (1 char)
+        registerPageTooShortSingularInput.invalidUserRegisterDataTooShortCityGetter();
+        //input valid user email into email input field
+        registerPageTooShortSingularInput.inputValidRegisterEmailIntoEmailInputField();
+        //input valid user password into password input field
+        registerPageTooShortSingularInput.inputValidRegisterPasswordIntoPasswordInputField();
+        //input matching valid confirm password into confirm password input field
+        registerPageTooShortSingularInput.inputValidRegisterConfirmPasswordIntoConfirmPasswordInputField();
+        //input valid user first name into first name input field
+        registerPageTooShortSingularInput.inputValidRegisterFirstNameIntoFirstNameInputField();
+        //input valid user last name into last name input field
+        registerPageTooShortSingularInput.inputValidRegisterLastNameIntoLastNameInputField();
+        //input valid user address 1 into address 1 input field
+        registerPageTooShortSingularInput.inputValidRegisterAddressIntoAddressInputField();
+        //input too short user city into city input field (1 char)
+        registerPageTooShortSingularInput.inputTooShortRegisterCityIntoCityInputField();
+        //click 'State' dropdown menu
+        registerPage.clickStateDropdownMenu();
+        //select 'Illinois' option
+        registerPage.selectIllinoisOption();
+        //input valid user post code into post code input field
+        registerPageTooShortSingularInput.inputValidRegisterPostCodeIntoPostCodeInputField();
+        //input valid user phone into phone input field
+        registerPageTooShortSingularInput.inputValidRegisterPhoneIntoPhoneNumberInputField();
+        //capture screenshot of the register page after invalid data input - too short user city (1 char)
+        captureScreenshot(driver, "Register Page Display After Invalid Data Input - Too Short User City");
+        //click 'Create account' button
+        registerPage.clickCreateAccountButton();
+        //assert the user gets expected error message, log the issue otherwise
+        try {
+            assertEquals("City is too short.", registerPage.getRegisterPageSingularInputError(), "The user account creation too short city input error doesn't match expectations");
+        } catch (Exception e) {
+            logger.error("The too short user city input error wasn't triggered, test has failed.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - Too Short User City");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)

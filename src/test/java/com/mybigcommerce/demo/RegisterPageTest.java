@@ -195,4 +195,16 @@ public class RegisterPageTest extends TestMethods {
         invalidUserAccountCreationTooShortAddressTest();
     }
 
+    //Test 002o -> invalid user account creation test - too short user city (1 char) (the user account gets created, test has failed)
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Too Short User City")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Too_Short_Singular_Input")
+    void invalidAccountCreationTooShortCityTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //invalid user account creation test - too short user city (1 char)
+        invalidUserAccountCreationTooShortCityTest();
+    }
+
 }
