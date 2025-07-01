@@ -1232,6 +1232,59 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid User Account Creation Test Result - Too Long User Address");
     }
 
+    //invalid user account creation test method - too long user city (100 chars)
+    protected void invalidUserAccountCreationTooLongCityTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
+        RegisterPageTooLongSingularInput registerPageTooLongSingularInput = new RegisterPageTooLongSingularInput(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //register page web element assert
+        isRegisterPageWebElementDisplayed(registerPage);
+        //register page text element assert
+        isRegisterPageTextElementAsExpected(registerPage);
+        //capture screenshot of the register page before data input
+        captureScreenshot(driver, "Register Page Display Before Data Input");
+        //invalid user register data getter - too long user city (100 chars)
+        registerPageTooLongSingularInput.invalidUserRegisterDataTooLongCityGetter();
+        //input valid user email into email input field
+        registerPageTooLongSingularInput.inputValidRegisterEmailIntoEmailInputField();
+        //input valid user password into password input field
+        registerPageTooLongSingularInput.inputValidRegisterPasswordIntoPasswordInputField();
+        //input valid user confirm password into confirm password input field
+        registerPageTooLongSingularInput.inputValidRegisterConfirmPasswordIntoConfirmPasswordInputField();
+        //input valid user first name into first name input field
+        registerPageTooLongSingularInput.inputValidRegisterFirstNameIntoFirstNameInputField();
+        //input valid user last name into last name input field
+        registerPageTooLongSingularInput.inputValidRegisterLastNameIntoLastNameInputField();
+        //input valid user address 1 into address 1 input field
+        registerPageTooLongSingularInput.inputValidRegisterAddressIntoAddressInputField();
+        //input too long user city into city input field (100 chars)
+        registerPageTooLongSingularInput.inputTooLongRegisterCityIntoCityInputField();
+        //click 'State' dropdown menu
+        registerPage.clickStateDropdownMenu();
+        //select 'Illinois' option
+        registerPage.selectIllinoisOption();
+        //input valid user post code into post code input field
+        registerPageTooLongSingularInput.inputValidRegisterPostCodeIntoPostCodeInputField();
+        //input valid user phone into phone input field
+        registerPageTooLongSingularInput.inputValidRegisterPhoneIntoPhoneNumberInputField();
+        //capture screenshot of the register page after invalid data input - too long user city (100 chars)
+        captureScreenshot(driver, "Register Page Display After Invalid Data Input - Too Long User City");
+        //click 'Create account' button
+        registerPage.clickCreateAccountButton();
+        //assert the user gets expected error message, log the issue otherwise
+        try {
+            assertEquals("City is too long", registerPage.getRegisterPageSingularInputError(), "The user account creation too long city input error doesn't match expectations");
+        } catch (Exception e) {
+            logger.error("The too long user city input error wasn't triggered, test has failed.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - Too Long User City");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)

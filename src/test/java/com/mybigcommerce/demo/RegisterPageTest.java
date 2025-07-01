@@ -293,4 +293,16 @@ public class RegisterPageTest extends TestMethods {
         invalidUserAccountCreationTooLongAddressTest();
     }
 
+    //Test 002w -> invalid user account creation test - too long user city (100 chars) (the user account gets created, test has failed)
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Too Long User City")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Too_Long_Singular_Input")
+    void invalidAccountCreationTooLongUserCityTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //invalid user account creation test - too long user city (100 chars)
+        invalidUserAccountCreationTooLongCityTest();
+    }
+
 }
