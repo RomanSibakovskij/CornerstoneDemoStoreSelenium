@@ -116,6 +116,12 @@ public class GeneralPage extends BasePage {
         actions.moveToElement(generalPageAcceptCookiesButton).click().perform();
     }
 
+    //click 'Register' link method (to scroll back up and click)
+    public void clickRegisterLink(){
+        Actions action = new Actions(driver);
+        action.moveToElement(headerUpperNavRegisterLink).click().perform();
+    }
+
     //general page text element getters
     //header -> upper navbar
     public String getHeaderUpperNavSearchDropdownText() {return headerUpperNavSearchDropdownLink.getText();}
