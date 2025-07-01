@@ -121,4 +121,16 @@ public class RegisterPageTest extends TestMethods {
         invalidUserAccountCreationNoPostCodeTest();
     }
 
+    //Test 002i -> invalid user account creation test - no user phone
+    @Test
+    @DisplayName("Invalid User Account Creation Test - No User Phone")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("No_Singular_Input")
+    void invalidAccountCreationNoPhoneTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //invalid user account creation test - no user phone
+        invalidUserAccountCreationNoPhoneTest();
+    }
+
 }

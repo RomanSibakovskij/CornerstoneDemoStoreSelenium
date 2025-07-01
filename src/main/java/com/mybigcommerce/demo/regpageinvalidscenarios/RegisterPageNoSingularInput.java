@@ -45,6 +45,7 @@ public class RegisterPageNoSingularInput extends BasePage{
     private String noUserRegisterAddress;
     private String noUserRegisterCity;
     private String noUserRegisterPostCode;
+    private String noUserRegisterPhone;
 
     public RegisterPageNoSingularInput(WebDriver driver) {super(driver);}
 
@@ -243,6 +244,34 @@ public class RegisterPageNoSingularInput extends BasePage{
         System.out.println("\n");
     }
 
+    //invalid user register data getter - no user phone
+    public void invalidUserRegisterDataNoPhoneGetter(){
+
+        validRegisterEmail = TestDataGenerator.generateRandomEmailAddress(6);
+        validRegisterPassword = TestDataGenerator.generateRandomPassword();
+        validRegisterConfirmPassword = validRegisterPassword;
+        validRegisterFirstName = TestDataGenerator.getRandomFirstName();
+        validRegisterLastName = TestDataGenerator.getRandomLastName();
+        validRegisterAddress = TestDataGenerator.generateRandomAddress(6);
+        validRegisterCity = TestDataGenerator.getRandomCity();
+        validRegisterPostCode = TestDataGenerator.getRandomPostalCode();
+        noUserRegisterPhone = "";
+
+        System.out.println("Invalid user register generated data (no user phone): " + "\n");
+
+        logger.info("Valid generated user email address (no user phone): " + validRegisterEmail);
+        logger.info("Valid generated user password (no user phone): " + validRegisterPassword);
+        logger.info("Valid generated user confirm password (no user phone): " + validRegisterConfirmPassword);
+        logger.info("Valid generated user first name (no user phone): " + validRegisterFirstName);
+        logger.info("Valid generated user last name (no user phone): " + validRegisterLastName);
+        logger.info("Valid generated user address (no user phone): " + validRegisterAddress);
+        logger.info("Valid generated user city (no user phone): " + validRegisterCity);
+        logger.info("Valid generated user post code (no user phone): " + validRegisterPostCode);
+        logger.info("No user phone number: " + noUserRegisterPhone);
+
+        System.out.println("\n");
+    }
+
     //invalid register data input methods - no singular input
     public void inputNoRegisterEmailIntoEmailInputField(){registerPageEmailInputField.sendKeys(noUserRegisterEmail);}
     public void inputNoRegisterPasswordIntoPasswordInputField(){registerPagePasswordInputField.sendKeys(noUserRegisterPassword);}
@@ -252,6 +281,7 @@ public class RegisterPageNoSingularInput extends BasePage{
     public void inputNoRegisterAddressIntoAddressInputField(){registerPageAddress1InputField.sendKeys(noUserRegisterAddress);}
     public void inputNoRegisterCityIntoCityInputField(){registerPageCityInputField.sendKeys(noUserRegisterCity);}
     public void inputNoRegisterPostCodeIntoPostCodeInputField(){registerPagePostCodeInputField.sendKeys(noUserRegisterPostCode);}
+    public void inputNoRegisterPhoneIntoPhoneNumberInputField(){registerPagePhoneInputField.sendKeys(noUserRegisterPhone);}
 
     //valid register data input methods (for remaining inputs)
     public void inputValidRegisterEmailIntoEmailInputField(){registerPageEmailInputField.sendKeys(validRegisterEmail);}
