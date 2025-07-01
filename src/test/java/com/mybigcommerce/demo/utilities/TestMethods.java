@@ -16,6 +16,291 @@ public class TestMethods extends BaseTest{
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //navigate to 'Register' page test method
+    protected void navigateToRegisterPageTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementAsExpected(homePage);
+        //log home page product data
+        logHomePageProductData(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //click 'Accept cookies' button
+        generalPage.clickAcceptCookiesButton();
+        //click header 'Register' nav link
+        generalPage.clickRegisterLink();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Navigate To Register Page Test Result");
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //general page web element assert test method (elements that all pages share -> header / footer)
+    protected void isGeneralPageWebElementDisplayed(GeneralPage generalPage){
+        //header -> upper navbar
+        //assert header upper navbar search dropdown link is displayed
+        //assertTrue(generalPage.isHeaderUpperNavSearchDropdownLinkDisplayed(), "The header upper navbar search dropdown link isn't displayed");
+        //assert header upper navbar gift certificates link is displayed
+        assertTrue(generalPage.isHeaderUpperNavGiftCertificatesLinkDisplayed(), "The header upper navbar gift certificates link isn't displayed");
+        //assert header upper navbar cart link is displayed
+        assertTrue(generalPage.isHeaderUpperNavCartLinkDisplayed(), "The header upper navbar cart link isn't displayed");
+        //assert header home page logo link is displayed (not all pages have this element)
+        //assertTrue(generalPage.isHeaderHomePageLogoLinkDisplayed(), "The header home page logo link isn't displayed");
+        //header -> lower navbar
+        //assert header lower navbar garden dropdown link is displayed
+        assertTrue(generalPage.isHeaderLowerNavGardenDropdownLinkDisplayed(), "The header lower navbar garden dropdown menu link isn't displayed");
+        //assert header lower navbar shop all link is displayed
+        assertTrue(generalPage.isHeaderLowerNavShopAllLinkDisplayed(), "The header lower navbar shop all link isn't displayed");
+        //assert header lower navbar kitchen link is displayed
+        assertTrue(generalPage.isHeaderLowerNavKitchenLinkDisplayed(), "The header lower navbar kitchen link isn't displayed");
+        //assert header lower navbar publications link is displayed
+        assertTrue(generalPage.isHeaderLowerNavPublicationsLinkDisplayed(), "The header lower navbar publications all link isn't displayed");
+        //assert header lower navbar utility link is displayed
+        assertTrue(generalPage.isHeaderLowerNavUtilityLinkDisplayed(), "The header lower navbar utility link isn't displayed");
+        //assert header lower navbar journal link is displayed
+        assertTrue(generalPage.isHeaderLowerNavJournalLinkDisplayed(), "The header lower navbar journal link isn't displayed");
+        //assert header lower navbar our story link is displayed
+        assertTrue(generalPage.isHeaderLowerNavOurStoryLinkDisplayed(), "The header lower navbar our story link isn't displayed");
+        //assert header lower navbar contact us link is displayed
+        assertTrue(generalPage.isHeaderLowerNavContactUsLinkDisplayed(), "The header lower navbar contact us link isn't displayed");
+        //assert header lower navbar shipping and returns link is displayed
+        assertTrue(generalPage.isHeaderLowerNavShippingAndReturnsLinkDisplayed(), "The header lower navbar shipping and returns link isn't displayed");
+        //footer section
+        //navigate column
+        //assert footer navigate section title is displayed
+        assertTrue(generalPage.isFooterNavigateSectionTitleDisplayed(), "The footer navigate section title isn't displayed");
+        //assert footer navigate section journal link is displayed
+        assertTrue(generalPage.isFooterJournalLinkDisplayed(), "The footer navigate section journal link isn't displayed");
+        //assert footer navigate section our story link is displayed
+        assertTrue(generalPage.isFooterOurStoryLinkDisplayed(), "The footer navigate section our story link isn't displayed");
+        //assert footer navigate section contact us link is displayed
+        assertTrue(generalPage.isFooterContactUsLinkDisplayed(), "The footer navigate section contact us link isn't displayed");
+        //assert footer navigate section shipping and returns link is displayed
+        assertTrue(generalPage.isFooterShippingAndReturnsLinkDisplayed(), "The footer navigate section shipping and returns us link isn't displayed");
+        //assert footer navigate section sitemap link is displayed
+        assertTrue(generalPage.isFooterSitemapLinkDisplayed(), "The footer navigate section sitemap link isn't displayed");
+        //categories column
+        //assert footer categories section title is displayed
+        assertTrue(generalPage.isFooterCategoriesSectionTitleDisplayed(), "The footer categories section title isn't displayed");
+        //assert footer categories section garden link is displayed
+        assertTrue(generalPage.isFooterGardenLinkDisplayed(), "The footer categories section garden link isn't displayed");
+        //assert footer categories section shop all link is displayed
+        assertTrue(generalPage.isFooterShopAllLinkDisplayed(), "The footer categories section shop all link isn't displayed");
+        //assert footer categories section kitchen link is displayed
+        assertTrue(generalPage.isFooterKitchenLinkDisplayed(), "The footer categories section kitchen link isn't displayed");
+        //assert footer categories section publications link is displayed
+        assertTrue(generalPage.isFooterPublicationsLinkDisplayed(), "The footer categories section publications link isn't displayed");
+        //assert footer categories section utility link is displayed
+        assertTrue(generalPage.isFooterUtilityLinkDisplayed(), "The footer categories section utility link isn't displayed");
+        //popular brands column
+        //assert footer popular brands section title is displayed
+        assertTrue(generalPage.isFooterPopularBrandsSectionTitleDisplayed(), "The footer popular brands section title isn't displayed");
+        //assert footer popular brands section fresh brand link is displayed
+        assertTrue(generalPage.isFooterFreshBrandLinkDisplayed(), "The footer popular brands section fresh brand link isn't displayed");
+        //assert footer popular brands section OFS link is displayed
+        assertTrue(generalPage.isFooterOFSLinkDisplayed(), "The footer popular brands section OFS link isn't displayed");
+        //assert footer popular brands section view all link is displayed
+        assertTrue(generalPage.isFooterViewAllLinkDisplayed(), "The footer popular brands section view all link isn't displayed");
+        //information section
+        //assert footer information section title is displayed
+        assertTrue(generalPage.isFooterInfoSectionTitleDisplayed(), "The footer information section title isn't displayed");
+        //assert footer information section address text is displayed
+        assertTrue(generalPage.isFooterAddressTextDisplayed(), "The footer information section address text isn't displayed");
+        //assert footer information section call us text is displayed
+        assertTrue(generalPage.isFooterCallUsTextDisplayed(), "The footer information section call us text isn't displayed");
+        //subscribe to newsletter column
+        //assert footer subscribe to newsletter section title is displayed
+        assertTrue(generalPage.isFooterSubscribeToNewsletterSectionTitleDisplayed(), "The footer subscribe to newsletter section title isn't displayed");
+        //assert footer subscribe to newsletter section subtext is displayed
+        assertTrue(generalPage.isFooterSubscribeToNewsletterSectionSubtextDisplayed(), "The footer subscribe to newsletter section subtext isn't displayed");
+        //assert footer subscribe to newsletter email input field is displayed
+        assertTrue(generalPage.isFooterSubscribeToNewsletterEmailInputFieldDisplayed(), "The footer subscribe to newsletter email input field isn't displayed");
+        //assert footer subscribe button is displayed
+        assertTrue(generalPage.isFooterSubscribeButtonDisplayed(), "The footer subscribe button isn't displayed");
+        //copyright section
+        //assert footer powered by text is displayed
+        assertTrue(generalPage.isFooterPoweredByTextDisplayed(), "The footer powered by text isn't displayed");
+        //assert footer copyright text is displayed
+        assertTrue(generalPage.isFooterCopyrightTextDisplayed(), "The footer copyright text isn't displayed");
+    }
+
+    //home page web element assert test method
+    protected void isHomePageWebElementDisplayed(HomePage homePage){
+        //carousel section
+        //assert home page carousel images are displayed (as a list) (Selenium can't seem to find this element block with VALID selector)
+        //assertTrue(homePage.isHomePageCarouselImgDisplayed(), "The home page carousel images aren't displayed");
+        //assert home page carousel previous button is displayed
+        assertTrue(homePage.isHomePageCarouselPrevButtonDisplayed(), "The home page carousel previous button isn't displayed");
+        //assert home page carousel next button is displayed
+        assertTrue(homePage.isHomePageCarouselNextButtonDisplayed(), "The home page carousel next button isn't displayed");
+        //assert home page carousel pause button is displayed
+        assertTrue(homePage.isHomePageCarouselPauseButtonDisplayed(), "The home page carousel pause button isn't displayed");
+        //assert home page carousel image title is displayed (Selenium can't seem to find this element with VALID selector)
+        //assertTrue(homePage.isHomePageCarouselImgTitleDisplayed(), "The home page carousel image title isn't displayed");
+        //assert home page carousel image subtitle is displayed (Selenium can't seem to find this element with VALID selector)
+        //assertTrue(homePage.isHomePageCarouselImgSubtitleDisplayed(), "The home page carousel image subtitle isn't displayed");
+        //assert home page carousel shop now button is displayed (Selenium can't seem to find this element with VALID selector)
+        //assertTrue(homePage.isHomePageCarouselShopNowButtonDisplayed(), "The home page carousel shop now button isn't displayed");
+        //most popular products section
+        //assert home page most popular products section title is displayed
+        assertTrue(homePage.isHomePageMostPopularSectionTitleDisplayed(), "The home page most popular products section title isn't displayed");
+        //list elements
+        //assert home page most popular product images are displayed (as a list)
+        assertTrue(homePage.isHomePageMostPopularProductImgDisplayed(), "The home page most popular product images aren't displayed");
+        //assert home page most popular product category tags are displayed (as a list)
+        assertTrue(homePage.isHomePageMostPopularProductCategoryTagDisplayed(), "The home page most popular product category tags aren't displayed");
+        //assert home page most popular product name links are displayed (as a list)
+        assertTrue(homePage.isHomePageMostPopularProductNameLinkDisplayed(), "The home page most popular product name links aren't displayed");
+        //assert home page most popular product unit prices are displayed (as a list)
+        assertTrue(homePage.isHomePageMostPopularProductUnitPriceDisplayed(), "The home page most popular product unit prices aren't displayed");
+        //new products section
+        //assert home page new products section title is displayed
+        assertTrue(homePage.isHomePageNewProductsSectionTitleDisplayed(), "The home page new products section title isn't displayed");
+        //assert home page new products section previous button is displayed
+        assertTrue(homePage.isHomePageNewProductsPrevButtonDisplayed(), "The home page new products section previous button isn't displayed");
+        //assert home page new products section next button is displayed
+        assertTrue(homePage.isHomePageNewProductsNextButtonDisplayed(), "The home page new products section next button isn't displayed");
+        //assert home page new products section page one button is displayed
+        assertTrue(homePage.isHomePageNewProductsPageOneButtonDisplayed(), "The home page new products section page one button isn't displayed");
+        //assert home page new products section page two button is displayed
+        assertTrue(homePage.isHomePageNewProductsPageTwoButtonDisplayed(), "The home page new products section page two button isn't displayed");
+        //list elements
+        //assert home page new product images are displayed (as a list) (Selenium can't seem to find this element block with VALID selector)
+        //assertTrue(homePage.isHomePageNewProductImgDisplayed(), "The home page new product images aren't displayed");
+        //assert home page new product category tags are displayed (as a list) (Selenium can't seem to find this element block with VALID selector)
+        //assertTrue(homePage.isHomePageNewProductCategoryTagDisplayed(), "The home page new product category tags aren't displayed");
+        //assert home page new product name links are displayed (as a list) (Selenium can't seem to find this element block with VALID selector)
+        //assertTrue(homePage.isHomePageNewProductNameLinkDisplayed(), "The home page new product name links aren't displayed");
+        //assert home page new product unit price are displayed (as a list) (Selenium can't seem to find this element block with VALID selector)
+        //assertTrue(homePage.isHomePageNewProductUnitPriceDisplayed(), "The home page new product unit prices aren't displayed");
+        //assert home page banner link is displayed
+        assertTrue(homePage.isHomePageBannerLinkDisplayed(), "The home page banner link isn't displayed");
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //general page text element assert test method(elements that all pages have)
+    protected void isGeneralPageTextElementAsExpected(GeneralPage generalPage) {
+        //header -> upper navbar
+        //assert header upper navbar search dropdown link text is as expected
+        assertEquals("SEARCH", generalPage.getHeaderUpperNavSearchDropdownText(), "The header upper navbar search dropdown link text doesn't match expectations.");
+        //assert header upper navbar gift certificates link text is as expected
+        assertEquals("GIFT CERTIFICATES", generalPage.getHeaderUpperNavGiftCertificateText(), "The header upper navbar gift certificates link text doesn't match expectations.");
+        //assert header upper navbar cart link text is as expected (it changes to cart 1 when item is added)
+        //assertEquals("CART", generalPage.getHeaderUpperNavCartLinkText(), "The header upper navbar cart link text doesn't match expectations.");
+        //assert header home page logo link text is as expected
+        assertEquals("CORNERSTONE DEMO", generalPage.getHeaderHomePageLogoLinkText(), "The header home page logo link text doesn't match expectations.");
+        //header -> lower navbar
+        //assert header lower navbar garden dropdown link text is as expected
+        assertEquals("GARDEN", generalPage.getHeaderLowerNavGardenDropdownLinkText(), "The header lower navbar garden dropdown link text doesn't match expectations.");
+        //assert header lower navbar shop all link text is as expected
+        assertEquals("SHOP ALL", generalPage.getHeaderLowerNavShopAllLinkText(), "The header lower navbar shop all link text doesn't match expectations.");
+        //assert header lower navbar kitchen link text is as expected
+        assertEquals("KITCHEN", generalPage.getHeaderLowerNavKitchenLinkText(), "The header lower navbar kitchen link text doesn't match expectations.");
+        //assert header lower navbar publications link text is as expected
+        assertEquals("PUBLICATIONS", generalPage.getHeaderLowerNavPublicationsLinkText(), "The header lower navbar publications link text doesn't match expectations.");
+        //assert header lower navbar utility link text is as expected
+        assertEquals("UTILITY", generalPage.getHeaderLowerNavUtilityLinkText(), "The header lower navbar utility link text doesn't match expectations.");
+        //assert header lower navbar journal link text is as expected
+        assertEquals("JOURNAL", generalPage.getHeaderLowerNavJournalLinkText(), "The header lower navbar journal link text doesn't match expectations.");
+        //assert header lower navbar our story link text is as expected
+        assertEquals("OUR STORY", generalPage.getHeaderLowerNavOurStoryLinkText(), "The header lower navbar our story link text doesn't match expectations.");
+        //assert header lower navbar contact us link text is as expected
+        assertEquals("CONTACT US", generalPage.getHeaderLowerNavContactUsLinkText(), "The header lower navbar contact us link text doesn't match expectations.");
+        //assert header lower navbar shipping and returns link text is as expected
+        assertEquals("SHIPPING & RETURNS", generalPage.getHeaderLowerNavShippingAndReturnsLinkText(), "The header lower navbar shipping and returns link text doesn't match expectations.");
+        //footer section
+        //navigate column
+        //assert footer navigate section title is as expected
+        assertEquals("Navigate", generalPage.getFooterNavigateSectionTitle(), "The footer navigate section title doesn't match expectations.");
+        //assert footer navigate section journal link text is as expected
+        assertEquals("Journal", generalPage.getFooterJournalLinkText(), "The footer navigate section journal link text doesn't match expectations.");
+        //assert footer navigate section our story link text is as expected
+        assertEquals("Our Story", generalPage.getFooterOurStoryLinkText(), "The footer navigate section our story link text doesn't match expectations.");
+        //assert footer navigate section contact us link text is as expected
+        assertEquals("Contact Us", generalPage.getFooterContactUsLinkText(), "The footer navigate section contact us link text doesn't match expectations.");
+        //assert footer navigate section shipping and returns link text is as expected
+        assertEquals("Shipping & Returns", generalPage.getFooterShippingAndReturnsLinkText(), "The footer navigate section shipping and returns link text doesn't match expectations.");
+        //assert footer navigate section sitemap link text is as expected
+        assertEquals("Sitemap", generalPage.getFooterSitemapLinkText(), "The footer navigate section sitemap link text doesn't match expectations.");
+        //categories column
+        //assert footer categories section title is as expected
+        assertEquals("Categories", generalPage.getFooterCategoriesSectionTitle(), "The footer categories section title doesn't match expectations.");
+        //assert footer categories section garden link text is as expected
+        assertEquals("Garden", generalPage.getFooterGardenLinkText(), "The footer categories section garden link text doesn't match expectations.");
+        //assert footer categories section shop all link text is as expected
+        assertEquals("Shop All", generalPage.getFooterShopAllLinkText(), "The footer categories section shop all link text doesn't match expectations.");
+        //assert footer categories section kitchen link text is as expected
+        assertEquals("Kitchen", generalPage.getFooterKitchenLinkText(), "The footer categories section kitchen link text doesn't match expectations.");
+        //assert footer categories section publications link text is as expected
+        assertEquals("Publications", generalPage.getFooterPublicationsLinkText(), "The footer categories section publications link text doesn't match expectations.");
+        //assert footer categories section utility link text is as expected
+        assertEquals("Utility", generalPage.getFooterUtilityLinkText(), "The footer categories section utility link text doesn't match expectations.");
+        //popular brands column
+        //assert footer popular brands section title is as expected
+        assertEquals("Popular Brands", generalPage.getFooterPopularBrandsSectionTitle(), "The footer popular brands section title doesn't match expectations.");
+        //assert footer popular brands section fresh brand link text is as expected
+        assertEquals("FreshBrand", generalPage.getFooterFreshBrandLinkText(), "The footer popular brands section fresh brand link text doesn't match expectations.");
+        //assert footer popular brands section OFS link text is as expected
+        assertEquals("OFS", generalPage.getFooterOFSLinkText(), "The footer popular brands section OFS link text doesn't match expectations.");
+        //assert footer popular brands section view all link text is as expected
+        assertEquals("View All", generalPage.getFooterViewAllLinkText(), "The footer popular brands section view all link text doesn't match expectations.");
+        //information column
+        //assert footer information section title is as expected
+        assertEquals("Info", generalPage.getFooterInfoSectionTitle(), "The footer information section title doesn't match expectations.");
+        //assert footer information section address text is as expected
+        assertEquals("685 Market Street\n" + "San Francisco, CA 94105", generalPage.getFooterAddressText(), "The footer information section address text doesn't match expectations.");
+        //assert footer information section call us text is as expected
+        assertEquals("Call us at (415) 555-5555", generalPage.getFooterCallUsText(), "The footer information section call us text doesn't match expectations.");
+        //subscribe to newsletter column
+        //assert footer subscribe to newsletter section title is as expected
+        assertEquals("Subscribe to our newsletter", generalPage.getFooterSubscribeToNewsletterSectionTitle(), "The footer subscribe to newsletter section title doesn't match expectations.");
+        //assert footer subscribe to newsletter section address text is as expected
+        assertEquals("Get the latest updates on new products and upcoming sales", generalPage.getFooterSubscribeToNewsletterSectionSubtext(), "The footer subscribe to newsletter section subtext doesn't match expectations.");
+        //copyright text elements
+        //assert footer powered by text is as expected
+        assertEquals("Powered by BigCommerce", generalPage.getFooterPoweredByText(), "The footer powered by text doesn't match expectations.");
+        //assert footer copyright text is as expected
+        assertEquals("© 2025 Cornerstone Demo", generalPage.getFooterCopyrightText(), "The footer copyright text doesn't match expectations.");
+    }
+
+    //home page text element assert test method
+    protected void isHomePageTextElementAsExpected(HomePage homePage) {
+        //assert home page carousel image title is as expected
+        assertEquals("Cornerstone Light", homePage.getHomePageCarouselImageTitle().getFirst(), "The home page carousel image title doesn't match expectations.");
+        //assert home page carousel image subtitle is as expected
+        assertEquals("Integer facilisis sed nunc vitae elementum. Integer rutrum varius orci, a auctor diam vestibulum in. Vestibulum vitae libero nec risus eleifend vehicula in eu neque.", homePage.getHomePageCarouselImageSubtitle().getFirst(), "The home page carousel image subtitle doesn't match expectations.");
+        //assert home page most popular products section title is as expected
+        assertEquals("Most Popular Products", homePage.getHomePageMostPopularSectionTitle(), "The home page most popular products title doesn't match expectations.");
+        //assert home page new products section title is as expected
+        assertEquals("New Products", homePage.getHomePageNewProductsSectionTitle(), "The home page new products section title doesn't match expectations.");
+        //assert home page banner link text is as expected
+        assertEquals("Save 25% on our Orbit Terrarium", homePage.getHomePageBannerLinkText(), "The home page banner link text doesn't match expectations.");
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //home page product data logger method
+    protected void logHomePageProductData(HomePage homePage) {
+        System.out.println("Home page displayed product data: " + "\n");
+
+        logger.info("Home page most popular product category tag(s): " + homePage.getHomePageMostPopularCategoryTag());
+        logger.info("Home page most popular product name(s): " + homePage.getHomePageMostPopularProductName());
+        logger.info("Home page most popular product unit price(s): " + homePage.getHomePageMostPopularProductUnitPrice());
+
+        logger.info("Home page new product category tag(s): " + homePage.getHomePageNewProductCategoryTag());
+        logger.info("Home page new product name(s): " + homePage.getHomePageNewProductName());
+        logger.info("Home page new product unit price(s): " + homePage.getHomePageNewProductUnitPrice());
+
+        System.out.println("\n");
+    }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
