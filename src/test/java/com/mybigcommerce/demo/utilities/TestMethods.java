@@ -1658,6 +1658,59 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid User Account Creation Test Result - Invalid User First Name Format");
     }
 
+    //invalid user account creation test method - invalid user last name input format (special symbols only)
+    protected void invalidUserAccountCreationInvalidLastNameFormatTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
+        RegisterPageInvalidSingularInputFormat registerPageInvalidSingularInputFormat = new RegisterPageInvalidSingularInputFormat(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //register page web element assert
+        isRegisterPageWebElementDisplayed(registerPage);
+        //register page text element assert
+        isRegisterPageTextElementAsExpected(registerPage);
+        //capture screenshot of the register page before data input
+        captureScreenshot(driver, "Register Page Display Before Data Input");
+        //invalid user register data getter - invalid user last name input format (special symbols only)
+        registerPageInvalidSingularInputFormat.invalidUserRegisterDataInvalidLastNameFormatGetter();
+        //input valid user email into email input field
+        registerPageInvalidSingularInputFormat.inputValidRegisterEmailIntoEmailInputField();
+        //input valid user password into password input field
+        registerPageInvalidSingularInputFormat.inputValidRegisterPasswordIntoPasswordInputField();
+        //input valid user confirm password into confirm password input field
+        registerPageInvalidSingularInputFormat.inputValidRegisterConfirmPasswordIntoConfirmPasswordInputField();
+        //input valid user first name into first name input field
+        registerPageInvalidSingularInputFormat.inputValidRegisterFirstNameIntoFirstNameInputField();
+        //input invalid user last name format into last name input field (special symbols only)
+        registerPageInvalidSingularInputFormat.inputInvalidRegisterLastNameFormatIntoLastNameInputField();
+        //input valid user address 1 into address 1 input field
+        registerPageInvalidSingularInputFormat.inputValidRegisterAddressIntoAddressInputField();
+        //input valid user city into city input field
+        registerPageInvalidSingularInputFormat.inputValidRegisterCityIntoCityInputField();
+        //click 'State' dropdown menu
+        registerPage.clickStateDropdownMenu();
+        //select 'Illinois' option
+        registerPage.selectIllinoisOption();
+        //input valid user post code into post code input field
+        registerPageInvalidSingularInputFormat.inputValidRegisterPostCodeIntoPostCodeInputField();
+        //input valid user phone into phone input field
+        registerPageInvalidSingularInputFormat.inputValidRegisterPhoneIntoPhoneNumberInputField();
+        //capture screenshot of the register page after invalid data input - invalid user last name format (special symbols only)
+        captureScreenshot(driver, "Register Page Display After Invalid Data Input - Invalid User Last Name Format");
+        //click 'Create account' button
+        registerPage.clickCreateAccountButton();
+        //assert the user gets expected error message, log the issue otherwise
+        try {
+            assertEquals("Last name cannot consist of special symbols only.", registerPage.getRegisterPageSingularInputError(), "The user account creation invalid user last name input error doesn't match expectations");
+        } catch (Exception e) {
+            logger.error("The invalid user last name input error wasn't triggered, test has failed.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - Invalid User Last Name Format");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)

@@ -43,6 +43,7 @@ public class RegisterPageInvalidSingularInputFormat extends BasePage{
     private String invalidUserRegisterPasswordFormat;
     private String mismatchingUserConfirmPasswordFormat;
     private String invalidUserRegisterFirstNameFormat;
+    private String invalidUserRegisterLastNameFormat;
 
 
     public RegisterPageInvalidSingularInputFormat(WebDriver driver) {super(driver);}
@@ -186,6 +187,34 @@ public class RegisterPageInvalidSingularInputFormat extends BasePage{
         System.out.println("\n");
     }
 
+    //invalid user register data getter - invalid user last name format (special symbols only)
+    public void invalidUserRegisterDataInvalidLastNameFormatGetter(){
+
+        validRegisterEmail = TestDataGenerator.generateRandomEmailAddress(6);
+        validRegisterPassword = TestDataGenerator.generateRandomPassword();
+        validRegisterConfirmPassword = validRegisterPassword;
+        validRegisterFirstName = TestDataGenerator.getRandomFirstName();
+        invalidUserRegisterLastNameFormat = "*^%^%$%^$%";
+        validRegisterAddress = TestDataGenerator.generateRandomAddress(6);
+        validRegisterCity = TestDataGenerator.getRandomCity();
+        validRegisterPostCode = TestDataGenerator.getRandomPostalCode();
+        validRegisterPhone = TestDataGenerator.generatePhoneNumber(9);
+
+        System.out.println("Invalid user register generated data (invalid user last name format): " + "\n");
+
+        logger.info("Valid generated user email address (invalid user last name format): " + validRegisterEmail);
+        logger.info("Valid generated user password (invalid user last name format): " + validRegisterPassword);
+        logger.info("Valid matching user confirm password (invalid user last name format): " + validRegisterConfirmPassword);
+        logger.info("Valid generated user first name (invalid user last name format): " + validRegisterFirstName);
+        logger.info("Invalid user last name format: " + invalidUserRegisterLastNameFormat);
+        logger.info("Valid generated user address (invalid user last name format): " + validRegisterAddress);
+        logger.info("Valid generated user city (invalid user last name format): " + validRegisterCity);
+        logger.info("Valid generated user post code (invalid user last name format): " + validRegisterPostCode);
+        logger.info("Valid generated user phone number (invalid user last name format): " + validRegisterPhone);
+
+        System.out.println("\n");
+    }
+
     //invalid register data input methods - invalid singular input format
     public void inputInvalidRegisterEmailFormatIntoEmailInputField(){registerPageEmailInputField.sendKeys(invalidUserRegisterEmailFormat);}
     public void inputExistingRegEmailFormatIntoEmailInputField(){registerPageEmailInputField.sendKeys(invalidUserExistingEmail);}
@@ -193,6 +222,7 @@ public class RegisterPageInvalidSingularInputFormat extends BasePage{
     public void inputInvalidRegisterConfirmPasswordFormatIntoConfirmPasswordInputField(){registerPageConfirmPasswordInputField.sendKeys(invalidUserRegisterPasswordFormat);}
     public void inputMismatchRegisterConfirmPasswordIntoConfirmPasswordInputField(){registerPageConfirmPasswordInputField.sendKeys(mismatchingUserConfirmPasswordFormat);}
     public void inputInvalidRegisterFirstNameFormatIntoFirstNameInputField(){registerPageFirstNameInputField.sendKeys(invalidUserRegisterFirstNameFormat);}
+    public void inputInvalidRegisterLastNameFormatIntoLastNameInputField(){registerPageLastNameInputField.sendKeys(invalidUserRegisterLastNameFormat);}
 
     //valid register data input methods (for remaining inputs)
     public void inputValidRegisterEmailIntoEmailInputField(){registerPageEmailInputField.sendKeys(validRegisterEmail);}
