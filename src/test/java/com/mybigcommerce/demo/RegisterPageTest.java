@@ -109,4 +109,16 @@ public class RegisterPageTest extends TestMethods {
         invalidUserAccountCreationNoCityTest();
     }
 
+    //Test 002h -> invalid user account creation test - no user post code
+    @Test
+    @DisplayName("Invalid User Account Creation Test - No User Post Code")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("No_Singular_Input")
+    void invalidAccountCreationNoPostCodeTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //invalid user account creation test - no user post code
+        invalidUserAccountCreationNoPostCodeTest();
+    }
+
 }
