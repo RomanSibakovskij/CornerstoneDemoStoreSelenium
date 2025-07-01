@@ -594,6 +594,59 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid User Account Creation Test Result - Too Short User Email");
     }
 
+    //invalid user account creation test method - too short user password / confirm password (6 chars)
+    protected void invalidUserAccountCreationTooShortPasswordConfirmTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
+        RegisterPageTooShortSingularInput registerPageTooShortSingularInput = new RegisterPageTooShortSingularInput(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //register page web element assert
+        isRegisterPageWebElementDisplayed(registerPage);
+        //register page text element assert
+        isRegisterPageTextElementAsExpected(registerPage);
+        //capture screenshot of the register page before data input
+        captureScreenshot(driver, "Register Page Display Before Data Input");
+        //invalid user register data getter - too short user password (6 chars)
+        registerPageTooShortSingularInput.invalidUserRegisterDataTooShortPasswordConfirmGetter();
+        //input valid user email into email input field
+        registerPageTooShortSingularInput.inputValidRegisterEmailIntoEmailInputField();
+        //input too short user password into password input field (6 chars)
+        registerPageTooShortSingularInput.inputTooShortRegisterPasswordIntoPasswordInputField();
+        //input matching too short confirm password into confirm password input field
+        registerPageTooShortSingularInput.inputTooShortRegisterConfirmPasswordIntoConfirmPasswordInputField();
+        //input valid user first name into first name input field
+        registerPageTooShortSingularInput.inputValidRegisterFirstNameIntoFirstNameInputField();
+        //input valid user last name into last name input field
+        registerPageTooShortSingularInput.inputValidRegisterLastNameIntoLastNameInputField();
+        //input valid user address 1 into address 1 input field
+        registerPageTooShortSingularInput.inputValidRegisterAddressIntoAddressInputField();
+        //input valid user city into city input field
+        registerPageTooShortSingularInput.inputValidRegisterCityIntoCityInputField();
+        //click 'State' dropdown menu
+        registerPage.clickStateDropdownMenu();
+        //select 'Illinois' option
+        registerPage.selectIllinoisOption();
+        //input valid user post code into post code input field
+        registerPageTooShortSingularInput.inputValidRegisterPostCodeIntoPostCodeInputField();
+        //input valid user phone into phone input field
+        registerPageTooShortSingularInput.inputValidRegisterPhoneIntoPhoneNumberInputField();
+        //capture screenshot of the register page after invalid data input - too short user password / confirm password (6 chars)
+        captureScreenshot(driver, "Register Page Display After Invalid Data Input - Too Short User Password and Confirm Password");
+        //click 'Create account' button
+        registerPage.clickCreateAccountButton();
+        //assert the user gets expected error message, log the issue otherwise
+        try {
+            assertEquals("Passwords must be at least 7 characters and contain both alphabetic and numeric characters.", registerPage.getRegisterPageSingularInputError(), "The user account creation too short password / confirm password input error doesn't match expectations");
+        } catch (Exception e) {
+            logger.error("The too short user password / confirm password input error wasn't triggered, test has failed.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - Too Short User Password and Confirm Password");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)

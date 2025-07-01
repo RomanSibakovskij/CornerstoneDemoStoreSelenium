@@ -147,4 +147,16 @@ public class RegisterPageTest extends TestMethods {
         invalidUserAccountCreationTooShortEmailTest();
     }
 
+    //Test 002k -> invalid user account creation test - too short user password / confirm password (6 chars)
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Too Short User Password / Confirm Password")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Too_Short_Singular_Input")
+    void invalidAccountCreationTooShortPasswordConfirmTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //invalid user account creation test - too short user password / confirm password (6 chars)
+        invalidUserAccountCreationTooShortPasswordConfirmTest();
+    }
+
 }

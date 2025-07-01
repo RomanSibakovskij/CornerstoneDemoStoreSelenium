@@ -39,6 +39,7 @@ public class RegisterPageTooShortSingularInput extends BasePage{
 
     //invalid user register input data - too short singular input
     private String tooShortUserRegisterEmail;
+    private String tooShortUserRegisterPassword;
 
     public RegisterPageTooShortSingularInput(WebDriver driver) {super(driver);}
 
@@ -70,8 +71,37 @@ public class RegisterPageTooShortSingularInput extends BasePage{
         System.out.println("\n");
     }
 
+    //invalid user register data getter - too short user password / confirm password (6 chars)
+    public void invalidUserRegisterDataTooShortPasswordConfirmGetter(){
+
+        validRegisterEmail = TestDataGenerator.generateRandomEmailAddress(6);
+        tooShortUserRegisterPassword = "fgthy3";
+        validRegisterFirstName = TestDataGenerator.getRandomFirstName();
+        validRegisterLastName = TestDataGenerator.getRandomLastName();
+        validRegisterAddress = TestDataGenerator.generateRandomAddress(6);
+        validRegisterCity = TestDataGenerator.getRandomCity();
+        validRegisterPostCode = TestDataGenerator.getRandomPostalCode();
+        validRegisterPhone = TestDataGenerator.generatePhoneNumber(9);
+
+        System.out.println("Invalid user register generated data (too short user password / confirm password): " + "\n");
+
+        logger.info("Valid generated user email address (too short user password / confirm password): " + validRegisterEmail);
+        logger.info("Too short user password: " + tooShortUserRegisterPassword);
+        logger.info("Too short matching user confirm password: " + tooShortUserRegisterPassword);
+        logger.info("Valid generated user first name (too short user password / confirm password): " + validRegisterFirstName);
+        logger.info("Valid generated user last name (too short user password / confirm password): " + validRegisterLastName);
+        logger.info("Valid generated user address ((too short user password / confirm password): " + validRegisterAddress);
+        logger.info("Valid generated user city (too short user password / confirm password): " + validRegisterCity);
+        logger.info("Valid generated user post code (too short user password / confirm password): " + validRegisterPostCode);
+        logger.info("Valid generated user phone number (too short user password / confirm password): " + validRegisterPhone);
+
+        System.out.println("\n");
+    }
+
     //invalid register data input methods - too short singular input
     public void inputTooShortRegisterEmailIntoEmailInputField(){registerPageEmailInputField.sendKeys(tooShortUserRegisterEmail);}
+    public void inputTooShortRegisterPasswordIntoPasswordInputField(){registerPagePasswordInputField.sendKeys(tooShortUserRegisterPassword);}
+    public void inputTooShortRegisterConfirmPasswordIntoConfirmPasswordInputField(){registerPageConfirmPasswordInputField.sendKeys(tooShortUserRegisterPassword);}
 
     //valid register data input methods (for remaining inputs)
     public void inputValidRegisterEmailIntoEmailInputField(){registerPageEmailInputField.sendKeys(validRegisterEmail);}
