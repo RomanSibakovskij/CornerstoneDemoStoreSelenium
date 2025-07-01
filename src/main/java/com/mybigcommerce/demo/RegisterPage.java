@@ -4,6 +4,7 @@ import com.mybigcommerce.demo.utilities.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.*;
 
 import java.time.Duration;
 import java.util.*;
@@ -169,6 +170,13 @@ public class RegisterPage extends BasePage{
     public String getValidRegisterAddress(){return validRegisterAddress;}
     public String getPassword(){return validRegisterPassword;}
     public String getEmail(){return validRegisterEmail;}
+
+    //register page singular input error message getters
+    public String getRegisterPageSingularInputError() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1000));
+        wait.until(ExpectedConditions.visibilityOf(registerPageSingularInputError));
+        return registerPageSingularInputError.getText();
+    }
 
     //register page text element getters
     public String getRegisterPageTitle() {return registerPageTitle.getText();}

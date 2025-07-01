@@ -6,6 +6,8 @@ import org.slf4j.*;
 import static org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.*;
 
+import com.mybigcommerce.demo.regpageinvalidscenarios.*;
+
 import java.io.File;
 import java.nio.file.*;
 import java.util.*;
@@ -92,6 +94,109 @@ public class TestMethods extends BaseTest{
         //capture screenshot of the test result
         captureScreenshot(driver, "Valid User Account Creation Test Result");
     }
+
+    //invalid user account creation tests
+
+    //no singular input
+
+    //invalid user account creation test method - no user email
+    protected void invalidUserAccountCreationNoEmailTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
+        RegisterPageNoSingularInput registerPageNoSingularInput = new RegisterPageNoSingularInput(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //register page web element assert
+        isRegisterPageWebElementDisplayed(registerPage);
+        //register page text element assert
+        isRegisterPageTextElementAsExpected(registerPage);
+        //capture screenshot of the register page before data input
+        captureScreenshot(driver, "Register Page Display Before Data Input");
+        //invalid user register data getter - no user email
+        registerPageNoSingularInput.invalidUserRegisterDataNoEmailGetter();
+        //don't input user email into email input field
+        registerPageNoSingularInput.inputNoRegisterEmailIntoEmailInputField();
+        //input valid user password into password input field
+        registerPageNoSingularInput.inputValidRegisterPasswordIntoPasswordInputField();
+        //input valid user confirm password into confirm password input field
+        registerPageNoSingularInput.inputValidRegisterConfirmPasswordIntoConfirmPasswordInputField();
+        //input valid user first name into first name input field
+        registerPageNoSingularInput.inputValidRegisterFirstNameIntoFirstNameInputField();
+        //input valid user last name into last name input field
+        registerPageNoSingularInput.inputValidRegisterLastNameIntoLastNameInputField();
+        //input valid user address 1 into address 1 input field
+        registerPageNoSingularInput.inputValidRegisterAddressIntoAddressInputField();
+        //input valid user city into city input field
+        registerPageNoSingularInput.inputValidRegisterCityIntoCityInputField();
+        //click 'State' dropdown menu
+        registerPage.clickStateDropdownMenu();
+        //select 'Illinois' option
+        registerPage.selectIllinoisOption();
+        //input valid user post code into post code input field
+        registerPageNoSingularInput.inputValidRegisterPostCodeIntoPostCodeInputField();
+        //input valid user phone into phone input field
+        registerPageNoSingularInput.inputValidRegisterPhoneIntoPhoneNumberInputField();
+        //capture screenshot of the register page after invalid data input - no user email
+        captureScreenshot(driver, "Register Page Display After Invalid Data Input - No User Email");
+        //click 'Create account' button
+        registerPage.clickCreateAccountButton();
+        //assert the user gets expected error message
+        assertEquals("You must enter a valid email.", registerPage.getRegisterPageSingularInputError(), "The user account creation missing email input error doesn't match expectations or the error wasn't triggered.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - No User Email");
+    }
+
+    //invalid user account creation test method - no user password / confirm password
+    protected void invalidUserAccountCreationNoPasswordConfirmTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
+        RegisterPageNoSingularInput registerPageNoSingularInput = new RegisterPageNoSingularInput(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //register page web element assert
+        isRegisterPageWebElementDisplayed(registerPage);
+        //register page text element assert
+        isRegisterPageTextElementAsExpected(registerPage);
+        //capture screenshot of the register page before data input
+        captureScreenshot(driver, "Register Page Display Before Data Input");
+        //invalid user register data getter - no user password and confirm password
+        registerPageNoSingularInput.invalidUserRegisterDataNoPasswordConfirmGetter();
+        //input valid user email into email input field
+        registerPageNoSingularInput.inputValidRegisterEmailIntoEmailInputField();
+        //don't input user password into password input field
+        registerPageNoSingularInput.inputNoRegisterPasswordIntoPasswordInputField();
+        //don't input user confirm password into confirm password input field
+        registerPageNoSingularInput.inputNoRegisterConfirmPasswordIntoConfirmPasswordInputField();
+        //input valid user first name into first name input field
+        registerPageNoSingularInput.inputValidRegisterFirstNameIntoFirstNameInputField();
+        //input valid user last name into last name input field
+        registerPageNoSingularInput.inputValidRegisterLastNameIntoLastNameInputField();
+        //input valid user address 1 into address 1 input field
+        registerPageNoSingularInput.inputValidRegisterAddressIntoAddressInputField();
+        //input valid user city into city input field
+        registerPageNoSingularInput.inputValidRegisterCityIntoCityInputField();
+        //click 'State' dropdown menu
+        registerPage.clickStateDropdownMenu();
+        //select 'Illinois' option
+        registerPage.selectIllinoisOption();
+        //input valid user post code into post code input field
+        registerPageNoSingularInput.inputValidRegisterPostCodeIntoPostCodeInputField();
+        //input valid user phone into phone input field
+        registerPageNoSingularInput.inputValidRegisterPhoneIntoPhoneNumberInputField();
+        //capture screenshot of the register page after invalid data input - no user password / confirm password
+        captureScreenshot(driver, "Register Page Display After Invalid Data Input - No User Password and Confirm Password");
+        //click 'Create account' button
+        registerPage.clickCreateAccountButton();
+        //assert the user gets expected error message
+        assertEquals("You must enter a password.", registerPage.getRegisterPageSingularInputError(), "The user account creation missing password and confirm password input errors don't match expectations or the error weren't triggered.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - No User Password and Confirm Password");
+    }
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
