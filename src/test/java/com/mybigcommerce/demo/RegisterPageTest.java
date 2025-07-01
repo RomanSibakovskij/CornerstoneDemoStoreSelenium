@@ -381,4 +381,16 @@ public class RegisterPageTest extends TestMethods {
         invalidUserAccountCreationMismatchingConfirmPasswordTest();
     }
 
+    //Test 002ad -> invalid user account creation test - invalid user first name format (special symbols only) (the user account got created, test has failed)
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Invalid User First Name Format")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidAccountCreationInvalidFirstNameFormatTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //invalid user account creation test - invalid user first name format (special symbols only)
+        invalidUserAccountCreationInvalidFirstNameFormatTest();
+    }
+
 }
