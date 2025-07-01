@@ -197,6 +197,54 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid User Account Creation Test Result - No User Password and Confirm Password");
     }
 
+    //invalid user account creation test method - no user country
+    protected void invalidUserAccountCreationNoCountryTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //register page web element assert
+        isRegisterPageWebElementDisplayed(registerPage);
+        //register page text element assert
+        isRegisterPageTextElementAsExpected(registerPage);
+        //capture screenshot of the register page before data input
+        captureScreenshot(driver, "Register Page Display Before Data Input");
+        //valid user register data getter
+        registerPage.validUserRegisterDataGetter();
+        //input valid user email into email input field
+        registerPage.inputValidRegisterEmailIntoEmailInputField();
+        //input valid user password into password input field
+        registerPage.inputValidRegisterPasswordIntoPasswordInputField();
+        //input valid user confirm password into confirm password input field
+        registerPage.inputValidRegisterConfirmPasswordIntoConfirmPasswordInputField();
+        //click "Country" dropdown menu
+        registerPage.clickCountryDropdownMenu();
+        //select "Select country" option
+        registerPage.selectCountryOption();
+        //input valid user first name into first name input field
+        registerPage.inputValidRegisterFirstNameIntoFirstNameInputField();
+        //input valid user last name into last name input field
+        registerPage.inputValidRegisterLastNameIntoLastNameInputField();
+        //input valid user address 1 into address 1 input field
+        registerPage.inputValidRegisterAddressIntoAddressInputField();
+        //input valid user city into city input field
+        registerPage.inputValidRegisterCityIntoCityInputField();
+        //input valid user post code into post code input field
+        registerPage.inputValidRegisterPostCodeIntoPostCodeInputField();
+        //input valid user phone into phone input field
+        registerPage.inputValidRegisterPhoneIntoPhoneNumberInputField();
+        //capture screenshot of the register page after invalid data input - no user country
+        captureScreenshot(driver, "Register Page Display After Invalid Data Input - No User Country");
+        //click 'Create account' button
+        registerPage.clickCreateAccountButton();
+        //assert the user gets expected error message
+        assertEquals("Country field cannot be blank.", registerPage.getRegisterPageSingularInputError(), "The user account creation missing country input errors don't match expectations or the error weren't triggered.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - No User Country");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)

@@ -49,4 +49,16 @@ public class RegisterPageTest extends TestMethods {
         invalidUserAccountCreationNoPasswordConfirmTest();
     }
 
+    //Test 002c -> invalid user account creation test - no user country
+    @Test
+    @DisplayName("Invalid User Account Creation Test - No User Country")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("No_Singular_Input")
+    void invalidAccountCreationNoUserCountryTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //invalid user account creation test - no user country
+        invalidUserAccountCreationNoCountryTest();
+    }
+
 }
