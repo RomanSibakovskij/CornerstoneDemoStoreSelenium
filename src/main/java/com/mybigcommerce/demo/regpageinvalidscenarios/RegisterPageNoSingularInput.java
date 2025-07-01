@@ -39,6 +39,7 @@ public class RegisterPageNoSingularInput extends BasePage{
 
     //invalid user register input data - no singular input
     private String noUserRegisterEmail;
+    private String noUserRegisterPassword;
 
     public RegisterPageNoSingularInput(WebDriver driver) {super(driver);}
 
@@ -70,10 +71,37 @@ public class RegisterPageNoSingularInput extends BasePage{
         System.out.println("\n");
     }
 
+    //invalid user register data getter - no user password and confirm password
+    public void invalidUserRegisterDataNoPasswordConfirmGetter(){
 
+        validRegisterEmail = TestDataGenerator.generateRandomEmailAddress(6);
+        noUserRegisterPassword = "";
+        validRegisterFirstName = TestDataGenerator.getRandomFirstName();
+        validRegisterLastName = TestDataGenerator.getRandomLastName();
+        validRegisterAddress = TestDataGenerator.generateRandomAddress(6);
+        validRegisterCity = TestDataGenerator.getRandomCity();
+        validRegisterPostCode = TestDataGenerator.getRandomPostalCode();
+        validRegisterPhone = TestDataGenerator.generatePhoneNumber(9);
+
+        System.out.println("Invalid user register generated data (no user password and confirm password): " + "\n");
+
+        logger.info("Valid generated user email address (no user password and confirm password): " + validRegisterEmail);
+        logger.info("No user password: " + noUserRegisterPassword);
+        logger.info("No user confirm password: " + noUserRegisterPassword);
+        logger.info("Valid generated user first name (no user password and confirm password): " + validRegisterFirstName);
+        logger.info("Valid generated user last name (no user password and confirm password): " + validRegisterLastName);
+        logger.info("Valid generated user address (no user password and confirm password): " + validRegisterAddress);
+        logger.info("Valid generated user city (no user password and confirm password): " + validRegisterCity);
+        logger.info("Valid generated user post code (no user password and confirm password): " + validRegisterPostCode);
+        logger.info("Valid generated user phone number (no user password and confirm password): " + validRegisterPhone);
+
+        System.out.println("\n");
+    }
 
     //invalid register data input methods - no singular input
     public void inputNoRegisterEmailIntoEmailInputField(){registerPageEmailInputField.sendKeys(noUserRegisterEmail);}
+    public void inputNoRegisterPasswordIntoPasswordInputField(){registerPagePasswordInputField.sendKeys(noUserRegisterPassword);}
+    public void inputNoRegisterConfirmPasswordIntoConfirmPasswordInputField(){registerPageConfirmPasswordInputField.sendKeys(noUserRegisterPassword);}
 
     //valid register data input methods (for remaining inputs)
     public void inputValidRegisterEmailIntoEmailInputField(){registerPageEmailInputField.sendKeys(validRegisterEmail);}

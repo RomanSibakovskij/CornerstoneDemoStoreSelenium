@@ -37,4 +37,16 @@ public class RegisterPageTest extends TestMethods {
         invalidUserAccountCreationNoEmailTest();
     }
 
+    //Test 002b -> invalid user account creation test - no user password / confirm password
+    @Test
+    @DisplayName("Invalid User Account Creation Test - No User Password and Confirm Password")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("No_Singular_Input")
+    void invalidAccountCreationNoUserPasswordConfirmTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //invalid user account creation test - no user password / confirm password
+        invalidUserAccountCreationNoPasswordConfirmTest();
+    }
+
 }
