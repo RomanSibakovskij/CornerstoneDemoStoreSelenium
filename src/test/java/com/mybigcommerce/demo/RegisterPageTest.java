@@ -429,4 +429,16 @@ public class RegisterPageTest extends TestMethods {
         invalidUserAccountCreationInvalidCityFormatTest();
     }
 
+    //Test 002ah -> invalid user account creation test - invalid user post code format (special symbols only) (the user account got created, test has failed)
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Invalid User Post Code Format")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidAccountCreationInvalidPostCodeFormatTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //invalid user account creation test - invalid user post code format (special symbols only)
+        invalidUserAccountCreationInvalidPostCodeFormatTest();
+    }
+
 }
