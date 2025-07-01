@@ -368,4 +368,17 @@ public class RegisterPageTest extends TestMethods {
         invalidUserAccountCreationInvalidPasswordConfirmTest();
     }
 
+    //Test 002ac -> invalid user account creation test - mismatching user confirm password
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Mismatching User Confirm Password")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Invalid_Singular_Input_Format")
+    @Tag("Mismatch_Password_Input")
+    void invalidAccountCreationMismatchingConfirmPasswordTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //invalid user account creation test - mismatching user confirm password
+        invalidUserAccountCreationMismatchingConfirmPasswordTest();
+    }
+
 }

@@ -1552,6 +1552,59 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid User Account Creation Test Result - Invalid User Password and Confirm Password");
     }
 
+    //invalid user account creation test method - mismatching user confirm password
+    protected void invalidUserAccountCreationMismatchingConfirmPasswordTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
+        RegisterPageInvalidSingularInputFormat registerPageInvalidSingularInputFormat = new RegisterPageInvalidSingularInputFormat(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //register page web element assert
+        isRegisterPageWebElementDisplayed(registerPage);
+        //register page text element assert
+        isRegisterPageTextElementAsExpected(registerPage);
+        //capture screenshot of the register page before data input
+        captureScreenshot(driver, "Register Page Display Before Data Input");
+        //invalid user register data getter - mismatching user confirm password
+        registerPageInvalidSingularInputFormat.invalidUserRegisterDataMismatchConfirmPasswordGetter();
+        //input valid user email into email input field
+        registerPageInvalidSingularInputFormat.inputValidRegisterEmailIntoEmailInputField();
+        //input valid user password format into password input field
+        registerPageInvalidSingularInputFormat.inputValidRegisterPasswordIntoPasswordInputField();
+        //input mismatching user confirm password into confirm password input field
+        registerPageInvalidSingularInputFormat.inputMismatchRegisterConfirmPasswordIntoConfirmPasswordInputField();
+        //input valid user first name into first name input field
+        registerPageInvalidSingularInputFormat.inputValidRegisterFirstNameIntoFirstNameInputField();
+        //input valid user last name into last name input field
+        registerPageInvalidSingularInputFormat.inputValidRegisterLastNameIntoLastNameInputField();
+        //input valid user address 1 into address 1 input field
+        registerPageInvalidSingularInputFormat.inputValidRegisterAddressIntoAddressInputField();
+        //input valid user city into city input field
+        registerPageInvalidSingularInputFormat.inputValidRegisterCityIntoCityInputField();
+        //click 'State' dropdown menu
+        registerPage.clickStateDropdownMenu();
+        //select 'Illinois' option
+        registerPage.selectIllinoisOption();
+        //input valid user post code into post code input field
+        registerPageInvalidSingularInputFormat.inputValidRegisterPostCodeIntoPostCodeInputField();
+        //input valid user phone into phone input field
+        registerPageInvalidSingularInputFormat.inputValidRegisterPhoneIntoPhoneNumberInputField();
+        //capture screenshot of the register page after invalid data input - mismatching user confirm password
+        captureScreenshot(driver, "Register Page Display After Invalid Data Input - Mismatching Confirm Password");
+        //click 'Create account' button
+        registerPage.clickCreateAccountButton();
+        //assert the user gets expected error message, log the issue otherwise
+        try {
+            assertEquals("Your passwords do not match.", registerPage.getRegisterPageSingularInputError(), "The user account creation  mismatching user confirm password input error doesn't match expectations");
+        } catch (Exception e) {
+            logger.error("The mismatching user confirm password input error wasn't triggered, test has failed.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - Mismatching Confirm Password");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)

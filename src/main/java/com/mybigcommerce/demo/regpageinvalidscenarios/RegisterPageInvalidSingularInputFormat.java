@@ -41,6 +41,7 @@ public class RegisterPageInvalidSingularInputFormat extends BasePage{
     private String invalidUserRegisterEmailFormat;
     private String invalidUserExistingEmail;
     private String invalidUserRegisterPasswordFormat;
+    private String mismatchingUserConfirmPasswordFormat;
 
 
     public RegisterPageInvalidSingularInputFormat(WebDriver driver) {super(driver);}
@@ -128,11 +129,40 @@ public class RegisterPageInvalidSingularInputFormat extends BasePage{
         System.out.println("\n");
     }
 
+    //invalid user register data getter - mismatching confirm password (string chars only)
+    public void invalidUserRegisterDataMismatchConfirmPasswordGetter(){
+
+        validRegisterEmail = TestDataGenerator.generateRandomEmailAddress(6);
+        validRegisterPassword = TestDataGenerator.generateRandomPassword();
+        mismatchingUserConfirmPasswordFormat = "frggderttfd";
+        validRegisterFirstName = TestDataGenerator.getRandomFirstName();
+        validRegisterLastName = TestDataGenerator.getRandomLastName();
+        validRegisterAddress = TestDataGenerator.generateRandomAddress(6);
+        validRegisterCity = TestDataGenerator.getRandomCity();
+        validRegisterPostCode = TestDataGenerator.getRandomPostalCode();
+        validRegisterPhone = TestDataGenerator.generatePhoneNumber(9);
+
+        System.out.println("Invalid user register generated data (mismatching confirm password): " + "\n");
+
+        logger.info("Valid generated user email address (mismatching confirm password): " + validRegisterEmail);
+        logger.info("Valid user password: " + invalidUserRegisterPasswordFormat);
+        logger.info("Mismatching user confirm password format: " + mismatchingUserConfirmPasswordFormat);
+        logger.info("Valid generated user first name (mismatching confirm password): " + validRegisterFirstName);
+        logger.info("Valid generated user last name (mismatching confirm password): " + validRegisterLastName);
+        logger.info("Valid generated user address (mismatching confirm password): " + validRegisterAddress);
+        logger.info("Valid generated user city (mismatching confirm password): " + validRegisterCity);
+        logger.info("Valid generated user post code (mismatching confirm password): " + validRegisterPostCode);
+        logger.info("Valid generated user phone number (mismatching confirm password): " + validRegisterPhone);
+
+        System.out.println("\n");
+    }
+
     //invalid register data input methods - invalid singular input format
     public void inputInvalidRegisterEmailFormatIntoEmailInputField(){registerPageEmailInputField.sendKeys(invalidUserRegisterEmailFormat);}
     public void inputExistingRegEmailFormatIntoEmailInputField(){registerPageEmailInputField.sendKeys(invalidUserExistingEmail);}
     public void inputInvalidRegisterPasswordFormatIntoPasswordInputField(){registerPagePasswordInputField.sendKeys(invalidUserRegisterPasswordFormat);}
     public void inputInvalidRegisterConfirmPasswordFormatIntoConfirmPasswordInputField(){registerPageConfirmPasswordInputField.sendKeys(invalidUserRegisterPasswordFormat);}
+    public void inputMismatchRegisterConfirmPasswordIntoConfirmPasswordInputField(){registerPageConfirmPasswordInputField.sendKeys(mismatchingUserConfirmPasswordFormat);}
 
     //valid register data input methods (for remaining inputs)
     public void inputValidRegisterEmailIntoEmailInputField(){registerPageEmailInputField.sendKeys(validRegisterEmail);}
