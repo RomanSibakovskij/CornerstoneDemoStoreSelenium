@@ -245,4 +245,16 @@ public class RegisterPageTest extends TestMethods {
         invalidUserAccountCreationTooLongEmailTest();
     }
 
+    //Test 002s -> invalid user account creation test - too long user password / confirm password (75 chars) (the user account gets created, test has failed)
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Too Long User Password / Confirm Password")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Too_Long_Singular_Input")
+    void invalidAccountCreationTooLongUserPasswordConfirmTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //invalid user account creation test - too long user password / confirm password (75 chars)
+        invalidUserAccountCreationTooLongPasswordConfirmTest();
+    }
+
 }
