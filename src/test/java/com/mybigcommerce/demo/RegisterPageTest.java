@@ -231,4 +231,18 @@ public class RegisterPageTest extends TestMethods {
         invalidUserAccountCreationTooShortPhoneTest();
     }
 
+    //too long singular input
+
+    //Test 002r -> invalid user account creation test - too long user email (100 chars -> name, domain)
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Too Long User Email")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Too_Long_Singular_Input")
+    void invalidAccountCreationTooLongUserEmailTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //invalid user account creation test - too long user email (100 chars -> name, domain)
+        invalidUserAccountCreationTooLongEmailTest();
+    }
+
 }

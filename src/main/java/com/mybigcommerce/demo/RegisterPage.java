@@ -178,6 +178,12 @@ public class RegisterPage extends BasePage{
         return registerPageSingularInputError.getText();
     }
 
+    public String getRegisterPageSingularInputErrorBoxText() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1000));
+        wait.until(ExpectedConditions.visibilityOf(registerPageSingularInputErrorBox));
+        return registerPageSingularInputErrorBox.getText();
+    }
+
     //register page text element getters
     public String getRegisterPageTitle() {return registerPageTitle.getText();}
     public String getRegisterPageEmailSubtext() {return registerPageEmailSubtext.getText().trim().split("\\n")[0];}
