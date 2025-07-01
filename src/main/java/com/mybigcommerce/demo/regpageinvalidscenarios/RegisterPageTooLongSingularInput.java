@@ -45,6 +45,7 @@ public class RegisterPageTooLongSingularInput extends BasePage{
     private String tooLongUserRegisterAddress;
     private String tooLongUserRegisterCity;
     private int tooLongUserRegisterPostCode;
+    private String tooLongUserRegisterPhone;
 
     public RegisterPageTooLongSingularInput(WebDriver driver) {super(driver);}
 
@@ -243,6 +244,34 @@ public class RegisterPageTooLongSingularInput extends BasePage{
         System.out.println("\n");
     }
 
+    //invalid user register data getter - too long user phone (30 digits)
+    public void invalidUserRegisterDataTooLongPhoneGetter(){
+
+        validRegisterEmail = TestDataGenerator.generateRandomEmailAddress(6);
+        validRegisterPassword = TestDataGenerator.generateRandomPassword();
+        validRegisterConfirmPassword = validRegisterPassword;
+        validRegisterFirstName = TestDataGenerator.getRandomFirstName();
+        validRegisterLastName = TestDataGenerator.getRandomLastName();
+        validRegisterAddress = TestDataGenerator.generateRandomAddress(6);
+        validRegisterCity = TestDataGenerator.getRandomCity();
+        validRegisterPostCode = TestDataGenerator.getRandomPostalCode();
+        tooLongUserRegisterPhone = "453454323456789098765432345678";
+
+        System.out.println("Invalid user register generated data (too long user phone): " + "\n");
+
+        logger.info("Valid generated user email address (too long user phone): " + validRegisterEmail);
+        logger.info("Valid generated user password (too long user phone): " + validRegisterPassword);
+        logger.info("Valid matching user confirm password (too long user phone): " + validRegisterConfirmPassword);
+        logger.info("Valid generated user first name (too long user phone): " + validRegisterFirstName);
+        logger.info("Valid generated user last name (too long user phone): " + validRegisterLastName);
+        logger.info("Valid generated user address (too long user phone): " + validRegisterAddress);
+        logger.info("Valid generated user city (too long user phone): " + validRegisterCity);
+        logger.info("Valid generated user post code (too long user phone): " + validRegisterPostCode);
+        logger.info("Too long user phone number: " + tooLongUserRegisterPhone);
+
+        System.out.println("\n");
+    }
+
     //invalid register data input methods - too long singular input
     public void inputTooLongRegisterEmailIntoEmailInputField(){registerPageEmailInputField.sendKeys(tooLongUserRegisterEmail);}
     public void inputTooLongRegisterPasswordIntoPasswordInputField(){registerPagePasswordInputField.sendKeys(tooLongUserRegisterPassword);}
@@ -252,6 +281,7 @@ public class RegisterPageTooLongSingularInput extends BasePage{
     public void inputTooLongRegisterAddressIntoAddressInputField(){registerPageAddress1InputField.sendKeys(tooLongUserRegisterAddress);}
     public void inputTooLongRegisterCityIntoCityInputField(){registerPageCityInputField.sendKeys(tooLongUserRegisterCity);}
     public void inputTooLongRegisterPostCodeIntoPostCodeInputField(){registerPagePostCodeInputField.sendKeys(String.valueOf(tooLongUserRegisterPostCode));}
+    public void inputTooLongRegisterPhoneIntoPhoneNumberInputField(){registerPagePhoneInputField.sendKeys(tooLongUserRegisterPhone);}
 
     //valid register data input methods (for remaining inputs)
     public void inputValidRegisterEmailIntoEmailInputField(){registerPageEmailInputField.sendKeys(validRegisterEmail);}

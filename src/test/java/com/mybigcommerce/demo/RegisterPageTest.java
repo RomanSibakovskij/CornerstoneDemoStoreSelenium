@@ -317,4 +317,16 @@ public class RegisterPageTest extends TestMethods {
         invalidUserAccountCreationTooLongPostCodeTest();
     }
 
+    //Test 002y -> invalid user account creation test - too long user phone (6 digits) (the user account gets created, test has failed)
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Too Long User Phone")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Too_Long_Singular_Input")
+    void invalidAccountCreationTooLongUserPhoneTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //invalid user account creation test - too long user phone (30 digits)
+        invalidUserAccountCreationTooLongPhoneTest();
+    }
+
 }
