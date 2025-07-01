@@ -207,4 +207,16 @@ public class RegisterPageTest extends TestMethods {
         invalidUserAccountCreationTooShortCityTest();
     }
 
+    //Test 002p -> invalid user account creation test - too short user post code (4 digits) (the user account gets created, test has failed)
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Too Short User Post Code")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Too_Short_Singular_Input")
+    void invalidAccountCreationTooShortPostCodeTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //invalid user account creation test - too short user post code (4 digits)
+        invalidUserAccountCreationTooShortPostCodeTest();
+    }
+
 }
