@@ -343,4 +343,17 @@ public class RegisterPageTest extends TestMethods {
         invalidUserAccountCreationInvalidEmailFormatTest();
     }
 
+    //Test 002aa -> invalid user account creation test - existing user email (used beforehand in manual testing)
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Existing User Email")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Invalid_Singular_Input_Format")
+    @Tag("Pre_Existing_Email")
+    void invalidAccountCreationExistingUserEmailTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //invalid user account creation test - existing user email (used beforehand in manual testing)
+        invalidUserAccountCreationExistingEmailTest();
+    }
+
 }

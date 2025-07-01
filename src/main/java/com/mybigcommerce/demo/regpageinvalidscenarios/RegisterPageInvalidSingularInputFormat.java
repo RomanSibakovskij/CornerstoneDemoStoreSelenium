@@ -39,6 +39,8 @@ public class RegisterPageInvalidSingularInputFormat extends BasePage{
 
     //invalid user register input data - invalid singular input
     private String invalidUserRegisterEmailFormat;
+    private String invalidUserExistingEmail;
+
 
     public RegisterPageInvalidSingularInputFormat(WebDriver driver) {super(driver);}
 
@@ -70,8 +72,37 @@ public class RegisterPageInvalidSingularInputFormat extends BasePage{
         System.out.println("\n");
     }
 
+    //invalid user register data getter - pre-existing user email (used beforehand in manual testing)
+    public void invalidUserRegisterDataExistingEmailGetter(){
+
+        invalidUserExistingEmail = "m1@fakemail.com";
+        validRegisterPassword = TestDataGenerator.generateRandomPassword();
+        validRegisterConfirmPassword = validRegisterPassword;
+        validRegisterFirstName = TestDataGenerator.getRandomFirstName();
+        validRegisterLastName = TestDataGenerator.getRandomLastName();
+        validRegisterAddress = TestDataGenerator.generateRandomAddress(6);
+        validRegisterCity = TestDataGenerator.getRandomCity();
+        validRegisterPostCode = TestDataGenerator.getRandomPostalCode();
+        validRegisterPhone = TestDataGenerator.generatePhoneNumber(9);
+
+        System.out.println("Invalid user register generated data (pre-existing email address input): " + "\n");
+
+        logger.info("Pre-existing email address input: " + invalidUserExistingEmail);
+        logger.info("Valid generated user password (pre-existing email address input): " + validRegisterPassword);
+        logger.info("Valid matching user confirm password (pre-existing email address input): " + validRegisterConfirmPassword);
+        logger.info("Valid generated user first name (pre-existing email address input): " + validRegisterFirstName);
+        logger.info("Valid generated user last name (pre-existing email address input): " + validRegisterLastName);
+        logger.info("Valid generated user address (pre-existing email address input): " + validRegisterAddress);
+        logger.info("Valid generated user city (pre-existing email address input): " + validRegisterCity);
+        logger.info("Valid generated user post code (pre-existing email address input): " + validRegisterPostCode);
+        logger.info("Valid generated user phone number (pre-existing email address input): " + validRegisterPhone);
+
+        System.out.println("\n");
+    }
+
     //invalid register data input methods - invalid singular input format
     public void inputInvalidRegisterEmailFormatIntoEmailInputField(){registerPageEmailInputField.sendKeys(invalidUserRegisterEmailFormat);}
+    public void inputExistingRegEmailFormatIntoEmailInputField(){registerPageEmailInputField.sendKeys(invalidUserExistingEmail);}
 
     //valid register data input methods (for remaining inputs)
     public void inputValidRegisterEmailIntoEmailInputField(){registerPageEmailInputField.sendKeys(validRegisterEmail);}
