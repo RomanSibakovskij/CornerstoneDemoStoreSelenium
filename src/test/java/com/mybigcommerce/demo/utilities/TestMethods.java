@@ -1391,6 +1391,61 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid User Account Creation Test Result - Too Long User Phone");
     }
 
+    //invalid singular input format
+
+    //invalid user account creation test method - invalid user email format (missing '@')
+    protected void invalidUserAccountCreationInvalidEmailFormatTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
+        RegisterPageInvalidSingularInputFormat registerPageInvalidSingularInputFormat = new RegisterPageInvalidSingularInputFormat(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //register page web element assert
+        isRegisterPageWebElementDisplayed(registerPage);
+        //register page text element assert
+        isRegisterPageTextElementAsExpected(registerPage);
+        //capture screenshot of the register page before data input
+        captureScreenshot(driver, "Register Page Display Before Data Input");
+        //invalid user register data getter - invalid user email format (missing '@')
+        registerPageInvalidSingularInputFormat.invalidUserRegisterDataInvalidEmailFormatGetter();
+        //input invalid user email format into email input field (missing '@')
+        registerPageInvalidSingularInputFormat.inputInvalidRegisterEmailFormatIntoEmailInputField();
+        //input valid user password into password input field
+        registerPageInvalidSingularInputFormat.inputValidRegisterPasswordIntoPasswordInputField();
+        //input valid user confirm password into confirm password input field
+        registerPageInvalidSingularInputFormat.inputValidRegisterConfirmPasswordIntoConfirmPasswordInputField();
+        //input valid user first name into first name input field
+        registerPageInvalidSingularInputFormat.inputValidRegisterFirstNameIntoFirstNameInputField();
+        //input valid user last name into last name input field
+        registerPageInvalidSingularInputFormat.inputValidRegisterLastNameIntoLastNameInputField();
+        //input valid user address 1 into address 1 input field
+        registerPageInvalidSingularInputFormat.inputValidRegisterAddressIntoAddressInputField();
+        //input valid user city into city input field
+        registerPageInvalidSingularInputFormat.inputValidRegisterCityIntoCityInputField();
+        //click 'State' dropdown menu
+        registerPage.clickStateDropdownMenu();
+        //select 'Illinois' option
+        registerPage.selectIllinoisOption();
+        //input valid user post code into post code input field
+        registerPageInvalidSingularInputFormat.inputValidRegisterPostCodeIntoPostCodeInputField();
+        //input valid user phone into phone input field
+        registerPageInvalidSingularInputFormat.inputValidRegisterPhoneIntoPhoneNumberInputField();
+        //capture screenshot of the register page after invalid data input - invalid user email format (missing '@')
+        captureScreenshot(driver, "Register Page Display After Invalid Data Input - Invalid User Email Format");
+        //click 'Create account' button
+        registerPage.clickCreateAccountButton();
+        //assert the user gets expected error message, log the issue otherwise
+        try {
+            assertEquals("You must enter a valid email.", registerPage.getRegisterPageSingularInputError(), "The user account creation invalid email input format error doesn't match expectations");
+        } catch (Exception e) {
+            logger.error("The invalid email input format error wasn't triggered, test has failed.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Account Creation Test Result - Invalid User Email Format");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)

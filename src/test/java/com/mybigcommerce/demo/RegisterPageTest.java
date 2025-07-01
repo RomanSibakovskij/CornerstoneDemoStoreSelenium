@@ -329,4 +329,18 @@ public class RegisterPageTest extends TestMethods {
         invalidUserAccountCreationTooLongPhoneTest();
     }
 
+    //invalid singular input format
+
+    //Test 002z -> invalid user account creation test - invalid user email format (missing '@')
+    @Test
+    @DisplayName("Invalid User Account Creation Test - Invalid User Email Format")
+    @Tag("Invalid_User_Account_Creation")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidAccountCreationInvalidUserEmailFormatTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //invalid user account creation test - invalid user email format (missing '@')
+        invalidUserAccountCreationInvalidEmailFormatTest();
+    }
+
 }
