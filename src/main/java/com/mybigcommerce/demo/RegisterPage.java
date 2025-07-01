@@ -87,7 +87,88 @@ public class RegisterPage extends BasePage{
     @FindBy(xpath = "//span[@id='alertBox-message-text']")
     private WebElement registerPageSingularInputErrorBox;
 
+    //valid user register data
+    private static String validRegisterEmail;
+    private static String validRegisterPassword;
+    private String validRegisterConfirmPassword;
+    private static String validRegisterFirstName;
+    private static String validRegisterLastName;
+    private static String validRegisterAddress;
+    private String validRegisterCity;
+    private int validRegisterPostCode;
+    private String validRegisterPhone;
+
     public RegisterPage(WebDriver driver) {super(driver);}
+
+    //valid user register data getter
+    public void validUserRegisterDataGetter(){
+
+        validRegisterEmail = TestDataGenerator.generateRandomEmailAddress(8);
+        validRegisterPassword = TestDataGenerator.generateRandomPassword();
+        validRegisterConfirmPassword = validRegisterPassword;
+        validRegisterFirstName = TestDataGenerator.getRandomFirstName();
+        validRegisterLastName = TestDataGenerator.getRandomLastName();
+        validRegisterAddress = TestDataGenerator.generateRandomAddress(6);
+        validRegisterCity = TestDataGenerator.getRandomCity();
+        validRegisterPostCode = TestDataGenerator.getRandomPostalCode();
+        validRegisterPhone = TestDataGenerator.generatePhoneNumber(9);
+
+        System.out.println("Valid user register generated data: " + "\n");
+
+        logger.info("Valid generated user email address: " + validRegisterEmail);
+        logger.info("Valid generated user password: " + validRegisterPassword);
+        logger.info("Valid matching user confirm password: " + validRegisterConfirmPassword);
+        logger.info("Valid generated user first name: " + validRegisterFirstName);
+        logger.info("Valid generated user last name: " + validRegisterLastName);
+        logger.info("Valid generated user address: " + validRegisterAddress);
+        logger.info("Valid generated user city: " + validRegisterCity);
+        logger.info("Valid generated user post code: " + validRegisterPostCode);
+        logger.info("Valid generated user phone number: " + validRegisterPhone);
+
+        System.out.println("\n");
+    }
+
+    //valid register data input methods
+    public void inputValidRegisterEmailIntoEmailInputField(){registerPageEmailInputField.sendKeys(validRegisterEmail);}
+    public void inputValidRegisterPasswordIntoPasswordInputField(){registerPagePasswordInputField.sendKeys(validRegisterPassword);}
+    public void inputValidRegisterConfirmPasswordIntoConfirmPasswordInputField(){registerPageConfirmPasswordInputField.sendKeys(validRegisterConfirmPassword);}
+    public void inputValidRegisterFirstNameIntoFirstNameInputField(){registerPageFirstNameInputField.sendKeys(validRegisterFirstName);}
+    public void inputValidRegisterLastNameIntoLastNameInputField(){registerPageLastNameInputField.sendKeys(validRegisterLastName);}
+    public void inputValidRegisterAddressIntoAddressInputField(){registerPageAddress1InputField.sendKeys(validRegisterAddress);}
+    public void inputValidRegisterCityIntoCityInputField(){registerPageCityInputField.sendKeys(validRegisterCity);}
+    public void inputValidRegisterPostCodeIntoPostCodeInputField(){registerPagePostCodeInputField.sendKeys(String.valueOf(validRegisterPostCode));}
+    public void inputValidRegisterPhoneIntoPhoneNumberInputField(){registerPagePhoneInputField.sendKeys(validRegisterPhone);}
+
+    //click 'Country' dropdown menu method
+    public void clickCountryDropdownMenu(){
+        Actions action = new Actions(driver);
+        action.moveToElement(registerPageCountryDropdownMenu).click().perform();
+    }
+
+    //select 'Select country' option method
+    public void selectCountryOption(){registerPageSelectCountryOption.click();}
+
+    //click 'State' dropdown menu method
+    public void clickStateDropdownMenu(){
+        Actions action = new Actions(driver);
+        action.moveToElement(registerPageStateDropdownMenu).click().perform();
+    }
+
+    //select 'Illinois' option method
+    public void selectIllinoisOption(){registerPageIllinoisStateOption.click();}
+
+    //click 'Create account' button method
+    public void clickCreateAccountButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(registerPageCreateAccountButton).click().perform();
+    }
+
+    //private variable getters
+    public String getValidRegisterFirstName(){return validRegisterFirstName;}
+    public String getValidRegisterLastName(){return validRegisterLastName;}
+    public String getValidRegisterAddress(){return validRegisterAddress;}
+    public String getPassword(){return validRegisterPassword;}
+    public String getEmail(){return validRegisterEmail;}
 
     //register page text element getters
     public String getRegisterPageTitle() {return registerPageTitle.getText();}

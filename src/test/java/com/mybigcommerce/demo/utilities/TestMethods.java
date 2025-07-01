@@ -42,6 +42,59 @@ public class TestMethods extends BaseTest{
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //valid user account creation test
+
+    //valid user account creation test method
+    protected void validUserAccountCreationTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //register page web element assert
+        isRegisterPageWebElementDisplayed(registerPage);
+        //register page text element assert
+        isRegisterPageTextElementAsExpected(registerPage);
+        //capture screenshot of the register page before data input
+        captureScreenshot(driver, "Register Page Display Before Data Input");
+        //valid user register data getter
+        registerPage.validUserRegisterDataGetter();
+        //input valid user email into email input field
+        registerPage.inputValidRegisterEmailIntoEmailInputField();
+        //input valid user password into password input field
+        registerPage.inputValidRegisterPasswordIntoPasswordInputField();
+        //input valid user confirm password into confirm password input field
+        registerPage.inputValidRegisterConfirmPasswordIntoConfirmPasswordInputField();
+        //input valid user first name into first name input field
+        registerPage.inputValidRegisterFirstNameIntoFirstNameInputField();
+        //input valid user last name into last name input field
+        registerPage.inputValidRegisterLastNameIntoLastNameInputField();
+        //input valid user address 1 into address 1 input field
+        registerPage.inputValidRegisterAddressIntoAddressInputField();
+        //input valid user city into city input field
+        registerPage.inputValidRegisterCityIntoCityInputField();
+        //click 'State' dropdown menu
+        registerPage.clickStateDropdownMenu();
+        //select 'Illinois' option
+        registerPage.selectIllinoisOption();
+        //input valid user post code into post code input field
+        registerPage.inputValidRegisterPostCodeIntoPostCodeInputField();
+        //input valid user phone into phone input field
+        registerPage.inputValidRegisterPhoneIntoPhoneNumberInputField();
+        //capture screenshot of the register page after valid data input
+        captureScreenshot(driver, "Register Page Display After Valid Data Input");
+        //click 'Create account' button
+        registerPage.clickCreateAccountButton();
+        //assert the user gets expected account creation success message (title and message)
+        assertEquals("Your account has been created", registerPage.getAccountCreationSuccessMessageTitle(), "The user account creation success message title doesn't match expectations or the user account creation process has failed.");
+        assertEquals("Thank you for creating your account at Cornerstone Demo. Your account details have been emailed to " + registerPage.getEmail(), registerPage.getAccountCreationSuccessMessage(), "The user account creation success message doesn't match expectations or the user account creation process has failed.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid User Account Creation Test Result");
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     //general page web element assert test method (elements that all pages share -> header / footer)
     protected void isGeneralPageWebElementDisplayed(GeneralPage generalPage){
         //header -> upper navbar
@@ -184,6 +237,68 @@ public class TestMethods extends BaseTest{
         assertTrue(homePage.isHomePageBannerLinkDisplayed(), "The home page banner link isn't displayed");
     }
 
+    //register page web element assert test method
+    protected void isRegisterPageWebElementDisplayed(RegisterPage registerPage){
+        //assert register page title is displayed
+        assertTrue(registerPage.isRegisterPageTitleDisplayed(), "The register page title isn't displayed");
+        //assert register page email subtext is displayed
+        assertTrue(registerPage.isRegisterPageEmailSubtextDisplayed(), "The register page email subtext isn't displayed");
+        //assert register page email input field is displayed
+        assertTrue(registerPage.isRegisterPageEmailInputFieldDisplayed(), "The register page email input field isn't displayed");
+        //assert register page password subtext is displayed
+        assertTrue(registerPage.isRegisterPagePasswordSubtextDisplayed(), "The register page password subtext isn't displayed");
+        //assert register page password input field is displayed
+        assertTrue(registerPage.isRegisterPagePasswordInputFieldDisplayed(), "The register page password input field isn't displayed");
+        //assert register page confirm password subtext is displayed
+        assertTrue(registerPage.isRegisterPageConfirmPasswordSubtextDisplayed(), "The register page confirm password subtext isn't displayed");
+        //assert register page confirm password input field is displayed
+        assertTrue(registerPage.isRegisterPageConfirmPasswordInputFieldDisplayed(), "The register page confirm password input field isn't displayed");
+        //assert register page country subtext is displayed
+        assertTrue(registerPage.isRegisterPageCountrySubtextDisplayed(), "The register page country subtext isn't displayed");
+        //assert register page country dropdown menu is displayed
+        assertTrue(registerPage.isRegisterPageCountryDropdownMenuDisplayed(), "The register page country dropdown menu isn't displayed");
+        //assert register page first name subtext is displayed
+        assertTrue(registerPage.isRegisterPageFirstNameSubtextDisplayed(), "The register page first name subtext isn't displayed");
+        //assert register page first name input field is displayed
+        assertTrue(registerPage.isRegisterPageFirstNameInputFieldDisplayed(), "The register page first name input field isn't displayed");
+        //assert register page last name subtext is displayed
+        assertTrue(registerPage.isRegisterPageLastNameSubtextDisplayed(), "The register page last name subtext isn't displayed");
+        //assert register page last name input field is displayed
+        assertTrue(registerPage.isRegisterPageLastNameInputFieldDisplayed(), "The register page last name input field isn't displayed");
+        //assert register page address 1 subtext is displayed
+        assertTrue(registerPage.isRegisterPageAddress1SubtextDisplayed(), "The register page address 1 subtext isn't displayed");
+        //assert register page address 1 input field is displayed
+        assertTrue(registerPage.isRegisterPageAddress1InputFieldDisplayed(), "The register page address 1 input field isn't displayed");
+        //assert register page address 2 subtext is displayed
+        assertTrue(registerPage.isRegisterPageAddress2SubtextDisplayed(), "The register page address 2 subtext isn't displayed");
+        //assert register page address 2 input field is displayed
+        assertTrue(registerPage.isRegisterPageAddress2InputFieldDisplayed(), "The register page address 2 input field isn't displayed");
+        //assert register page company subtext is displayed
+        assertTrue(registerPage.isRegisterPageCompanySubtextDisplayed(), "The register page company subtext isn't displayed");
+        //assert register page company input field is displayed
+        assertTrue(registerPage.isRegisterPageCompanyInputFieldDisplayed(), "The register page company input field isn't displayed");
+        //assert register page city subtext is displayed
+        assertTrue(registerPage.isRegisterPageCitySubtextDisplayed(), "The register page city subtext isn't displayed");
+        //assert register page city input field is displayed
+        assertTrue(registerPage.isRegisterPageCityInputFieldDisplayed(), "The register page city input field isn't displayed");
+        //assert register page state subtext is displayed
+        assertTrue(registerPage.isRegisterPageStateSubtextDisplayed(), "The register page state subtext isn't displayed");
+        //assert register page state dropdown menu is displayed
+        assertTrue(registerPage.isRegisterPageStateDropdownMenuDisplayed(), "The register page state dropdown menu isn't displayed");
+        //assert register page post code subtext is displayed
+        assertTrue(registerPage.isRegisterPagePostCodeSubtextDisplayed(), "The register page post code subtext isn't displayed");
+        //assert register page post code input field is displayed
+        assertTrue(registerPage.isRegisterPagePostCodeInputFieldDisplayed(), "The register page post code input field isn't displayed");
+        //assert register page phone subtext is displayed
+        assertTrue(registerPage.isRegisterPagePhoneSubtextDisplayed(), "The register page phone subtext isn't displayed");
+        //assert register page phone input field is displayed
+        assertTrue(registerPage.isRegisterPagePhoneInputFieldDisplayed(), "The register page phone input field isn't displayed");
+        //assert register page create account is displayed
+        assertTrue(registerPage.isRegisterPageCreateAccountButtonDisplayed(), "The register page create account button isn't displayed");
+        //assert register page required tags are displayed (as a list)
+        assertTrue(registerPage.isRegisterPageRequiredTagDisplayed(), "The register page required tags aren't displayed");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert test method(elements that all pages have)
@@ -283,6 +398,41 @@ public class TestMethods extends BaseTest{
         assertEquals("New Products", homePage.getHomePageNewProductsSectionTitle(), "The home page new products section title doesn't match expectations.");
         //assert home page banner link text is as expected
         assertEquals("Save 25% on our Orbit Terrarium", homePage.getHomePageBannerLinkText(), "The home page banner link text doesn't match expectations.");
+    }
+
+    //register page text element assert test method
+    protected void isRegisterPageTextElementAsExpected(RegisterPage registerPage) {
+        //assert register page title is as expected
+        assertEquals("New Account", registerPage.getRegisterPageTitle(), "The register page title doesn't match expectations.");
+        //assert register page email subtext is as expected
+        assertEquals("Email Address", registerPage.getRegisterPageEmailSubtext(), "The register page email subtext doesn't match expectations.");
+        //assert register page password subtext is as expected
+        assertEquals("Password", registerPage.getRegisterPagePasswordSubtext(), "The register page password subtext doesn't match expectations.");
+        //assert register page confirm password subtext is as expected
+        assertEquals("Confirm Password", registerPage.getRegisterPageConfirmPasswordSubtext(), "The register page confirm password subtext doesn't match expectations.");
+        //assert register page country subtext is as expected
+        assertEquals("Country", registerPage.getRegisterPageCountrySubtext(), "The register page country subtext doesn't match expectations.");
+        //assert register page first name subtext is as expected
+        assertEquals("First Name", registerPage.getRegisterPageFirstNameSubtext(), "The register page first name subtext doesn't match expectations.");
+        //assert register page last name subtext is as expected
+        assertEquals("Last Name", registerPage.getRegisterPageLastNameSubtext(), "The register page last name subtext doesn't match expectations.");
+        //assert register page address 1 subtext is as expected
+        assertEquals("Address Line 1", registerPage.getRegisterPageAddress1Subtext(), "The register page address 1 subtext doesn't match expectations.");
+        //assert register page address 2 subtext is as expected
+        assertEquals("Address Line 2", registerPage.getRegisterPageAddress2Subtext(), "The register page address 2 subtext doesn't match expectations.");
+        //assert register page company subtext is as expected
+        assertEquals("Company Name", registerPage.getRegisterPageCompanySubtext(), "The register page company subtext doesn't match expectations.");
+        //assert register page city subtext is as expected
+        assertEquals("Suburb/City", registerPage.getRegisterPageCitySubtext(), "The register page city subtext doesn't match expectations.");
+        //assert register page state subtext is as expected
+        assertEquals("State/Province", registerPage.getRegisterPageStateSubtext(), "The register page state subtext doesn't match expectations.");
+        //assert register page post code subtext is as expected
+        assertEquals("Zip/Postcode", registerPage.getRegisterPagePostCodeSubtext(), "The register page post code subtext doesn't match expectations.");
+        //assert register page phone subtext is as expected
+        assertEquals("Phone Number", registerPage.getRegisterPagePhoneSubtext(), "The register page phone subtext doesn't match expectations.");
+        //assert register page required tags and their count are as expected
+        List<String> expected = Collections.nCopies(11, "REQUIRED"); //assert the tag count and content is as expected (since it's an array of tags)
+        assertEquals(expected, registerPage.getRegisterPageRequiredTagElements(), "The register page required tags don't match expectations.");
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
