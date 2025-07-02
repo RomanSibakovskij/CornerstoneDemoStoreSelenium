@@ -2130,6 +2130,54 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid Edit User Account Data Test Result - No Edited Last Name");
     }
 
+    //invalid account settings page (edit account) test method - no edited email
+    protected void invalidEditedUserAccountNoEmailTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        AccountDashboardPage accountDashboardPage = new AccountDashboardPage(driver);
+        AccountSettingsPage accountSettingsPage = new AccountSettingsPage(driver);
+        AccountSettingsPageNoSingularInput accountSettingsPageNoSingularInput = new AccountSettingsPageNoSingularInput(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Account' navbar link
+        generalPage.clickAccountLink();
+        //account dashboard page web element assert
+        isAccountDashboardPageWebElementDisplayed(accountDashboardPage);
+        //account dashboard page text element assert
+        isAccountDashboardPageTextElementAsExpected(accountDashboardPage);
+        //account dashboard page breadcrumb web element assert
+        isAccountDashboardPageBreadcrumbWebElementDisplayed(accountDashboardPage);
+        //assert account dashboard page title is as expected (since the user gets on orders page section after clicking 'Account')
+        isOrdersPageNoOrderTextElementsAsExpected(accountDashboardPage);
+        //capture screenshot of the orders page display(since the user gets here after clicking 'Account' link)
+        captureScreenshot(driver, "Orders Page Display");
+        //click 'Account settings' link
+        accountDashboardPage.clickAccountSettingsLink();
+        //account settings page web element assert
+        isAccountSettingsPageWebElementDisplayed(accountSettingsPage);
+        //account settings page text element assert
+        isAccountSettingsPageTextElementAsExpected(accountSettingsPage);
+        //capture screenshot of the account settings page before edited data input
+        captureScreenshot(driver, "Account Settings Page Display Before Edited Data Input");
+        //invalid edited user account data getter - no edited user email
+        accountSettingsPageNoSingularInput.invalidEditedUserAccountDataNoEmailGetter();
+        //input valid edited first name into first name input field
+        accountSettingsPageNoSingularInput.inputEditedUserFirstNameIntoFirstNameInputField();
+        //input valid edited last name into last name input field
+        accountSettingsPageNoSingularInput.inputEditedUserLastNameIntoLastNameInputField();
+        //don't input edited email into email input field
+        accountSettingsPageNoSingularInput.inputNoEditedUserEmailIntoEmailInputField();
+        //capture screenshot of the account settings page after invalid edited data input - no edited email
+        captureScreenshot(driver, "Account Settings Page Display After Invalid Edited Data Input - No Edited Email");
+        //click 'Update details' button
+        accountSettingsPage.clickUpdateDetailsButton();
+        //assert the user receives the expected error message
+        assertEquals("You must enter a valid email.", accountSettingsPage.getAccountSettingsPageSingularInputError(), "The account settings missing email input error message doesn't match expectations or the error message wasn't triggered.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Edit User Account Data Test Result - No Edited Email");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)

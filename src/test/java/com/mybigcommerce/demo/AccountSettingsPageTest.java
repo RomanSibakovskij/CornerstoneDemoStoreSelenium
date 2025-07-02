@@ -65,4 +65,18 @@ public class AccountSettingsPageTest extends TestMethods{
         invalidEditedUserAccountNoLastNameTest();
     }
 
+    //Test 003d -> invalid edit user account data test - no edited email
+    @Test
+    @DisplayName("Invalid Edit User Account Data Test - No Edited Email")
+    @Tag("Invalid_Edit_Account_Data")
+    @Tag("No_Singular_Input")
+    void invalidEditAccountDataNoEmailTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //invalid edit user account data test - no edited email
+        invalidEditedUserAccountNoEmailTest();
+    }
+
 }
