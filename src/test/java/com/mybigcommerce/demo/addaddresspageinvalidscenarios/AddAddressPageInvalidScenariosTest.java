@@ -121,4 +121,20 @@ public class AddAddressPageInvalidScenariosTest extends TestMethods{
         invalidSecondUserAddressAdditionNoPhoneTest();
     }
 
+    //too short singular input
+
+    //Test 004i -> invalid user second address addition test - too short user first name (1 char) (new address addition wasn't aborted, test has failed)
+    @Test
+    @DisplayName("Invalid User Second Address Addition Test - Too Short First Name")
+    @Tag("Invalid_Second_User_Addition")
+    @Tag("Too_Short_Singular_Input")
+    void invalidSecondAddressAdditionTooShortFirstNameTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //invalid user second address addition test - too short user first name (1 char)
+        invalidSecondUserAddressAdditionTooShortFirstNameTest();
+    }
+
 }

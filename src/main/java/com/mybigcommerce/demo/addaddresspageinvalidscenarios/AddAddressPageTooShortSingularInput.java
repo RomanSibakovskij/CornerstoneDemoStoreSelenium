@@ -21,7 +21,69 @@ public class AddAddressPageTooShortSingularInput extends BasePage{
     @FindBy(xpath = "//input[@id='FormField_7_input']")
     private WebElement addAddressPagePhoneInputField;
 
+    //valid user address data
+    private String validAddressFirstName;
+    private String validAddressLastName;
+    private String validAddress;
+    private String validAddressCity;
+    private int validAddressPostCode;
+    private String validAddressPhone;
+
+    //invalid user address data - too short singular input
+    private String tooShortEditAddressFirstName;
+
     public AddAddressPageTooShortSingularInput(WebDriver driver) {super(driver);}
 
+    //invalid user edited address data getter - too short user first name (1 char)
+    public void invalidUserEditedAddressDataTooShortFirstNameGetter(){
+
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        tooShortEditAddressFirstName = "V";
+        validAddressLastName = registerPage.getValidRegisterLastName();; //add address page requires the input, while edit address page has the input by default
+        validAddress = TestDataGenerator.generateRandomAddress(9);
+        validAddressCity = TestDataGenerator.getRandomCity();
+        validAddressPostCode = TestDataGenerator.getRandomPostalCode();
+        validAddressPhone = TestDataGenerator.generatePhoneNumber(8);
+
+        System.out.println("Invalid user edited address generated data (too short user first name): " + "\n");
+
+        logger.info("Too short edited user first name: " + tooShortEditAddressFirstName);
+        logger.info("Valid generated edited user address (too short user first name): " + validAddress);
+        logger.info("Valid generated edited user city (too short user first name): " + validAddressCity);
+        logger.info("Valid generated edited user post code (too short user first name): " + validAddressPostCode);
+        logger.info("Valid generated edited user phone (too short user first name): " + validAddressPhone);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid user address input methods - too short singular input
+    public void inputTooShortUserFirstNameIntoFirstNameInputField(){
+        addAddressPageFirstNameInputField.clear();
+        addAddressPageFirstNameInputField.sendKeys(tooShortEditAddressFirstName);
+    }
+
+    //valid user address input methods (for remaining inputs)
+    public void inputValidUserFirstNameIntoFirstNameInputField(){addAddressPageFirstNameInputField.sendKeys(validAddressFirstName);}
+    public void inputValidUserLastNameIntoLastNameInputField(){addAddressPageLastNameInputField.sendKeys(validAddressLastName);}
+
+    public void inputValidUserAddressIntoAddress1InputField(){
+        addAddressPageAddress1InputField.clear();
+        addAddressPageAddress1InputField.sendKeys(validAddress);
+    }
+
+    public void inputValidUserCityIntoCityInputField(){
+        addAddressPageCityInputField.clear();
+        addAddressPageCityInputField.sendKeys(validAddressCity);
+    }
+    public void inputValidUserPostCodeIntoPostCodeInputField(){
+        addAddressPagePostCodeInputField.clear();
+        addAddressPagePostCodeInputField.sendKeys(String.valueOf(validAddressPostCode));
+    }
+    public void inputValidUserPhoneIntoPhoneInputField(){
+        addAddressPagePhoneInputField.clear();
+        addAddressPagePhoneInputField.sendKeys(validAddressPhone);
+    }
 
 }
