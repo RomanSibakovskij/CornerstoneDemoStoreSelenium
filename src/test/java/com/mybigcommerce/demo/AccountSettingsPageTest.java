@@ -79,7 +79,7 @@ public class AccountSettingsPageTest extends TestMethods{
         invalidEditedUserAccountNoEmailTest();
     }
 
-    //Test 003e -> invalid edit user account data test - no edited password / confirm password 
+    //Test 003e -> invalid edit user account data test - no edited password / confirm password
     @Test
     @DisplayName("Invalid Edit User Account Data Test - No Edited Password / Confirm Password")
     @Tag("Invalid_Edit_Account_Data")
