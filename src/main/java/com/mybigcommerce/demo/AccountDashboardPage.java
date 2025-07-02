@@ -5,7 +5,9 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.*;
 
+import java.time.Duration;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class AccountDashboardPage extends BasePage {
 
@@ -54,5 +56,89 @@ public class AccountDashboardPage extends BasePage {
 
     public AccountDashboardPage(WebDriver driver) {super(driver);}
 
+    //click 'Addresses' link method
+    public void clickAddressesLink(){accountDashboardPageNavbarAddressesLink.click();}
+
+    //click 'Account settings' link method
+    public void clickAccountSettingsLink(){accountDashboardPageNavbarAccountSettingsLink.click();}
+
+    //click set order number link method
+    public void clickSetOrderNumberLink(int index){accountDashboardPageOrderNumberLinkElements.get(index).click();}
+
+    //account dashboard page orders section (page) placed order data getters
+    public List<String> getAccountDashboardPageOrderNumber() {return accountDashboardPageOrderNumberLinkElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+    public List<String> getAccountDashboardPageOrderProductCountTotalCost() {return accountDashboardPageProductCountTotalCostElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+    public List<String> getAccountDashboardPageOrderPlacedDate() {return accountDashboardPageOrderPlacedDateElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+    public List<String> getAccountDashboardPageOrderLastUpdateDate() {return accountDashboardPageOrderLastUpdateDateElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+
+    //account dashboard page text element getters
+    public String getAccountDashboardPageTitle() {return accountDashboardPageTitle.getText();}
+    public String getAccountDashboardPageNavbarOrdersLinkText() {return accountDashboardPageNavbarOrdersLink.getText();}
+    public String getAccountDashboardPageNavbarReturnsLinkText() {return accountDashboardPageNavbarReturnsLink.getText();}
+    public String getAccountDashboardPageNavbarMessagesLinkText() {return accountDashboardPageNavbarMessagesLink.getText().trim().split("\\(")[0];}
+    public String getAccountDashboardPageNavbarAddressesLinkText() {return accountDashboardPageNavbarAddressesLink.getText();}
+    public String getAccountDashboardPageNavbarWishlistsLinkText() {return accountDashboardPageNavbarWishlistsLink.getText();}
+    public String getAccountDashboardPageNavbarRecentlyViewedLinkText() {return accountDashboardPageNavbarRecentlyViewedLink.getText();}
+    public String getAccountDashboardPageNavbarAccountSettingsLinkText() {return accountDashboardPageNavbarAccountSettingsLink.getText();}
+
+    public String getAccountDashboardPageOrdersNotPlacedBoxText() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1700));
+        wait.until(ExpectedConditions.visibilityOf(accountDashboardPageOrdersNotPlacedBoxText));
+        return accountDashboardPageOrdersNotPlacedBoxText.getText();
+    }
+
+    //account dashboard page orders section (page) text element getters
+    public List<String> getAccountDashboardPageOrdersPlacedSubtext() {return accountDashboardPageOrdersPlacedSubtextElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+    public List<String> getAccountDashboardPageOrdersLastUpdateSubtext() {return accountDashboardPageOrdersLastUpdateSubtextElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+    public List<String> getAccountDashboardPageOrdersAwaitFulfillTag() {return accountDashboardPageOrdersAwaitFulfillTagElements.stream().map(WebElement::getText).collect(Collectors.toList());}
+
+    //account dashboard page web element assert methods
+    public boolean isAccountDashboardPageBreadcrumbDisplayed() {
+        return accountPageBreadcrumbElements.stream()
+                .allMatch(WebElement::isDisplayed);
+    }
+
+    public boolean isAccountDashboardPageTitleDisplayed() {return accountDashboardPageTitle.isDisplayed();}
+    public boolean isAccountDashboardPageNavbarOrdersLinkDisplayed() {return accountDashboardPageNavbarOrdersLink.isDisplayed();}
+    public boolean isAccountDashboardPageNavbarReturnsLinkDisplayed() {return accountDashboardPageNavbarReturnsLink.isDisplayed();}
+    public boolean isAccountDashboardPageNavbarMessagesLinkDisplayed() {return accountDashboardPageNavbarMessagesLink.isDisplayed();}
+    public boolean isAccountDashboardPageNavbarAddressesLinkDisplayed() {return accountDashboardPageNavbarAddressesLink.isDisplayed();}
+    public boolean isAccountDashboardPageNavbarWishlistsLinkDisplayed() {return accountDashboardPageNavbarWishlistsLink.isDisplayed();}
+    public boolean isAccountDashboardPageNavbarRecentlyViewedLinkDisplayed() {return accountDashboardPageNavbarRecentlyViewedLink.isDisplayed();}
+    public boolean isAccountDashboardPageNavbarAccountSettingsLinkDisplayed() {return accountDashboardPageNavbarAccountSettingsLink.isDisplayed();}
+
+    //orders section (page) web element assert methods (appear only after order placement)
+    public boolean isAccountDashboardPageOrdersProductImgElementsDisplayed() {
+        return accountDashboardPageOrdersProductImgElements.stream()
+                .allMatch(WebElement::isDisplayed);
+    }
+    public boolean isAccountDashboardPageOrderNumberLinkDisplayed() {
+        return accountDashboardPageOrderNumberLinkElements.stream()
+                .allMatch(WebElement::isDisplayed);
+    }
+    public boolean isAccountDashboardPageProductCountTotalCostDisplayed() {
+        return accountDashboardPageProductCountTotalCostElements.stream()
+                .allMatch(WebElement::isDisplayed);
+    }
+    public boolean isAccountDashboardPageOrdersPlacedSubtextDisplayed() {
+        return accountDashboardPageOrdersPlacedSubtextElements.stream()
+                .allMatch(WebElement::isDisplayed);
+    }
+    public boolean isAccountDashboardPageOrdersLastUpdateSubtextDisplayed() {
+        return accountDashboardPageOrdersLastUpdateSubtextElements.stream()
+                .allMatch(WebElement::isDisplayed);
+    }
+    public boolean isAccountDashboardPageOrdersAwaitFulfillTagDisplayed() {
+        return accountDashboardPageOrdersAwaitFulfillTagElements.stream()
+                .allMatch(WebElement::isDisplayed);
+    }
+    public boolean isAccountDashboardPageOrderPlacedDateDisplayed() {
+        return accountDashboardPageOrderPlacedDateElements.stream()
+                .allMatch(WebElement::isDisplayed);
+    }
+    public boolean isAccountDashboardPageOrderLastUpdateDateDisplayed() {
+        return accountDashboardPageOrderLastUpdateDateElements.stream()
+                .allMatch(WebElement::isDisplayed);
+    }
 
 }

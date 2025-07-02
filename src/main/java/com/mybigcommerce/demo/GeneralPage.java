@@ -122,6 +122,12 @@ public class GeneralPage extends BasePage {
         action.moveToElement(headerUpperNavRegisterLink).click().perform();
     }
 
+    //click 'Account' link method (to scroll up to the link Actions click is used)
+    public void clickAccountLink(){
+        Actions action = new Actions(driver);
+        action.moveToElement(headerUpperNavSignInLink).click().perform();
+    }
+
     //general page text element getters
     //header -> upper navbar
     public String getHeaderUpperNavSearchDropdownText() {return headerUpperNavSearchDropdownLink.getText();}

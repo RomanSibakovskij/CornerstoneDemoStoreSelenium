@@ -1925,6 +1925,61 @@ public class TestMethods extends BaseTest{
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //valid edit account tests
+
+    //valid edit account with login email test method
+    protected void validEditUserAccountDataWithLoginEmailTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        AccountDashboardPage accountDashboardPage = new AccountDashboardPage(driver);
+        AccountSettingsPage accountSettingsPage = new AccountSettingsPage(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Account' navbar link
+        generalPage.clickAccountLink();
+        //account dashboard page web element assert
+        isAccountDashboardPageWebElementDisplayed(accountDashboardPage);
+        //account dashboard page text element assert
+        isAccountDashboardPageTextElementAsExpected(accountDashboardPage);
+        //account dashboard page breadcrumb web element assert
+        isAccountDashboardPageBreadcrumbWebElementDisplayed(accountDashboardPage);
+        //assert account dashboard page title is as expected (since the user gets on orders page section after clicking 'Account')
+        isOrdersPageNoOrderTextElementsAsExpected(accountDashboardPage);
+        //capture screenshot of the orders page display(since the user gets here after clicking 'Account' link)
+        captureScreenshot(driver, "Orders Page Display");
+        //click 'Account settings' link
+        accountDashboardPage.clickAccountSettingsLink();
+        //account settings page web element assert
+        isAccountSettingsPageWebElementDisplayed(accountSettingsPage);
+        //account settings page text element assert
+        isAccountSettingsPageTextElementAsExpected(accountSettingsPage);
+        //capture screenshot of the account settings page before edited data input
+        captureScreenshot(driver, "Account Settings Page Display Before Edited Data Input");
+        //valid edited user account data getter (no password edit here)
+        accountSettingsPage.validEditedUserAccountDataForLoginEmailGetter();
+        //input valid edited first name into first name input field
+        accountSettingsPage.inputEditedUserFirstNameIntoFirstNameInputField();
+        //input valid edited last name into last name input field
+        accountSettingsPage.inputEditedUserLastNameIntoLastNameInputField();
+        //input valid edited email into email input field
+        accountSettingsPage.inputEditedUserEmailIntoEmailInputField();
+        //input valid edited phone into phone input field
+        accountSettingsPage.inputEditedUserPhoneIntoPhoneInputField();
+        //input valid password into current password input field
+        accountSettingsPage.inputCurrentUserPasswordIntoCurrentPasswordInputField();
+        //capture screenshot of the account settings page after valid edited data input
+        captureScreenshot(driver, "Account Settings Page Display After Valid Edited Data Input (With Login Email)");
+        //click 'Update details' button
+        accountSettingsPage.clickUpdateDetailsButton();
+        //assert the user receives the expected account update success message
+        assertEquals("Your account details have been updated.", accountSettingsPage.getAccountSettingsUpdateSuccessMessage(), "The account settings update success message doesn't match expectations or the update process has failed.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid Edit User Account Data (With Login Email) Test Result");
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     //general page web element assert test method (elements that all pages share -> header / footer)
     protected void isGeneralPageWebElementDisplayed(GeneralPage generalPage){
         //header -> upper navbar
@@ -2129,6 +2184,75 @@ public class TestMethods extends BaseTest{
         assertTrue(registerPage.isRegisterPageRequiredTagDisplayed(), "The register page required tags aren't displayed");
     }
 
+    //account dashboard page web element assert test method
+    protected void isAccountDashboardPageWebElementDisplayed(AccountDashboardPage accountDashboardPage) {
+        //assert account dashboard page title is displayed
+        assertTrue(accountDashboardPage.isAccountDashboardPageTitleDisplayed(), "The account dashboard page title isn't displayed");
+        //assert account dashboard page navbar orders link is displayed
+        assertTrue(accountDashboardPage.isAccountDashboardPageNavbarOrdersLinkDisplayed(), "The account dashboard page navbar orders link isn't displayed");
+        //assert account dashboard page navbar returns link is displayed
+        assertTrue(accountDashboardPage.isAccountDashboardPageNavbarReturnsLinkDisplayed(), "The account dashboard page navbar returns link isn't displayed");
+        //assert account dashboard page navbar messages link is displayed
+        assertTrue(accountDashboardPage.isAccountDashboardPageNavbarMessagesLinkDisplayed(), "The account dashboard page navbar messages link isn't displayed");
+        //assert account dashboard page navbar addresses link is displayed
+        assertTrue(accountDashboardPage.isAccountDashboardPageNavbarAddressesLinkDisplayed(), "The account dashboard page navbar addresses link isn't displayed");
+        //assert account dashboard page navbar wishlists link is displayed
+        assertTrue(accountDashboardPage.isAccountDashboardPageNavbarWishlistsLinkDisplayed(), "The account dashboard page navbar wishlists link isn't displayed");
+        //assert account dashboard page navbar recently viewed link is displayed
+        assertTrue(accountDashboardPage.isAccountDashboardPageNavbarRecentlyViewedLinkDisplayed(), "The account dashboard page navbar recently viewed link isn't displayed");
+        //assert account dashboard page navbar account settings link is displayed
+        assertTrue(accountDashboardPage.isAccountDashboardPageNavbarAccountSettingsLinkDisplayed(), "The account dashboard page navbar account settings link isn't displayed");
+    }
+
+    //account dashboard page breadcrumb web element assert test method
+    protected void isAccountDashboardPageBreadcrumbWebElementDisplayed(AccountDashboardPage accountDashboardPage) {
+        //assert account dashboard page breadcrumb elements are displayed (as a list)
+        assertTrue(accountDashboardPage.isAccountDashboardPageBreadcrumbDisplayed(), "The account dashboard page breadcrumb elements aren't displayed");
+
+    }
+
+
+
+    //account settings page web element assert test method
+    protected void isAccountSettingsPageWebElementDisplayed(AccountSettingsPage accountSettingsPage) {
+        //assert account settings page title is displayed
+        assertTrue(accountSettingsPage.isAccountSettingsPageTitleDisplayed(), "The account settings page title isn't displayed");
+        //assert account settings page first name subtext is displayed
+        assertTrue(accountSettingsPage.isAccountSettingsPageFirstNameSubtextDisplayed(), "The account settings page first name subtext isn't displayed");
+        //assert account settings page first name input field is displayed
+        assertTrue(accountSettingsPage.isAccountSettingsPageFirstNameInputFieldDisplayed(), "The account settings page first name input field isn't displayed");
+        //assert account settings page last name subtext is displayed
+        assertTrue(accountSettingsPage.isAccountSettingsPageLastNameSubtextDisplayed(), "The account settings page last name subtext isn't displayed");
+        //assert account settings page last name input field is displayed
+        assertTrue(accountSettingsPage.isAccountSettingsPageLastNameInputFieldDisplayed(), "The account settings page last name input field isn't displayed");
+        //assert account settings page company subtext is displayed
+        assertTrue(accountSettingsPage.isAccountSettingsPageCompanySubtextDisplayed(), "The account settings page company subtext isn't displayed");
+        //assert account settings page company input field is displayed
+        assertTrue(accountSettingsPage.isAccountSettingsPageCompanyInputFieldDisplayed(), "The account settings page company input field isn't displayed");
+        //assert account settings page phone subtext is displayed
+        assertTrue(accountSettingsPage.isAccountSettingsPagePhoneSubtextDisplayed(), "The account settings page phone subtext isn't displayed");
+        //assert account settings page phone input field is displayed
+        assertTrue(accountSettingsPage.isAccountSettingsPagePhoneInputFieldDisplayed(), "The account settings page phone input field isn't displayed");
+        //assert account settings page email subtext is displayed
+        assertTrue(accountSettingsPage.isAccountSettingsPageEmailSubtextDisplayed(), "The account settings page email subtext isn't displayed");
+        //assert account settings page email input field is displayed
+        assertTrue(accountSettingsPage.isAccountSettingsPageEmailInputFieldDisplayed(), "The account settings page email input field isn't displayed");
+        //assert account settings page current password subtext is displayed
+        assertTrue(accountSettingsPage.isAccountSettingsPageCurrentPasswordSubtextDisplayed(), "The account settings page current password subtext isn't displayed");
+        //assert account settings page current password input field is displayed
+        assertTrue(accountSettingsPage.isAccountSettingsPageCurrentPasswordInputFieldDisplayed(), "The account settings page current password input field isn't displayed");
+        //assert account settings page new password subtext is displayed
+        assertTrue(accountSettingsPage.isAccountSettingsPagePasswordSubtextDisplayed(), "The account settings page new password subtext isn't displayed");
+        //assert account settings page new password input field is displayed
+        assertTrue(accountSettingsPage.isAccountSettingsPagePasswordInputFieldDisplayed(), "The account settings page new password input field isn't displayed");
+        //assert account settings page confirm password subtext is displayed
+        assertTrue(accountSettingsPage.isAccountSettingsPageConfirmPasswordSubtextDisplayed(), "The account settings page confirm password subtext isn't displayed");
+        //assert account settings page confirm password input field is displayed
+        assertTrue(accountSettingsPage.isAccountSettingsPageConfirmPasswordInputFieldDisplayed(), "The account settings page confirm password input field isn't displayed");
+        //assert account settings page update button is displayed
+        assertTrue(accountSettingsPage.isAccountSettingsPageUpdateAccountButtonDisplayed(), "The account settings page update button isn't displayed");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert test method(elements that all pages have)
@@ -2263,6 +2387,54 @@ public class TestMethods extends BaseTest{
         //assert register page required tags and their count are as expected
         List<String> expected = Collections.nCopies(11, "REQUIRED"); //assert the tag count and content is as expected (since it's an array of tags)
         assertEquals(expected, registerPage.getRegisterPageRequiredTagElements(), "The register page required tags don't match expectations.");
+    }
+
+    //account dashboard page text element assert test method
+    protected void isAccountDashboardPageTextElementAsExpected(AccountDashboardPage accountDashboardPage) {
+        //assert account dashboard page navbar orders link is as expected
+        assertEquals("Orders", accountDashboardPage.getAccountDashboardPageNavbarOrdersLinkText(), "The account dashboard page navbar orders link doesn't match expectations.");
+        //assert account dashboard page navbar returns link is as expected
+        assertEquals("Returns", accountDashboardPage.getAccountDashboardPageNavbarReturnsLinkText(), "The account dashboard page navbar returns link doesn't match expectations.");
+        //assert account dashboard page navbar messages link is as expected
+        assertEquals("Messages ", accountDashboardPage.getAccountDashboardPageNavbarMessagesLinkText(), "The account dashboard page navbar messages link doesn't match expectations.");
+        //assert account dashboard page navbar addresses link is as expected
+        assertEquals("Addresses", accountDashboardPage.getAccountDashboardPageNavbarAddressesLinkText(), "The account dashboard page navbar addresses link doesn't match expectations.");
+        //assert account dashboard page navbar wishlists link is as expected
+        assertEquals("Wish Lists", accountDashboardPage.getAccountDashboardPageNavbarWishlistsLinkText(), "The account dashboard page navbar wishlists link doesn't match expectations.");
+        //assert account dashboard page navbar recently viewed link is as expected
+        assertEquals("Recently Viewed", accountDashboardPage.getAccountDashboardPageNavbarRecentlyViewedLinkText(), "The account dashboard page navbar recently viewed link doesn't match expectations.");
+        //assert account dashboard page navbar account settings link is as expected
+        assertEquals("Account Settings", accountDashboardPage.getAccountDashboardPageNavbarAccountSettingsLinkText(), "The account dashboard page navbar account settings link doesn't match expectations.");
+    }
+
+    //orders page text element assert test method (before any order placement, the user gets here after register/login)
+    protected void isOrdersPageNoOrderTextElementsAsExpected(AccountDashboardPage accountDashboardPage) {
+        //assert account dashboard page title is as expected (since the user gets on orders page section after clicking 'Account')
+        assertEquals("Orders", accountDashboardPage.getAccountDashboardPageTitle(), "The account dashboard page title doesn't match expectations.");
+        //assert account dashboard page orders info box text is as expected
+        assertEquals("You haven't placed any orders with us. When you do, their status will appear on this page.", accountDashboardPage.getAccountDashboardPageOrdersNotPlacedBoxText(), "The account dashboard page orders not placed box doesn't match expectations.");
+    }
+
+    //account settings page text element assert test method
+    protected void isAccountSettingsPageTextElementAsExpected(AccountSettingsPage accountSettingsPage) {
+        //assert account settings page title is as expected
+        assertEquals("Account Settings", accountSettingsPage.getAccountSettingsPageTitle(), "The account settings page title doesn't match expectations.");
+        //assert account settings page first name subtext is as expected
+        assertEquals("First Name", accountSettingsPage.getAccountSettingsPageFirstNameSubtext(), "The account settings page first name subtext doesn't match expectations.");
+        //assert account settings page last name subtext is as expected
+        assertEquals("Last Name", accountSettingsPage.getAccountSettingsPageLastNameSubtext(), "The account settings page last name subtext doesn't match expectations.");
+        //assert account settings page company subtext is as expected
+        assertEquals("Company", accountSettingsPage.getAccountSettingsPageCompanySubtext(), "The account settings page company subtext doesn't match expectations.");
+        //assert account settings page phone subtext is as expected
+        assertEquals("Phone Number", accountSettingsPage.getAccountSettingsPagePhoneSubtext(), "The account settings page phone subtext doesn't match expectations.");
+        //assert account settings page email subtext is as expected
+        assertEquals("Email Address", accountSettingsPage.getAccountSettingsPageEmailSubtext(), "The account settings page email subtext doesn't match expectations.");
+        //assert account settings page password subtext is as expected
+        assertEquals("Password", accountSettingsPage.getAccountSettingsPagePasswordSubtext(), "The account settings page password subtext doesn't match expectations.");
+        //assert account settings page current password subtext is as expected
+        assertEquals("Current Password", accountSettingsPage.getAccountSettingsPageCurrentPasswordSubtext(), "The account settings page current password subtext doesn't match expectations.");
+        //assert account settings page confirm password subtext is as expected
+        assertEquals("Confirm Password", accountSettingsPage.getAccountSettingsPageConfirmPasswordSubtext(), "The account settings page confirm password subtext doesn't match expectations.");
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
