@@ -37,6 +37,8 @@ public class AccountSettingsPageNoSingularInput extends BasePage{
     private String noEditedUserFirstName;
     private String noEditedUserLastName;
     private String noEditedUserEmail;
+    private String noEditedUserPassword;
+    private String noEditedUserConfirmPassword;
 
     public AccountSettingsPageNoSingularInput(WebDriver driver) {super(driver);}
 
@@ -91,6 +93,29 @@ public class AccountSettingsPageNoSingularInput extends BasePage{
 
     }
 
+    //invalid edited user account data getter - no new password / confirm password
+    public void invalidEditedUserAccountDataNoPasswordConfirmGetter(){
+
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        validEditedUserFirstName = TestDataGenerator.getRandomFirstName();
+        validEditedUserLastName = TestDataGenerator.getRandomLastName();
+        validUserCurrentPassword = registerPage.getPassword();
+        noEditedUserPassword = "";
+        noEditedUserConfirmPassword = noEditedUserPassword;
+
+        System.out.println("Valid generated edited user account data (no new password / confirm password): " + "\n");
+
+        logger.info("Valid generated edited user first name (no new password / confirm password): " + validEditedUserFirstName);
+        logger.info("Valid generated edited user last name (no new password / confirm password): " + validEditedUserLastName);
+        logger.info("Valid current user password (no new password / confirm password): " + validUserCurrentPassword);
+        logger.info("No edited user password: " + noEditedUserPassword);
+        logger.info("No edited user confirm password: " + noEditedUserConfirmPassword);
+
+        System.out.println("\n");
+
+    }
+
     //invalid edited user account data input methods - no singular input
     public void inputNoEditedUserFirstNameIntoFirstNameInputField(){
         accountSettingsFirstNameInputField.clear();
@@ -103,6 +128,14 @@ public class AccountSettingsPageNoSingularInput extends BasePage{
     public void inputNoEditedUserEmailIntoEmailInputField(){
         accountSettingsEmailInputField.clear();
         accountSettingsEmailInputField.sendKeys(noEditedUserEmail);
+    }
+    public void inputNoEditedUserPasswordIntoPasswordInputField(){
+        accountSettingsPasswordInputField.clear();
+        accountSettingsPasswordInputField.sendKeys(noEditedUserPassword);
+    }
+    public void inputNoEditedUserConfirmPasswordIntoConfirmPasswordInputField(){
+        accountSettingsConfirmPasswordInputField.clear();
+        accountSettingsConfirmPasswordInputField.sendKeys(noEditedUserConfirmPassword);
     }
 
     //valid edited user account data input methods (for remaining inputs)
