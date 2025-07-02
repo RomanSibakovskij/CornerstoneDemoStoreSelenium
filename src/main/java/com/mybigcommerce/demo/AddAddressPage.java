@@ -155,6 +155,15 @@ public class AddAddressPage extends BasePage {
         action.moveToElement(addAddressPageSaveAddressButton).click().perform();
     }
 
+    //click 'Country' dropdown menu method
+    public void clickCountryDropdownMenu(){
+        Actions action = new Actions(driver);
+        action.moveToElement(addAddressPageCountryDropdownMenu).click().perform();
+    }
+
+    //select 'Choose a country' option method
+    public void selectCountryOption(){addAddressPageSelectCountryOption.click();}
+
     //click 'State' dropdown menu method
     public void clickStateDropdownMenu(){
         Actions action = new Actions(driver);
