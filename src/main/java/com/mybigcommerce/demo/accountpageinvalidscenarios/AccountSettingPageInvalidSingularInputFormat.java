@@ -32,6 +32,8 @@ public class AccountSettingPageInvalidSingularInputFormat extends BasePage{
     private String invalidEditedUserLastNameFormat;
     private String invalidEditedUserEmailFormat;
     private String existingEditedUserEmail;
+    private String invalidEditedUserPasswordFormat;
+    private String invalidEditedUserConfirmPasswordFormat;
 
     public AccountSettingPageInvalidSingularInputFormat(WebDriver driver) {super(driver);}
 
@@ -119,6 +121,29 @@ public class AccountSettingPageInvalidSingularInputFormat extends BasePage{
 
     }
 
+    //invalid edited user account data getter - invalid new password / confirm password format (strings only)
+    public void invalidEditedUserAccountDataInvalidPasswordConfirmFormatGetter(){
+
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        validEditedUserFirstName = TestDataGenerator.getRandomFirstName();
+        validEditedUserLastName = TestDataGenerator.getRandomLastName();
+        validUserCurrentPassword = registerPage.getPassword();
+        invalidEditedUserPasswordFormat = "Rfsfdsfgfdhfdfsfvfdhfgh";
+        invalidEditedUserConfirmPasswordFormat = invalidEditedUserPasswordFormat;
+
+        System.out.println("Valid generated edited user account data (invalid new password / confirm password format): " + "\n");
+
+        logger.info("Valid generated edited user first name (invalid new password / confirm password format): " + validEditedUserFirstName);
+        logger.info("Valid generated edited user last name (invalid new password / confirm password format): " + validEditedUserLastName);
+        logger.info("Valid current user password (invalid new password / confirm password format): " + validUserCurrentPassword);
+        logger.info("Invalid edited user password format: " + invalidEditedUserPasswordFormat);
+        logger.info("Invalid matching edited user confirm password format: " + invalidEditedUserConfirmPasswordFormat);
+
+        System.out.println("\n");
+
+    }
+
     //invalid edited user account data input methods - invalid singular input format
     public void inputInvalidEditedUserFirstNameFormatIntoFirstNameInputField(){
         accountSettingsFirstNameInputField.clear();
@@ -135,6 +160,14 @@ public class AccountSettingPageInvalidSingularInputFormat extends BasePage{
     public void inputExistingEditedUserEmailIntoEmailInputField(){
         accountSettingsEmailInputField.clear();
         accountSettingsEmailInputField.sendKeys(existingEditedUserEmail);
+    }
+    public void inputInvalidEditedUserPasswordFormatIntoPasswordInputField(){
+        accountSettingsPasswordInputField.clear();
+        accountSettingsPasswordInputField.sendKeys(invalidEditedUserPasswordFormat);
+    }
+    public void inputInvalidEditedUserConfirmPasswordFormatIntoConfirmPasswordInputField(){
+        accountSettingsConfirmPasswordInputField.clear();
+        accountSettingsConfirmPasswordInputField.sendKeys(invalidEditedUserConfirmPasswordFormat);
     }
 
     //valid edited user account data input methods (for remaining inputs)

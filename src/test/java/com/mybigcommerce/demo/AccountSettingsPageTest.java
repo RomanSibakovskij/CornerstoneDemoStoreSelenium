@@ -282,4 +282,18 @@ public class AccountSettingsPageTest extends TestMethods{
         invalidEditedUserAccountExistingEmailFormatTest();
     }
 
+    //Test 003s -> invalid edit user account data test - invalid edited password / confirm password (strings only)
+    @Test
+    @DisplayName("Invalid Edit User Account Data Test - Invalid Edited Password / Confirm Password Format")
+    @Tag("Invalid_Edit_Account_Data")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidEditAccountDataInvalidPasswordConfirmFormatTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //invalid edit user account data test - invalid edited password / confirm password (strings only)
+        invalidEditedUserAccountInvalidPasswordConfirmFormatTest();
+    }
+
 }
