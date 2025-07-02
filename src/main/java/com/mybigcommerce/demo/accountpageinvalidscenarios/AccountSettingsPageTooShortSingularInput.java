@@ -37,6 +37,8 @@ public class AccountSettingsPageTooShortSingularInput extends BasePage{
     private String tooShortEditedUserFirstName;
     private String tooShortEditedUserLastName;
     private String tooShortEditedUserEmail;
+    private String tooShortEditedUserPassword;
+    private String tooShortEditedUserConfirmPassword;
 
     public AccountSettingsPageTooShortSingularInput(WebDriver driver) {super(driver);}
 
@@ -103,6 +105,29 @@ public class AccountSettingsPageTooShortSingularInput extends BasePage{
 
     }
 
+    //invalid edited user account data getter - too short new password / confirm password (6 chars)
+    public void invalidEditedUserAccountDataTooShortPasswordConfirmGetter(){
+
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        validEditedUserFirstName = TestDataGenerator.getRandomFirstName();
+        validEditedUserLastName = TestDataGenerator.getRandomLastName();
+        validUserCurrentPassword = registerPage.getPassword();
+        tooShortEditedUserPassword = "Ffgd34";
+        tooShortEditedUserConfirmPassword = tooShortEditedUserPassword;
+
+        System.out.println("Valid generated edited user account data (too short new password / confirm password): " + "\n");
+
+        logger.info("Valid generated edited user first name (too short new password / confirm password): " + validEditedUserFirstName);
+        logger.info("Valid generated edited user last name (too short new password / confirm password): " + validEditedUserLastName);
+        logger.info("Valid current user password (too short new password / confirm password): " + validUserCurrentPassword);
+        logger.info("Too short edited user password: " + tooShortEditedUserPassword);
+        logger.info("Too short matching edited user confirm password: " + tooShortEditedUserConfirmPassword);
+
+        System.out.println("\n");
+
+    }
+
     //invalid edited user account data input methods - too short singular input
     public void inputTooShortEditedUserFirstNameIntoFirstNameInputField(){
         accountSettingsFirstNameInputField.clear();
@@ -116,7 +141,14 @@ public class AccountSettingsPageTooShortSingularInput extends BasePage{
         accountSettingsEmailInputField.clear();
         accountSettingsEmailInputField.sendKeys(tooShortEditedUserEmail);
     }
-
+    public void inputTooShortEditedUserPasswordIntoPasswordInputField(){
+        accountSettingsPasswordInputField.clear();
+        accountSettingsPasswordInputField.sendKeys(tooShortEditedUserPassword);
+    }
+    public void inputTooShortEditedUserConfirmPasswordIntoConfirmPasswordInputField() {
+        accountSettingsConfirmPasswordInputField.clear();
+        accountSettingsConfirmPasswordInputField.sendKeys(tooShortEditedUserConfirmPassword);
+    }
     //valid edited user account data input methods (for remaining inputs)
     public void inputEditedUserFirstNameIntoFirstNameInputField(){
         accountSettingsFirstNameInputField.clear();

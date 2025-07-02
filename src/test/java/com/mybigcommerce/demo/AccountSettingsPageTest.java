@@ -151,4 +151,18 @@ public class AccountSettingsPageTest extends TestMethods{
         invalidEditedUserAccountTooShortEmailTest();
     }
 
+    //Test 003j -> invalid edit user account data test - too short edited password / confirm password (6 chars) 
+    @Test
+    @DisplayName("Invalid Edit User Account Data Test - Too Short Edited Password / Confirm Password")
+    @Tag("Invalid_Edit_Account_Data")
+    @Tag("Too_Short_Singular_Input")
+    void invalidEditAccountDataTooShortPasswordConfirmTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //invalid edit user account data test - too short edited password / confirm password (6 chars)
+        invalidEditedUserAccountTooShortPasswordConfirmTest();
+    }
+
 }
