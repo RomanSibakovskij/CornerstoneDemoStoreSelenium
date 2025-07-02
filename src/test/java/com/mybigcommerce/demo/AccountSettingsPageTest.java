@@ -239,4 +239,18 @@ public class AccountSettingsPageTest extends TestMethods{
         invalidEditedUserAccountInvalidFirstNameFormatTest();
     }
 
+    //Test 003p -> invalid edit user account data test - invalid edited last name format (special symbols only) (the account editing wasn't aborted, test has failed)
+    @Test
+    @DisplayName("Invalid Edit User Account Data Test - Invalid Edited Last Name Format")
+    @Tag("Invalid_Edit_Account_Data")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidEditAccountDataInvalidLastNameFormatTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //invalid edit user account data test - invalid edited last name format (special symbols only)
+        invalidEditedUserAccountInvalidLastNameFormatTest();
+    }
+
 }

@@ -31,6 +31,7 @@ public class AccountSettingPageInvalidSingularInputFormat extends BasePage{
 
     //invalid edited user account data  - invalid singular input format
     private String invalidEditedUserFirstNameFormat;
+    private String invalidEditedUserLastNameFormat;
 
     public AccountSettingPageInvalidSingularInputFormat(WebDriver driver) {super(driver);}
 
@@ -55,10 +56,35 @@ public class AccountSettingPageInvalidSingularInputFormat extends BasePage{
 
     }
 
+    //invalid edited user account data getter - invalid edited last name format (special symbols only)
+    public void invalidEditedUserAccountDataInvalidLastNameFormatGetter(){
+
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        validEditedUserFirstName = TestDataGenerator.getRandomFirstName();
+        invalidEditedUserLastNameFormat = "@$#$%";
+        validEditedUserEmail = TestDataGenerator.generateRandomEmailAddress(8);
+        validUserCurrentPassword = registerPage.getPassword();
+
+        System.out.println("Valid generated edited user account data (invalid user last name format): " + "\n");
+
+        logger.info("Valid generated edited user first name (invalid user last name format): " + validEditedUserFirstName);
+        logger.info("Invalid edited user last name format: " + invalidEditedUserLastNameFormat);
+        logger.info("Valid generated edited user email (invalid user last name format): " + validEditedUserEmail);
+        logger.info("Valid current user password (invalid user last name format): " + validUserCurrentPassword);
+
+        System.out.println("\n");
+
+    }
+
     //invalid edited user account data input methods - invalid singular input format
     public void inputInvalidEditedUserFirstNameFormatIntoFirstNameInputField(){
         accountSettingsFirstNameInputField.clear();
         accountSettingsFirstNameInputField.sendKeys(invalidEditedUserFirstNameFormat);
+    }
+    public void inputInvalidEditedUserLastNameFormatIntoLastNameInputField(){
+        accountSettingsLastNameInputField.clear();
+        accountSettingsLastNameInputField.sendKeys(invalidEditedUserLastNameFormat);
     }
 
     //valid edited user account data input methods (for remaining inputs)
