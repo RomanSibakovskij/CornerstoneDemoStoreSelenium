@@ -31,6 +31,7 @@ public class AddAddressPageNoSingularInput extends BasePage{
 
     //invalid edited user address data - no singular input
     private String noEditAddressFirstName;
+    private String noEditAddressLastName;
 
     public AddAddressPageNoSingularInput(WebDriver driver) {super(driver);}
 
@@ -58,10 +59,38 @@ public class AddAddressPageNoSingularInput extends BasePage{
 
     }
 
+    //invalid user edited address data getter - no user last name
+    public void invalidUserEditedAddressDataNoLastNameGetter(){
+
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        validAddressFirstName = registerPage.getValidRegisterFirstName();; //add address page requires the input, while edit address page has the input by default
+        noEditAddressLastName = "";
+        validAddress = TestDataGenerator.generateRandomAddress(9);
+        validAddressCity = TestDataGenerator.getRandomCity();
+        validAddressPostCode = TestDataGenerator.getRandomPostalCode();
+        validAddressPhone = TestDataGenerator.generatePhoneNumber(8);
+
+        System.out.println("Invalid user edited address generated data (no user last name): " + "\n");
+
+        logger.info("No edited user last name: " + noEditAddressLastName);
+        logger.info("Valid generated edited user address (no user last name): " + validAddress);
+        logger.info("Valid generated edited user city (no user last name): " + validAddressCity);
+        logger.info("Valid generated edited user post code (no user last name): " + validAddressPostCode);
+        logger.info("Valid generated edited user phone (no user last name): " + validAddressPhone);
+
+        System.out.println("\n");
+
+    }
+
     //invalid user address input methods - no singular input
     public void inputNoUserFirstNameIntoFirstNameInputField(){
         addAddressPageFirstNameInputField.clear();
         addAddressPageFirstNameInputField.sendKeys(noEditAddressFirstName);
+    }
+    public void inputNoUserLastNameIntoLastNameInputField(){
+        addAddressPageLastNameInputField.clear();
+        addAddressPageLastNameInputField.sendKeys(noEditAddressLastName);
     }
 
     //valid user address input methods (for remaining inputs)
