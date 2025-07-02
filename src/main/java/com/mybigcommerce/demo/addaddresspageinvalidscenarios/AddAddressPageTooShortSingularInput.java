@@ -32,6 +32,7 @@ public class AddAddressPageTooShortSingularInput extends BasePage{
     //invalid user address data - too short singular input
     private String tooShortEditAddressFirstName;
     private String tooShortEditAddressLastName;
+    private String tooShortEditAddress;
 
     public AddAddressPageTooShortSingularInput(WebDriver driver) {super(driver);}
 
@@ -83,6 +84,29 @@ public class AddAddressPageTooShortSingularInput extends BasePage{
 
     }
 
+    //invalid user edited address data getter - too short user address (3 chars)
+    public void invalidUserEditedAddressDataTooShortAddressGetter(){
+
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        validAddressFirstName = registerPage.getValidRegisterFirstName();; //add address page requires the input, while edit address page has the input by default
+        validAddressLastName = registerPage.getValidRegisterLastName();; //add address page requires the input, while edit address page has the input by default
+        tooShortEditAddress = "3.D";
+        validAddressCity = TestDataGenerator.getRandomCity();
+        validAddressPostCode = TestDataGenerator.getRandomPostalCode();
+        validAddressPhone = TestDataGenerator.generatePhoneNumber(8);
+
+        System.out.println("Invalid user edited address generated data (too short user address): " + "\n");
+
+        logger.info("Too short edited user address: " + tooShortEditAddress);
+        logger.info("Valid generated edited user city (too short user address): " + validAddressCity);
+        logger.info("Valid generated edited user post code (too short user address): " + validAddressPostCode);
+        logger.info("Valid generated edited user phone (too short user address): " + validAddressPhone);
+
+        System.out.println("\n");
+
+    }
+
     //invalid user address input methods - too short singular input
     public void inputTooShortUserFirstNameIntoFirstNameInputField(){
         addAddressPageFirstNameInputField.clear();
@@ -91,6 +115,10 @@ public class AddAddressPageTooShortSingularInput extends BasePage{
     public void inputTooShortUserLastNameIntoLastNameInputField(){
         addAddressPageLastNameInputField.clear();
         addAddressPageLastNameInputField.sendKeys(tooShortEditAddressLastName);
+    }
+    public void inputTooShortUserAddressIntoAddress1InputField(){
+        addAddressPageAddress1InputField.clear();
+        addAddressPageAddress1InputField.sendKeys(tooShortEditAddress);
     }
 
     //valid user address input methods (for remaining inputs)

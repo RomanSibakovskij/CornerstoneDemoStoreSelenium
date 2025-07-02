@@ -126,7 +126,7 @@ public class AddAddressPageInvalidScenariosTest extends TestMethods{
     //Test 004i -> invalid user second address addition test - too short user first name (1 char) (new address addition wasn't aborted, test has failed)
     @Test
     @DisplayName("Invalid User Second Address Addition Test - Too Short First Name")
-    @Tag("Invalid_Second_User_Addition")
+    @Tag("Invalid_Second_User_Address_Addition")
     @Tag("Too_Short_Singular_Input")
     void invalidSecondAddressAdditionTooShortFirstNameTest() {
         //user navigation to register page test
@@ -140,7 +140,7 @@ public class AddAddressPageInvalidScenariosTest extends TestMethods{
     //Test 004j -> invalid user second address addition test - too short user last name (1 char) (new address addition wasn't aborted, test has failed)
     @Test
     @DisplayName("Invalid User Second Address Addition Test - Too Short Last Name")
-    @Tag("Invalid_Second_User_Addition")
+    @Tag("Invalid_Second_User_Address_Addition")
     @Tag("Too_Short_Singular_Input")
     void invalidSecondAddressAdditionTooShortLastNameTest() {
         //user navigation to register page test
@@ -149,6 +149,20 @@ public class AddAddressPageInvalidScenariosTest extends TestMethods{
         validUserAccountCreationTest();
         //invalid user second address addition test - too short user last name (1 char)
         invalidSecondUserAddressAdditionTooShortLastNameTest();
+    }
+
+    //Test 004k -> invalid user second address addition test - too short user address (3 chars) (new address addition wasn't aborted, test has failed)
+    @Test
+    @DisplayName("Invalid User Second Address Addition Test - Too Short Address")
+    @Tag("Invalid_Second_User_Address_Addition")
+    @Tag("Too_Short_Singular_Input")
+    void invalidSecondAddressAdditionTooShortAddressTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //invalid user second address addition test - too short user address (3 chars)
+        invalidSecondUserAddressAdditionTooShortAddressTest();
     }
 
 }
