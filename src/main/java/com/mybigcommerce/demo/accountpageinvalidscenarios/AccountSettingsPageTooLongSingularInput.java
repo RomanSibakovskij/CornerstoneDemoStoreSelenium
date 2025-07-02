@@ -31,6 +31,7 @@ public class AccountSettingsPageTooLongSingularInput extends BasePage{
 
     //invalid edited user account data  - too long singular input
     private String tooLongEditedUserFirstName;
+    private String tooLongEditedUserLastName;
 
     public AccountSettingsPageTooLongSingularInput(WebDriver driver) {super(driver);}
 
@@ -55,10 +56,35 @@ public class AccountSettingsPageTooLongSingularInput extends BasePage{
 
     }
 
+    //invalid edited user account data getter - too long edited last name (100 chars)
+    public void invalidEditedUserAccountDataTooLongLastNameGetter(){
+
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        validEditedUserFirstName = TestDataGenerator.getRandomFirstName();
+        tooLongEditedUserLastName = "Vhfgdsgdtwetrtjdsfgrfdgjhkjmngbfdsfgfhkjgsedhgtfgsdetgtujyhgdsfgdfhtgfsdfdrhfthdfsegtthtgfddxgdfhgdg";
+        validEditedUserEmail = TestDataGenerator.generateRandomEmailAddress(8);
+        validUserCurrentPassword = registerPage.getPassword();
+
+        System.out.println("Valid generated edited user account data (too long user last name): " + "\n");
+
+        logger.info("Valid generated edited user first name (too long user last name): " + validEditedUserFirstName);
+        logger.info("Too long edited user last name: " + tooLongEditedUserLastName);
+        logger.info("Valid generated edited user email (too long user last name): " + validEditedUserEmail);
+        logger.info("Valid current user password (too long user last name): " + validUserCurrentPassword);
+
+        System.out.println("\n");
+
+    }
+
     //invalid edited user account data input methods - too long singular input
     public void inputTooLongEditedUserFirstNameIntoFirstNameInputField(){
         accountSettingsFirstNameInputField.clear();
         accountSettingsFirstNameInputField.sendKeys(tooLongEditedUserFirstName);
+    }
+    public void inputTooLongEditedUserLastNameIntoLastNameInputField(){
+        accountSettingsLastNameInputField.clear();
+        accountSettingsLastNameInputField.sendKeys(tooLongEditedUserLastName);
     }
 
     //valid edited user account data input methods (for remaining inputs)
