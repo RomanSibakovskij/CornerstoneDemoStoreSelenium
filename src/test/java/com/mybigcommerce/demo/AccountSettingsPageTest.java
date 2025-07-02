@@ -209,4 +209,18 @@ public class AccountSettingsPageTest extends TestMethods{
         invalidEditedUserAccountTooLongEmailTest();
     }
 
+    //Test 003n -> invalid edit user account data test - too long edited password / confirm password (75 chars) (the account editing wasn't aborted, test has failed)
+    @Test
+    @DisplayName("Invalid Edit User Account Data Test - Too Long Edited Password / Confirm Password")
+    @Tag("Invalid_Edit_Account_Data")
+    @Tag("Too_Long_Singular_Input")
+    void invalidEditAccountDataTooLongPasswordConfirmTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //invalid edit user account data test - too long edited password / confirm password (75 chars)
+        invalidEditedUserAccountTooLongPasswordConfirmTest();
+    }
+
 }

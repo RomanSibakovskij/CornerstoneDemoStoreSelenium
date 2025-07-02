@@ -33,6 +33,8 @@ public class AccountSettingsPageTooLongSingularInput extends BasePage{
     private String tooLongEditedUserFirstName;
     private String tooLongEditedUserLastName;
     private String tooLongEditedUserEmail;
+    private String tooLongEditedUserPassword;
+    private String tooLongEditedUserConfirmPassword;
 
     public AccountSettingsPageTooLongSingularInput(WebDriver driver) {super(driver);}
 
@@ -99,6 +101,29 @@ public class AccountSettingsPageTooLongSingularInput extends BasePage{
 
     }
 
+    //invalid edited user account data getter - too long new password / confirm password (75 chars)
+    public void invalidEditedUserAccountDataTooLongPasswordConfirmGetter(){
+
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        validEditedUserFirstName = TestDataGenerator.getRandomFirstName();
+        validEditedUserLastName = TestDataGenerator.getRandomLastName();
+        validUserCurrentPassword = registerPage.getPassword();
+        tooLongEditedUserPassword = "Phfgdsgdtwetrtjdsfgrfdgjhkjmngbfdsf34hkjgsedhgtfgsdetgtujyhgdsfgdfhtgfsdfd4";
+        tooLongEditedUserConfirmPassword = tooLongEditedUserPassword;
+
+        System.out.println("Valid generated edited user account data (too long new password / confirm password): " + "\n");
+
+        logger.info("Valid generated edited user first name (too long new password / confirm password): " + validEditedUserFirstName);
+        logger.info("Valid generated edited user last name (too long new password / confirm password): " + validEditedUserLastName);
+        logger.info("Valid current user password (too long new password / confirm password): " + validUserCurrentPassword);
+        logger.info("Too long edited user password: " + tooLongEditedUserPassword);
+        logger.info("Too long matching edited user confirm password: " + tooLongEditedUserConfirmPassword);
+
+        System.out.println("\n");
+
+    }
+
     //invalid edited user account data input methods - too long singular input
     public void inputTooLongEditedUserFirstNameIntoFirstNameInputField(){
         accountSettingsFirstNameInputField.clear();
@@ -111,6 +136,14 @@ public class AccountSettingsPageTooLongSingularInput extends BasePage{
     public void inputTooLongEditedUserEmailIntoEmailInputField(){
         accountSettingsEmailInputField.clear();
         accountSettingsEmailInputField.sendKeys(tooLongEditedUserEmail);
+    }
+    public void inputTooLongEditedUserPasswordIntoPasswordInputField(){
+        accountSettingsPasswordInputField.clear();
+        accountSettingsPasswordInputField.sendKeys(tooLongEditedUserPassword);
+    }
+    public void inputTooLongEditedUserConfirmPasswordIntoConfirmPasswordInputField(){
+        accountSettingsConfirmPasswordInputField.clear();
+        accountSettingsConfirmPasswordInputField.sendKeys(tooLongEditedUserConfirmPassword);
     }
 
     //valid edited user account data input methods (for remaining inputs)
