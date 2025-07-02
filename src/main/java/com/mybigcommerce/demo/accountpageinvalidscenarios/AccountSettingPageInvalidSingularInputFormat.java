@@ -25,13 +25,12 @@ public class AccountSettingPageInvalidSingularInputFormat extends BasePage{
     private String validEditedUserFirstName;
     private String validEditedUserLastName;
     private static String validEditedUserEmail;
-    private static String validEditedUserPassword;
-    private String validEditedUserConfirmPassword;
     private String validUserCurrentPassword;
 
     //invalid edited user account data  - invalid singular input format
     private String invalidEditedUserFirstNameFormat;
     private String invalidEditedUserLastNameFormat;
+    private String invalidEditedUserEmailFormat;
 
     public AccountSettingPageInvalidSingularInputFormat(WebDriver driver) {super(driver);}
 
@@ -77,6 +76,27 @@ public class AccountSettingPageInvalidSingularInputFormat extends BasePage{
 
     }
 
+    //invalid edited user account data getter - invalid edited email format (missing '@')
+    public void invalidEditedUserAccountDataInvalidEmailFormatGetter(){
+
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        validEditedUserFirstName = TestDataGenerator.getRandomFirstName();
+        validEditedUserLastName = TestDataGenerator.getRandomLastName();
+        invalidEditedUserEmailFormat = "fddfdsexample.com";
+        validUserCurrentPassword = registerPage.getPassword();
+
+        System.out.println("Valid generated edited user account data (invalid user email format): " + "\n");
+
+        logger.info("Valid generated edited user first name (invalid user email format): " + validEditedUserFirstName);
+        logger.info("Valid generated edited user last name (invalid user email format): " + validEditedUserLastName);
+        logger.info("Invalid edited user email format: " + invalidEditedUserEmailFormat);
+        logger.info("Valid current user password (invalid user email format): " + validUserCurrentPassword);
+
+        System.out.println("\n");
+
+    }
+
     //invalid edited user account data input methods - invalid singular input format
     public void inputInvalidEditedUserFirstNameFormatIntoFirstNameInputField(){
         accountSettingsFirstNameInputField.clear();
@@ -85,6 +105,10 @@ public class AccountSettingPageInvalidSingularInputFormat extends BasePage{
     public void inputInvalidEditedUserLastNameFormatIntoLastNameInputField(){
         accountSettingsLastNameInputField.clear();
         accountSettingsLastNameInputField.sendKeys(invalidEditedUserLastNameFormat);
+    }
+    public void inputInvalidEditedUserEmailFormatIntoEmailInputField(){
+        accountSettingsEmailInputField.clear();
+        accountSettingsEmailInputField.sendKeys(invalidEditedUserEmailFormat);
     }
 
     //valid edited user account data input methods (for remaining inputs)
@@ -103,14 +127,6 @@ public class AccountSettingPageInvalidSingularInputFormat extends BasePage{
     public void inputCurrentUserPasswordIntoCurrentPasswordInputField(){
         accountSettingsCurrentPasswordInputField.clear();
         accountSettingsCurrentPasswordInputField.sendKeys(validUserCurrentPassword);
-    }
-    public void inputEditedUserPasswordIntoPasswordInputField(){
-        accountSettingsPasswordInputField.clear();
-        accountSettingsPasswordInputField.sendKeys(validEditedUserPassword);
-    }
-    public void inputEditedUserConfirmPasswordIntoConfirmPasswordInputField(){
-        accountSettingsConfirmPasswordInputField.clear();
-        accountSettingsConfirmPasswordInputField.sendKeys(validEditedUserConfirmPassword);
     }
 
 }

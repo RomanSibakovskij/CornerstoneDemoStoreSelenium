@@ -253,4 +253,18 @@ public class AccountSettingsPageTest extends TestMethods{
         invalidEditedUserAccountInvalidLastNameFormatTest();
     }
 
+    //Test 003q -> invalid edit user account data test - invalid edited email format (missing '@')
+    @Test
+    @DisplayName("Invalid Edit User Account Data Test - Invalid Edited Email Format")
+    @Tag("Invalid_Edit_Account_Data")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidEditAccountDataInvalidEmailFormatTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //invalid edit user account data test - invalid edited email format (missing '@')
+        invalidEditedUserAccountInvalidEmailFormatTest();
+    }
+
 }

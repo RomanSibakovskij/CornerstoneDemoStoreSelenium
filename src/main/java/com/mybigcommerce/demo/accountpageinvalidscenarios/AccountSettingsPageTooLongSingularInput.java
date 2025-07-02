@@ -25,8 +25,6 @@ public class AccountSettingsPageTooLongSingularInput extends BasePage{
     private String validEditedUserFirstName;
     private String validEditedUserLastName;
     private static String validEditedUserEmail;
-    private static String validEditedUserPassword;
-    private String validEditedUserConfirmPassword;
     private String validUserCurrentPassword;
 
     //invalid edited user account data  - too long singular input
@@ -162,14 +160,6 @@ public class AccountSettingsPageTooLongSingularInput extends BasePage{
     public void inputCurrentUserPasswordIntoCurrentPasswordInputField(){
         accountSettingsCurrentPasswordInputField.clear();
         accountSettingsCurrentPasswordInputField.sendKeys(validUserCurrentPassword);
-    }
-    public void inputEditedUserPasswordIntoPasswordInputField(){
-        accountSettingsPasswordInputField.clear();
-        accountSettingsPasswordInputField.sendKeys(validEditedUserPassword);
-    }
-    public void inputEditedUserConfirmPasswordIntoConfirmPasswordInputField(){
-        accountSettingsConfirmPasswordInputField.clear();
-        accountSettingsConfirmPasswordInputField.sendKeys(validEditedUserConfirmPassword);
     }
 
 }
