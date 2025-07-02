@@ -73,7 +73,89 @@ public class AddAddressPage extends BasePage {
     @FindBy(xpath = "//span[@class='form-inlineMessage']")
     private WebElement addAddressPageSingularInputError;
 
+    //valid user address data
+    private String validAddressFirstName;
+    private String validAddressLastName;
+    private String validAddress;
+    private String validAddressCity;
+    private int validAddressPostCode;
+    private String validAddressPhone;
+
     public AddAddressPage(WebDriver driver) {super(driver);}
+
+    //valid user address data getter
+    public void validUserAddressDataGetter(){
+
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        validAddressFirstName = registerPage.getValidRegisterFirstName();
+        validAddressLastName = registerPage.getValidRegisterLastName();
+        validAddress = TestDataGenerator.generateRandomAddress(9);
+        validAddressCity = TestDataGenerator.getRandomCity();
+        validAddressPostCode = TestDataGenerator.getRandomPostalCode();
+        validAddressPhone = TestDataGenerator.generatePhoneNumber(8);
+
+        System.out.println("Valid user address generated data: " + "\n");
+
+        logger.info("Valid generated user first name: " + validAddressFirstName);
+        logger.info("Valid generated user last name: " + validAddressLastName);
+        logger.info("Valid generated user address: " + validAddress);
+        logger.info("Valid generated user city: " + validAddressCity);
+        logger.info("Valid generated user post code: " + validAddressPostCode);
+        logger.info("Valid generated user phone: " + validAddressPhone);
+
+        System.out.println("\n");
+
+    }
+
+    //valid user address input methods
+    public void inputValidUserFirstNameIntoFirstNameInputField(){addAddressPageFirstNameInputField.sendKeys(validAddressFirstName);}
+    public void inputValidUserLastNameIntoLastNameInputField(){addAddressPageLastNameInputField.sendKeys(validAddressLastName);}
+
+    public void inputValidUserAddressIntoAddress1InputField(){
+        addAddressPageAddress1InputField.clear();
+        addAddressPageAddress1InputField.sendKeys(validAddress);
+    }
+
+    public void inputValidUserCityIntoCityInputField(){
+        addAddressPageCityInputField.clear();
+        addAddressPageCityInputField.sendKeys(validAddressCity);
+    }
+    public void inputValidUserPostCodeIntoPostCodeInputField(){
+        addAddressPagePostCodeInputField.clear();
+        addAddressPagePostCodeInputField.sendKeys(String.valueOf(validAddressPostCode));
+    }
+    public void inputValidUserPhoneIntoPhoneInputField(){
+        addAddressPagePhoneInputField.clear();
+        addAddressPagePhoneInputField.sendKeys(validAddressPhone);
+    }
+
+    //click 'Save address' button
+    public void clickSaveAddressButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(addAddressPageSaveAddressButton).click().perform();
+    }
+
+    //click 'Country' dropdown menu method
+    public void clickCountryDropdownMenu(){
+        Actions action = new Actions(driver);
+        action.moveToElement(addAddressPageCountryDropdownMenu).click().perform();
+    }
+
+    //select 'Choose a country' option method
+    public void selectCountryOption(){addAddressPageSelectCountryOption.click();}
+
+    //click 'State' dropdown menu method
+    public void clickStateDropdownMenu(){
+        Actions action = new Actions(driver);
+        action.moveToElement(addAddressPageStateDropdownMenu).click().perform();
+    }
+
+    //select 'Illinois' option method
+    public void selectIllinoisOption(){addAddressPageIllinoisStateOption.click();}
+
+    //select 'Choose a state' option method
+    public void selectStateOption(){addAddressPageSelectStateOption.click();}
 
     //add address page text element getters
     public String getAddAddressPageTitle() {return addAddressPageTitle.getText();}
