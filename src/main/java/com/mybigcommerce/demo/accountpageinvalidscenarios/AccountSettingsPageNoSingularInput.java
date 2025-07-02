@@ -35,6 +35,7 @@ public class AccountSettingsPageNoSingularInput extends BasePage{
 
     //invalid edited user account data  - no singular input
     private String noEditedUserFirstName;
+    private String noEditedUserLastName;
 
     public AccountSettingsPageNoSingularInput(WebDriver driver) {super(driver);}
 
@@ -55,10 +56,31 @@ public class AccountSettingsPageNoSingularInput extends BasePage{
 
     }
 
+    //invalid edited user account data getter - no edited last name
+    public void invalidEditedUserAccountDataNoLastNameGetter(){
+
+        validEditedUserFirstName = TestDataGenerator.getRandomFirstName();
+        noEditedUserLastName = "";
+        validEditedUserEmail = TestDataGenerator.generateRandomEmailAddress(8);
+
+        System.out.println("Valid generated edited user account data (no user last name): " + "\n");
+
+        logger.info("Valid generated edited user first name (no user last name): " + validEditedUserFirstName);
+        logger.info("No edited user last name: " + noEditedUserLastName);
+        logger.info("Valid generated edited user email (no user last name): " + validEditedUserEmail);
+
+        System.out.println("\n");
+
+    }
+
     //invalid edited user account data input methods - no singular input
     public void inputNoEditedUserFirstNameIntoFirstNameInputField(){
         accountSettingsFirstNameInputField.clear();
         accountSettingsFirstNameInputField.sendKeys(noEditedUserFirstName);
+    }
+    public void inputNoEditedUserLastNameIntoLastNameInputField(){
+        accountSettingsLastNameInputField.clear();
+        accountSettingsLastNameInputField.sendKeys(noEditedUserLastName);
     }
 
     //valid edited user account data input methods (for remaining inputs)
