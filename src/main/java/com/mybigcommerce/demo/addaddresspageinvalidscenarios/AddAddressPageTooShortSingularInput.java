@@ -35,6 +35,7 @@ public class AddAddressPageTooShortSingularInput extends BasePage{
     private String tooShortEditAddress;
     private String tooShortEditAddressCity;
     private int tooShortEditAddressPostCode;
+    private int tooShortEditAddressPhone;
 
     public AddAddressPageTooShortSingularInput(WebDriver driver) {super(driver);}
 
@@ -155,6 +156,29 @@ public class AddAddressPageTooShortSingularInput extends BasePage{
 
     }
 
+    //invalid user edited address data getter - too short user phone (2 digits)
+    public void invalidUserEditedAddressDataTooShortPhoneGetter(){
+
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        validAddressFirstName = registerPage.getValidRegisterFirstName();; //add address page requires the input, while edit address page has the input by default
+        validAddressLastName = registerPage.getValidRegisterLastName();; //add address page requires the input, while edit address page has the input by default
+        validAddress = TestDataGenerator.generateRandomAddress(9);
+        validAddressCity = TestDataGenerator.getRandomCity();
+        validAddressPostCode = TestDataGenerator.getRandomPostalCode();
+        tooShortEditAddressPhone = 78;
+
+        System.out.println("Invalid user edited address generated data (too short user phone): " + "\n");
+
+        logger.info("Valid generated edited user address (too short user phone): " + validAddress);
+        logger.info("Valid generated edited user city (too short user phone): " + validAddressCity);
+        logger.info("Valid generated edited user post code (too short user phone): " + validAddressPostCode);
+        logger.info("Too short edited user phone: " + tooShortEditAddressPhone);
+
+        System.out.println("\n");
+
+    }
+
     //invalid user address input methods - too short singular input
     public void inputTooShortUserFirstNameIntoFirstNameInputField(){
         addAddressPageFirstNameInputField.clear();
@@ -175,6 +199,10 @@ public class AddAddressPageTooShortSingularInput extends BasePage{
     public void inputTooShortUserPostCodeIntoPostCodeInputField(){
         addAddressPagePostCodeInputField.clear();
         addAddressPagePostCodeInputField.sendKeys(String.valueOf(tooShortEditAddressPostCode));
+    }
+    public void inputTooShortUserPhoneIntoPhoneInputField(){
+        addAddressPagePhoneInputField.clear();
+        addAddressPagePhoneInputField.sendKeys(String.valueOf(tooShortEditAddressPhone));
     }
 
     //valid user address input methods (for remaining inputs)
