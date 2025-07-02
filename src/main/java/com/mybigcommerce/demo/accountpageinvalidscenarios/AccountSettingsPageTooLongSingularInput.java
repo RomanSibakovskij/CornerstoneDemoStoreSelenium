@@ -32,6 +32,7 @@ public class AccountSettingsPageTooLongSingularInput extends BasePage{
     //invalid edited user account data  - too long singular input
     private String tooLongEditedUserFirstName;
     private String tooLongEditedUserLastName;
+    private String tooLongEditedUserEmail;
 
     public AccountSettingsPageTooLongSingularInput(WebDriver driver) {super(driver);}
 
@@ -77,6 +78,27 @@ public class AccountSettingsPageTooLongSingularInput extends BasePage{
 
     }
 
+    //invalid edited user account data getter - too long edited email (100 chars -> name, domain)
+    public void invalidEditedUserAccountDataTooLongEmailGetter(){
+
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        validEditedUserFirstName = TestDataGenerator.getRandomFirstName();
+        validEditedUserLastName = TestDataGenerator.getRandomLastName();
+        tooLongEditedUserEmail = TestDataGenerator.generateRandomTooLongEmailAddress(93);
+        validUserCurrentPassword = registerPage.getPassword();
+
+        System.out.println("Valid generated edited user account data (too long user email): " + "\n");
+
+        logger.info("Valid generated edited user first name (too long user email): " + validEditedUserFirstName);
+        logger.info("Valid generated edited user last name (too long user email): " + validEditedUserLastName);
+        logger.info("Too long edited user email: " + tooLongEditedUserEmail);
+        logger.info("Valid current user password (too long user email): " + validUserCurrentPassword);
+
+        System.out.println("\n");
+
+    }
+
     //invalid edited user account data input methods - too long singular input
     public void inputTooLongEditedUserFirstNameIntoFirstNameInputField(){
         accountSettingsFirstNameInputField.clear();
@@ -85,6 +107,10 @@ public class AccountSettingsPageTooLongSingularInput extends BasePage{
     public void inputTooLongEditedUserLastNameIntoLastNameInputField(){
         accountSettingsLastNameInputField.clear();
         accountSettingsLastNameInputField.sendKeys(tooLongEditedUserLastName);
+    }
+    public void inputTooLongEditedUserEmailIntoEmailInputField(){
+        accountSettingsEmailInputField.clear();
+        accountSettingsEmailInputField.sendKeys(tooLongEditedUserEmail);
     }
 
     //valid edited user account data input methods (for remaining inputs)
