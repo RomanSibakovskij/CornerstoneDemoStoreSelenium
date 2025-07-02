@@ -4364,6 +4364,83 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid User Second Address Addition Test Result - Too Long Address");
     }
 
+    //invalid user second address addition test method - too long user city (100 chars)
+    protected void invalidSecondUserAddressAdditionTooLongCityTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        AccountDashboardPage accountDashboardPage = new AccountDashboardPage(driver);
+        AddressDashboardPage addressDashboardPage = new AddressDashboardPage(driver);
+        AddAddressPage addAddressPage = new AddAddressPage(driver);
+        AddAddressPageTooLongSingularInput addAddressPageTooLongSingularInput = new AddAddressPageTooLongSingularInput(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Account' navbar link
+        generalPage.clickAccountLink();
+        //account dashboard page web element assert
+        isAccountDashboardPageWebElementDisplayed(accountDashboardPage);
+        //account dashboard page text element assert
+        isAccountDashboardPageTextElementAsExpected(accountDashboardPage);
+        //account dashboard page breadcrumb web element assert
+        isAccountDashboardPageBreadcrumbWebElementDisplayed(accountDashboardPage);
+        //assert account dashboard page title is as expected (since the user gets on orders page section after clicking 'Account')
+        isOrdersPageNoOrderTextElementsAsExpected(accountDashboardPage);
+        //capture screenshot of the orders page display(since the user gets here after clicking 'Account' link)
+        captureScreenshot(driver, "Orders Page Display");
+        //click 'Addresses' link
+        accountDashboardPage.clickAddressesLink();
+        //address dashboard page web element assert
+        isAddressDashboardPageWebElementDisplayed(addressDashboardPage);
+        //account dashboard page breadcrumb web element assert
+        isAccountDashboardPageBreadcrumbWebElementDisplayed(accountDashboardPage);
+        //assert address dashboard page title is a expected
+        assertEquals("Addresses", addressDashboardPage.getAddressDashboardPageTitle(), "The address dashboard page title doesn't match expectations.");
+        //log address dashboard page data
+        logAddressDashboardPageData(addressDashboardPage);
+        //capture screenshot of the address dashboard page display
+        captureScreenshot(driver, "Address Dashboard Page Display");
+        //click 'New address' link
+        addressDashboardPage.clickNewAddressLink();
+        //add address page web element assert
+        isAddAddressPageWebElementDisplayed(addAddressPage);
+        //add address page text element assert
+        isAddAddressPageTextElementAsExpected(addAddressPage);
+        //account dashboard page breadcrumb web element assert
+        isAccountDashboardPageBreadcrumbWebElementDisplayed(accountDashboardPage);
+        //capture screenshot of the add address page display before data input
+        captureScreenshot(driver, "Add Address Page Display Before Data Input");
+        //invalid user address getter - too long user city (100 chars)
+        addAddressPageTooLongSingularInput.invalidUserEditedAddressDataTooLongCityGetter();
+        //input valid address first name into first name input field
+        addAddressPageTooLongSingularInput.inputValidUserFirstNameIntoFirstNameInputField();
+        //input valid address last name into last name input field
+        addAddressPageTooLongSingularInput.inputValidUserLastNameIntoLastNameInputField();
+        //input valid address into address 1 input field
+        addAddressPageTooLongSingularInput.inputValidUserAddressIntoAddress1InputField();
+        //input too long address city into city input field
+        addAddressPageTooLongSingularInput.inputTooLongUserCityIntoCityInputField();
+        //input valid address post code into post code input field
+        addAddressPageTooLongSingularInput.inputValidUserPostCodeIntoPostCodeInputField();
+        //input valid address phone into phone input field
+        addAddressPageTooLongSingularInput.inputValidUserPhoneIntoPhoneInputField();
+        //click 'State dropdown menu
+        addAddressPage.clickStateDropdownMenu();
+        //select 'Illinois' option
+        addAddressPage.selectIllinoisOption();
+        //capture screenshot of the add address page display after invalid data input - too long user city
+        captureScreenshot(driver, "Add Address Page Display After Valid Data Input - Too Long City");
+        //click 'Save address' button
+        addAddressPage.clickSaveAddressButton();
+        //assert the user gets an expected error, log the issue otherwise
+        try {
+            assertEquals("City is too long.", addAddressPage.getAddAddressPageSingularInputError(), "The add address page too long address city input error doesn't match expectations.");
+        } catch (Exception e) {
+            logger.error("The too long add address city input error wasn't triggered, test has failed.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Second Address Addition Test Result - Too Long City");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //valid edit user address test (the page is the same as AddAddressPage, therefore, its structure is being used to avoid redundancy)
