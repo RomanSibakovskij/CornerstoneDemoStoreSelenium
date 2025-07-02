@@ -79,7 +79,7 @@ public class AccountSettingsPageTest extends TestMethods{
         invalidEditedUserAccountNoEmailTest();
     }
 
-    //Test 003e -> invalid edit user account data test - no edited password / confirm password (the account editing wasn't aborted, test has failed)
+    //Test 003e -> invalid edit user account data test - no edited password / confirm password 
     @Test
     @DisplayName("Invalid Edit User Account Data Test - No Edited Password / Confirm Password")
     @Tag("Invalid_Edit_Account_Data")
@@ -91,6 +91,20 @@ public class AccountSettingsPageTest extends TestMethods{
         validUserAccountCreationTest();
         //invalid edit user account data test - no edited password / confirm password
         invalidEditedUserAccountNoPasswordConfirmTest();
+    }
+
+    //Test 003f -> invalid edit user account data test - no current password
+    @Test
+    @DisplayName("Invalid Edit User Account Data Test - No Current Password")
+    @Tag("Invalid_Edit_Account_Data")
+    @Tag("No_Singular_Input")
+    void invalidEditAccountDataNoCurrentPasswordTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //invalid edit user account data test - no current password
+        invalidEditedUserAccountNoCurrentPasswordTest();
     }
 
 }

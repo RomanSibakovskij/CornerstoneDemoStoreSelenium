@@ -39,6 +39,7 @@ public class AccountSettingsPageNoSingularInput extends BasePage{
     private String noEditedUserEmail;
     private String noEditedUserPassword;
     private String noEditedUserConfirmPassword;
+    private String noUserCurrentPassword;
 
     public AccountSettingsPageNoSingularInput(WebDriver driver) {super(driver);}
 
@@ -116,6 +117,27 @@ public class AccountSettingsPageNoSingularInput extends BasePage{
 
     }
 
+    //invalid edited user account data getter - no current password
+    public void invalidEditedUserAccountDataNoCurrentPasswordGetter(){
+
+        validEditedUserFirstName = TestDataGenerator.getRandomFirstName();
+        validEditedUserLastName = TestDataGenerator.getRandomLastName();
+        noUserCurrentPassword = "";
+        validEditedUserPassword = TestDataGenerator.generateRandomPassword();
+        validEditedUserConfirmPassword = validEditedUserPassword;
+
+        System.out.println("Valid generated edited user account data (no current password): " + "\n");
+
+        logger.info("Valid generated edited user first name (no current password): " + validEditedUserFirstName);
+        logger.info("Valid generated edited user last name (no current password): " + validEditedUserLastName);
+        logger.info("No current user password: " + noUserCurrentPassword);
+        logger.info("Valid generated edited user password: " + validEditedUserPassword);
+        logger.info("Valid matching edited user confirm password: " + validEditedUserConfirmPassword);
+
+        System.out.println("\n");
+
+    }
+
     //invalid edited user account data input methods - no singular input
     public void inputNoEditedUserFirstNameIntoFirstNameInputField(){
         accountSettingsFirstNameInputField.clear();
@@ -136,6 +158,10 @@ public class AccountSettingsPageNoSingularInput extends BasePage{
     public void inputNoEditedUserConfirmPasswordIntoConfirmPasswordInputField(){
         accountSettingsConfirmPasswordInputField.clear();
         accountSettingsConfirmPasswordInputField.sendKeys(noEditedUserConfirmPassword);
+    }
+    public void inputNoCurrentUserPasswordIntoCurrentPasswordInputField(){
+        accountSettingsCurrentPasswordInputField.clear();
+        accountSettingsCurrentPasswordInputField.sendKeys(noUserCurrentPassword);
     }
 
     //valid edited user account data input methods (for remaining inputs)
