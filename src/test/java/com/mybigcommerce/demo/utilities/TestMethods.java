@@ -3295,6 +3295,58 @@ public class TestMethods extends BaseTest{
         assertTrue(addressDashboardPage.isAddressDashboardPageAddressDeleteButtonDisplayed(), "The address dashboard page address delete buttons aren't displayed");
     }
 
+    //add address page web element assert test method
+    protected void isAddAddressPageWebElementDisplayed(AddAddressPage addAddressPage) {
+        //assert add address page title is displayed
+        assertTrue(addAddressPage.isAddAddressPageTitleDisplayed(), "The add address page title isn't displayed");
+        //assert add address page country subtext is displayed
+        assertTrue(addAddressPage.isAddAddressPageCountrySubtextDisplayed(), "The add address page country subtext isn't displayed");
+        //assert add address page country dropdown menu is displayed
+        assertTrue(addAddressPage.isAddAddressPageCountryDropdownMenuDisplayed(), "The add address page country dropdown menu isn't displayed");
+        //assert add address page first name subtext is displayed
+        assertTrue(addAddressPage.isAddAddressPageFirstNameSubtextDisplayed(), "The add address page first name subtext isn't displayed");
+        //assert add address page first name input field is displayed
+        assertTrue(addAddressPage.isAddAddressPageFirstNameInputFieldDisplayed(), "The add address page first name input field isn't displayed");
+        //assert add address page last name subtext is displayed
+        assertTrue(addAddressPage.isAddAddressPageLastNameSubtextDisplayed(), "The add address page last name subtext isn't displayed");
+        //assert add address page last name input field is displayed
+        assertTrue(addAddressPage.isAddAddressPageLastNameInputFieldDisplayed(), "The add address page last name input field isn't displayed");
+        //assert add address page address 1 subtext is displayed
+        assertTrue(addAddressPage.isAddAddressPageAddress1SubtextDisplayed(), "The add address page address 1 subtext isn't displayed");
+        //assert add address page address 1 input field is displayed
+        assertTrue(addAddressPage.isAddAddressPageAddress1InputFieldDisplayed(), "The add address page address 1 input field isn't displayed");
+        //assert add address page address 2 subtext is displayed
+        assertTrue(addAddressPage.isAddAddressPageAddress2SubtextDisplayed(), "The add address page address 2 subtext isn't displayed");
+        //assert add address page address 2 input field is displayed
+        assertTrue(addAddressPage.isAddAddressPageAddress2InputFieldDisplayed(), "The add address page address 2 input field isn't displayed");
+        //assert add address page company subtext is displayed
+        assertTrue(addAddressPage.isAddAddressPageCompanySubtextDisplayed(), "The add address page company subtext isn't displayed");
+        //assert add address page company input field is displayed
+        assertTrue(addAddressPage.isAddAddressPageCompanyInputFieldDisplayed(), "The add address page company input field isn't displayed");
+        //assert add address page city subtext is displayed
+        assertTrue(addAddressPage.isAddAddressPageCitySubtextDisplayed(), "The add address page city subtext isn't displayed");
+        //assert add address page city input field is displayed
+        assertTrue(addAddressPage.isAddAddressPageCityInputFieldDisplayed(), "The add address page city input field isn't displayed");
+        //assert add address page state subtext is displayed
+        assertTrue(addAddressPage.isAddAddressPageStateSubtextDisplayed(), "The add address page state subtext isn't displayed");
+        //assert add address page state dropdown menu is displayed
+        assertTrue(addAddressPage.isAddAddressPageStateDropdownMenuDisplayed(), "The add address page state dropdown menu isn't displayed");
+        //assert add address page post code subtext is displayed
+        assertTrue(addAddressPage.isAddAddressPagePostCodeSubtextDisplayed(), "The add address page post code subtext isn't displayed");
+        //assert add address page post code input field is displayed
+        assertTrue(addAddressPage.isAddAddressPagePostCodeInputFieldDisplayed(), "The add address page post code input field isn't displayed");
+        //assert add address page phone subtext is displayed
+        assertTrue(addAddressPage.isAddAddressPagePhoneSubtextDisplayed(), "The add address page phone subtext isn't displayed");
+        //assert add address page phone input field is displayed
+        assertTrue(addAddressPage.isAddAddressPagePhoneInputFieldDisplayed(), "The add address page phone input field isn't displayed");
+        //assert add address page required tags are displayed (as a list)
+        assertTrue(addAddressPage.isAddAddressPageRequiredTagDisplayed(), "The add address page required tags aren't displayed");
+        //assert add address page save address button is displayed
+        assertTrue(addAddressPage.isAddAddressPageSaveAddressButtonDisplayed(), "The add address page save address button isn't displayed");
+        //assert add address page cancel button is displayed
+        assertTrue(addAddressPage.isAddAddressPageCancelButtonDisplayed(), "The add address page cancel button isn't displayed");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert test method(elements that all pages have)
@@ -3479,9 +3531,35 @@ public class TestMethods extends BaseTest{
         assertEquals("Confirm Password", accountSettingsPage.getAccountSettingsPageConfirmPasswordSubtext(), "The account settings page confirm password subtext doesn't match expectations.");
     }
 
+    //add address page text element assert test method
+    protected void isAddAddressPageTextElementAsExpected(AddAddressPage addAddressPage) {
+        //assert add address page company subtext is as expected
+        assertEquals("Country", addAddressPage.getAddAddressPageCountrySubtext(), "The add address page country subtext doesn't match expectations.");
+        //assert add address page first name subtext is as expected
+        assertEquals("First Name", addAddressPage.getAddAddressPageFirstNameSubtext(), "The add address page first name subtext doesn't match expectations.");
+        //assert add address page last name subtext is as expected
+        assertEquals("Last Name", addAddressPage.getAddAddressPageLastNameSubtext(), "The add address page last name subtext doesn't match expectations.");
+        //assert add address page address 1 subtext is as expected
+        assertEquals("Address Line 1", addAddressPage.getAddAddressPageAddress1Subtext(), "The add address page address 1 subtext doesn't match expectations.");
+        //assert add address page address 2 subtext is as expected
+        assertEquals("Address Line 2", addAddressPage.getAddAddressPageAddress2Subtext(), "The add address page address 2 subtext doesn't match expectations.");
+        //assert add address page company subtext is as expected
+        assertEquals("Company Name", addAddressPage.getAddAddressPageCompanySubtext(), "The add address page company subtext doesn't match expectations.");
+        //assert add address page city subtext is as expected
+        assertEquals("Suburb/City", addAddressPage.getAddAddressPageCitySubtext(), "The add address page city subtext doesn't match expectations.");
+        //assert add address page state subtext is as expected
+        assertEquals("State/Province", addAddressPage.getAddAddressPageStateSubtext(), "The add address page state subtext doesn't match expectations.");
+        //assert add address page post code subtext is as expected
+        assertEquals("Zip/Postcode", addAddressPage.getAddAddressPagePostCodeSubtext(), "The add address page post code subtext doesn't match expectations.");
+        //assert add address page phone subtext is as expected
+        assertEquals("Phone Number", addAddressPage.getAddAddressPagePhoneSubtext(), "The add address page phone subtext doesn't match expectations.");
+        //assert add address page required tags and their count are as expected
+        List<String> expected = Collections.nCopies(8, "REQUIRED"); //assert the tag count and content is as expected (since it's an array of tags)
+        assertEquals(expected, addAddressPage.getAddAddressRequiredTagElements(), "The add address page required tags don't match expectations.");
+    }
 
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //home page product data logger method
     protected void logHomePageProductData(HomePage homePage) {
