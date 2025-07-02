@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.openqa.selenium.*;
 
 import com.mybigcommerce.demo.regpageinvalidscenarios.*;
+import com.mybigcommerce.demo.accountpageinvalidscenarios.*;
 
 import java.io.File;
 import java.nio.file.*;
