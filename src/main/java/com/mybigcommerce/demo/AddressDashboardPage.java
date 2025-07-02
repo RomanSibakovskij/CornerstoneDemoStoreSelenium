@@ -35,6 +35,13 @@ public class AddressDashboardPage extends BasePage {
     //click 'New address' link method
     public void clickNewAddressLink(){newAddressLink.click();}
 
+    //click 'Edit' address button method
+    public void clickEditAddressButton(int index) {
+        WebElement button = addressDashboardPageAddressEditButton.get(index);
+        Actions action = new Actions(driver);
+        action.moveToElement(button).click().perform();
+    }
+
     //account dashboard page text element getters
     public String getAddressDashboardPageTitle(){return addressDashboardPageTitle.getText();}
     public List<String> getAccountAddressUserName() {return addressDashboardPageAddressUserNameElements.stream().map(WebElement::getText).collect(Collectors.toList());}

@@ -108,6 +108,25 @@ public class AddAddressPage extends BasePage {
 
     }
 
+    //valid user edited address data getter
+    public void validUserEditedAddressDataGetter(){
+
+        validAddress = TestDataGenerator.generateRandomAddress(9);
+        validAddressCity = TestDataGenerator.getRandomCity();
+        validAddressPostCode = TestDataGenerator.getRandomPostalCode();
+        validAddressPhone = TestDataGenerator.generatePhoneNumber(8);
+
+        System.out.println("Valid user edited address generated data: " + "\n");
+
+        logger.info("Valid generated edited user address: " + validAddress);
+        logger.info("Valid generated edited user city: " + validAddressCity);
+        logger.info("Valid generated edited user post code: " + validAddressPostCode);
+        logger.info("Valid generated edited user phone: " + validAddressPhone);
+
+        System.out.println("\n");
+
+    }
+
     //valid user address input methods
     public void inputValidUserFirstNameIntoFirstNameInputField(){addAddressPageFirstNameInputField.sendKeys(validAddressFirstName);}
     public void inputValidUserLastNameIntoLastNameInputField(){addAddressPageLastNameInputField.sendKeys(validAddressLastName);}
@@ -135,15 +154,6 @@ public class AddAddressPage extends BasePage {
         Actions action = new Actions(driver);
         action.moveToElement(addAddressPageSaveAddressButton).click().perform();
     }
-
-    //click 'Country' dropdown menu method
-    public void clickCountryDropdownMenu(){
-        Actions action = new Actions(driver);
-        action.moveToElement(addAddressPageCountryDropdownMenu).click().perform();
-    }
-
-    //select 'Choose a country' option method
-    public void selectCountryOption(){addAddressPageSelectCountryOption.click();}
 
     //click 'State' dropdown menu method
     public void clickStateDropdownMenu(){

@@ -20,5 +20,19 @@ public class AddAddressPageTest extends TestMethods {
         validSecondUserAddressAdditionTest();
     }
 
-    
+    //valid update user address test
+
+    //Test 005 -> valid update user address test
+    @Test
+    @DisplayName("Valid Update User Address Test")
+    @Tag("Valid_Update_User_Address")
+    void validAddressEditTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //valid edit user address test
+        validEditUserAddressTest();
+    }
+
 }
