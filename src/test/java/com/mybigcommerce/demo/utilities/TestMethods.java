@@ -1978,6 +1978,57 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Valid Edit User Account Data (With Login Email) Test Result");
     }
 
+    //valid edit account with login password test method
+    protected void validEditUserAccountDataWithLoginPasswordTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        AccountDashboardPage accountDashboardPage = new AccountDashboardPage(driver);
+        AccountSettingsPage accountSettingsPage = new AccountSettingsPage(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Account' navbar link
+        generalPage.clickAccountLink();
+        //account dashboard page web element assert
+        isAccountDashboardPageWebElementDisplayed(accountDashboardPage);
+        //account dashboard page text element assert
+        isAccountDashboardPageTextElementAsExpected(accountDashboardPage);
+        //account dashboard page breadcrumb web element assert
+        isAccountDashboardPageBreadcrumbWebElementDisplayed(accountDashboardPage);
+        //assert account dashboard page title is as expected (since the user gets on orders page section after clicking 'Account')
+        isOrdersPageNoOrderTextElementsAsExpected(accountDashboardPage);
+        //capture screenshot of the orders page display(since the user gets here after clicking 'Account' link)
+        captureScreenshot(driver, "Orders Page Display");
+        //click 'Account settings' link
+        accountDashboardPage.clickAccountSettingsLink();
+        //account settings page web element assert
+        isAccountSettingsPageWebElementDisplayed(accountSettingsPage);
+        //account settings page text element assert
+        isAccountSettingsPageTextElementAsExpected(accountSettingsPage);
+        //capture screenshot of the account settings page before edited data input
+        captureScreenshot(driver, "Account Settings Page Display Before Edited Data Input");
+        //valid edited user account data getter (no email edit here)
+        accountSettingsPage.validEditedUserAccountDataForLoginPasswordGetter();
+        //input valid edited first name into first name input field
+        accountSettingsPage.inputEditedUserFirstNameIntoFirstNameInputField();
+        //input valid edited last name into last name input field
+        accountSettingsPage.inputEditedUserLastNameIntoLastNameInputField();
+        //input valid edited phone into phone input field
+        accountSettingsPage.inputEditedUserPhoneIntoPhoneInputField();
+        //input valid password into current password input field
+        accountSettingsPage.inputCurrentUserPasswordIntoCurrentPasswordInputField();
+        //input valid password into password input field
+        accountSettingsPage.inputEditedUserPasswordIntoPasswordInputField();
+        //input matching confirm password into confirm password input field
+        accountSettingsPage.inputEditedUserConfirmPasswordIntoConfirmPasswordInputField();
+        //capture screenshot of the account settings page after valid edited data input
+        captureScreenshot(driver, "Account Settings Page Display After Valid Edited Data Input (With Login Password)");
+        //click 'Update details' button
+        accountSettingsPage.clickUpdateDetailsButton();
+        //capture screenshot of the test result (the user drops onto login-register dashboard page)
+        captureScreenshot(driver, "Valid Edit User Account Data (With Login Password) Test Result");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)

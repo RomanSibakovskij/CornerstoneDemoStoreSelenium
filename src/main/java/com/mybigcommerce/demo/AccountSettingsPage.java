@@ -62,6 +62,8 @@ public class AccountSettingsPage extends BasePage {
     private String validEditedUserLastName;
     private String validEditedUserPhone;
     private static String validEditedUserEmail;
+    private static String validEditedUserPassword;
+    private String validEditedUserConfirmPassword;
     private String validUserCurrentPassword;
 
     public AccountSettingsPage(WebDriver driver) {super(driver);}
@@ -89,6 +91,31 @@ public class AccountSettingsPage extends BasePage {
 
     }
 
+    //valid edited user account data getter (for login password)
+    public void validEditedUserAccountDataForLoginPasswordGetter(){
+
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        validEditedUserFirstName = TestDataGenerator.getRandomFirstName();
+        validEditedUserLastName = TestDataGenerator.getRandomLastName();
+        validEditedUserPhone = TestDataGenerator.generatePhoneNumber(5);
+        validUserCurrentPassword = registerPage.getPassword();
+        validEditedUserPassword = TestDataGenerator.generateRandomPassword();
+        validEditedUserConfirmPassword = validEditedUserPassword;
+
+        System.out.println("Valid generated edited user account data (with edited login password): " + "\n");
+
+        logger.info("Valid generated edited user first name (with edited login password): " + validEditedUserFirstName);
+        logger.info("Valid generated edited user last name (with edited login password): " + validEditedUserLastName);
+        logger.info("Valid generated edited user phone number (with edited login password): " + validEditedUserPhone);
+        logger.info("Valid current user password (with edited login password): " + validUserCurrentPassword);
+        logger.info("Valid edited user password (with edited login password): " + validEditedUserPassword);
+        logger.info("Valid matching edited user confirm password (with edited login password): " + validEditedUserConfirmPassword);
+
+        System.out.println("\n");
+
+    }
+
     //valid edited user account data input methods
     public void inputEditedUserFirstNameIntoFirstNameInputField(){
         accountSettingsFirstNameInputField.clear();
@@ -110,6 +137,14 @@ public class AccountSettingsPage extends BasePage {
         accountSettingsCurrentPasswordInputField.clear();
         accountSettingsCurrentPasswordInputField.sendKeys(validUserCurrentPassword);
     }
+    public void inputEditedUserPasswordIntoPasswordInputField(){
+        accountSettingsPasswordInputField.clear();
+        accountSettingsPasswordInputField.sendKeys(validEditedUserPassword);
+    }
+    public void inputEditedUserConfirmPasswordIntoConfirmPasswordInputField(){
+        accountSettingsConfirmPasswordInputField.clear();
+        accountSettingsConfirmPasswordInputField.sendKeys(validEditedUserConfirmPassword);
+    }
 
     //click 'Update details' button method
     public void clickUpdateDetailsButton(){
@@ -119,6 +154,7 @@ public class AccountSettingsPage extends BasePage {
 
     //private data getters
     public String getEditedLoginEmail(){return validEditedUserEmail;}
+    public String getEditedLoginPassword(){return validEditedUserPassword;}
 
     //account setting page singular input error message getters
     public String getAccountSettingsPageSingularInputError() {

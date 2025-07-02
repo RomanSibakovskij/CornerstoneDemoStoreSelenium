@@ -20,5 +20,18 @@ public class AccountSettingsPageTest extends TestMethods{
         validEditUserAccountDataWithLoginEmailTest();
     }
 
-    
+    //Test 003a -> valid edit user account data (with login password) test
+    @Test
+    @DisplayName("Valid Edit User Account Data (With Login Password) Test")
+    @Tag("Valid_Edit_Account_Data")
+    void validEditAccountDataLoginPasswordTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //valid edit user account data (with login password) test
+        validEditUserAccountDataWithLoginPasswordTest();
+    }
+
+
 }
