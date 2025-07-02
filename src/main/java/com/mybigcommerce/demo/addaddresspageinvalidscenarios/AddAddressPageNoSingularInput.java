@@ -34,6 +34,7 @@ public class AddAddressPageNoSingularInput extends BasePage{
     private String noEditAddressLastName;
     private String noEditAddress;
     private String noEditAddressCity;
+    private String noEditAddressPostCode;
 
     public AddAddressPageNoSingularInput(WebDriver driver) {super(driver);}
 
@@ -131,6 +132,29 @@ public class AddAddressPageNoSingularInput extends BasePage{
 
     }
 
+    //invalid user edited address data getter - no user post code
+    public void invalidUserEditedAddressDataNoPostCodeGetter(){
+
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        validAddressFirstName = registerPage.getValidRegisterFirstName();; //add address page requires the input, while edit address page has the input by default
+        validAddressLastName = registerPage.getValidRegisterLastName();; //add address page requires the input, while edit address page has the input by default
+        validAddress = TestDataGenerator.generateRandomAddress(9);
+        validAddressCity = TestDataGenerator.getRandomCity();
+        noEditAddressPostCode = "";
+        validAddressPhone = TestDataGenerator.generatePhoneNumber(8);
+
+        System.out.println("Invalid user edited address generated data (no user post code): " + "\n");
+
+        logger.info("Valid generated edited user address (no user post code): " + validAddress);
+        logger.info("Valid generated edited user city (no user post code): " + validAddressCity);
+        logger.info("No edited user post code: " + noEditAddressPostCode);
+        logger.info("Valid generated edited user phone (no user post code): " + validAddressPhone);
+
+        System.out.println("\n");
+
+    }
+
     //invalid user address input methods - no singular input
     public void inputNoUserFirstNameIntoFirstNameInputField(){
         addAddressPageFirstNameInputField.clear();
@@ -147,6 +171,10 @@ public class AddAddressPageNoSingularInput extends BasePage{
     public void inputNoUserCityIntoCityInputField(){
         addAddressPageCityInputField.clear();
         addAddressPageCityInputField.sendKeys(noEditAddressCity);
+    }
+    public void inputNoUserPostCodeIntoPostCodeInputField(){
+        addAddressPagePostCodeInputField.clear();
+        addAddressPagePostCodeInputField.sendKeys(noEditAddressPostCode);
     }
 
     //valid user address input methods (for remaining inputs)
