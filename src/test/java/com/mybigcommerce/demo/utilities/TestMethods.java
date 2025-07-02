@@ -3281,6 +3281,20 @@ public class TestMethods extends BaseTest{
         assertTrue(accountSettingsPage.isAccountSettingsPageUpdateAccountButtonDisplayed(), "The account settings page update button isn't displayed");
     }
 
+    //address dashboard page web elements assert test method
+    protected void isAddressDashboardPageWebElementDisplayed(AddressDashboardPage addressDashboardPage) {
+        //assert address dashboard page usernames are displayed (as a list)
+        assertTrue(addressDashboardPage.isAddressDashboardPageAddressUserNameDisplayed(), "The address dashboard page address username aren't displayed");
+        //assert address dashboard page details are displayed (as a list) (Selenium can't find this element with VALID selector)
+        //assertTrue(addressDashboardPage.isAddressDashboardPageAddressDetailsDisplayed(), "The address dashboard page address details aren't displayed");
+        //assert address dashboard page phones are displayed (as a list)
+        assertTrue(addressDashboardPage.isAddressDashboardPageAddressPhoneDisplayed(), "The address dashboard page address phones aren't displayed");
+        //assert address dashboard page edit buttons are displayed (as a list)
+        assertTrue(addressDashboardPage.isAddressDashboardPageAddressEditButtonDisplayed(), "The address dashboard page address edit buttons aren't displayed");
+        //assert address dashboard page delete buttons are displayed (as a list)
+        assertTrue(addressDashboardPage.isAddressDashboardPageAddressDeleteButtonDisplayed(), "The address dashboard page address delete buttons aren't displayed");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert test method(elements that all pages have)
@@ -3464,6 +3478,8 @@ public class TestMethods extends BaseTest{
         //assert account settings page confirm password subtext is as expected
         assertEquals("Confirm Password", accountSettingsPage.getAccountSettingsPageConfirmPasswordSubtext(), "The account settings page confirm password subtext doesn't match expectations.");
     }
+
+    
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
