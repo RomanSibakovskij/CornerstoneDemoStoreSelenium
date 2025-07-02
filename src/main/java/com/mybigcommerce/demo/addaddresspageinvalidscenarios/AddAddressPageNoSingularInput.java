@@ -213,7 +213,6 @@ public class AddAddressPageNoSingularInput extends BasePage{
         addAddressPageAddress1InputField.clear();
         addAddressPageAddress1InputField.sendKeys(validAddress);
     }
-
     public void inputValidUserCityIntoCityInputField(){
         addAddressPageCityInputField.clear();
         addAddressPageCityInputField.sendKeys(validAddressCity);
