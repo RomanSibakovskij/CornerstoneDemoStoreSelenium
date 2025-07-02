@@ -179,4 +179,18 @@ public class AddAddressPageInvalidScenariosTest extends TestMethods{
         invalidSecondUserAddressAdditionTooShortCityTest();
     }
 
+    //Test 004m -> invalid user second address addition test - too short user post code (4 digits) (new address addition wasn't aborted, test has failed)
+    @Test
+    @DisplayName("Invalid User Second Address Addition Test - Too Short Post Code")
+    @Tag("Invalid_Second_User_Address_Addition")
+    @Tag("Too_Short_Singular_Input")
+    void invalidSecondAddressAdditionTooShortPostCodeTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //invalid user second address addition test - too short user post code (4 digits)
+        invalidSecondUserAddressAdditionTooShortPostCodeTest();
+    }
+
 }
