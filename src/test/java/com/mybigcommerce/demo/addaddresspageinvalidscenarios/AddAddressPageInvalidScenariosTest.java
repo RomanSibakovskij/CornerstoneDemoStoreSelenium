@@ -23,5 +23,18 @@ public class AddAddressPageInvalidScenariosTest extends TestMethods{
         invalidSecondUserAddressAdditionNoCountryTest();
     }
 
+    //Test 004b -> invalid user second address addition test - no user first name
+    @Test
+    @DisplayName("Invalid User Second Address Addition Test - No First Name")
+    @Tag("Invalid_Second_User_Addition")
+    @Tag("No_Singular_Input")
+    void invalidSecondAddressAdditionNoFirstNameTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //invalid user second address addition test - no user first name
+        invalidSecondUserAddressAdditionNoFirstNameTest();
+    }
 
 }

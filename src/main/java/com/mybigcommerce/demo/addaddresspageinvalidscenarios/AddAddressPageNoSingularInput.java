@@ -21,7 +21,69 @@ public class AddAddressPageNoSingularInput extends BasePage{
     @FindBy(xpath = "//input[@id='FormField_7_input']")
     private WebElement addAddressPagePhoneInputField;
 
+    //valid user address data (for remaining inputs)
+    private String validAddressFirstName;
+    private String validAddressLastName;
+    private String validAddress;
+    private String validAddressCity;
+    private int validAddressPostCode;
+    private String validAddressPhone;
+
+    //invalid edited user address data - no singular input
+    private String noEditAddressFirstName;
+
     public AddAddressPageNoSingularInput(WebDriver driver) {super(driver);}
 
+    //invalid user edited address data getter - no user first name
+    public void invalidUserEditedAddressDataNoFirstNameGetter(){
+
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        noEditAddressFirstName = "";
+        validAddressLastName = registerPage.getValidRegisterLastName();; //add address page requires the input, while edit address page has the input by default
+        validAddress = TestDataGenerator.generateRandomAddress(9);
+        validAddressCity = TestDataGenerator.getRandomCity();
+        validAddressPostCode = TestDataGenerator.getRandomPostalCode();
+        validAddressPhone = TestDataGenerator.generatePhoneNumber(8);
+
+        System.out.println("Invalid user edited address generated data (no user first name): " + "\n");
+
+        logger.info("No edited user first name: " + noEditAddressFirstName);
+        logger.info("Valid generated edited user address (no user first name): " + validAddress);
+        logger.info("Valid generated edited user city (no user first name): " + validAddressCity);
+        logger.info("Valid generated edited user post code (no user first name): " + validAddressPostCode);
+        logger.info("Valid generated edited user phone (no user first name): " + validAddressPhone);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid user address input methods - no singular input
+    public void inputNoUserFirstNameIntoFirstNameInputField(){
+        addAddressPageFirstNameInputField.clear();
+        addAddressPageFirstNameInputField.sendKeys(noEditAddressFirstName);
+    }
+
+    //valid user address input methods (for remaining inputs)
+    public void inputValidUserFirstNameIntoFirstNameInputField(){addAddressPageFirstNameInputField.sendKeys(validAddressFirstName);}
+    public void inputValidUserLastNameIntoLastNameInputField(){addAddressPageLastNameInputField.sendKeys(validAddressLastName);}
+
+    public void inputValidUserAddressIntoAddress1InputField(){
+        addAddressPageAddress1InputField.clear();
+        addAddressPageAddress1InputField.sendKeys(validAddress);
+    }
+
+    public void inputValidUserCityIntoCityInputField(){
+        addAddressPageCityInputField.clear();
+        addAddressPageCityInputField.sendKeys(validAddressCity);
+    }
+    public void inputValidUserPostCodeIntoPostCodeInputField(){
+        addAddressPagePostCodeInputField.clear();
+        addAddressPagePostCodeInputField.sendKeys(String.valueOf(validAddressPostCode));
+    }
+    public void inputValidUserPhoneIntoPhoneInputField(){
+        addAddressPagePhoneInputField.clear();
+        addAddressPagePhoneInputField.sendKeys(validAddressPhone);
+    }
 
 }
