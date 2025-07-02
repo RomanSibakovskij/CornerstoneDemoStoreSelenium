@@ -267,4 +267,19 @@ public class AccountSettingsPageTest extends TestMethods{
         invalidEditedUserAccountInvalidEmailFormatTest();
     }
 
+    //Test 003r -> invalid edit user account data test - existing email (used beforehand in manual testing)
+    @Test
+    @DisplayName("Invalid Edit User Account Data Test - Existing Email")
+    @Tag("Invalid_Edit_Account_Data")
+    @Tag("Invalid_Singular_Input_Format")
+    @Tag("Pre_Existing_Input")
+    void invalidEditAccountDataExistingEmailTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //invalid edit user account data test - existing email (used beforehand in manual testing)
+        invalidEditedUserAccountExistingEmailFormatTest();
+    }
+
 }

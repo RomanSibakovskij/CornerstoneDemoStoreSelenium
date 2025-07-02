@@ -31,6 +31,7 @@ public class AccountSettingPageInvalidSingularInputFormat extends BasePage{
     private String invalidEditedUserFirstNameFormat;
     private String invalidEditedUserLastNameFormat;
     private String invalidEditedUserEmailFormat;
+    private String existingEditedUserEmail;
 
     public AccountSettingPageInvalidSingularInputFormat(WebDriver driver) {super(driver);}
 
@@ -97,6 +98,27 @@ public class AccountSettingPageInvalidSingularInputFormat extends BasePage{
 
     }
 
+    //invalid edited user account data getter - pre-existing email (used beforehand in manual testing)
+    public void invalidEditedUserAccountDataExistingEmailGetter(){
+
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        validEditedUserFirstName = TestDataGenerator.getRandomFirstName();
+        validEditedUserLastName = TestDataGenerator.getRandomLastName();
+        existingEditedUserEmail = "m1@fakemail.com";
+        validUserCurrentPassword = registerPage.getPassword();
+
+        System.out.println("Valid generated edited user account data (pre-existing user email): " + "\n");
+
+        logger.info("Valid generated edited user first name (pre-existing user email): " + validEditedUserFirstName);
+        logger.info("Valid generated edited user last name (pre-existing user email): " + validEditedUserLastName);
+        logger.info("Pre-existing edited user email: " + existingEditedUserEmail);
+        logger.info("Valid current user password (pre-existing user email): " + validUserCurrentPassword);
+
+        System.out.println("\n");
+
+    }
+
     //invalid edited user account data input methods - invalid singular input format
     public void inputInvalidEditedUserFirstNameFormatIntoFirstNameInputField(){
         accountSettingsFirstNameInputField.clear();
@@ -109,6 +131,10 @@ public class AccountSettingPageInvalidSingularInputFormat extends BasePage{
     public void inputInvalidEditedUserEmailFormatIntoEmailInputField(){
         accountSettingsEmailInputField.clear();
         accountSettingsEmailInputField.sendKeys(invalidEditedUserEmailFormat);
+    }
+    public void inputExistingEditedUserEmailIntoEmailInputField(){
+        accountSettingsEmailInputField.clear();
+        accountSettingsEmailInputField.sendKeys(existingEditedUserEmail);
     }
 
     //valid edited user account data input methods (for remaining inputs)
