@@ -237,4 +237,18 @@ public class AddAddressPageInvalidScenariosTest extends TestMethods{
         invalidSecondUserAddressAdditionTooLongLastNameTest();
     }
 
+    //Test 004q -> invalid user second address addition test - too long user address (100 chars) (new address addition wasn't aborted, test has failed)
+    @Test
+    @DisplayName("Invalid User Second Address Addition Test - Too Long Address")
+    @Tag("Invalid_Second_User_Address_Addition")
+    @Tag("Too_Long_Singular_Input")
+    void invalidSecondAddressAdditionTooLongAddressTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //invalid user second address addition test - too long user address (100 chars)
+        invalidSecondUserAddressAdditionTooLongAddressTest();
+    }
+
 }

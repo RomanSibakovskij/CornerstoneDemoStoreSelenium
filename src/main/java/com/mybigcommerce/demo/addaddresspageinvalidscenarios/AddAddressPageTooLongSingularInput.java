@@ -32,6 +32,7 @@ public class AddAddressPageTooLongSingularInput extends BasePage{
     //invalid user address data - too long singular input
     private String tooLongEditAddressFirstName;
     private String tooLongEditAddressLastName;
+    private String tooLongEditAddress;
 
     public AddAddressPageTooLongSingularInput(WebDriver driver) {super(driver);}
 
@@ -83,6 +84,29 @@ public class AddAddressPageTooLongSingularInput extends BasePage{
 
     }
 
+    //invalid user edited address data getter - too long user address (100 chars)
+    public void invalidUserEditedAddressDataTooLongAddressGetter(){
+
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        validAddressFirstName = registerPage.getValidRegisterFirstName();; //add address page requires the input, while edit address page has the input by default
+        validAddressLastName = registerPage.getValidRegisterLastName();; //add address page requires the input, while edit address page has the input by default
+        tooLongEditAddress = TestDataGenerator.generateRandomEmailAddress(100);
+        validAddressCity = TestDataGenerator.getRandomCity();
+        validAddressPostCode = TestDataGenerator.getRandomPostalCode();
+        validAddressPhone = TestDataGenerator.generatePhoneNumber(8);
+
+        System.out.println("Invalid user edited address generated data (too long user address): " + "\n");
+
+        logger.info("Too long edited user address: " + tooLongEditAddress);
+        logger.info("Valid generated edited user city (too long user address): " + validAddressCity);
+        logger.info("Valid generated edited user post code (too long user address): " + validAddressPostCode);
+        logger.info("Valid generated edited user phone (too long user address): " + validAddressPhone);
+
+        System.out.println("\n");
+
+    }
+
     //invalid user address input methods - too long singular input
     public void inputTooLongUserFirstNameIntoFirstNameInputField(){
         addAddressPageFirstNameInputField.clear();
@@ -91,6 +115,10 @@ public class AddAddressPageTooLongSingularInput extends BasePage{
     public void inputTooLongUserLastNameIntoLastNameInputField(){
         addAddressPageLastNameInputField.clear();
         addAddressPageLastNameInputField.sendKeys(tooLongEditAddressLastName);
+    }
+    public void inputTooLongUserAddressIntoAddress1InputField(){
+        addAddressPageAddress1InputField.clear();
+        addAddressPageAddress1InputField.sendKeys(tooLongEditAddress);
     }
 
     //valid user address input methods (for remaining inputs)
