@@ -2290,6 +2290,62 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid Edit User Account Data Test Result - No Current Password");
     }
 
+    //too short singular input
+
+    //invalid account settings page (edit account) test method - too short edited first name (1 char)
+    protected void invalidEditedUserAccountTooShortFirstNameTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        AccountDashboardPage accountDashboardPage = new AccountDashboardPage(driver);
+        AccountSettingsPage accountSettingsPage = new AccountSettingsPage(driver);
+        AccountSettingsPageTooShortSingularInput accountSettingsPageTooShortSingularInput = new AccountSettingsPageTooShortSingularInput(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Account' navbar link
+        generalPage.clickAccountLink();
+        //account dashboard page web element assert
+        isAccountDashboardPageWebElementDisplayed(accountDashboardPage);
+        //account dashboard page text element assert
+        isAccountDashboardPageTextElementAsExpected(accountDashboardPage);
+        //account dashboard page breadcrumb web element assert
+        isAccountDashboardPageBreadcrumbWebElementDisplayed(accountDashboardPage);
+        //assert account dashboard page title is as expected (since the user gets on orders page section after clicking 'Account')
+        isOrdersPageNoOrderTextElementsAsExpected(accountDashboardPage);
+        //capture screenshot of the orders page display(since the user gets here after clicking 'Account' link)
+        captureScreenshot(driver, "Orders Page Display");
+        //click 'Account settings' link
+        accountDashboardPage.clickAccountSettingsLink();
+        //account settings page web element assert
+        isAccountSettingsPageWebElementDisplayed(accountSettingsPage);
+        //account settings page text element assert
+        isAccountSettingsPageTextElementAsExpected(accountSettingsPage);
+        //capture screenshot of the account settings page before edited data input
+        captureScreenshot(driver, "Account Settings Page Display Before Edited Data Input");
+        //invalid edited user account data getter - too short edited first name (1 char)
+        accountSettingsPageTooShortSingularInput.invalidEditedUserAccountDataTooShortFirstNameGetter();
+        //input too short edited first name into first name input field (1 char)
+        accountSettingsPageTooShortSingularInput.inputTooShortEditedUserFirstNameIntoFirstNameInputField();
+        //input valid edited last name into last name input field
+        accountSettingsPageTooShortSingularInput.inputEditedUserLastNameIntoLastNameInputField();
+        //input valid edited email into email input field
+        accountSettingsPageTooShortSingularInput.inputEditedUserEmailIntoEmailInputField();
+        //input valid password into current password input field
+        accountSettingsPageTooShortSingularInput.inputCurrentUserPasswordIntoCurrentPasswordInputField();
+        //capture screenshot of the account settings page after invalid edited data input  - too short edited first name
+        captureScreenshot(driver, "Account Settings Page Display After Invalid Edited Data Input - Too Short Edited First Name");
+        //click 'Update details' button
+        accountSettingsPage.clickUpdateDetailsButton();
+        //assert the user receives the expected error message, log the issue otherwise
+        try {
+            assertEquals("First name is too short.", accountSettingsPage.getAccountSettingsPageSingularInputError(), "The account settings too short edited first name input error message doesn't match expectations or the error message wasn't triggered.");
+        } catch (Exception e) {
+            logger.error("The account settings too short edited first name input error message wasn't triggered, test has failed.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Edit User Account Data Test Result - Too Short Edited First Name");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)

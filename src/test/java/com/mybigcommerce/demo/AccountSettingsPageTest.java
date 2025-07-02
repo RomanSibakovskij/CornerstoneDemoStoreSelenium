@@ -107,4 +107,20 @@ public class AccountSettingsPageTest extends TestMethods{
         invalidEditedUserAccountNoCurrentPasswordTest();
     }
 
+    //too short singular input
+
+    //Test 003g -> invalid edit user account data test - too short edited first name (1 char) (the account editing wasn't aborted, test has failed)
+    @Test
+    @DisplayName("Invalid Edit User Account Data Test - Too Short Edited First Name")
+    @Tag("Invalid_Edit_Account_Data")
+    @Tag("Too_Short_Singular_Input")
+    void invalidEditAccountDataTooShortFirstNameTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //invalid edit user account data test - too short edited first name (1 char)
+        invalidEditedUserAccountTooShortFirstNameTest();
+    }
+
 }
