@@ -137,4 +137,18 @@ public class AccountSettingsPageTest extends TestMethods{
         invalidEditedUserAccountTooShortLastNameTest();
     }
 
+    //Test 003i -> invalid edit user account data test - too short edited email (1 char -> name, domain) (the account editing wasn't aborted, test has failed)
+    @Test
+    @DisplayName("Invalid Edit User Account Data Test - Too Short Edited Email")
+    @Tag("Invalid_Edit_Account_Data")
+    @Tag("Too_Short_Singular_Input")
+    void invalidEditAccountDataTooShortEmailTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //invalid edit user account data test - too short edited email (1 char -> name, domain)
+        invalidEditedUserAccountTooShortEmailTest();
+    }
+
 }
