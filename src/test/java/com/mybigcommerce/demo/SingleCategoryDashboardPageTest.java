@@ -91,4 +91,18 @@ public class SingleCategoryDashboardPageTest extends TestMethods{
         addMultipleSearchedLargeTerrariumProductToCartTest();
     }
 
+    //Test 012c -> multiple searched products ("Dustpan & Brush") addition to cart test method (as a registered user)
+    @Test
+    @DisplayName("Multiple Searched Products Addition To Cart Test (as a registered user)")
+    @Tag("Multiple_Searched_Products_Addition_To_Cart")
+    @Tag("Test_As_A_Reg_User")
+    void multipleSearchedProductsAddToCartRegUserTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //multiple searched products ("1L Le Parfait Jar") addition to cart test method (as a registered user)
+        addMultipleSearchedJarProductToCartRegUserTest();
+    }
+
 }

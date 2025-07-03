@@ -162,6 +162,11 @@ public class GeneralPage extends BasePage {
         headerUpperNavSearchInputField.sendKeys(Keys.ENTER);
     }
 
+    public void inputJarSearchQueryIntoSearchBarInputField(){
+        headerUpperNavSearchInputField.sendKeys("1L Le Parfait Jar");
+        headerUpperNavSearchInputField.sendKeys(Keys.ENTER);
+    }
+
     //wait for elements to load method
     public void waitForElementsToLoad() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(2500));
