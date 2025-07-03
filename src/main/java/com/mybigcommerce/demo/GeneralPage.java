@@ -128,6 +128,12 @@ public class GeneralPage extends BasePage {
         action.moveToElement(headerUpperNavSignInLink).click().perform();
     }
 
+    //click header home page logo link method
+    public void clickHeaderHomePageLogoLink(){headerHomePageLogoLink.click();}
+
+    //click 'Sign out' link method
+    public void clickSignOutLink(){headerUpperNavRegisterLink.click();}
+
     //general page text element getters
     //header -> upper navbar
     public String getHeaderUpperNavSearchDropdownText() {return headerUpperNavSearchDropdownLink.getText();}

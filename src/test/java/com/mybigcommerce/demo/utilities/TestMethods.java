@@ -7024,6 +7024,39 @@ public class TestMethods extends BaseTest{
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //valid user logout test
+
+    //valid user logout test method
+    protected void validUserLogoutTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        LoginRegisterDashboardPage loginRegisterDashboardPage = new LoginRegisterDashboardPage(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click header home page logo link
+        generalPage.clickHeaderHomePageLogoLink();
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementAsExpected(homePage);
+        //log home page product data
+        logHomePageProductData(homePage);
+        //click 'Sign out' link
+        generalPage.clickSignOutLink();
+        //login register dashboard page web element assert (since the user gets here after logout)
+        isLoginRegisterDashboardPageWebElementDisplayed(loginRegisterDashboardPage);
+        //login register dashboard page text element assert (since the user gets here after logout)
+        isLoginRegisterDashboardTextElementAsExpected(loginRegisterDashboardPage);
+        //assert the user logout success message is as expected
+        assertEquals("You've been logged out of your account successfully.", loginRegisterDashboardPage.getLogoutSuccessMessageText(), "The logout success message doesn't match expectations or the user logout process has failed.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid User Logout Test Result");
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     //general page web element assert test method (elements that all pages share -> header / footer)
     protected void isGeneralPageWebElementDisplayed(GeneralPage generalPage){
         //header -> upper navbar
@@ -7363,6 +7396,34 @@ public class TestMethods extends BaseTest{
         assertTrue(addAddressPage.isAddAddressPageCancelButtonDisplayed(), "The add address page cancel button isn't displayed");
     }
 
+    //login register dashboard page web element assert test method
+    protected void isLoginRegisterDashboardPageWebElementDisplayed(LoginRegisterDashboardPage loginRegisterDashboardPage) {
+        //assert login register dashboard page title is displayed
+        assertTrue(loginRegisterDashboardPage.isLoginRegisterDashboardPageTitleDisplayed(), "The login register dashboard page title isn't displayed");
+        //login section
+        //assert login register dashboard email subtext is displayed
+        assertTrue(loginRegisterDashboardPage.isLoginSectionEmailSubtextDisplayed(), "The login register dashboard email subtext isn't displayed");
+        //assert login register dashboard email input field is displayed
+        assertTrue(loginRegisterDashboardPage.isLoginSectionEmailInputFieldDisplayed(), "The login register dashboard email input field isn't displayed");
+        //assert login register dashboard password subtext is displayed
+        assertTrue(loginRegisterDashboardPage.isLoginSectionPasswordSubtextDisplayed(), "The login register dashboard password subtext isn't displayed");
+        //assert login register dashboard password input field is displayed
+        assertTrue(loginRegisterDashboardPage.isLoginSectionPasswordInputFieldDisplayed(), "The login register dashboard password input field isn't displayed");
+        //assert login register dashboard sign in button is displayed
+        assertTrue(loginRegisterDashboardPage.isLoginSectionSignInButtonDisplayed(), "The login register dashboard sign in button isn't displayed");
+        //assert login register dashboard forgot password link is displayed
+        assertTrue(loginRegisterDashboardPage.isLoginSectionForgotPasswordLinkDisplayed(), "The login register dashboard forgot password link isn't displayed");
+        //new customer (register) section
+        //assert login register dashboard register section title is displayed
+        assertTrue(loginRegisterDashboardPage.isRegisterSectionTitleDisplayed(), "The login register dashboard register section title isn't displayed");
+        //assert login register dashboard register section description subtitle is displayed
+        assertTrue(loginRegisterDashboardPage.isRegisterSectionDescriptionSubtitleDisplayed(), "The login register dashboard register section description subtitle isn't displayed");
+        //assert login register dashboard register section description elements are displayed (as a list)
+        assertTrue(loginRegisterDashboardPage.isRegisterSectionDescriptionDisplayed(), "The login register dashboard register section description elements aren't displayed");
+        //assert login register dashboard register section create account button is displayed
+        assertTrue(loginRegisterDashboardPage.isRegisterSectionCreateAccountButtonDisplayed(), "The login register dashboard register section create account button isn't displayed");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert test method(elements that all pages have)
@@ -7574,8 +7635,28 @@ public class TestMethods extends BaseTest{
         assertEquals(expected, addAddressPage.getAddAddressRequiredTagElements(), "The add address page required tags don't match expectations.");
     }
 
+    //login register dashboard page text element assert test method
+    protected void isLoginRegisterDashboardTextElementAsExpected(LoginRegisterDashboardPage loginRegisterDashboardPage) {
+        //assert login register dashboard page title is as expected
+        assertEquals("Sign in", loginRegisterDashboardPage.getLoginRegisterDashboardPageTitle(), "The login register dashboard page title doesn't match expectations.");
+        //login section
+        //assert login register dashboard page email subtext is as expected
+        assertEquals("Email Address:", loginRegisterDashboardPage.getLoginSectionEmailSubtext(), "The login register dashboard page email subtext doesn't match expectations.");
+        //assert login register dashboard page password subtext is as expected
+        assertEquals("Password:", loginRegisterDashboardPage.getLoginSectionPasswordSubtext(), "The login register dashboard page password subtext doesn't match expectations.");
+        //assert login register dashboard forgot password link text is as expected
+        assertEquals("Forgot your password?", loginRegisterDashboardPage.getLoginSectionForgotPasswordLinkText(), "The login register dashboard page forgot password link text doesn't match expectations.");
+        //new customer (register) section
+        //assert login register dashboard register section title is as expected
+        assertEquals("New Customer?", loginRegisterDashboardPage.getRegisterSectionTitle(), "The login register dashboard page register section title doesn't match expectations.");
+        //assert login register dashboard register description subtitle is as expected
+        assertEquals("Create an account with us and you'll be able to:", loginRegisterDashboardPage.getRegisterSectionDescriptionSubtitle(), "The login register dashboard page register section description subtitle doesn't match expectations.");
+        //assert login register dashboard register description elements are as expected (as a list)
+        List<String> expected = Arrays.asList("Check out faster", "Save multiple shipping addresses", "Access your order history", "Track new orders", "Save items to your Wish List");
+        assertEquals(expected, loginRegisterDashboardPage.getRegisterSectionDescriptionText(), "The login register dashboard page register section description elements don't match expectations.");
+    }
 
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //home page product data logger method
     protected void logHomePageProductData(HomePage homePage) {
