@@ -79,4 +79,18 @@ public class UpdateAddressPageInvalidScenariosTest extends TestMethods {
         invalidEditUserAddressNoStateTest();
     }
 
+    //Test 005g -> invalid update user address test - no user post code
+    @Test
+    @DisplayName("Invalid Update User Address Test - No Post Code")
+    @Tag("Invalid_Update_User_Address")
+    @Tag("No_Singular_Input")
+    void invalidAddressEditNoPostCodeTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //invalid update user address test -  no user post code
+        invalidEditUserAddressNoPostCodeTest();
+    }
+
 }
