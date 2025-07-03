@@ -21,7 +21,68 @@ public class AddAddressPageInvalidSingularInputFormat extends BasePage{
     @FindBy(xpath = "//input[@id='FormField_7_input']")
     private WebElement addAddressPagePhoneInputField;
 
+    //valid user address data (for remaining inputs)
+    private String validAddressFirstName;
+    private String validAddressLastName;
+    private String validAddress;
+    private String validAddressCity;
+    private int validAddressPostCode;
+    private String validAddressPhone;
+
+    //invalid user address data - invalid singular input format
+    private String invalidEditAddressFirstNameFormat;
+
     public AddAddressPageInvalidSingularInputFormat(WebDriver driver) {super(driver);}
 
+    //invalid user edited address data getter - invalid user first name format (special symbols only)
+    public void invalidUserEditedAddressDataInvalidFirstNameFormatGetter(){
+
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        invalidEditAddressFirstNameFormat = "@#$%$%&%^&";
+        validAddressLastName = registerPage.getValidRegisterLastName();; //add address page requires the input, while edit address page has the input by default
+        validAddress = TestDataGenerator.generateRandomAddress(9);
+        validAddressCity = TestDataGenerator.getRandomCity();
+        validAddressPostCode = TestDataGenerator.getRandomPostalCode();
+        validAddressPhone = TestDataGenerator.generatePhoneNumber(8);
+
+        System.out.println("Invalid user edited address generated data (invalid user first name format): " + "\n");
+
+        logger.info("Invalid edited user first name format: " + invalidEditAddressFirstNameFormat);
+        logger.info("Valid generated edited user address (invalid user first name format): " + validAddress);
+        logger.info("Valid generated edited user city (invalid user first name format): " + validAddressCity);
+        logger.info("Valid generated edited user post code (invalid user first name format): " + validAddressPostCode);
+        logger.info("Valid generated edited user phone (invalid user first name format): " + validAddressPhone);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid user address input methods - invalid singular input format
+    public void inputInvalidUserFirstNameFormatIntoFirstNameInputField(){
+        addAddressPageFirstNameInputField.clear();
+        addAddressPageFirstNameInputField.sendKeys(invalidEditAddressFirstNameFormat);
+    }
+
+    //valid user address input methods (for remaining inputs)
+    public void inputValidUserFirstNameIntoFirstNameInputField(){addAddressPageFirstNameInputField.sendKeys(validAddressFirstName);}
+    public void inputValidUserLastNameIntoLastNameInputField(){addAddressPageLastNameInputField.sendKeys(validAddressLastName);}
+
+    public void inputValidUserAddressIntoAddress1InputField(){
+        addAddressPageAddress1InputField.clear();
+        addAddressPageAddress1InputField.sendKeys(validAddress);
+    }
+    public void inputValidUserCityIntoCityInputField(){
+        addAddressPageCityInputField.clear();
+        addAddressPageCityInputField.sendKeys(validAddressCity);
+    }
+    public void inputValidUserPostCodeIntoPostCodeInputField(){
+        addAddressPagePostCodeInputField.clear();
+        addAddressPagePostCodeInputField.sendKeys(String.valueOf(validAddressPostCode));
+    }
+    public void inputValidUserPhoneIntoPhoneInputField(){
+        addAddressPagePhoneInputField.clear();
+        addAddressPagePhoneInputField.sendKeys(validAddressPhone);
+    }
 
 }
