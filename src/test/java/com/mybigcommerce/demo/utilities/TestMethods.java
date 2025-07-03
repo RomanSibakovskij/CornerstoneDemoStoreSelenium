@@ -7698,6 +7698,93 @@ public class TestMethods extends BaseTest{
         assertTrue(loginRegisterDashboardPage.isRegisterSectionCreateAccountButtonDisplayed(), "The login register dashboard register section create account button isn't displayed");
     }
 
+    //single product page web element assert test methods
+    protected void isSingleProductPageWebElementDisplayed(SingleProductPage singleProductPage) {
+        //assert single product page title is displayed
+        assertTrue(singleProductPage.isSingleProductPageTitleDisplayed(), "The single product page title isn't displayed");
+        //assert single product page main product image is displayed
+        assertTrue(singleProductPage.isSingleProductPageMainProductImgDisplayed(), "The single product page main product image isn't displayed");
+        //assert single product page brand link is displayed
+        assertTrue(singleProductPage.isSingleProductPageBrandLinkDisplayed(), "The single product page brand link isn't displayed");
+        //assert single product page product unit price is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductUnitPriceDisplayed(), "The single product page product unit price isn't displayed");
+        //assert single product page review count is displayed (not all pages have this element)
+        //assertTrue(singleProductPage.isSingleProductPageReviewCountDisplayed(), "The single product page review count isn't displayed");
+        //assert single product page write a review is displayed
+        assertTrue(singleProductPage.isSingleProductPageWriteAReviewLinkDisplayed(), "The single product page write a review isn't displayed");
+        //assert single product page weight subtext is displayed
+        assertTrue(singleProductPage.isSingleProductPageWeightSubtextDisplayed(), "The single product page weight subtext isn't displayed");
+        //assert single product page product weight is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductWeightDisplayed(), "The single product page product weight isn't displayed");
+        //assert single product page gift wrapping subtext is displayed
+        assertTrue(singleProductPage.isSingleProductPageGiftWrappingSubtextDisplayed(), "The single product page gift wrapping subtext isn't displayed");
+        //assert single product page product gift wrapping option is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductGiftWrappingOptionDisplayed(), "The single product page product gift wrapping option isn't displayed");
+        //assert single product page shipping subtext is displayed
+        assertTrue(singleProductPage.isSingleProductPageShippingSubtextDisplayed(), "The single product page shipping subtext isn't displayed");
+        //assert single product page product shipping option is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductShippingOptionDisplayed(), "The single product page product shipping option isn't displayed");
+        //assert single product page product quantity subtext is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductQtySubtextDisplayed(), "The single product page product quantity subtext isn't displayed");
+        //assert single product page product quantity input field is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductQtyInputFieldDisplayed(), "The single product page product quantity input field isn't displayed");
+        //assert single product page increase product quantity button is displayed
+        assertTrue(singleProductPage.isSingleProductPageIncreaseQtyButtonDisplayed(), "The single product page increase product quantity button isn't displayed");
+        //assert single product page decrease product quantity button is displayed
+        assertTrue(singleProductPage.isSingleProductPageDecreaseQtyButtonDisplayed(), "The single product page decrease product quantity button isn't displayed");
+        //assert single product page add to cart button is displayed
+        assertTrue(singleProductPage.isSingleProductPageAddToCartButtonDisplayed(), "The single product page add to cart button isn't displayed");
+        //assert single product page add to wishlist button is displayed
+        assertTrue(singleProductPage.isSingleProductPageAddToWishlistDropdownMenuDisplayed(), "The single product page add to wishlist dropdown menu isn't displayed");
+        //social button elements
+        //assert single product page facebook icon button is displayed
+        assertTrue(singleProductPage.isSingleProductPageFacebookIconButtonDisplayed(), "The single product page facebook icon button isn't displayed");
+        //assert single product page mail icon button is displayed
+        assertTrue(singleProductPage.isSingleProductPageMailIconButtonDisplayed(), "The single product page main icon button isn't displayed");
+        //assert single product page print icon button is displayed
+        assertTrue(singleProductPage.isSingleProductPagePrintIconButtonDisplayed(), "The single product page main print button isn't displayed");
+        //assert single product page X icon button is displayed
+        assertTrue(singleProductPage.isSingleProductPageXIconButtonDisplayed(), "The single product page X icon button isn't displayed");
+        //description section
+        //assert single product page description link is displayed
+        assertTrue(singleProductPage.isSingleProductPageDescriptionLinkDisplayed(), "The single product page description link isn't displayed");
+        //assert single product page product description is displayed
+        assertTrue(singleProductPage.isSingleProductPageProductDescriptionDisplayed(), "The single product page product description isn't displayed");
+        //list elements
+        //assert single product page rating stars are displayed (as a list)
+        //assertTrue(singleProductPage.isSingleProductPageRatingStarDisplayed(), "The single product page rating stars aren't displayed");
+        //assert single product page product image elements are displayed (as a list)
+        assertTrue(singleProductPage.isSingleProductPageProductImgElementsDisplayed(), "The single product page product image elements aren't displayed");
+    }
+
+    //shopping cart modal web element assert test method
+    protected void isShoppingCartModalWebElementDisplayed(SingleProductPage singleProductPage) {
+        //assert shopping cart modal title is displayed
+        assertTrue(singleProductPage.isShoppingCartModalTitleDisplayed(), "The shopping cart modal title isn't displayed");
+        //assert shopping cart modal close button is displayed
+        assertTrue(singleProductPage.isShoppingCartModalCloseButtonDisplayed(), "The shopping cart modal close button isn't displayed");
+        //assert shopping cart modal product image is displayed
+        assertTrue(singleProductPage.isShoppingCartModalProductImageDisplayed(), "The shopping cart modal product image isn't displayed");
+        //assert shopping cart modal proceed to checkout button is displayed
+        assertTrue(singleProductPage.isShoppingCartModalProceedToCheckoutButtonDisplayed(), "The shopping cart proceed to checkout button isn't displayed");
+        //assert shopping cart modal order subtotal subtext is displayed
+        assertTrue(singleProductPage.isShoppingCartModalOrderSubtotalSubtextDisplayed(), "The shopping cart modal order subtotal subtext isn't displayed");
+        //assert shopping cart modal order subtotal price is displayed
+        assertTrue(singleProductPage.isShoppingCartModalOrderSubtotalPriceDisplayed(), "The shopping cart modal order subtotal price isn't displayed");
+        //assert shopping cart modal order product count is displayed
+        assertTrue(singleProductPage.isShoppingCartModalProductCountDisplayed(), "The shopping cart modal product count isn't displayed");
+        //assert shopping cart modal continue shopping button is displayed
+        assertTrue(singleProductPage.isShoppingCartModalContinueShoppingButtonDisplayed(), "The shopping cart modal continue shopping button isn't displayed");
+        //assert shopping cart modal view or edit cart button is displayed
+        assertTrue(singleProductPage.isShoppingCartModalViewOrEditCartButtonDisplayed(), "The shopping cart modal view or edit cart button isn't displayed");
+        //assert shopping cart modal product name is displayed
+        assertTrue(singleProductPage.isShoppingCartModalProductNameDisplayed(), "The shopping cart modal product name isn't displayed");
+        //assert shopping cart modal product brand is displayed
+        assertTrue(singleProductPage.isShoppingCartModalProductBrandDisplayed(), "The shopping cart modal product brand isn't displayed");
+        //assert shopping cart modal product unit price and count is displayed
+        assertTrue(singleProductPage.isShoppingCartModalProductUnitPriceAndCountDisplayed(), "The shopping cart modal product unit price and count isn't displayed");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert test method(elements that all pages have)
@@ -7928,6 +8015,26 @@ public class TestMethods extends BaseTest{
         //assert login register dashboard register description elements are as expected (as a list)
         List<String> expected = Arrays.asList("Check out faster", "Save multiple shipping addresses", "Access your order history", "Track new orders", "Save items to your Wish List");
         assertEquals(expected, loginRegisterDashboardPage.getRegisterSectionDescriptionText(), "The login register dashboard page register section description elements don't match expectations.");
+    }
+
+    //single product page text element assert test method
+    protected void isSingleProductPageTextElementAsExpected(SingleProductPage singleProductPage) {
+        //assert single product page product weight subtext is as expected
+        assertEquals("Weight:", singleProductPage.getSingleProductPageProductWeightSubtext(), "The single product page product weight subtext doesn't match expectations.");
+        //assert single product page gift wrapping subtext is as expected
+        assertEquals("Gift wrapping:", singleProductPage.getSingleProductPageGiftWrappingSubtext(), "The single product page gift wrapping subtext doesn't match expectations.");
+        //assert single product page shipping subtext is as expected
+        assertEquals("Shipping:", singleProductPage.getSingleProductPageShippingSubtext(), "The single product page shipping subtext doesn't match expectations.");
+        //assert single product page product quantity subtext is as expected
+        assertEquals("Quantity:", singleProductPage.getSingleProductPageProductQtySubtext(), "The single product page product quantity subtext doesn't match expectations.");
+    }
+
+    //shopping cart modal text element assert test method
+    protected void isShoppingCartModalTextElementAsExpected(SingleProductPage singleProductPage) {
+        //assert shopping cart modal title is as expected
+        assertEquals("Ok,  items were added to your cart. What's next?", singleProductPage.getShoppingCartModalTitle(), "The shopping cart modal title doesn't match expectations.");
+        //assert shopping cart modal order subtotal subtext is as expected
+        assertEquals("Order subtotal", singleProductPage.getShoppingCartModalOrderSubtotalSubtext(), "The shopping cart modal order subtotal subtext doesn't match expectations.");
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
