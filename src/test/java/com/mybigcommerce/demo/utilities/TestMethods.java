@@ -7833,10 +7833,7 @@ public class TestMethods extends BaseTest{
     protected void isAccountDashboardPageBreadcrumbWebElementDisplayed(AccountDashboardPage accountDashboardPage) {
         //assert account dashboard page breadcrumb elements are displayed (as a list)
         assertTrue(accountDashboardPage.isAccountDashboardPageBreadcrumbDisplayed(), "The account dashboard page breadcrumb elements aren't displayed");
-
     }
-
-
 
     //account settings page web element assert test method
     protected void isAccountSettingsPageWebElementDisplayed(AccountSettingsPage accountSettingsPage) {
@@ -8057,6 +8054,30 @@ public class TestMethods extends BaseTest{
         assertTrue(singleProductPage.isShoppingCartModalProductBrandDisplayed(), "The shopping cart modal product brand isn't displayed");
         //assert shopping cart modal product unit price and count is displayed
         assertTrue(singleProductPage.isShoppingCartModalProductUnitPriceAndCountDisplayed(), "The shopping cart modal product unit price and count isn't displayed");
+    }
+
+    //single category dashboard page refined by section web element assert test method
+    protected void isSingleCategoryDashboardPageRefinedBySectionWebElementDisplayed(SingleCategoryDashboardPage singleCategoryDashboardPage) {
+        //assert single category dashboard page refined by clear all link is displayed
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashboardPageRefineByClearAllLinkDisplayed(), "The single category dashboard page refined by section clear all link isn't displayed");
+        //assert single category dashboard page refined by clear icon links is displayed (as a list)
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashboardPageRefineByItemClearIconDisplayed(), "The single category dashboard page refined by section clear icon links aren't displayed");
+    }
+
+    //single category dashboard page brand section web element assert test method
+    protected void isSingleCategoryDashboardPageBrandSectionWebElementDisplayed(SingleCategoryDashboardPage singleCategoryDashboardPage) {
+        //assert single category dashboard page brand section clear all button is displayed
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashboardPageBrandClearButtonDisplayed(), "The single category dashboard page brand section clear all button isn't displayed");
+    }
+
+    //single category dashboard page search section web element assert test method
+    protected void isSingleCategoryDashboardPageSearchSectionWebElementDisplayed(SingleCategoryDashboardPage singleCategoryDashboardPage) {
+        //assert single category dashboard page search section categories subtext is displayed
+        //assertTrue(singleCategoryDashboardPage.isSingleCategoryDashboardPageCategoriesSubtextDisplayed(), "The single category dashboard page search section categories subtext isn't displayed");
+        //assert single category dashboard page search section shop all link is displayed
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashboardPageShopAllLinkDisplayed(), "The single category dashboard page search section shop all link isn't displayed");
+        //assert single category dashboard page search section links are displayed (as a list)
+        assertTrue(singleCategoryDashboardPage.isSingleCategoryDashboardPageSearchLinkListDisplayed(), "The single category dashboard page search section links aren't displayed");
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -8309,6 +8330,17 @@ public class TestMethods extends BaseTest{
         assertEquals("Ok,  items were added to your cart. What's next?", singleProductPage.getShoppingCartModalTitle(), "The shopping cart modal title doesn't match expectations.");
         //assert shopping cart modal order subtotal subtext is as expected
         assertEquals("Order subtotal", singleProductPage.getShoppingCartModalOrderSubtotalSubtext(), "The shopping cart modal order subtotal subtext doesn't match expectations.");
+    }
+
+    //single category dashboard page text element assert test method
+    protected void isSingleCategoryDashboardPageTextElementAsExpected(SingleCategoryDashboardPage singleCategoryDashboardPage) {
+        //aside section
+        //assert single category dashboard page refined by section subtitle is as expected
+        assertEquals("Refine by", singleCategoryDashboardPage.getSingleCategoryDashboardPageRefinedBySubtitle(), "The single category dashboard page refined by section subtitle doesn't match expectations.");
+        //assert single category dashboard page brand section subtitle is as expected
+        assertEquals("Brand", singleCategoryDashboardPage.getSingleCategoryDashboardPageBrandSubtitle(), "The single category dashboard page brand section subtitle doesn't match expectations.");
+        //assert single category dashboard page price section subtitle is as expected (sometimes it isn't displayed, due to additional div change)
+        //assertEquals("Price", singleCategoryDashboardPage.getSingleCategoryDashboardPagePriceSubtitle(), "The single category dashboard page price section subtitle doesn't match expectations.");
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
