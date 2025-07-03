@@ -70,6 +70,18 @@ public class HomePage extends BasePage {
 
     public HomePage(WebDriver driver) {super(driver);}
 
+    //hover over most popular products image method
+    public void hoverOverMostPopularProductImg(int index){
+        Actions action = new Actions(driver);
+        action.moveToElement(homePageMostPopularProductImgElements.get(index)).perform();
+    }
+
+    //click set 'Most popular products' add to cart button method
+    public void clickMostPopularProductAddToCartButton(int index){
+        Actions action = new Actions(driver);
+        action.moveToElement(homePageMostPopularProductAddToCartButtonElements.get(index)).click().perform();
+    }
+
     //home page product data getters
     //most popular section
     public List<String> getHomePageMostPopularCategoryTag(){return homePageMostPopularProductCategoryTagElements.stream().map(WebElement::getText).collect(Collectors.toList());}

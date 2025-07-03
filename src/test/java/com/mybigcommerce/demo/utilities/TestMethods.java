@@ -7297,6 +7297,34 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid User Login Test Result - Invalid Login Password");
     }
 
+    //most popular product/products addition to cart tests
+
+    //single most popular product ("Tiered Wire Basket") addition to cart test method (as a guest)
+    protected void addSingleMostPopularProductToCartGuestTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementAsExpected(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //log home page product data
+        logHomePageProductData(homePage);
+        //click 'Accept cookies' button
+        generalPage.clickAcceptCookiesButton();
+        //hover over set 'Most popular product' ("Tiered Wire Basket") image
+        homePage.hoverOverMostPopularProductImg(1);
+        //click 'Add to cart' ("Tiered Wire Basket") button
+        homePage.clickMostPopularProductAddToCartButton(1);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Single Most Popular Product ('Tiered Wire Basket') Addition To Cart Test Result");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)

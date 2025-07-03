@@ -15,5 +15,15 @@ public class HomePageTest extends TestMethods{
         navigateToRegisterPageTest();
     }
 
+    //single most popular product addition to cart tests
+
+    //Test 009 -> single most popular product ("Tiered Wire Basket") addition to cart test method (as a guest)
+    @Test
+    @DisplayName("Single Most Popular Product Addition To Cart Test (as a guest)")
+    @Tag("Single_Most_Popular_Product_Addition_To_Cart")
+    @Tag("Test_As_A_Guest")
+    void singleMostPopularProductAddToCartTest() {
+        addSingleMostPopularProductToCartGuestTest();
+    }
 
 }
