@@ -7197,6 +7197,38 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid User Login Test Result - No Login Email");
     }
 
+    //invalid user login test method - no login password
+    protected void invalidUserLoginNoPasswordTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        LoginRegisterDashboardPage loginRegisterDashboardPage = new LoginRegisterDashboardPage(driver);
+        LoginRegisterDashboardPageInvalidScenarios loginRegisterDashboardPageInvalidScenarios = new LoginRegisterDashboardPageInvalidScenarios(driver);
+        AccountDashboardPage accountDashboardPage = new AccountDashboardPage(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //login register dashboard page web element assert
+        isLoginRegisterDashboardPageWebElementDisplayed(loginRegisterDashboardPage);
+        //login register dashboard page text element assert
+        isLoginRegisterDashboardTextElementAsExpected(loginRegisterDashboardPage);
+        //invalid user login data getter - no login password
+        loginRegisterDashboardPageInvalidScenarios.invalidUserLoginDataNoLoginPasswordGetter();
+        //capture screenshot of the login dashboard page before login data input
+        captureScreenshot(driver, "Login Register Dashboard Page Display Before Login Data Input");
+        //input valid user login email into email input field
+        loginRegisterDashboardPageInvalidScenarios.inputLoginEmailIntoEmailInputField();
+        //don't input user login password into password input field
+        loginRegisterDashboardPageInvalidScenarios.inputNoLoginPasswordIntoPasswordInputField();
+        //capture screenshot of the login dashboard page after valid login data input - no login password
+        captureScreenshot(driver, "Login Register Dashboard Page Display After Invalid Login Data Input - No Login Password");
+        //click 'Sign in' button
+        loginRegisterDashboardPage.clickSignInButton();
+        //assert the user gets an expected error
+        assertEquals("You must enter a password.", loginRegisterDashboardPage.getLoginRegDashPageSingularInputError(), "The login dashboard page page missing login password input error doesn't match expectations or the error wasn't triggered.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Login Test Result - No Login Password");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)
