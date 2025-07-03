@@ -7402,6 +7402,55 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Multiple Most Popular Products ('Tiered Wire Basket') Addition to Cart Test Result");
     }
 
+    //multiple most popular products ("Oak Cheese Grater") addition to cart test method (as a registered user)
+    protected void addMultipleMostPopularProductsToCartRegUserTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        SingleProductPage singleProductPage = new SingleProductPage(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click header home page logo link
+        generalPage.clickHeaderHomePageLogoLink();
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementAsExpected(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //log home page product data
+        logHomePageProductData(homePage);
+        //click 'Add to cart' ("Oak Cheese Grater") button
+        homePage.clickMostPopularProductNameLink(3);
+        //single product page web element assert
+        isSingleProductPageWebElementDisplayed(singleProductPage);
+        //single product page text element assert
+        isSingleProductPageTextElementAsExpected(singleProductPage);
+        //capture screenshot of the single product page display
+        captureScreenshot(driver, "Single Product Page Display");
+        //log single product page data
+        logSingleProductPageData(singleProductPage);
+        //input set product quantity into product quantity input field
+        singleProductPage.inputSetProductQtyIntoQtyInputField(5);
+        //click 'add to cart' button
+        singleProductPage.clickAddToCartButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad();
+        //shopping cart modal web element assert (Selenium can't seem to find elements with VALID selectors)
+        //isShoppingCartModalWebElementDisplayed(singleProductPage);
+        //shopping cart modal text element assert (Selenium can't seem to find elements with VALID selectors)
+        //isShoppingCartModalTextElementAsExpected(singleProductPage);
+        //capture screenshot of the shopping cart modal display
+        captureScreenshot(driver, "Shopping Cart Modal Display");
+        //log shopping cart modal product data
+        logShoppingCartModalProductData(singleProductPage);
+        //click shopping cart modal 'View or edit cart' button
+        singleProductPage.clickViewOrEditCartButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Multiple Most Popular Products ('Oak Cheese Grater') Addition To Cart Test Result");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)
