@@ -7712,6 +7712,119 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Add Single Category Dashboard Page Set Single (Canvas Laundry Cart (Utility)) Product To Cart Test Result (as a guest)");
     }
 
+    //add single "Publications" category product ("Gather Journal Issue 7") to cart test method (as a registered user)
+    protected void addSinglePublicationsGatherJournalProductToCartRegUserTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        SingleCategoryDashboardPage singleCategoryDashboardPage = new SingleCategoryDashboardPage(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click header home page logo link
+        generalPage.clickHeaderHomePageLogoLink();
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementAsExpected(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //log home page product data
+        logHomePageProductData(homePage);
+        //click header lower navbar "Publications" category link
+        generalPage.clickHeaderLowerNavPublicationsLink();
+        //click "Other" dropdown button
+        singleCategoryDashboardPage.clickOtherDropdownButton();
+        //single category dashboard page web element assert
+        isSingleProductCategoryDashboardPageWebElementDisplayed(singleCategoryDashboardPage);
+        //single category dashboard page text element assert
+        isSingleCategoryDashboardPageTextElementAsExpected(singleCategoryDashboardPage);
+        //log single category dashboard page subtext (these are dynamic, depending on the category)
+        logSingleCategoryDashboardPageSubtext(singleCategoryDashboardPage);
+        //log single category dashboard page product data
+        logSingleCategoryDashboardPageProductData(singleCategoryDashboardPage);
+        //capture screenshot of the single category dashboard page display
+        captureScreenshot(driver, "Single Category Dashboard Page Display");
+        //click "Sort by" dropdown menu
+        singleCategoryDashboardPage.clickSortByDropdownMenu();
+        //select "Sort by" newest option
+        singleCategoryDashboardPage.selectSortByNewestOption();
+        //capture screenshot of the single category dashboard page display after selected set sort by (newest) option
+        captureScreenshot(driver, "Single Category Dashboard Page Display After Selecting 'Sort By Newest' Option");
+        //log single category dashboard page product data (to verify the product list has been sorted)
+        logSingleCategoryDashboardPageProductData(singleCategoryDashboardPage);
+        //click "Sort by" dropdown menu
+        singleCategoryDashboardPage.clickSortByDropdownMenu();
+        //select "Sort by bestselling" option
+        singleCategoryDashboardPage.selectSortByBestSellingOption();
+        //capture screenshot of the single category dashboard page display after selected set sort by (bestselling) option
+        captureScreenshot(driver, "Single Category Dashboard Page Display After Selecting 'Sort By Bestselling' Option");
+        //log single category dashboard page product data (to verify the product list has been sorted)
+        logSingleCategoryDashboardPageProductData(singleCategoryDashboardPage);
+        //click "Sort by" dropdown menu
+        singleCategoryDashboardPage.clickSortByDropdownMenu();
+        //select "Sort by name A to Z" option
+        singleCategoryDashboardPage.selectSortByAToZOption();
+        //capture screenshot of the single category dashboard page display after selected set sort by (name A to Z) option
+        captureScreenshot(driver, "Single Category Dashboard Page Display After Selecting 'Sort By Name A to Z' Option");
+        //log single category dashboard page product data (to verify the product list has been sorted)
+        logSingleCategoryDashboardPageProductData(singleCategoryDashboardPage);
+        //click "Sort by" dropdown menu
+        singleCategoryDashboardPage.clickSortByDropdownMenu();
+        //select "Sort by name Z to A" option
+        singleCategoryDashboardPage.selectSortByZToAOption();
+        //capture screenshot of the single category dashboard page display after selected set sort by (name Z to A) option
+        captureScreenshot(driver, "Single Category Dashboard Page Display After Selecting 'Sort By Name Z to A' Option");
+        //log single category dashboard page product data (to verify the product list has been sorted)
+        logSingleCategoryDashboardPageProductData(singleCategoryDashboardPage);
+        //click "Sort by" dropdown menu
+        singleCategoryDashboardPage.clickSortByDropdownMenu();
+        //select "Sort by review" option
+        singleCategoryDashboardPage.selectSortByReviewOption();
+        //capture screenshot of the single category dashboard page display after selected set sort by (review) option
+        captureScreenshot(driver, "Single Category Dashboard Page Display After Selecting 'Sort By Review' Option");
+        //log single category dashboard page product data (to verify the product list has been sorted)
+        logSingleCategoryDashboardPageProductData(singleCategoryDashboardPage);
+        //click "Sort by" dropdown menu
+        singleCategoryDashboardPage.clickSortByDropdownMenu();
+        //select "Sort by price ascending" option
+        singleCategoryDashboardPage.selectSortByPriceAscOption();
+        //capture screenshot of the single category dashboard page display after selected set sort by (price ascending) option
+        captureScreenshot(driver, "Single Category Dashboard Page Display After Selecting 'Sort By Price Ascending' Option");
+        //log single category dashboard page product data (to verify the product list has been sorted)
+        logSingleCategoryDashboardPageProductData(singleCategoryDashboardPage);
+        //click "Sort by" dropdown menu
+        singleCategoryDashboardPage.clickSortByDropdownMenu();
+        //select "Sort by price descending" option
+        singleCategoryDashboardPage.selectSortByPriceDescOption();
+        //capture screenshot of the single category dashboard page display after selected set sort by (price descending) option
+        captureScreenshot(driver, "Single Category Dashboard Page Display After Selecting 'Price Descending' Option");
+        //log single category dashboard page product data (to verify the product list has been sorted)
+        logSingleCategoryDashboardPageProductData(singleCategoryDashboardPage);
+        //click "Sort by" dropdown menu
+        singleCategoryDashboardPage.clickSortByDropdownMenu();
+        //select "Sort by featured" (default sort) option
+        singleCategoryDashboardPage.selectSortByFeaturedOption();
+        //capture screenshot of the single category dashboard page display after selected set sort by (featured -> default) option
+        captureScreenshot(driver, "Single Category Dashboard Page Display After Selecting 'Sort By Featured (Default)' Option");
+        //log single category dashboard page product data (to verify the product list has been sorted)
+        logSingleCategoryDashboardPageProductData(singleCategoryDashboardPage);
+        //click "Freshbrand" checkbox
+        singleCategoryDashboardPage.clickSetProductBrandCheckbox(0);
+        //capture screenshot of the single category dashboard page display after selected set brand checkbox
+        captureScreenshot(driver, "Single Category Dashboard Page Display After Clicking 'Featurebrand' Checkbox");
+        //single category dashboard page refined by section web element
+        isSingleCategoryDashboardPageRefinedBySectionWebElementDisplayed(singleCategoryDashboardPage);
+        //single category dashboard page brand section web element assert
+        isSingleCategoryDashboardPageBrandSectionWebElementDisplayed(singleCategoryDashboardPage);
+        //hover over set product ("Gather Journal Issue 7") image
+        singleCategoryDashboardPage.hoverOverSetProductImg(3);
+        //click set product ("Gather Journal Issue 7") 'Add to cart' button
+        singleCategoryDashboardPage.clickSetProductAddToCartButton(3);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Add Single Category Dashboard Page Set Single (Gather Journal Issue 7 (Publications)) Product To Cart Test Result (as a registered user)");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)

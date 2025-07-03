@@ -136,6 +136,12 @@ public class SingleCategoryDashboardPage extends BasePage {
         action.moveToElement(singleCategoryDashboardPageProductAddToCartButtonElements.get(index)).click().perform();
     }
 
+    //click set product brand checkbox method
+    public void clickSetProductBrandCheckbox(int index){
+        Actions action = new Actions(driver);
+        action.moveToElement(singleCategoryDashboardPageBrandCheckboxElements.get(index)).click().perform();
+    }
+
     //single category dashboard page text element getters
     public String getSingleCategoryDashboardPageTitle() {return singleCategoryDashboardPageTitle.getText();}
     public String getSingleCategoryDashboardPageRefinedBySubtitle(){return singleCategoryDashboardPageRefineBySubtitle.getText();}

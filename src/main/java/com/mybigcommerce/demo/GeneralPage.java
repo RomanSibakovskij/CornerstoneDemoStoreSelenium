@@ -140,6 +140,9 @@ public class GeneralPage extends BasePage {
     //click header lower navbar "Utility" link method
     public void clickHeaderLowerNavUtilityLink(){headerLowerNavUtilityLink.click();}
 
+    //click header lower navbar "Publications" link method
+    public void clickHeaderLowerNavPublicationsLink(){headerLowerNavPublicationsLink.click();}
+
     //wait for elements to load method
     public void waitForElementsToLoad() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(2500));
