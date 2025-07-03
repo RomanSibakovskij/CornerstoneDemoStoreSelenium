@@ -54,6 +54,7 @@ public class AddAddressPageInvalidSingularInputFormat extends BasePage{
         System.out.println("Invalid user edited address generated data (invalid user first name format): " + "\n");
 
         logger.info("Invalid edited user first name format: " + invalidEditAddressFirstNameFormat);
+        logger.info("Valid generated edited user last name  (invalid user first name format): " + validAddressLastName);
         logger.info("Valid generated edited user address (invalid user first name format): " + validAddress);
         logger.info("Valid generated edited user city (invalid user first name format): " + validAddressCity);
         logger.info("Valid generated edited user post code (invalid user first name format): " + validAddressPostCode);
@@ -77,6 +78,7 @@ public class AddAddressPageInvalidSingularInputFormat extends BasePage{
 
         System.out.println("Invalid user edited address generated data (invalid user last name format): " + "\n");
 
+        logger.info("Valid generated edited user first name (invalid user last name format): " + validAddressFirstName);
         logger.info("Invalid edited user last name format: " + invalidEditAddressLastNameFormat);
         logger.info("Valid generated edited user address (invalid user last name format): " + validAddress);
         logger.info("Valid generated edited user city (invalid user last name format): " + validAddressCity);
@@ -101,6 +103,8 @@ public class AddAddressPageInvalidSingularInputFormat extends BasePage{
 
         System.out.println("Invalid user edited address generated data (invalid user address format): " + "\n");
 
+        logger.info("Valid generated edited user first name (invalid user address format): " + validAddressFirstName);
+        logger.info("Valid generated edited user last name  (invalid user address format): " + validAddressLastName);
         logger.info("Invalid edited user address format: " + invalidEditAddressFormat);
         logger.info("Valid generated edited user city (invalid user address format): " + validAddressCity);
         logger.info("Valid generated edited user post code (invalid user address format): " + validAddressPostCode);
@@ -124,6 +128,8 @@ public class AddAddressPageInvalidSingularInputFormat extends BasePage{
 
         System.out.println("Invalid user edited address generated data (invalid user city format): " + "\n");
 
+        logger.info("Valid generated edited user first name (invalid user city format): " + validAddressFirstName);
+        logger.info("Valid generated edited user last name  (invalid user city format): " + validAddressLastName);
         logger.info("Valid generated edited user address (invalid user city format): " + validAddress);
         logger.info("Invalid edited user city format: " + invalidEditAddressCityFormat);
         logger.info("Valid generated edited user post code (invalid user city format): " + validAddressPostCode);
@@ -147,6 +153,8 @@ public class AddAddressPageInvalidSingularInputFormat extends BasePage{
 
         System.out.println("Invalid user edited address generated data (invalid user post code format): " + "\n");
 
+        logger.info("Valid generated edited user first name (invalid user post code format): " + validAddressFirstName);
+        logger.info("Valid generated edited user last name  (invalid user post code format): " + validAddressLastName);
         logger.info("Valid generated edited user address (invalid user post code format): " + validAddress);
         logger.info("Valid generated edited user city (invalid user post code format): " + validAddressCity);
         logger.info("Invalid edited user post code format: " + invalidEditAddressPostCodeFormat);
@@ -170,6 +178,8 @@ public class AddAddressPageInvalidSingularInputFormat extends BasePage{
 
         System.out.println("Invalid user edited address generated data (invalid user phone format): " + "\n");
 
+        logger.info("Valid generated edited user first name (invalid user phone format): " + validAddressFirstName);
+        logger.info("Valid generated edited user last name  (invalid user phone format): " + validAddressLastName);
         logger.info("Valid generated edited user address (invalid user phone format): " + validAddress);
         logger.info("Valid generated edited user city (invalid user phone format): " + validAddressCity);
         logger.info("Valid generated edited user post code (invalid user phone format): " + validAddressPostCode);
