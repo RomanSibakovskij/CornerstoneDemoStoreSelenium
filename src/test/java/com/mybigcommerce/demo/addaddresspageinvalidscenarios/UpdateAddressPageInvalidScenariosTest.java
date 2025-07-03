@@ -137,4 +137,18 @@ public class UpdateAddressPageInvalidScenariosTest extends TestMethods {
         invalidEditUserAddressTooShortLastNameTest();
     }
 
+    //Test 005k -> invalid update user address test - too short user address (3 chars) (the user address edit hasn't been aborted, test has failed)
+    @Test
+    @DisplayName("Invalid Update User Address Test - Too Short Address")
+    @Tag("Invalid_Update_User_Address")
+    @Tag("Too_Short_Singular_Input")
+    void invalidAddressEditTooShortAddressTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //invalid update user address test - too short user address (3 chars)
+        invalidEditUserAddressTooShortAddressTest();
+    }
+
 }
