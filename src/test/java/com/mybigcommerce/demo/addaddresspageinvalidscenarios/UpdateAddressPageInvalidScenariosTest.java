@@ -107,4 +107,20 @@ public class UpdateAddressPageInvalidScenariosTest extends TestMethods {
         invalidEditUserAddressNoPhoneTest();
     }
 
+    //too short singular input
+
+    //Test 005i -> invalid update user address test - too short user first name (1 char) (the user address edit hasn't been aborted, test has failed)
+    @Test
+    @DisplayName("Invalid Update User Address Test - Too Short First Name")
+    @Tag("Invalid_Update_User_Address")
+    @Tag("Too_Short_Singular_Input")
+    void invalidAddressEditTooShortFirstNameTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //invalid update user address test - too short user first name (1 char)
+        invalidEditUserAddressTooShortFirstNameTest();
+    }
+
 }

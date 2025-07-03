@@ -54,6 +54,7 @@ public class AddAddressPageTooShortSingularInput extends BasePage{
         System.out.println("Invalid user edited address generated data (too short user first name): " + "\n");
 
         logger.info("Too short edited user first name: " + tooShortEditAddressFirstName);
+        logger.info("Valid generated edited user last name (too short user first name): " + validAddressLastName);
         logger.info("Valid generated edited user address (too short user first name): " + validAddress);
         logger.info("Valid generated edited user city (too short user first name): " + validAddressCity);
         logger.info("Valid generated edited user post code (too short user first name): " + validAddressPostCode);
@@ -77,6 +78,7 @@ public class AddAddressPageTooShortSingularInput extends BasePage{
 
         System.out.println("Invalid user edited address generated data (too short user last name): " + "\n");
 
+        logger.info("Valid generated edited user first name (too short user last name): " + validAddressFirstName);
         logger.info("Too short edited user last name: " + tooShortEditAddressLastName);
         logger.info("Valid generated edited user address (too short user last name): " + validAddress);
         logger.info("Valid generated edited user city (too short user last name): " + validAddressCity);
@@ -101,6 +103,8 @@ public class AddAddressPageTooShortSingularInput extends BasePage{
 
         System.out.println("Invalid user edited address generated data (too short user address): " + "\n");
 
+        logger.info("Valid generated edited user first name (too short user address): " + validAddressFirstName);
+        logger.info("Valid generated edited user last name (too short user address): " + validAddressLastName);
         logger.info("Too short edited user address: " + tooShortEditAddress);
         logger.info("Valid generated edited user city (too short user address): " + validAddressCity);
         logger.info("Valid generated edited user post code (too short user address): " + validAddressPostCode);
@@ -124,6 +128,8 @@ public class AddAddressPageTooShortSingularInput extends BasePage{
 
         System.out.println("Invalid user edited address generated data (too short user city): " + "\n");
 
+        logger.info("Valid generated edited user first name (too short user city): " + validAddressFirstName);
+        logger.info("Valid generated edited user last name (too short user city): " + validAddressLastName);
         logger.info("Valid generated edited user address (too short user city): " + validAddress);
         logger.info("Too short edited user city: " + tooShortEditAddressCity);
         logger.info("Valid generated edited user post code (too short user city): " + validAddressPostCode);
@@ -147,6 +153,8 @@ public class AddAddressPageTooShortSingularInput extends BasePage{
 
         System.out.println("Invalid user edited address generated data (too short user post code): " + "\n");
 
+        logger.info("Valid generated edited user first name (too short user post code): " + validAddressFirstName);
+        logger.info("Valid generated edited user last name (too short user post code): " + validAddressLastName);
         logger.info("Valid generated edited user address (too short user post code): " + validAddress);
         logger.info("Valid generated edited user city (too short user post code): " + validAddressCity);
         logger.info("Too short edited user post code: " + tooShortEditAddressPostCode);
@@ -170,6 +178,8 @@ public class AddAddressPageTooShortSingularInput extends BasePage{
 
         System.out.println("Invalid user edited address generated data (too short user phone): " + "\n");
 
+        logger.info("Valid generated edited user first name (too short user phone): " + validAddressFirstName);
+        logger.info("Valid generated edited user last name (too short user phone): " + validAddressLastName);
         logger.info("Valid generated edited user address (too short user phone): " + validAddress);
         logger.info("Valid generated edited user city (too short user phone): " + validAddressCity);
         logger.info("Valid generated edited user post code (too short user phone): " + validAddressPostCode);
