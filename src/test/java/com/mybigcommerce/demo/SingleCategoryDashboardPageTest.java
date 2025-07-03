@@ -80,4 +80,15 @@ public class SingleCategoryDashboardPageTest extends TestMethods{
         addSingleSearchedDustpanProductToCartRegUserTest();
     }
 
+    //multiple searched products addition to cart tests
+
+    //Test 012b -> multiple searched products ("Orbit Terrarium (Large)") addition to cart test method (as a guest)
+    @Test
+    @DisplayName("Multiple Searched Products Addition To Cart Test (as a guest)")
+    @Tag("Multiple_Searched_Products_Addition_To_Cart")
+    @Tag("Test_As_A_Guest")
+    void multipleSearchedProductsAddToCartTest() {
+        addMultipleSearchedLargeTerrariumProductToCartTest();
+    }
+
 }

@@ -157,6 +157,11 @@ public class GeneralPage extends BasePage {
         headerUpperNavSearchInputField.sendKeys(Keys.ENTER);
     }
 
+    public void inputLargeTerrariumSearchQueryIntoSearchBarInputField(){
+        headerUpperNavSearchInputField.sendKeys("Orbit Terrarium (Large)");
+        headerUpperNavSearchInputField.sendKeys(Keys.ENTER);
+    }
+
     //wait for elements to load method
     public void waitForElementsToLoad() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(2500));
