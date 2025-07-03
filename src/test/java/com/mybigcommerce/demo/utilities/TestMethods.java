@@ -7451,6 +7451,34 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Multiple Most Popular Products ('Oak Cheese Grater') Addition To Cart Test Result");
     }
 
+    //new product/products addition to cart tests
+
+    //single new product ("Smith Journal 13") addition to cart test method (as a guest)
+    protected void addSingleNewProductToCartGuestTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementAsExpected(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //log home page product data
+        logHomePageProductData(homePage);
+        //click 'Accept cookies' button
+        generalPage.clickAcceptCookiesButton();
+        //hover over set 'New product' ("Smith Journal 13") image
+        homePage.hoverOverNewProductImg(0);
+        //click 'Add to cart' ("Smith Journal 13") button
+        homePage.clickNewProductAddToCartButton(0);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Single New Product ('Smith Journal 13') Addition To Cart Test Result");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)

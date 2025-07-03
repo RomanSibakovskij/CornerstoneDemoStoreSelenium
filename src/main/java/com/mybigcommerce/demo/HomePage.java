@@ -88,6 +88,18 @@ public class HomePage extends BasePage {
         action.moveToElement(homePageMostPopularProductNameLinkElements.get(index)).click().perform();
     }
 
+    //hover over new products image method
+    public void hoverOverNewProductImg(int index){
+        Actions action = new Actions(driver);
+        action.moveToElement(homePageNewProductImgElements.get(index)).perform();
+    }
+
+    //click set 'New products' add to cart button method
+    public void clickNewProductAddToCartButton(int index){
+        Actions action = new Actions(driver);
+        action.moveToElement(homePageNewProductAddToCartButtonElements.get(index)).click().perform();
+    }
+
     //home page product data getters
     //most popular section
     public List<String> getHomePageMostPopularCategoryTag(){return homePageMostPopularProductCategoryTagElements.stream().map(WebElement::getText).collect(Collectors.toList());}
