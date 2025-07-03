@@ -295,4 +295,18 @@ public class UpdateAddressPageInvalidScenariosTest extends TestMethods {
         invalidEditUserAddressInvalidFirstNameFormatTest();
     }
 
+    //Test 005v -> invalid update user address test - invalid user last name format (special symbols only) (the user address edit hasn't been aborted, test has failed)
+    @Test
+    @DisplayName("Invalid Update User Address Test - Invalid Last Name Format")
+    @Tag("Invalid_Update_User_Address")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidAddressEditInvalidLastNameFormatTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //invalid update user address test - invalid user last name format (special symbols only)
+        invalidEditUserAddressInvalidLastNameFormatTest();
+    }
+
 }
