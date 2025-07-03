@@ -251,4 +251,18 @@ public class UpdateAddressPageInvalidScenariosTest extends TestMethods {
         invalidEditUserAddressTooLongCityTest();
     }
 
+    //Test 005s -> invalid update user address test - too long user post code (6 digits) (the user address edit hasn't been aborted, test has failed)
+    @Test
+    @DisplayName("Invalid Update User Address Test - Too Long Post Code")
+    @Tag("Invalid_Update_User_Address")
+    @Tag("Too_Long_Singular_Input")
+    void invalidAddressEditTooLongPostCodeTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //invalid update user address test - too long user post code (6 digits)
+        invalidEditUserAddressTooLongPostCodeTest();
+    }
+
 }
