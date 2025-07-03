@@ -37,5 +37,18 @@ public class UpdateAddressPageInvalidScenariosTest extends TestMethods {
         invalidEditUserAddressNoFirstNameTest();
     }
 
+    //Test 005c -> invalid update user address test - no user last name
+    @Test
+    @DisplayName("Invalid Update User Address Test - No Last Name")
+    @Tag("Invalid_Update_User_Address")
+    @Tag("No_Singular_Input")
+    void invalidAddressEditNoLastNameTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //invalid update user address test - no user last name
+        invalidEditUserAddressNoLastNameTest();
+    }
 
 }
