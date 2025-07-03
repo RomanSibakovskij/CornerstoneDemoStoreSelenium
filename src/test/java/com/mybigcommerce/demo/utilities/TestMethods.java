@@ -5129,6 +5129,80 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Valid Edit User Address Test Result");
     }
 
+    //invalid edit user address tests
+
+    //no singular input
+
+    //invalid edit user address test method - no country
+    protected void invalidEditUserAddressNoCountryTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        AccountDashboardPage accountDashboardPage = new AccountDashboardPage(driver);
+        AddressDashboardPage addressDashboardPage = new AddressDashboardPage(driver);
+        AddAddressPage addAddressPage = new AddAddressPage(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Account' navbar link
+        generalPage.clickAccountLink();
+        //account dashboard page web element assert
+        isAccountDashboardPageWebElementDisplayed(accountDashboardPage);
+        //account dashboard page text element assert
+        isAccountDashboardPageTextElementAsExpected(accountDashboardPage);
+        //account dashboard page breadcrumb web element assert
+        isAccountDashboardPageBreadcrumbWebElementDisplayed(accountDashboardPage);
+        //assert account dashboard page title is as expected (since the user gets on orders page section after clicking 'Account')
+        isOrdersPageNoOrderTextElementsAsExpected(accountDashboardPage);
+        //capture screenshot of the orders page display(since the user gets here after clicking 'Account' link)
+        captureScreenshot(driver, "Orders Page Display");
+        //click 'Addresses' link
+        accountDashboardPage.clickAddressesLink();
+        //address dashboard page web element assert
+        isAddressDashboardPageWebElementDisplayed(addressDashboardPage);
+        //account dashboard page breadcrumb web element assert
+        isAccountDashboardPageBreadcrumbWebElementDisplayed(accountDashboardPage);
+        //assert address dashboard page title is a expected
+        assertEquals("Addresses", addressDashboardPage.getAddressDashboardPageTitle(), "The address dashboard page title doesn't match expectations.");
+        //log address dashboard page data
+        logAddressDashboardPageData(addressDashboardPage);
+        //capture screenshot of the address dashboard page display
+        captureScreenshot(driver, "Address Dashboard Page Display");
+        //click 'Edit' address button
+        addressDashboardPage.clickEditAddressButton(0);
+        //edit address page web element assert (same elements as for add address page)
+        isAddAddressPageWebElementDisplayed(addAddressPage);
+        //edit address page text element assert (same elements as for add address page)
+        isAddAddressPageTextElementAsExpected(addAddressPage);
+        //account dashboard page breadcrumb web element assert
+        isAccountDashboardPageBreadcrumbWebElementDisplayed(accountDashboardPage);
+        //assert edit address page title is as expected (same element as for add address page)
+        assertEquals("Update Address", addAddressPage.getAddAddressPageTitle(), "The update address page title doesn't match expectations.");
+        //capture screenshot of the update address page display before edited data input
+        captureScreenshot(driver, "Update Address Page Display Before Edited Data Input");
+        //valid edited user address getter
+        addAddressPage.validUserEditedAddressDataGetter();
+        //click "Country" dropdown menu
+        addAddressPage.clickCountryDropdownMenu();
+        //select "Choose a country" option
+        addAddressPage.selectCountryOption();
+        //input valid edited address into address 1 input field
+        addAddressPage.inputValidUserAddressIntoAddress1InputField();
+        //input valid edited address city into city input field
+        addAddressPage.inputValidUserCityIntoCityInputField();
+        //input valid edited address post code into post code input field
+        addAddressPage.inputValidUserPostCodeIntoPostCodeInputField();
+        //input valid edited address phone into phone input field
+        addAddressPage.inputValidUserPhoneIntoPhoneInputField();
+        //capture screenshot of the update address page display after invalid data input - no country
+        captureScreenshot(driver, "Update Address Page Display After Invalid Edited Data Input - No Country");
+        //click 'Save address' button
+        addAddressPage.clickSaveAddressButton();
+        //assert the user gets an expected error
+        assertEquals("Country field cannot be blank.", addAddressPage.getAddAddressPageSingularInputError(), "The update address page missing country input error doesn't match expectations or the error wasn't triggered.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Update User Address Test Result - No Country");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)
