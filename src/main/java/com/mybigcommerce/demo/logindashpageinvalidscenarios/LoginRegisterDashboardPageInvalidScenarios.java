@@ -7,6 +7,11 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginRegisterDashboardPageInvalidScenarios extends BasePage {
 
+    //login section
+    @FindBy(xpath = "//input[@id='login_email']")
+    private WebElement loginSectionEmailInputField;
+    @FindBy(xpath = "//input[@id='login_pass']")
+    private WebElement loginSectionPasswordInputField;
 
     public LoginRegisterDashboardPageInvalidScenarios(WebDriver driver) {super(driver);}
 
