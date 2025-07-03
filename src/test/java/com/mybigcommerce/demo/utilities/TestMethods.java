@@ -7479,6 +7479,32 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Single New Product ('Smith Journal 13') Addition To Cart Test Result");
     }
 
+    //single new product ("Kinfolk Issue 16") addition to cart test method (as a registered user)
+    protected void addSingleNewProductToCartRegUserTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click header home page logo link
+        generalPage.clickHeaderHomePageLogoLink();
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementAsExpected(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //log home page product data
+        logHomePageProductData(homePage);
+        //hover over set 'New product' ("Kinfolk Issue 16") image
+        homePage.hoverOverMostPopularProductImg(2);
+        //click 'Add to cart' ("Kinfolk Issue 16") button
+        homePage.clickNewProductAddToCartButton(2);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Single New Product ('Kinfolk Issue 16') Addition To Cart Test Result");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)

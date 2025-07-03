@@ -76,4 +76,18 @@ public class HomePageTest extends TestMethods{
         addSingleNewProductToCartGuestTest();
     }
 
+    //Test 010a -> single new product ("Kinfolk Issue 16") addition to cart test method (as a registered user)
+    @Test
+    @DisplayName("Single New Product Addition To Cart Test (as a registered user)")
+    @Tag("Single_New_Product_Addition_To_Cart")
+    @Tag("Test_As_A_Reg_User")
+    void singleNewProductAddToCartRegUserTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //single most popular product ("Kinfolk Issue 16") addition to cart test method (as a registered user)
+        addSingleNewProductToCartRegUserTest();
+    }
+
 }
