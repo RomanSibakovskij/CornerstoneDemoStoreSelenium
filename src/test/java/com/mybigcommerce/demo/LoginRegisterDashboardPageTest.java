@@ -125,4 +125,20 @@ public class LoginRegisterDashboardPageTest extends TestMethods{
         invalidUserLoginInvalidEmailTest();
     }
 
+    //Test 008f -> invalid user login test - invalid login password
+    @Test
+    @DisplayName("Invalid User Account Login Test - Invalid Login Password")
+    @Tag("Invalid_User_Login")
+    @Tag("Invalid_Singular_Input")
+    void invalidLoginInvalidLoginPasswordTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //valid user logout test
+        validUserLogoutTest();
+        //invalid user login test - invalid login password
+        invalidUserLoginInvalidPasswordTest();
+    }
+
 }

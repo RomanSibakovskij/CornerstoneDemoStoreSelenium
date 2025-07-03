@@ -23,6 +23,7 @@ public class LoginRegisterDashboardPageInvalidScenarios extends BasePage {
 
     //invalid user login data - invalid singular input
     private String invalidUserLoginEmail;
+    private String invalidUserLoginPassword;
 
     public LoginRegisterDashboardPageInvalidScenarios(WebDriver driver) {super(driver);}
 
@@ -81,8 +82,26 @@ public class LoginRegisterDashboardPageInvalidScenarios extends BasePage {
 
     }
 
+    //invalid user login data getter - invalid login password
+    public void invalidUserLoginDataInvalidLoginPasswordGetter(){
+
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        validUserLoginEmail = registerPage.getEmail();
+        invalidUserLoginPassword = "RERfvfdf2343";
+
+        System.out.println("Invalid user login data (invalid login password): " + "\n");
+
+        logger.info("Valid user login email (invalid login password): " + validUserLoginEmail);
+        logger.info("Invalid user login password: " + invalidUserLoginPassword);
+
+        System.out.println("\n");
+
+    }
+
     //invalid user login data input methods - invalid singular input methods
     public void inputInvalidLoginEmailIntoEmailInputField(){loginSectionEmailInputField.sendKeys(invalidUserLoginEmail);}
+    public void inputInvalidLoginPasswordIntoPasswordInputField(){loginSectionPasswordInputField.sendKeys(invalidUserLoginPassword);}
 
     //valid user login data input methods (for remaining inputs)
     public void inputLoginEmailIntoEmailInputField(){loginSectionEmailInputField.sendKeys(validUserLoginEmail);}
