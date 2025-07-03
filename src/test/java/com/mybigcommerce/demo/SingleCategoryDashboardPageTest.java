@@ -41,4 +41,18 @@ public class SingleCategoryDashboardPageTest extends TestMethods{
         addMultipleUtilityLaundryCartProductToCartTest();
     }
 
+    //Test 011c -> single category dashboard page set multiple products ("Openhouse No. 3") addition to cart test method (as a registered user)
+    @Test
+    @DisplayName("Single Category Dashboard Page Set Multiple Products Addition To Cart Test (as a registered user)")
+    @Tag("Multiple_Set_Category_Products_Addition_To_Cart")
+    @Tag("Test_As_A_Reg_User")
+    void multipleSetCategoryAddToCartRegUserTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //single category dashboard page set multiple products ("Openhouse No. 3") addition to cart test method (as a registered user)
+        addMultiplePublicationOpenHouseProductToCartRegUserTest();
+    }
+
 }
