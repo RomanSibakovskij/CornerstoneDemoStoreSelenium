@@ -77,6 +77,7 @@ public class AddAddressPageNoSingularInput extends BasePage{
 
         System.out.println("Invalid user edited address generated data (no user last name): " + "\n");
 
+        logger.info("Valid generated user first name (no user last name): " + validAddressFirstName);
         logger.info("No edited user last name: " + noEditAddressLastName);
         logger.info("Valid generated edited user address (no user last name): " + validAddress);
         logger.info("Valid generated edited user city (no user last name): " + validAddressCity);
@@ -101,6 +102,8 @@ public class AddAddressPageNoSingularInput extends BasePage{
 
         System.out.println("Invalid user edited address generated data (no user address): " + "\n");
 
+        logger.info("Valid generated user first name (no user address): " + validAddressFirstName);
+        logger.info("Valid generated user last name (no user address): " + validAddressLastName);
         logger.info("No edited user address: " + noEditAddress);
         logger.info("Valid generated edited user city (no user address): " + validAddressCity);
         logger.info("Valid generated edited user post code (no user address): " + validAddressPostCode);
@@ -124,6 +127,8 @@ public class AddAddressPageNoSingularInput extends BasePage{
 
         System.out.println("Invalid user edited address generated data (no user city): " + "\n");
 
+        logger.info("Valid generated user first name (no user city): " + validAddressFirstName);
+        logger.info("Valid generated user last name (no user city): " + validAddressLastName);
         logger.info("Valid generated edited user address (no user city): " + validAddress);
         logger.info("No edited user city: " + noEditAddressCity);
         logger.info("Valid generated edited user post code (no user city): " + validAddressPostCode);
@@ -147,6 +152,8 @@ public class AddAddressPageNoSingularInput extends BasePage{
 
         System.out.println("Invalid user edited address generated data (no user post code): " + "\n");
 
+        logger.info("Valid generated user first name (no user post code): " + validAddressFirstName);
+        logger.info("Valid generated user last name (no user post code): " + validAddressLastName);
         logger.info("Valid generated edited user address (no user post code): " + validAddress);
         logger.info("Valid generated edited user city (no user post code): " + validAddressCity);
         logger.info("No edited user post code: " + noEditAddressPostCode);
@@ -170,6 +177,8 @@ public class AddAddressPageNoSingularInput extends BasePage{
 
         System.out.println("Invalid user edited address generated data (no user phone): " + "\n");
 
+        logger.info("Valid generated user first name (no user phone): " + validAddressFirstName);
+        logger.info("Valid generated user last name (no user phone): " + validAddressLastName);
         logger.info("Valid generated edited user address (no user phone): " + validAddress);
         logger.info("Valid generated edited user city (no user phone): " + validAddressCity);
         logger.info("Valid generated edited user post code (no user phone): " + validAddressPostCode);
