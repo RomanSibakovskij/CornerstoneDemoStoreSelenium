@@ -223,4 +223,18 @@ public class UpdateAddressPageInvalidScenariosTest extends TestMethods {
         invalidEditUserAddressTooLongLastNameTest();
     }
 
+    //Test 005q -> invalid update user address test - too long user address (100 chars) (the user address edit hasn't been aborted, test has failed)
+    @Test
+    @DisplayName("Invalid Update User Address Test - Too Long Address")
+    @Tag("Invalid_Update_User_Address")
+    @Tag("Too_Long_Singular_Input")
+    void invalidAddressEditTooLongAddressTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //invalid update user address test - too long user address (100 chars)
+        invalidEditUserAddressTooLongAddressTest();
+    }
+
 }

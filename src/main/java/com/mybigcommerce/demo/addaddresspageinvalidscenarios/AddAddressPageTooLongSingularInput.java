@@ -54,6 +54,7 @@ public class AddAddressPageTooLongSingularInput extends BasePage{
         System.out.println("Invalid user edited address generated data (too long user first name): " + "\n");
 
         logger.info("Too long edited user first name: " + tooLongEditAddressFirstName);
+        logger.info("Valid generated edited user last name (too long user first name): " + validAddressLastName);
         logger.info("Valid generated edited user address (too long user first name): " + validAddress);
         logger.info("Valid generated edited user city (too long user first name): " + validAddressCity);
         logger.info("Valid generated edited user post code (too long user first name): " + validAddressPostCode);
@@ -77,6 +78,7 @@ public class AddAddressPageTooLongSingularInput extends BasePage{
 
         System.out.println("Invalid user edited address generated data (too long user last name): " + "\n");
 
+        logger.info("Valid generated edited user first name (too long user last name): " + validAddressFirstName);
         logger.info("Too long edited user last name: " + tooLongEditAddressLastName);
         logger.info("Valid generated edited user address (too long user last name): " + validAddress);
         logger.info("Valid generated edited user city (too long user last name): " + validAddressCity);
@@ -101,6 +103,8 @@ public class AddAddressPageTooLongSingularInput extends BasePage{
 
         System.out.println("Invalid user edited address generated data (too long user address): " + "\n");
 
+        logger.info("Valid generated edited user first name (too long user address): " + validAddressFirstName);
+        logger.info("Valid generated edited user last name  (too long user address): " + validAddressLastName);
         logger.info("Too long edited user address: " + tooLongEditAddress);
         logger.info("Valid generated edited user city (too long user address): " + validAddressCity);
         logger.info("Valid generated edited user post code (too long user address): " + validAddressPostCode);
@@ -124,6 +128,8 @@ public class AddAddressPageTooLongSingularInput extends BasePage{
 
         System.out.println("Invalid user edited address generated data (too long user city): " + "\n");
 
+        logger.info("Valid generated edited user first name (too long user city): " + validAddressFirstName);
+        logger.info("Valid generated edited user last name  (too long user city): " + validAddressLastName);
         logger.info("Valid generated edited user address (too long user city): " + validAddress);
         logger.info("Too long edited user city: " + tooLongEditAddressCity);
         logger.info("Valid generated edited user post code (too long user city): " + validAddressPostCode);
@@ -147,6 +153,8 @@ public class AddAddressPageTooLongSingularInput extends BasePage{
 
         System.out.println("Invalid user edited address generated data (too long user post code): " + "\n");
 
+        logger.info("Valid generated edited user first name (too long user post code): " + validAddressFirstName);
+        logger.info("Valid generated edited user last name  (too long user post code): " + validAddressLastName);
         logger.info("Valid generated edited user address (too long user post code): " + validAddress);
         logger.info("Valid generated edited user city (too long user post code): " + validAddressCity);
         logger.info("Too long edited user post code: " + tooLongEditAddressPostCode);
@@ -170,6 +178,8 @@ public class AddAddressPageTooLongSingularInput extends BasePage{
 
         System.out.println("Invalid user edited address generated data (too long user phone): " + "\n");
 
+        logger.info("Valid generated edited user first name (too long user phone): " + validAddressFirstName);
+        logger.info("Valid generated edited user last name  (too long user phone): " + validAddressLastName);
         logger.info("Valid generated edited user address (too long user phone): " + validAddress);
         logger.info("Valid generated edited user city (too long user phone): " + validAddressCity);
         logger.info("Valid generated edited user post code (too long user phone): " + validAddressPostCode);
