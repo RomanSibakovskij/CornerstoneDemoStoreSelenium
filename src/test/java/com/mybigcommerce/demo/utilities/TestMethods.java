@@ -9,6 +9,7 @@ import org.openqa.selenium.*;
 import com.mybigcommerce.demo.regpageinvalidscenarios.*;
 import com.mybigcommerce.demo.accountpageinvalidscenarios.*;
 import com.mybigcommerce.demo.addaddresspageinvalidscenarios.*;
+import com.mybigcommerce.demo.logindashpageinvalidscenarios.*;
 
 import java.io.File;
 import java.nio.file.*;
@@ -7158,6 +7159,42 @@ public class TestMethods extends BaseTest{
         isAccountSettingsPageTextElementAsExpected(accountSettingsPage);
         //capture screenshot of the test result
         captureScreenshot(driver, "Valid User Edited Login Password Test Result");
+    }
+
+    //invalid user login tests
+
+    //no singular input
+
+    //invalid user login test method - no login email
+    protected void invalidUserLoginNoEmailTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        LoginRegisterDashboardPage loginRegisterDashboardPage = new LoginRegisterDashboardPage(driver);
+        LoginRegisterDashboardPageInvalidScenarios loginRegisterDashboardPageInvalidScenarios = new LoginRegisterDashboardPageInvalidScenarios(driver);
+        AccountDashboardPage accountDashboardPage = new AccountDashboardPage(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //login register dashboard page web element assert
+        isLoginRegisterDashboardPageWebElementDisplayed(loginRegisterDashboardPage);
+        //login register dashboard page text element assert
+        isLoginRegisterDashboardTextElementAsExpected(loginRegisterDashboardPage);
+        //invalid user login data getter - no login email
+        loginRegisterDashboardPageInvalidScenarios.invalidUserLoginDataNoLoginEmailGetter();
+        //capture screenshot of the login dashboard page before login data input
+        captureScreenshot(driver, "Login Register Dashboard Page Display Before Login Data Input");
+        //don't input user login email into email input field
+        loginRegisterDashboardPageInvalidScenarios.inputNoLoginEmailIntoEmailInputField();
+        //input valid user login password into password input field
+        loginRegisterDashboardPageInvalidScenarios.inputLoginPasswordIntoPasswordInputField();
+        //capture screenshot of the login dashboard page after valid login data input - no login email
+        captureScreenshot(driver, "Login Register Dashboard Page Display After Invalid Login Data Input - No Login Email");
+        //click 'Sign in' button
+        loginRegisterDashboardPage.clickSignInButton();
+        //assert the user gets an expected error
+        assertEquals("Please use a valid email address, such as user@example.com.", loginRegisterDashboardPage.getLoginRegDashPageSingularInputError(), "The login dashboard page page missing login email input error doesn't match expectations or the error wasn't triggered.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid User Login Test Result - No Login Email");
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
