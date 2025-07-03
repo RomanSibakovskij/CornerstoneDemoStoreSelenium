@@ -65,4 +65,6 @@ public class UpdateAddressPageInvalidScenariosTest extends TestMethods {
         invalidEditUserAddressNoAddressTest();
     }
 
+
+
 }
