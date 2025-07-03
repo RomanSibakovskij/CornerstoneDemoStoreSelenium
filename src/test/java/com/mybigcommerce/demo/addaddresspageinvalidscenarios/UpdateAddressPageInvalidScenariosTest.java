@@ -351,4 +351,18 @@ public class UpdateAddressPageInvalidScenariosTest extends TestMethods {
         invalidEditUserAddressInvalidPostCodeFormatTest();
     }
 
+    //Test 005z -> invalid update user address test - invalid user phone format (special symbols only) (the user address edit hasn't been aborted, test has failed)
+    @Test
+    @DisplayName("Invalid Update User Address Test - Invalid Phone Format")
+    @Tag("Invalid_Update_User_Address")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidAddressEditInvalidPhoneFormatTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //invalid update user address test - invalid user phone format (special symbols only)
+        invalidEditUserAddressInvalidPhoneFormatTest();
+    }
+
 }

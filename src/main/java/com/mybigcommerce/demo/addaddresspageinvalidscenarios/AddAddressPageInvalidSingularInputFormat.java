@@ -183,7 +183,7 @@ public class AddAddressPageInvalidSingularInputFormat extends BasePage{
         logger.info("Valid generated edited user address (invalid user phone format): " + validAddress);
         logger.info("Valid generated edited user city (invalid user phone format): " + validAddressCity);
         logger.info("Valid generated edited user post code (invalid user phone format): " + validAddressPostCode);
-        logger.info("Invalid edited user phone format: " + invalidEditAddressPostCodeFormat);
+        logger.info("Invalid edited user phone format: " + invalidEditAddressPhoneFormat);
 
         System.out.println("\n");
 

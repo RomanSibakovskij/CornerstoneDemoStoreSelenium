@@ -6904,6 +6904,77 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid Update User Address Test Result - Invalid Post Code Format");
     }
 
+    //invalid update user address test method - invalid user phone format (special symbols only)
+    protected void invalidEditUserAddressInvalidPhoneFormatTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        AccountDashboardPage accountDashboardPage = new AccountDashboardPage(driver);
+        AddressDashboardPage addressDashboardPage = new AddressDashboardPage(driver);
+        AddAddressPage addAddressPage = new AddAddressPage(driver);
+        AddAddressPageInvalidSingularInputFormat addAddressPageInvalidSingularInputFormat = new AddAddressPageInvalidSingularInputFormat(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Account' navbar link
+        generalPage.clickAccountLink();
+        //account dashboard page web element assert
+        isAccountDashboardPageWebElementDisplayed(accountDashboardPage);
+        //account dashboard page text element assert
+        isAccountDashboardPageTextElementAsExpected(accountDashboardPage);
+        //account dashboard page breadcrumb web element assert
+        isAccountDashboardPageBreadcrumbWebElementDisplayed(accountDashboardPage);
+        //assert account dashboard page title is as expected (since the user gets on orders page section after clicking 'Account')
+        isOrdersPageNoOrderTextElementsAsExpected(accountDashboardPage);
+        //capture screenshot of the orders page display(since the user gets here after clicking 'Account' link)
+        captureScreenshot(driver, "Orders Page Display");
+        //click 'Addresses' link
+        accountDashboardPage.clickAddressesLink();
+        //address dashboard page web element assert
+        isAddressDashboardPageWebElementDisplayed(addressDashboardPage);
+        //account dashboard page breadcrumb web element assert
+        isAccountDashboardPageBreadcrumbWebElementDisplayed(accountDashboardPage);
+        //assert address dashboard page title is a expected
+        assertEquals("Addresses", addressDashboardPage.getAddressDashboardPageTitle(), "The address dashboard page title doesn't match expectations.");
+        //log address dashboard page data
+        logAddressDashboardPageData(addressDashboardPage);
+        //capture screenshot of the address dashboard page display
+        captureScreenshot(driver, "Address Dashboard Page Display");
+        //click 'Edit' address button
+        addressDashboardPage.clickEditAddressButton(0);
+        //edit address page web element assert (same elements as for add address page)
+        isAddAddressPageWebElementDisplayed(addAddressPage);
+        //edit address page text element assert (same elements as for add address page)
+        isAddAddressPageTextElementAsExpected(addAddressPage);
+        //account dashboard page breadcrumb web element assert
+        isAccountDashboardPageBreadcrumbWebElementDisplayed(accountDashboardPage);
+        //assert edit address page title is as expected (same element as for add address page)
+        assertEquals("Update Address", addAddressPage.getAddAddressPageTitle(), "The update address page title doesn't match expectations.");
+        //capture screenshot of the update address page display before edited data input
+        captureScreenshot(driver, "Update Address Page Display Before Edited Data Input");
+        //invalid edited user address getter - invalid user phone format (special symbols only)
+        addAddressPageInvalidSingularInputFormat.invalidUserEditedAddressDataInvalidPhoneFormatGetter();
+        //input valid edited address into address 1 input field
+        addAddressPageInvalidSingularInputFormat.inputValidUserAddressIntoAddress1InputField();
+        //input valid edited address city into city input field
+        addAddressPageInvalidSingularInputFormat.inputValidUserCityIntoCityInputField();
+        //input valid edited address post code into post code input field
+        addAddressPageInvalidSingularInputFormat.inputValidUserPostCodeIntoPostCodeInputField();
+        //input invalid edited address phone format into phone input field
+        addAddressPageInvalidSingularInputFormat.inputInvalidUserPhoneFormatIntoPhoneInputField();
+        //capture screenshot of the update address page display after invalid data input - invalid phone format
+        captureScreenshot(driver, "Update Address Page Display After Invalid Edited Data Input - Invalid Phone Format");
+        //click 'Save address' button
+        addAddressPage.clickSaveAddressButton();
+        //assert the user gets an expected error, log the issue otherwise
+        try {
+            assertEquals("Phone cannot consist of special symbols only.", addAddressPage.getAddAddressPageSingularInputError(), "The update address page invalid address phone input format error doesn't match expectations.");
+        } catch (Exception e) {
+            logger.error("The invalid update address phone input format error wasn't triggered, test has failed.");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Update User Address Test Result - Invalid Phone Format");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)
