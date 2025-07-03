@@ -7124,6 +7124,42 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Valid User Edited Login Email Test Result");
     }
 
+    //valid user login with edited login password test method
+    protected void validUserEditedLoginPasswordTest() {
+        GeneralPage generalPage = new GeneralPage(driver);
+        LoginRegisterDashboardPage loginRegisterDashboardPage = new LoginRegisterDashboardPage(driver);
+        AccountSettingsPage accountSettingsPage = new AccountSettingsPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //login register dashboard page web element assert
+        isLoginRegisterDashboardPageWebElementDisplayed(loginRegisterDashboardPage);
+        //login register dashboard page text element assert
+        isLoginRegisterDashboardTextElementAsExpected(loginRegisterDashboardPage);
+        //valid user login data (with edited login password) getter
+        loginRegisterDashboardPage.validUserEditedLoginPasswordGetter(registerPage);
+        //capture screenshot of the login dashboard page before login data input
+        captureScreenshot(driver, "Login Register Dashboard Page Display Before Login Data Input");
+        //input valid user login email into email input field
+        loginRegisterDashboardPage.inputLoginEmailIntoEmailInputField();
+        //input valid edited user login password into password input field
+        loginRegisterDashboardPage.inputEditedLoginPasswordIntoPasswordInputField();
+        //capture screenshot of the login dashboard page after valid edited login data input - edited login password
+        captureScreenshot(driver, "Login Register Dashboard Page Display After Valid Edited Login Data Input - Edited Login Password");
+        //click 'Sign in' button
+        loginRegisterDashboardPage.clickSignInButton();
+        //wait for elements to load (somehow it drops back onto 'Account settings' page)
+        generalPage.waitForElementsToLoad();
+        //account settings page web element assert
+        isAccountSettingsPageWebElementDisplayed(accountSettingsPage);
+        //account settings page text element assert
+        isAccountSettingsPageTextElementAsExpected(accountSettingsPage);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid User Edited Login Password Test Result");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)
