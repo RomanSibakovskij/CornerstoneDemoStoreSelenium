@@ -95,6 +95,47 @@ public class SingleCategoryDashboardPage extends BasePage {
 
     public SingleCategoryDashboardPage(WebDriver driver) {super(driver);}
 
+    //click "Other" dropdown link method
+    public void clickOtherDropdownButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(singleCategoryDashboardPageOtherSubtitleButton).click().perform();
+    }
+
+    //click "Sort by" dropdown menu method
+    public void clickSortByDropdownMenu(){
+        Actions action = new Actions(driver);
+        action.moveToElement(singleCategoryDashboardPageSortByDropdownMenu).click().perform();
+    }
+
+    //select "Sort by featured" (default) option method
+    public void selectSortByFeaturedOption(){singleCategoryDashboardPageSortByFeaturedOption.click();}
+    //select "Sort by newest" option method
+    public void selectSortByNewestOption(){singleCategoryDashboardPageSortByNewestOption.click();}
+    //select "Sort by bestselling" option method
+    public void selectSortByBestSellingOption(){singleCategoryDashboardPageSortByBestSellingOption.click();}
+    //select "Sort by Name A to Z" option method
+    public void selectSortByAToZOption(){singleCategoryDashboardPageSortByAToZOption.click();}
+    //select "Sort by Name Z to A" option method
+    public void selectSortByZToAOption(){singleCategoryDashboardPageSortByZToAOption.click();}
+    //select "Sort by review" option method
+    public void selectSortByReviewOption(){singleCategoryDashboardPageSortByReviewOption.click();}
+    //select "Sort by price (ascending)" option method
+    public void selectSortByPriceAscOption(){singleCategoryDashboardPageSortByPriceAscOption.click();}
+    //select "Sort by price (descending)" option method
+    public void selectSortByPriceDescOption(){singleCategoryDashboardPageSortByPriceDescOption.click();}
+
+    //hover over set product image method
+    public void hoverOverSetProductImg(int index){
+        Actions action = new Actions(driver);
+        action.moveToElement(singleCategoryDashboardPageProductImgElements.get(index)).perform();
+    }
+
+    //click set product add to cart button method
+    public void clickSetProductAddToCartButton(int index){
+        Actions action = new Actions(driver);
+        action.moveToElement(singleCategoryDashboardPageProductAddToCartButtonElements.get(index)).click().perform();
+    }
+
     //single category dashboard page text element getters
     public String getSingleCategoryDashboardPageTitle() {return singleCategoryDashboardPageTitle.getText();}
     public String getSingleCategoryDashboardPageRefinedBySubtitle(){return singleCategoryDashboardPageRefineBySubtitle.getText();}
