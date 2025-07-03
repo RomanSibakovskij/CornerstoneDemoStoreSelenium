@@ -309,4 +309,18 @@ public class AddAddressPageInvalidScenariosTest extends TestMethods{
         invalidSecondUserAddressAdditionInvalidFirstNameFormatTest();
     }
 
+    //Test 004v -> invalid user second address addition test - invalid user last name format (special symbols only) (new address addition wasn't aborted, test has failed)
+    @Test
+    @DisplayName("Invalid User Second Address Addition Test - Invalid Last Name Format")
+    @Tag("Invalid_Second_User_Address_Addition")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidSecondAddressAdditionInvalidLastNameFormatTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //invalid user second address addition test - invalid user last name format (special symbols only)
+        invalidSecondUserAddressAdditionInvalidLastNameFormatTest();
+    }
+
 }

@@ -31,6 +31,7 @@ public class AddAddressPageInvalidSingularInputFormat extends BasePage{
 
     //invalid user address data - invalid singular input format
     private String invalidEditAddressFirstNameFormat;
+    private String invalidEditAddressLastNameFormat;
 
     public AddAddressPageInvalidSingularInputFormat(WebDriver driver) {super(driver);}
 
@@ -58,10 +59,38 @@ public class AddAddressPageInvalidSingularInputFormat extends BasePage{
 
     }
 
+    //invalid user edited address data getter - invalid user last name format (special symbols only)
+    public void invalidUserEditedAddressDataInvalidLastNameFormatGetter(){
+
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        validAddressFirstName = registerPage.getValidRegisterFirstName();; //add address page requires the input, while edit address page has the input by default
+        invalidEditAddressLastNameFormat = "*(&*^^%";
+        validAddress = TestDataGenerator.generateRandomAddress(9);
+        validAddressCity = TestDataGenerator.getRandomCity();
+        validAddressPostCode = TestDataGenerator.getRandomPostalCode();
+        validAddressPhone = TestDataGenerator.generatePhoneNumber(8);
+
+        System.out.println("Invalid user edited address generated data (invalid user last name format): " + "\n");
+
+        logger.info("Invalid edited user last name format: " + invalidEditAddressLastNameFormat);
+        logger.info("Valid generated edited user address (invalid user last name format): " + validAddress);
+        logger.info("Valid generated edited user city (invalid user last name format): " + validAddressCity);
+        logger.info("Valid generated edited user post code (invalid user last name format): " + validAddressPostCode);
+        logger.info("Valid generated edited user phone (invalid user last name format): " + validAddressPhone);
+
+        System.out.println("\n");
+
+    }
+
     //invalid user address input methods - invalid singular input format
     public void inputInvalidUserFirstNameFormatIntoFirstNameInputField(){
         addAddressPageFirstNameInputField.clear();
         addAddressPageFirstNameInputField.sendKeys(invalidEditAddressFirstNameFormat);
+    }
+    public void inputInvalidUserLastNameFormatIntoLastNameInputField(){
+        addAddressPageLastNameInputField.clear();
+        addAddressPageLastNameInputField.sendKeys(invalidEditAddressLastNameFormat);
     }
 
     //valid user address input methods (for remaining inputs)
