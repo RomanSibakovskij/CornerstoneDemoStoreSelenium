@@ -48,7 +48,38 @@ public class LoginRegisterDashboardPage extends BasePage {
     @FindBy(xpath = "//span[@id='alertBox-message-text']")
     private WebElement loginRegDashPageSingularInputErrorBox;
 
+    //valid user login data
+    private String validUserLoginEmail;
+    private String validUserLoginPassword;
+
     public LoginRegisterDashboardPage(WebDriver driver) {super(driver);}
+
+    //valid user login data getter
+    public void validUserLoginDataGetter(){
+
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        validUserLoginEmail = registerPage.getEmail();
+        validUserLoginPassword = registerPage.getPassword();
+
+        System.out.println("Valid user login data: " + "\n");
+
+        logger.info("Valid user login email: " + validUserLoginEmail);
+        logger.info("Valid user login password: " + validUserLoginPassword);
+
+        System.out.println("\n");
+
+    }
+
+    //valid user login data input methods
+    public void inputLoginEmailIntoEmailInputField(){loginSectionEmailInputField.sendKeys(validUserLoginEmail);}
+    public void inputLoginPasswordIntoPasswordInputField(){loginSectionPasswordInputField.sendKeys(validUserLoginPassword);}
+
+    //click 'Sign in' button method
+    public void clickSignInButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(loginSectionSignInButton).click().perform();
+    }
 
     //login register dashboard page text element getters
     //login section

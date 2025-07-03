@@ -20,5 +20,21 @@ public class LoginRegisterDashboardPageTest extends TestMethods{
         validUserLogoutTest();
     }
 
+    //valid edit user login tests
+
+    //Test 008 -> valid user login test
+    @Test
+    @DisplayName("Valid User Account Login Test")
+    @Tag("Valid_User_Login")
+    void validLoginTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //valid user logout test
+        validUserLogoutTest();
+        //valid user login test
+        validUserLoginTest();
+    }
 
 }

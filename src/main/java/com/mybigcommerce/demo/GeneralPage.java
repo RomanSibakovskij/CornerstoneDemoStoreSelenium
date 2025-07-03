@@ -6,6 +6,9 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.*;
 
+import java.time.Duration;
+import java.util.Objects;
+
 public class GeneralPage extends BasePage {
 
     //general page web elements (elements that all pages share)
@@ -133,6 +136,17 @@ public class GeneralPage extends BasePage {
 
     //click 'Sign out' link method
     public void clickSignOutLink(){headerUpperNavRegisterLink.click();}
+
+    //wait for elements to load method
+    public void waitForElementsToLoad() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(2500));
+        //wait for the document to be fully loaded
+        wait.until(webDriver -> Objects.equals(((JavascriptExecutor) webDriver)
+                .executeScript("return document.readyState"), "complete"));
+
+        //assert at least one visible element is present
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//*")));
+    }
 
     //general page text element getters
     //header -> upper navbar

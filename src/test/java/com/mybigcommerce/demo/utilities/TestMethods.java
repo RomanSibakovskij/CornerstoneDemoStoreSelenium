@@ -7055,6 +7055,41 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Valid User Logout Test Result");
     }
 
+    //valid user login tests
+
+    //valid user login test method
+    protected void validUserLoginTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        LoginRegisterDashboardPage loginRegisterDashboardPage = new LoginRegisterDashboardPage(driver);
+        AccountDashboardPage accountDashboardPage = new AccountDashboardPage(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //login register dashboard page web element assert
+        isLoginRegisterDashboardPageWebElementDisplayed(loginRegisterDashboardPage);
+        //login register dashboard page text element assert
+        isLoginRegisterDashboardTextElementAsExpected(loginRegisterDashboardPage);
+        //valid user login data getter
+        loginRegisterDashboardPage.validUserLoginDataGetter();
+        //capture screenshot of the login dashboard page before login data input
+        captureScreenshot(driver, "Login Register Dashboard Page Display Before Login Data Input");
+        //input valid user login email into email input field
+        loginRegisterDashboardPage.inputLoginEmailIntoEmailInputField();
+        //input valid user login password into password input field
+        loginRegisterDashboardPage.inputLoginPasswordIntoPasswordInputField();
+        //capture screenshot of the login dashboard page after valid login data input
+        captureScreenshot(driver, "Login Register Dashboard Page Display After Valid Login Data Input");
+        //click 'Sign in' button
+        loginRegisterDashboardPage.clickSignInButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad();
+        //assert account dashboard page title is as expected (since the user gets on orders page section after clicking 'Sign in' button)
+        isOrdersPageNoOrderTextElementsAsExpected(accountDashboardPage);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid User Login Test Result");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)
