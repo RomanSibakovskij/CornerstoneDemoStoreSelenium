@@ -42,6 +42,22 @@ public class AddressDashboardPage extends BasePage {
         action.moveToElement(button).click().perform();
     }
 
+    //click 'Delete' address button method
+    public void clickDeleteAddressButton(int index) {
+        WebElement button = addressDashboardPageAddressDeleteButton.get(index);
+        Actions action = new Actions(driver);
+        action.moveToElement(button).click().perform();
+    }
+
+    //user address removal alert accept method
+    public void confirmUserAddressRemoval(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1700));
+        wait.until(ExpectedConditions.alertIsPresent());
+
+        Alert alert = driver.switchTo().alert();
+        alert.accept();
+    }
+
     //account dashboard page text element getters
     public String getAddressDashboardPageTitle(){return addressDashboardPageTitle.getText();}
     public List<String> getAccountAddressUserName() {return addressDashboardPageAddressUserNameElements.stream().map(WebElement::getText).collect(Collectors.toList());}

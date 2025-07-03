@@ -35,20 +35,19 @@ public class AddAddressPageTest extends TestMethods {
         validEditUserAddressTest();
     }
 
-    //Test 005e -> invalid update user address test - no user city
+    //valid user address removal test
+
+    //Test 006 -> valid user address removal test
     @Test
-    @DisplayName("Invalid Update User Address Test - No City")
-    @Tag("Invalid_Update_User_Address")
-    @Tag("No_Singular_Input")
-    void invalidAddressEditNoCityTest() {
+    @DisplayName("Valid User Address Removal Test")
+    @Tag("Valid_User_Address_Removal")
+    void validAddressRemovalTest() {
         //user navigation to register page test
         navigateToRegisterPageTest();
         //valid user account creation test
         validUserAccountCreationTest();
-        //invalid update user address test - no user city
-        invalidEditUserAddressNoCityTest();
+        //valid user address removal test
+        validUserAddressRemovalTest();
     }
-
-
 
 }

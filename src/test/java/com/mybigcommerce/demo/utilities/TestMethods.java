@@ -6975,6 +6975,53 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid Update User Address Test Result - Invalid Phone Format");
     }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //valid user address removal test
+
+    //valid user address removal test method
+    protected void validUserAddressRemovalTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        AccountDashboardPage accountDashboardPage = new AccountDashboardPage(driver);
+        AddressDashboardPage addressDashboardPage = new AddressDashboardPage(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Account' navbar link
+        generalPage.clickAccountLink();
+        //account dashboard page web element assert
+        isAccountDashboardPageWebElementDisplayed(accountDashboardPage);
+        //account dashboard page text element assert
+        isAccountDashboardPageTextElementAsExpected(accountDashboardPage);
+        //account dashboard page breadcrumb web element assert
+        isAccountDashboardPageBreadcrumbWebElementDisplayed(accountDashboardPage);
+        //assert account dashboard page title is as expected (since the user gets on orders page section after clicking 'Account')
+        isOrdersPageNoOrderTextElementsAsExpected(accountDashboardPage);
+        //capture screenshot of the orders page display(since the user gets here after clicking 'Account' link)
+        captureScreenshot(driver, "Orders Page Display");
+        //click 'Addresses' link
+        accountDashboardPage.clickAddressesLink();
+        //address dashboard page web element assert
+        isAddressDashboardPageWebElementDisplayed(addressDashboardPage);
+        //account dashboard page breadcrumb web element assert
+        isAccountDashboardPageBreadcrumbWebElementDisplayed(accountDashboardPage);
+        //assert address dashboard page title is a expected
+        assertEquals("Addresses", addressDashboardPage.getAddressDashboardPageTitle(), "The address dashboard page title doesn't match expectations.");
+        //log address dashboard page data
+        logAddressDashboardPageData(addressDashboardPage);
+        //capture screenshot of the address dashboard page display
+        captureScreenshot(driver, "Address Dashboard Page Display");
+        //click 'Delete' address button
+        addressDashboardPage.clickDeleteAddressButton(0);
+        //confirm user address removal
+        addressDashboardPage.confirmUserAddressRemoval();
+        //assert account dashboard page user address removal confirmation message is as expected
+        assertEquals("You currently have no addresses added to your profile", accountDashboardPage.getAccountDashboardPageOrdersNotPlacedBoxText(), "The account dashboard page user address removal confirmation message doesn't match expectations.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid User Address Removal Test Result");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)
