@@ -8155,6 +8155,68 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Single Search Product Addition To Cart Test Result (as a guest)");
     }
 
+    //add single searched product ("Dustpan & Brush") to cart test method (as a registered user)
+    protected void addSingleSearchedDustpanProductToCartRegUserTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        SingleCategoryDashboardPage singleCategoryDashboardPage = new SingleCategoryDashboardPage(driver);
+        SingleProductPage singleProductPage = new SingleProductPage(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click header home page logo link
+        generalPage.clickHeaderHomePageLogoLink();
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementAsExpected(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //log home page product data
+        logHomePageProductData(homePage);
+        //click header upper navbar 'Search' link
+        generalPage.clickHeaderUpperNavSearchDropdownLink();
+        //input set search query ("Dustpan & Brush") into search input field
+        generalPage.inputDustpanSearchQueryIntoSearchBarInputField();
+        //single category dashboard page web element assert
+        isSingleProductCategoryDashboardPageWebElementDisplayed(singleCategoryDashboardPage);
+        //single category dashboard page text element assert
+        isSingleCategoryDashboardPageTextElementAsExpected(singleCategoryDashboardPage);
+        //single category dashboard search section web element assert
+        //isSingleCategoryDashboardPageSearchSectionWebElementDisplayed(singleCategoryDashboardPage);
+        //capture screenshot of the single category dashboard page display
+        captureScreenshot(driver, "Searched Product Dashboard Page Display");
+        //click set product ("Dustpan & Brush") name link
+        singleCategoryDashboardPage.clickSetProductNameLink(0);
+        //single product page web element assert
+        isSingleProductPageWebElementDisplayed(singleProductPage);
+        //single product page text element assert
+        isSingleProductPageTextElementAsExpected(singleProductPage);
+        //capture screenshot of the single product page display
+        captureScreenshot(driver, "Single Product Page Display");
+        //log single product page data
+        logSingleProductPageData(singleProductPage);
+        //capture screenshot of the single product page after set product quantity input
+        captureScreenshot(driver, "Single Searched Product (Dustpan) Page Display After Set Quantity Input");
+        //click 'add to cart' button
+        singleProductPage.clickAddToCartButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad();
+        //shopping cart modal web element assert (Selenium can't seem to find elements with VALID selectors)
+        //isShoppingCartModalWebElementDisplayed(singleProductPage);
+        //shopping cart modal text element assert (Selenium can't seem to find elements with VALID selectors)
+        //isShoppingCartModalTextElementAsExpected(singleProductPage);
+        //capture screenshot of the shopping cart modal display
+        captureScreenshot(driver, "Shopping Cart Modal Display");
+        //log shopping cart modal product data
+        logShoppingCartModalProductData(singleProductPage);
+        //click shopping cart modal 'View or edit cart' button
+        singleProductPage.clickViewOrEditCartButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Single Searched Product Addition To Cart Test Result (as a registered user)");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)

@@ -66,4 +66,18 @@ public class SingleCategoryDashboardPageTest extends TestMethods{
         addSingleSearchedPlantPictureProductToCartTest();
     }
 
+    //Test 012a -> single searched product ("Dustpan & Brush") addition to cart test method (as a registered user)
+    @Test
+    @DisplayName("Single Searched Product Addition To Cart Test (as a registered user)")
+    @Tag("Single_Searched_Product_Addition_To_Cart")
+    @Tag("Test_As_A_Reg_User")
+    void singleSearchedProductAddToCartRegUserTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //single searched product ("Dustpan & Brush") addition to cart test method (as a registered user)
+        addSingleSearchedDustpanProductToCartRegUserTest();
+    }
+
 }

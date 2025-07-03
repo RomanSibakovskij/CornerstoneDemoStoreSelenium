@@ -152,6 +152,11 @@ public class GeneralPage extends BasePage {
         headerUpperNavSearchInputField.sendKeys(Keys.ENTER);
     }
 
+    public void inputDustpanSearchQueryIntoSearchBarInputField(){
+        headerUpperNavSearchInputField.sendKeys("Dustpan & Brush");
+        headerUpperNavSearchInputField.sendKeys(Keys.ENTER);
+    }
+
     //wait for elements to load method
     public void waitForElementsToLoad() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(2500));
