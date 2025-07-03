@@ -179,4 +179,18 @@ public class UpdateAddressPageInvalidScenariosTest extends TestMethods {
         invalidEditUserAddressTooShortPostCodeTest();
     }
 
+    //Test 005n -> invalid update user address test - too short user phone (2 digits) (the user address edit hasn't been aborted, test has failed)
+    @Test
+    @DisplayName("Invalid Update User Address Test - Too Short Phone")
+    @Tag("Invalid_Update_User_Address")
+    @Tag("Too_Short_Singular_Input")
+    void invalidAddressEditTooShortPhoneTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //invalid update user address test - too short user phone (2 digits)
+        invalidEditUserAddressTooShortPhoneTest();
+    }
+
 }
