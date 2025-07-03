@@ -52,6 +52,9 @@ public class LoginRegisterDashboardPage extends BasePage {
     private String validUserLoginEmail;
     private String validUserLoginPassword;
 
+    //valid edited user login data
+    private String validEditedUserLoginEmail;
+
     public LoginRegisterDashboardPage(WebDriver driver) {super(driver);}
 
     //valid user login data getter
@@ -71,9 +74,29 @@ public class LoginRegisterDashboardPage extends BasePage {
 
     }
 
+    //valid user edited login email getter
+    public void validUserEditedLoginEmailGetter(RegisterPage registerPage){
+
+        AccountSettingsPage accountSettingsPage = new AccountSettingsPage(driver);
+
+        validEditedUserLoginEmail = accountSettingsPage.getEditedLoginEmail();
+        validUserLoginPassword = registerPage.getPassword();
+
+        System.out.println("Valid edited user login data (edited login email): " + "\n");
+
+        logger.info("Valid edited user login email: " + validEditedUserLoginEmail);
+        logger.info("Valid user login password (edited login email): " + validUserLoginPassword);
+
+        System.out.println("\n");
+
+    }
+
     //valid user login data input methods
     public void inputLoginEmailIntoEmailInputField(){loginSectionEmailInputField.sendKeys(validUserLoginEmail);}
     public void inputLoginPasswordIntoPasswordInputField(){loginSectionPasswordInputField.sendKeys(validUserLoginPassword);}
+
+    //valid edited user login data input methods
+    public void inputEditedLoginEmailIntoEmailInputField(){loginSectionEmailInputField.sendKeys(validEditedUserLoginEmail);}
 
     //click 'Sign in' button method
     public void clickSignInButton(){

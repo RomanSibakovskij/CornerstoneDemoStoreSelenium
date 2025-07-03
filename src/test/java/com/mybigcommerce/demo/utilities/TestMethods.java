@@ -7090,6 +7090,40 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Valid User Login Test Result");
     }
 
+    //valid user login with edited login email test method
+    protected void validUserEditedLoginEmailTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        LoginRegisterDashboardPage loginRegisterDashboardPage = new LoginRegisterDashboardPage(driver);
+        AccountDashboardPage accountDashboardPage = new AccountDashboardPage(driver);
+        RegisterPage registerPage = new RegisterPage(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //login register dashboard page web element assert
+        isLoginRegisterDashboardPageWebElementDisplayed(loginRegisterDashboardPage);
+        //login register dashboard page text element assert
+        isLoginRegisterDashboardTextElementAsExpected(loginRegisterDashboardPage);
+        //valid user login data (with edited login email) getter
+        loginRegisterDashboardPage.validUserEditedLoginEmailGetter(registerPage);
+        //capture screenshot of the login dashboard page before login data input
+        captureScreenshot(driver, "Login Register Dashboard Page Display Before Login Data Input");
+        //input valid edited user login email into email input field
+        loginRegisterDashboardPage.inputEditedLoginEmailIntoEmailInputField();
+        //input valid user login password into password input field
+        loginRegisterDashboardPage.inputLoginPasswordIntoPasswordInputField();
+        //capture screenshot of the login dashboard page after valid edited login data input - edited login email
+        captureScreenshot(driver, "Login Register Dashboard Page Display After Valid Edited Login Data Input - Edited Login Email");
+        //click 'Sign in' button
+        loginRegisterDashboardPage.clickSignInButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad();
+        //assert account dashboard page title is as expected (since the user gets on orders page section after clicking 'Sign in' button)
+        isOrdersPageNoOrderTextElementsAsExpected(accountDashboardPage);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Valid User Edited Login Email Test Result");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)

@@ -37,4 +37,22 @@ public class LoginRegisterDashboardPageTest extends TestMethods{
         validUserLoginTest();
     }
 
+    //Test 008a -> valid user login with edited login email test
+    @Test
+    @DisplayName("Valid User Account Login With Edited Login Email Test")
+    @Tag("Valid_User_Login")
+    @Tag("Valid_Edited_User_Login")
+    void validEditedLoginEmailTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //valid edit user account data (with login email) test
+        validEditUserAccountDataWithLoginEmailTest();
+        //valid user logout test
+        validUserLogoutTest();
+        //valid user login with edited login email test
+        validUserEditedLoginEmailTest();
+    }
+
 }
