@@ -90,4 +90,15 @@ public class HomePageTest extends TestMethods{
         addSingleNewProductToCartRegUserTest();
     }
 
+    //multiple new products addition to cart tests
+
+    //Test 010b -> multiple new products ("Smith Journal 13") addition to cart test method (as a guest)
+    @Test
+    @DisplayName("Multiple New Products Addition To Cart Test (as a guest)")
+    @Tag("Multiple_New_Products_Addition_To_Cart")
+    @Tag("Test_As_A_Guest")
+    void multipleNewProductsAddToCartTest() {
+        addMultipleNewProductsToCartGuestTest();
+    }
+
 }
