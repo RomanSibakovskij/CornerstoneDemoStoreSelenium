@@ -82,6 +82,12 @@ public class HomePage extends BasePage {
         action.moveToElement(homePageMostPopularProductAddToCartButtonElements.get(index)).click().perform();
     }
 
+    //click set 'Most popular products' product name link method
+    public void clickMostPopularProductNameLink(int index){
+        Actions action = new Actions(driver);
+        action.moveToElement(homePageMostPopularProductNameLinkElements.get(index)).click().perform();
+    }
+
     //home page product data getters
     //most popular section
     public List<String> getHomePageMostPopularCategoryTag(){return homePageMostPopularProductCategoryTagElements.stream().map(WebElement::getText).collect(Collectors.toList());}

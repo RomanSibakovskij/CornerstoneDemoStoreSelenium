@@ -7327,7 +7327,31 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Single Most Popular Product ('Tiered Wire Basket') Addition To Cart Test Result");
     }
 
-
+    //single most popular product ("Oak Cheese Grater") addition to cart test method (as a registered user)
+    protected void addSingleMostPopularProductToCartRegUserTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click header home page logo link
+        generalPage.clickHeaderHomePageLogoLink();
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementAsExpected(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //log home page product data
+        logHomePageProductData(homePage);
+        //hover over set 'Most popular product' ("Oak Cheese Grater") image
+        homePage.hoverOverMostPopularProductImg(3);
+        //click 'Add to cart' ("Oak Cheese Grater") button
+        homePage.clickMostPopularProductAddToCartButton(3);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Single Most Popular Product ('Oak Cheese Grater') Addition To Cart Test Result");
+    }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -8063,6 +8087,37 @@ public class TestMethods extends BaseTest{
         logger.info("Displayed address phone(s): " + addressDashboardPage.getAccountAddressPhone());
 
         System.out.println("\n");
+    }
+
+    //single product page data logger method
+    protected void logSingleProductPageData(SingleProductPage singleProductPage) {
+        System.out.println("Single product page displayed product data: " + "\n");
+
+        logger.info("Single product page product name: " + singleProductPage.getSingleProductPageTitle());
+        logger.info("Single product page product brand: " + singleProductPage.getSingleProductPageProductBrandLinkText());
+        logger.info("Single product page product unit price: " + singleProductPage.getSingleProductPageProductUnitPrice());
+        logger.info("Single product page product weight: " + singleProductPage.getSingleProductPageProductWeight());
+        logger.info("Single product page product gift wrapping option: " + singleProductPage.getSingleProductPageProductGiftWrappingOptionText());
+        logger.info("Single product page product shipping option: " + singleProductPage.getSingleProductPageProductShippingOption());
+        logger.info("Single product page product description: " + singleProductPage.getSingleProductPageProductDescription());
+
+        System.out.println("\n");
+
+    }
+
+    //shopping cart modal data logger method
+    protected void logShoppingCartModalProductData(SingleProductPage singleProductPage) {
+
+        System.out.println("Shopping cart modal product displayed product data: " + "\n");
+
+        logger.info("Displayed shopping cart modal order subtotal price: " + singleProductPage.getShoppingCartModalOrderSubtotalPrice());
+        logger.info("Displayed shopping cart modal product count: " + singleProductPage.getShoppingCartModalProductCount());
+        logger.info("Displayed shopping cart modal product name: " + singleProductPage.getShoppingCartModalProductName());
+        logger.info("Displayed shopping cart modal product brand: " + singleProductPage.getShoppingCartModalProductBrand());
+        logger.info("Displayed shopping cart modal product unit price and count: " + singleProductPage.getShoppingCartModalProductUnitPriceAndCount());
+
+        System.out.println("\n");
+
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

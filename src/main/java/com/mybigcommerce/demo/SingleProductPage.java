@@ -102,6 +102,24 @@ public class SingleProductPage extends BasePage {
 
     public SingleProductPage(WebDriver driver) {super(driver);}
 
+    //input set product quantity into product quantity input field method
+    public void inputSetProductQtyIntoQtyInputField(int quantity){
+        singleProductPageProductQtyInputField.clear();
+        singleProductPageProductQtyInputField.sendKeys(String.valueOf(quantity));
+    }
+
+    //click 'Add to cart' button method
+    public void clickAddToCartButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(singleProductPageAddToCartButton).click().perform();
+    }
+
+    //click shopping cart modal 'View or edit cart' button method
+    public void clickViewOrEditCartButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(shoppingCartModalViewOrEditCartButton).click().perform();
+    }
+
     //single product page product data getters
     public String getSingleProductPageTitle() {return singleProductPageTitle.getText();}
     public String getSingleProductPageProductBrandLinkText(){return singleProductPageBrandLink.getText();}

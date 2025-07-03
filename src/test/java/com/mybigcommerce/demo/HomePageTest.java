@@ -26,4 +26,18 @@ public class HomePageTest extends TestMethods{
         addSingleMostPopularProductToCartGuestTest();
     }
 
+    //Test 009a -> single most popular product ("Oak Cheese Grater") addition to cart test method (as a registered user)
+    @Test
+    @DisplayName("Single Most Popular Product Addition To Cart Test (as a registered user)")
+    @Tag("Single_Most_Popular_Product_Addition_To_Cart")
+    @Tag("Test_As_A_Reg_User")
+    void singleMostPopularProductAddToCartRegUserTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //single most popular product ("Oak Cheese Grater") addition to cart test method (as a registered user)
+        addSingleMostPopularProductToCartRegUserTest();
+    }
+
 }
