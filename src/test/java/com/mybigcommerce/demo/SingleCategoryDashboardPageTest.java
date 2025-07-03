@@ -30,4 +30,15 @@ public class SingleCategoryDashboardPageTest extends TestMethods{
         addSinglePublicationsGatherJournalProductToCartRegUserTest();
     }
 
+    //single category dashboard page multiple products addition to cart tests
+
+    //Test 011b -> single category dashboard page set multiple products ("Floor Cleaner") addition to cart test method (as a guest)
+    @Test
+    @DisplayName("Single Category Dashboard Page Set Multiple Products Addition To Cart Test (as a guest)")
+    @Tag("Multiple_Set_Category_Products_Addition_To_Cart")
+    @Tag("Test_As_A_Guest")
+    void multipleSetCategoryProductsAddToCartTest() {
+        addMultipleUtilityLaundryCartProductToCartTest();
+    }
+
 }
