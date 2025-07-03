@@ -151,4 +151,18 @@ public class UpdateAddressPageInvalidScenariosTest extends TestMethods {
         invalidEditUserAddressTooShortAddressTest();
     }
 
+    //Test 005l -> invalid update user address test - too short user city (1 char) (the user address edit hasn't been aborted, test has failed)
+    @Test
+    @DisplayName("Invalid Update User Address Test - Too Short City")
+    @Tag("Invalid_Update_User_Address")
+    @Tag("Too_Short_Singular_Input")
+    void invalidAddressEditTooShortCityTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //invalid update user address test - too short user city (1 char)
+        invalidEditUserAddressTooShortCityTest();
+    }
+
 }
