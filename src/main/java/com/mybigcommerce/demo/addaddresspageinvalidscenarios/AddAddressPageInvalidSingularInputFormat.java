@@ -35,6 +35,7 @@ public class AddAddressPageInvalidSingularInputFormat extends BasePage{
     private String invalidEditAddressFormat;
     private String invalidEditAddressCityFormat;
     private String invalidEditAddressPostCodeFormat;
+    private String invalidEditAddressPhoneFormat;
 
     public AddAddressPageInvalidSingularInputFormat(WebDriver driver) {super(driver);}
 
@@ -155,6 +156,29 @@ public class AddAddressPageInvalidSingularInputFormat extends BasePage{
 
     }
 
+    //invalid user edited address data getter - invalid user phone format (special symbols only)
+    public void invalidUserEditedAddressDataInvalidPhoneFormatGetter(){
+
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        validAddressFirstName = registerPage.getValidRegisterFirstName();; //add address page requires the input, while edit address page has the input by default
+        validAddressLastName = registerPage.getValidRegisterLastName();; //add address page requires the input, while edit address page has the input by default
+        validAddress = TestDataGenerator.generateRandomAddress(9);
+        validAddressCity = TestDataGenerator.getRandomCity();
+        validAddressPostCode = TestDataGenerator.getRandomPostalCode();
+        invalidEditAddressPhoneFormat = "$%#%^&%&^^";
+
+        System.out.println("Invalid user edited address generated data (invalid user phone format): " + "\n");
+
+        logger.info("Valid generated edited user address (invalid user phone format): " + validAddress);
+        logger.info("Valid generated edited user city (invalid user phone format): " + validAddressCity);
+        logger.info("Valid generated edited user post code (invalid user phone format): " + validAddressPostCode);
+        logger.info("Invalid edited user phone format: " + invalidEditAddressPostCodeFormat);
+
+        System.out.println("\n");
+
+    }
+
     //invalid user address input methods - invalid singular input format
     public void inputInvalidUserFirstNameFormatIntoFirstNameInputField(){
         addAddressPageFirstNameInputField.clear();
@@ -175,6 +199,10 @@ public class AddAddressPageInvalidSingularInputFormat extends BasePage{
     public void inputInvalidUserPostCodeFormatIntoPostCodeInputField(){
         addAddressPagePostCodeInputField.clear();
         addAddressPagePostCodeInputField.sendKeys(invalidEditAddressPostCodeFormat);
+    }
+    public void inputInvalidUserPhoneFormatIntoPhoneInputField(){
+        addAddressPagePhoneInputField.clear();
+        addAddressPagePhoneInputField.sendKeys(invalidEditAddressPhoneFormat);
     }
 
     //valid user address input methods (for remaining inputs)

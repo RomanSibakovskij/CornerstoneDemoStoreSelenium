@@ -365,4 +365,18 @@ public class AddAddressPageInvalidScenariosTest extends TestMethods{
         invalidSecondUserAddressAdditionInvalidPostCodeFormatTest();
     }
 
+    //Test 004z -> invalid user second address addition test - invalid user phone format (special symbols only) (new address addition wasn't aborted, test has failed)
+    @Test
+    @DisplayName("Invalid User Second Address Addition Test - Invalid Phone Format")
+    @Tag("Invalid_Second_User_Address_Addition")
+    @Tag("Invalid_Singular_Input_Format")
+    void invalidSecondAddressAdditionInvalidPhoneFormatTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //invalid user second address addition test - invalid user phone format (special symbols only)
+        invalidSecondUserAddressAdditionInvalidPhoneFormatTest();
+    }
+
 }
