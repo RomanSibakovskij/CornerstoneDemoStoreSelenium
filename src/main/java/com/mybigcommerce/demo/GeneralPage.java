@@ -143,6 +143,15 @@ public class GeneralPage extends BasePage {
     //click header lower navbar "Publications" link method
     public void clickHeaderLowerNavPublicationsLink(){headerLowerNavPublicationsLink.click();}
 
+    //click header upper navbar 'Search' link method
+    public void clickHeaderUpperNavSearchDropdownLink(){headerUpperNavSearchDropdownLink.click();}
+
+    //input set search query into search input field methods
+    public void inputPlantPictureSearchQueryIntoSearchBarInputField(){
+        headerUpperNavSearchInputField.sendKeys("Living With Plants");
+        headerUpperNavSearchInputField.sendKeys(Keys.ENTER);
+    }
+
     //wait for elements to load method
     public void waitForElementsToLoad() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(2500));

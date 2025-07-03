@@ -55,4 +55,15 @@ public class SingleCategoryDashboardPageTest extends TestMethods{
         addMultiplePublicationOpenHouseProductToCartRegUserTest();
     }
 
+    //single searched product addition to cart tests
+
+    //Test 012 -> single searched product ("Living with Plants") addition to cart test method (as a guest)
+    @Test
+    @DisplayName("Single Searched Product Addition To Cart Test (as a guest)")
+    @Tag("Single_Searched_Product_Addition_To_Cart")
+    @Tag("Test_As_A_Guest")
+    void singleSearchedProductAddToCartTest() {
+        addSingleSearchedPlantPictureProductToCartTest();
+    }
+
 }
