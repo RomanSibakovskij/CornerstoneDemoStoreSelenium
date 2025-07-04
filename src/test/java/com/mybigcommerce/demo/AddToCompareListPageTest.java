@@ -44,4 +44,20 @@ public class AddToCompareListPageTest extends TestMethods{
         addProductsFromCompareListToCartTest();
     }
 
+    //Test 014a -> products ("Gather Journal Issue 7", "The Kinfolk Table", "Living With Plants") addition from compare list to cart test method (as a registered user)
+    @Test
+    @DisplayName("Multiple Products Addition From Compare List To Cart Test (as a registered user)")
+    @Tag("Multiple_Products_Addition_From_Compare_List_To_Cart")
+    @Tag("Test_As_A_Reg_User")
+    void productsAddFromCompareListToCartRegUserTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //single searched product ("Dustpan & Brush") addition to cart test method (as a registered user)
+        addProductsToCompareListRegUserTest();
+        //products ("Gather Journal Issue 7", "The Kinfolk Table", "Living With Plants") addition from compare list to cart test method (as a registered user)
+        addProductsFromCompareListToCartTest();
+    }
+
 }
