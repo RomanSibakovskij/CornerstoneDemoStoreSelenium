@@ -139,4 +139,20 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutTest();
     }
 
+    //Test 018a -> single category dashboard page set single product ("Gather Journal Issue 7") addition to check out test method (as a registered user)
+    @Test
+    @DisplayName("Single Category Dashboard Page Set Single Product Addition To Checkout Test (as a registered user)")
+    @Tag("Single_Set_Category_Product_Addition_To_Checkout")
+    @Tag("Test_As_A_Reg_User")
+    void singleSetCategoryAddToCheckoutRegUserTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //single category dashboard page set single product ("Gather Journal Issue 7") addition to cart test method (as a registered user)
+        addSinglePublicationsGatherJournalProductToCartRegUserTest();
+        //single category dashboard page set single product ("Gather Journal Issue 7") addition to check out test method (as a registered user)
+        addProductToCheckoutTest();
+    }
+
 }
