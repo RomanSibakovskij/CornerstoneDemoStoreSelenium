@@ -95,4 +95,18 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutTest();
     }
 
+    //multiple new products addition to check out tests
+
+    //Test 017b -> multiple new products ("Smith Journal 13") addition to check out test method (as a guest)
+    @Test
+    @DisplayName("Multiple New Products Addition To Checkout Test (as a guest)")
+    @Tag("Multiple_New_Products_Addition_To_Checkout")
+    @Tag("Test_As_A_Guest")
+    void multipleNewProductsAddToCheckoutTest() {
+        //multiple new products ("Smith Journal 13") addition to cart test method (as a guest)
+        addMultipleNewProductsToCartGuestTest();
+        //multiple new products ("Smith Journal 13") addition to check out test method (as a guest)
+        addProductToCheckoutTest();
+    }
+
 }
