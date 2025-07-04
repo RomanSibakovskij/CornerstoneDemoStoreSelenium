@@ -163,6 +163,18 @@ public class ShoppingCartPage extends BasePage{
         action.moveToElement(shoppingCartTableProductQtyDecreaseButtonElements.get(index)).click().perform();
     }
 
+    //click product "Remove" button method
+    public void clickSetProductRemoveButton(int index) {
+        Actions action = new Actions(driver);
+        action.moveToElement(shoppingCartTableProductRemoveButtonElements.get(index)).click().perform();
+    }
+
+    //click shopping cart popup modal "OK" button method
+    public void clickShopCartPopupModalOKButton() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", shoppingCartPagePopupModalOKBtn);
+    }
+
     //click "Estimate shipping" button method
     public void clickEstimateShippingButton() {
         Actions action = new Actions(driver);

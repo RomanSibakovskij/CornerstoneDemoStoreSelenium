@@ -323,4 +323,18 @@ public class ShoppingCartPageTest extends TestMethods{
         updateProductQtyDecreaseBtnShopCartTest();
     }
 
+    //product removal from shopping cart test (guest and registered user will have the same output, so only guest branch is being tested to avoid redundancy)
+
+    //Test 022 -> product(s) removal from shopping cart test method (the modal disappears after appearing shortly after without any click involved, test has failed)
+    @Test
+    @DisplayName("Product(s) Quantity Removal Shopping Cart Test")
+    @Tag("Product_Removal_From_Shopping_Cart")
+    @Tag("Test_As_A_Guest")
+    void productsRemovalFromShopCartTest() {
+        //multiple searched products ("Orbit Terrarium (Large)") addition to cart test method (as a guest)
+        addMultipleSearchedLargeTerrariumProductToCartTest();
+        //product(s) removal from shopping cart test method (as a guest)
+        productRemovalFromShoppingCartTest();
+    }
+
 }
