@@ -261,4 +261,22 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutTest();
     }
 
+    //Test 020a -> products ("Gather Journal Issue 7", "The Kinfolk Table", "Living With Plants") addition from compare list to check out test method (as a registered user)
+    @Test
+    @DisplayName("Multiple Products Addition From Compare List To Checkout Test (as a registered user)")
+    @Tag("Multiple_Products_Addition_From_Compare_List_To_Checkout")
+    @Tag("Test_As_A_Reg_User")
+    void productsAddFromCompareListToCheckoutRegUserTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //single searched product ("Dustpan & Brush") addition to cart test method (as a registered user)
+        addProductsToCompareListRegUserTest();
+        //products ("Gather Journal Issue 7", "The Kinfolk Table", "Living With Plants") addition from compare list to cart test method (as a registered user)
+        addProductsFromCompareListToCartTest();
+        //products ("Gather Journal Issue 7", "The Kinfolk Table", "Living With Plants") addition from compare list to check out test method (as a registered user)
+        addProductToCheckoutTest();
+    }
+
 }
