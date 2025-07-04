@@ -310,4 +310,17 @@ public class ShoppingCartPageTest extends TestMethods{
         updateProductQtyIncreaseBtnShopCartTest();
     }
 
+    //Test 021b -> update products quantity (with decrease button) in shopping cart test method (as a guest) (the quantity fails to be updated during automation run)
+    @Test
+    @DisplayName("Update Products Quantity (Decrease Button) In Shopping Cart Test (as a guest)")
+    @Tag("Update_Products_Quantity_In_Shopping_Cart")
+    @Tag("Quantity_Button")
+    @Tag("Test_As_A_Guest")
+    void updateProductsShopCartQtyDecreaseBtnTest() {
+        //multiple searched products ("Orbit Terrarium (Large)") addition to cart test method (as a guest)
+        addMultipleSearchedLargeTerrariumProductToCartTest();
+        //update products quantity (with decrease button) in shopping cart test method (as a guest)
+        updateProductQtyDecreaseBtnShopCartTest();
+    }
+
 }

@@ -8716,6 +8716,67 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Update Products Quantity In Checkout Page Test Result (increase button)");
     }
 
+    //update product (products) quantity (with decrease button) in shopping cart test method
+    protected void updateProductQtyDecreaseBtnShopCartTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        AccountDashboardPage accountDashboardPage = new AccountDashboardPage(driver);
+        ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //shopping cart page web element assert
+        isShoppingCartPageWebElementDisplayed(shoppingCartPage);
+        //shopping cart page text element assert
+        isShoppingCartPageTextElementAsExpected(shoppingCartPage);
+        //account dashboard page breadcrumb web element assert
+        isAccountDashboardPageBreadcrumbWebElementDisplayed(accountDashboardPage);
+        //capture screenshot of shopping cart page display
+        captureScreenshot(driver, "Shopping Cart Page Display");
+        //log shopping cart data (before shipping application)
+        logShoppingCartPageProductData(shoppingCartPage);
+        //click shipping "Add info" link
+        shoppingCartPage.clickAddInfoLink();
+        //capture screenshot of shopping cart page shipping section display before data input
+        captureScreenshot(driver, "Shipping Method Section Display Before Data Input (shopping cart)");
+        //shopping cart page shipping section web element assert
+        isShoppingCartPageShipSectionWebElementDisplayed(shoppingCartPage);
+        //shopping cart page shipping section text element assert
+        isShoppingCartShipSectionTextElementAsExpected(shoppingCartPage);
+        //click shipping country dropdown menu
+        shoppingCartPage.clickCountryDropdownMenu();
+        //select "United States" option
+        shoppingCartPage.selectUSCountryOption();
+        //input valid shipping city into shipping city input field
+        shoppingCartPage.inputValidShippingCityIntoShippingCityInputField();
+        //input valid shipping post code into shipping post code input field
+        shoppingCartPage.inputValidShippingPostCodeIntoShippingPostCodeInputField();
+        //click shipping state dropdown menu
+        shoppingCartPage.clickStateDropdownMenu();
+        //select "Illinois" state option
+        shoppingCartPage.selectIllinoisStateOption();
+        //capture screenshot of shopping cart page shipping section display after valid data input
+        captureScreenshot(driver, "Shipping Method Section Display After Valid Data Input (shopping cart)");
+        //click "Estimate shipping" button
+        shoppingCartPage.clickEstimateShippingButton();
+        //click "Flat rate" shipping radio button
+        shoppingCartPage.clickFlatRateShippingRadioButton();
+        //click "Update shipping cost" button
+        shoppingCartPage.clickUpdateShippingCostButton();
+        //log shopping cart data (after shipping application)
+        logShoppingCartPageProductData(shoppingCartPage);
+        //click 'Decrease' quantity button
+        shoppingCartPage.clickDecreaseQtyButton(0);
+        //click 'Decrease' quantity button
+        shoppingCartPage.clickDecreaseQtyButton(0);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad();
+        //log shopping cart data (to verify the product quantity has been updated)
+        logShoppingCartPageProductData(shoppingCartPage);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Update Products Quantity In Checkout Page Test Result (decrease button)");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)
