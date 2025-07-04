@@ -8475,6 +8475,41 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Products Addition To Compare List Page Test Result (as a guest)");
     }
 
+    //add products from compare list to cart test (both registered user and guest have the same method)
+
+    //add products from compare list to cart test method
+    protected void addProductsFromCompareListToCartTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        AddToCompareListPage addToCompareListPage = new AddToCompareListPage(driver);
+        AccountDashboardPage accountDashboardPage = new AccountDashboardPage(driver);
+        //add to compare list page web element assert
+        isAddToCompareListPageWebElementDisplayed(addToCompareListPage);
+        //add to compare list page text element assert
+        isAddToCompareListPageTextElementAsExpected(addToCompareListPage);
+        //account dashboard page breadcrumb web elements assert
+        isAccountDashboardPageBreadcrumbWebElementDisplayed(accountDashboardPage);
+        //click 'Add to cart' button (first product)
+        addToCompareListPage.clickSetAddToCartButton(0);
+        //capture screenshot of the first product addition from compare list to cart
+        captureScreenshot(driver, "First Product Addition From Compare List To Cart");
+        //go back to compare list page
+        driver.navigate().back();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad();
+        //click 'Add to cart' button (second product)
+        addToCompareListPage.clickSetAddToCartButton(1);
+        //capture screenshot of the second product addition from compare list to cart
+        captureScreenshot(driver, "Second Product Addition From Compare List To Cart");
+        //go back to compare list page
+        driver.navigate().back();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad();
+        //click 'Add to cart' button (third product)
+        addToCompareListPage.clickSetAddToCartButton(2);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Products Addition From Compare List To Cart Test Result");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)

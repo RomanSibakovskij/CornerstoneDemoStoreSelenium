@@ -30,4 +30,18 @@ public class AddToCompareListPageTest extends TestMethods{
         addProductsToCompareListRegUserTest();
     }
 
+    //add products from compare list to cart tests
+
+    //Test 014 -> products ("S Shaped Scrub Brush", "Dish Detergent", "Feather Duster") addition from compare list to cart test method (as a guest)
+    @Test
+    @DisplayName("Multiple Products Addition From Compare List To Cart Test (as a guest)")
+    @Tag("Multiple_Products_Addition_From_Compare_List_To_Cart")
+    @Tag("Test_As_A_Guest")
+    void productsAddFromCompareListToCartTest() {
+        //products ("S Shaped Scrub Brush", "Dish Detergent", "Feather Duster") addition to compare list test method (as a guest)
+        addProductsToCompareListTest();
+        //products ("S Shaped Scrub Brush", "Dish Detergent", "Feather Duster") addition from compare list to cart test method (as a guest)
+        addProductsFromCompareListToCartTest();
+    }
+
 }

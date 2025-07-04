@@ -50,6 +50,12 @@ public class AddToCompareListPage extends BasePage {
 
     public AddToCompareListPage(WebDriver driver) {super(driver);}
 
+    //click set product "Add to cart" button method
+    public void clickSetAddToCartButton(int index){
+        Actions action = new Actions(driver);
+        action.moveToElement(addToCompareListPageProductAddToCartButtonElements.get(index)).click().perform();
+    }
+
     //add to compare page text element getters
     public String getAddToCompareListPageTitle() {return addToCompareListPageTitle.getText();}
     public String getAddToCompareListPageDescriptionSubtext() {return addToCompareListPageDescriptionSubtext.getText();}
