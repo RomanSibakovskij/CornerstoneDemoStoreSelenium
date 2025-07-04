@@ -143,4 +143,20 @@ public class CheckoutPageTest extends TestMethods{
         validRegUserProductOrderCheckoutTest();
     }
 
+    //single category dashboard page single product check out confirmation tests
+
+    //Test 026 -> single category dashboard page set single product ("Canvas Laundry Cart") check out confirmation test method (as a guest)
+    @Test
+    @DisplayName("Single Category Dashboard Page Set Single Product Checkout Confirmation Test (as a guest)")
+    @Tag("Single_Set_Category_Product_Checkout_Confirmation")
+    @Tag("Test_As_A_Guest")
+    void singleSetCategoryProductCheckoutConfirmationTest() {
+        //single category dashboard page set single product ("Canvas Laundry Cart") addition to cart test method (as a guest)
+        addSingleUtilityLaundryCartProductToCartTest();
+        //single category dashboard page set single product ("Canvas Laundry Cart") addition to check out test method (as a guest)
+        addProductToCheckoutTest();
+        //single category dashboard page set single product ("Canvas Laundry Cart") check out confirmation test method (as a guest)
+        validGuestProductOrderCheckoutTest();
+    }
+
 }

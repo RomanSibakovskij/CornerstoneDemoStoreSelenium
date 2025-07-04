@@ -8591,10 +8591,14 @@ public class TestMethods extends BaseTest{
         logShoppingCartPageProductData(shoppingCartPage);
         //wait for element to load
         generalPage.waitForElementsToLoad();
+        //expected url
+        String expectedURL = "https://cornerstone-light-demo.mybigcommerce.com/checkout";
         //click "Checkout" button
         shoppingCartPage.clickCheckoutButton();
-        //click "Checkout" button (during automation single click method doesn't seem to work)
-        shoppingCartPage.clickCheckoutButton();
+        if(!Objects.equals(driver.getCurrentUrl(), expectedURL)) {
+            //click "Checkout" button (during automation single click method doesn't seem to work)
+            shoppingCartPage.clickCheckoutButton();
+        }
         //capture screenshot of the test result
         captureScreenshot(driver, "Add Product (Products) To Checkout Test Result");
     }
