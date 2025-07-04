@@ -193,4 +193,22 @@ public class CheckoutPageTest extends TestMethods{
         validGuestProductOrderCheckoutTest();
     }
 
+    //Test 026c -> single category dashboard page set multiple products ("Openhouse No. 3") check out confirmation test method (as a registered user)
+    @Test
+    @DisplayName("Single Category Dashboard Page Set Multiple Products Checkout Confirmation Test (as a registered user)")
+    @Tag("Multiple_Set_Category_Products_Checkout_Confirmation")
+    @Tag("Test_As_A_Reg_User")
+    void multipleSetCategoryProductsCheckoutConfirmationRegUserTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //single category dashboard page set multiple products ("Openhouse No. 3") addition to cart test method (as a registered user)
+        addMultiplePublicationOpenHouseProductToCartRegUserTest();
+        //single category dashboard page set multiple products ("Openhouse No. 3") addition to check out test method (as a registered user)
+        addProductToCheckoutTest();
+        //single category dashboard page set multiple products ("Openhouse No. 3") check out confirmation test method (as a registered user)
+        validRegUserProductOrderCheckoutTest();
+    }
+
 }
