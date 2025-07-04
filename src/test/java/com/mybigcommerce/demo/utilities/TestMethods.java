@@ -8537,6 +8537,69 @@ public class TestMethods extends BaseTest{
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+    //shopping cart page tests (both registered user and guest share these methods)
+
+    //add product(products) from shopping cart to check out test method
+    protected void addProductToCheckoutTest() {
+        GeneralPage generalPage = new GeneralPage(driver);
+        AccountDashboardPage accountDashboardPage = new AccountDashboardPage(driver);
+        ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //shopping cart page web element assert
+        isShoppingCartPageWebElementDisplayed(shoppingCartPage);
+        //shopping cart page text element assert
+        isShoppingCartPageTextElementAsExpected(shoppingCartPage);
+        //account dashboard page breadcrumb web element assert
+        isAccountDashboardPageBreadcrumbWebElementDisplayed(accountDashboardPage);
+        //capture screenshot of shopping cart page display
+        captureScreenshot(driver, "Shopping Cart Page Display");
+        //log shopping cart data (before shipping application)
+        logShoppingCartPageProductData(shoppingCartPage);
+        //click shipping "Add info" link
+        shoppingCartPage.clickAddInfoLink();
+        //capture screenshot of shopping cart page shipping section display before data input
+        captureScreenshot(driver, "Shipping Method Section Display Before Data Input (shopping cart)");
+        //shopping cart page shipping section web element assert
+        isShoppingCartPageShipSectionWebElementDisplayed(shoppingCartPage);
+        //shopping cart page shipping section text element assert
+        isShoppingCartShipSectionTextElementAsExpected(shoppingCartPage);
+        //click shipping country dropdown menu
+        shoppingCartPage.clickCountryDropdownMenu();
+        //select "United States" option
+        shoppingCartPage.selectUSCountryOption();
+        //input valid shipping city into shipping city input field
+        shoppingCartPage.inputValidShippingCityIntoShippingCityInputField();
+        //input valid shipping post code into shipping post code input field
+        shoppingCartPage.inputValidShippingPostCodeIntoShippingPostCodeInputField();
+        //click shipping state dropdown menu
+        shoppingCartPage.clickStateDropdownMenu();
+        //select "Illinois" state option
+        shoppingCartPage.selectIllinoisStateOption();
+        //capture screenshot of shopping cart page shipping section display after valid data input
+        captureScreenshot(driver, "Shipping Method Section Display After Valid Data Input (shopping cart)");
+        //click "Estimate shipping" button
+        shoppingCartPage.clickEstimateShippingButton();
+        //click "Flat rate" shipping radio button
+        shoppingCartPage.clickFlatRateShippingRadioButton();
+        //click "Update shipping cost" button
+        shoppingCartPage.clickUpdateShippingCostButton();
+        //log shopping cart data (after shipping application)
+        logShoppingCartPageProductData(shoppingCartPage);
+        //wait for element to load
+        generalPage.waitForElementsToLoad();
+        //click "Checkout" button
+        shoppingCartPage.clickCheckoutButton();
+        //click "Checkout" button (during automation single click method doesn't seem to work)
+        shoppingCartPage.clickCheckoutButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Add Product (Products) To Checkout Test Result");
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     //general page web element assert test method (elements that all pages share -> header / footer)
     protected void isGeneralPageWebElementDisplayed(GeneralPage generalPage){
         //header -> upper navbar

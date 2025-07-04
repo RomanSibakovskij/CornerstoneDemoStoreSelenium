@@ -114,7 +114,71 @@ public class ShoppingCartPage extends BasePage{
     @FindBy(xpath = "//div[@role='alert']/ul/li")
     private WebElement shoppingCartPageShipSingularInputAlert;
 
+    //valid input shipping data
+    private String validShopCartShipCity = TestDataGenerator.getRandomCity();
+    private String validShopCartShipPostCode = String.valueOf(TestDataGenerator.getRandomPostalCode());
+
     public ShoppingCartPage(WebDriver driver) {super(driver);}
+
+    //click "Add info" button (link) method
+    public void clickAddInfoLink() {shoppingCartSummaryTableShippingAddInfoLink.click();}
+
+    //click "Country" dropdown menu method
+    public void clickCountryDropdownMenu(){
+        Actions action = new Actions(driver);
+        action.moveToElement(shoppingCartPageShippingCountryDropdownMenu).click().perform();
+    }
+
+    //select "United States" option method
+    public void selectUSCountryOption() {shoppingCartPageShippingUSCountryOption.click();}
+
+    //input valid shipping city into shipping city input field method
+    public void inputValidShippingCityIntoShippingCityInputField() {
+        logger.info("Valid shipping city (shopping cart): " + validShopCartShipCity);
+        shoppingCartPageShippingCityInputField.sendKeys(validShopCartShipCity);
+    }
+    //input valid shipping post code into shipping post code input field method
+    public void inputValidShippingPostCodeIntoShippingPostCodeInputField() {
+        logger.info("Valid shipping post code (shopping cart): " + validShopCartShipPostCode);
+        shoppingCartPageShippingPostCodeInputField.sendKeys(validShopCartShipPostCode);
+    }
+
+    //click "Estimate shipping" button method
+    public void clickEstimateShippingButton() {
+        Actions action = new Actions(driver);
+        action.moveToElement(shoppingCartPageEstimateShippingButton).click().perform();
+    }
+
+    //click "Shipping rate (flat)" radio button method
+    public void clickFlatRateShippingRadioButton() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1500));
+        wait.until(ExpectedConditions.elementToBeClickable(shoppingCartPageRateShippingRadioButton));
+        shoppingCartPageRateShippingRadioButton.click();
+    }
+
+    //click "State" dropdown menu method
+    public void clickStateDropdownMenu(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1500));
+        wait.until(ExpectedConditions.elementToBeClickable(shoppingCartPageShippingStateDropdownMenu));
+        shoppingCartPageShippingStateDropdownMenu.click();
+    }
+
+    //select "Illinois" state option method
+    public void selectIllinoisStateOption() {shoppingCartPageShippingIllinoisStateOption.click();}
+
+    //click "Update shipping cost" button method
+    public void clickUpdateShippingCostButton() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1500));
+        wait.until(ExpectedConditions.elementToBeClickable(shoppingCartPageUpdateShippingCostButton));
+        shoppingCartPageUpdateShippingCostButton.click();
+    }
+
+    //click "Checkout" button method
+    public void clickCheckoutButton() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1500));
+        wait.until(ExpectedConditions.elementToBeClickable(shoppingCartPageCheckoutButton));
+        shoppingCartPageCheckoutButton.click();
+    }
 
     //shopping cart product data getters
     //shopping cart table
