@@ -74,4 +74,20 @@ public class AddToCompareListPageTest extends TestMethods{
         removeProductsFromCompareListTest();
     }
 
+    //Test 015a -> products ("Gather Journal Issue 7", "The Kinfolk Table", "Living With Plants") removal from compare list test method (as a registered user)
+    @Test
+    @DisplayName("Multiple Products Removal From Compare List Test (as a registered user)")
+    @Tag("Multiple_Products_Removal_From_Compare_List")
+    @Tag("Test_As_A_Reg_User")
+    void productsRemoveFromCompareListToCartRegUserTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //single searched product ("Dustpan & Brush") addition to cart test method (as a registered user)
+        addProductsToCompareListRegUserTest();
+        //products ("Gather Journal Issue 7", "The Kinfolk Table", "Living With Plants") removal from compare list test method (as a registered user)
+        removeProductsFromCompareListTest();
+    }
+
 }
