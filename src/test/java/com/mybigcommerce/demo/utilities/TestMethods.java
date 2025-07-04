@@ -8599,6 +8599,7 @@ public class TestMethods extends BaseTest{
         if(!Objects.equals(driver.getCurrentUrl(), expectedURL)) {
             //click "Checkout" button (during automation single click method doesn't seem to work)
             shoppingCartPage.clickCheckoutButton();
+            logger.error("The 'Checkout' button had to be clicked once again during automation run, manual run doesn't have this issue.");
         }
         //capture screenshot of the test result
         captureScreenshot(driver, "Add Product (Products) To Checkout Test Result");

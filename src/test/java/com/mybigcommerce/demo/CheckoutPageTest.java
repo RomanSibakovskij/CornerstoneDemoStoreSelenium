@@ -177,4 +177,20 @@ public class CheckoutPageTest extends TestMethods{
         validRegUserProductOrderCheckoutTest();
     }
 
+    //single category dashboard page multiple products check out confirmation tests
+
+    //Test 026b -> single category dashboard page set multiple products ("Floor Cleaner") check out confirmation test method (as a guest)
+    @Test
+    @DisplayName("Single Category Dashboard Page Set Multiple Products Checkout Confirmation Test (as a guest)")
+    @Tag("Multiple_Set_Category_Products_Checkout_Confirmation")
+    @Tag("Test_As_A_Guest")
+    void multipleSetCategoryProductsCheckoutConfirmationTest() {
+        //single category dashboard page set multiple products ("Floor Cleaner") addition to cart test method (as a guest)
+        addMultipleUtilityLaundryCartProductToCartTest();
+        //single category dashboard page set multiple products ("Floor Cleaner") addition to check out test method (as a guest)
+        addProductToCheckoutTest();
+        //single category dashboard page set multiple products ("Floor Cleaner") check out confirmation test method (as a guest)
+        validGuestProductOrderCheckoutTest();
+    }
+
 }
