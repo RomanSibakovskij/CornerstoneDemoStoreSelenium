@@ -8412,6 +8412,69 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Products Addition To Compare List Page Test Result (as a guest)");
     }
 
+    //add products to compare list test method (as a registered user)
+    protected void addProductsToCompareListRegUserTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        SingleCategoryDashboardPage singleCategoryDashboardPage = new SingleCategoryDashboardPage(driver);
+        AddToCompareListPage addToCompareListPage = new AddToCompareListPage(driver);
+        AccountDashboardPage accountDashboardPage = new AccountDashboardPage(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click header home page logo
+        generalPage.clickHeaderHomePageLogoLink();
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementAsExpected(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //log home page product data
+        logHomePageProductData(homePage);
+        //click header lower navbar "Publications" category link
+        generalPage.clickHeaderLowerNavPublicationsLink();
+        //click "Other" dropdown button
+        singleCategoryDashboardPage.clickOtherDropdownButton();
+        //single category dashboard page web element assert
+        isSingleProductCategoryDashboardPageWebElementDisplayed(singleCategoryDashboardPage);
+        //single category dashboard page text element assert
+        isSingleCategoryDashboardPageTextElementAsExpected(singleCategoryDashboardPage);
+        //account dashboard page breadcrumb web elements assert
+        isAccountDashboardPageBreadcrumbWebElementDisplayed(accountDashboardPage);
+        //log single category dashboard page subtext (these are dynamic, depending on the category)
+        logSingleCategoryDashboardPageSubtext(singleCategoryDashboardPage);
+        //log single category dashboard page product data
+        logSingleCategoryDashboardPageProductData(singleCategoryDashboardPage);
+        //capture screenshot of the single category dashboard page display
+        captureScreenshot(driver, "Single Category Dashboard Page Display");
+        //hover over set product ("Gather Journal Issue 7") image
+        singleCategoryDashboardPage.hoverOverSetProductImg(3);
+        //click "Compare" checkbox button
+        singleCategoryDashboardPage.clickSetProductCompareCheckbox(3);
+        //hover over set product ("The Kinfolk Table") image
+        singleCategoryDashboardPage.hoverOverSetProductImg(4);
+        //click "Compare" checkbox button
+        singleCategoryDashboardPage.clickSetProductCompareCheckbox(4);
+        //hover over set product ("Living With Plants") image
+        singleCategoryDashboardPage.hoverOverSetProductImg(5);
+        //click "Compare" checkbox button
+        singleCategoryDashboardPage.clickSetProductCompareCheckbox(5);
+        //click header upper navbar "Compare" link
+        generalPage.clickCompareLink();
+        //add to compare list page web element assert
+        isAddToCompareListPageWebElementDisplayed(addToCompareListPage);
+        //add to compare list page text element assert
+        isAddToCompareListPageTextElementAsExpected(addToCompareListPage);
+        //account dashboard page breadcrumb web elements assert
+        isAccountDashboardPageBreadcrumbWebElementDisplayed(accountDashboardPage);
+        //log add to compare list page product data
+        logAddToCompareListProductData(addToCompareListPage);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Products Addition To Compare List Page Test Result (as a guest)");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)
