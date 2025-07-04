@@ -19,4 +19,20 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutTest();
     }
 
+    //Test 016a -> single most popular product ("Oak Cheese Grater") addition to check out test method (as a registered user)
+    @Test
+    @DisplayName("Single Most Popular Product Addition To Checkout Test (as a registered user)")
+    @Tag("Single_Most_Popular_Product_Addition_To_Checkout")
+    @Tag("Test_As_A_Reg_User")
+    void singleMostPopularProductAddToCartRegUserTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //single most popular product ("Oak Cheese Grater") addition to cart test method (as a registered user)
+        addSingleMostPopularProductToCartRegUserTest();
+        //single most popular product ("Oak Cheese Grater") addition to check out test method (as a registered user)
+        addProductToCheckoutTest();
+    }
+
 }
