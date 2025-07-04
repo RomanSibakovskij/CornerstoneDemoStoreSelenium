@@ -199,4 +199,20 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutTest();
     }
 
+    //Test 019a -> single searched product ("Dustpan & Brush") addition to check out test method (as a registered user)
+    @Test
+    @DisplayName("Single Searched Product Addition To Checkout Test (as a registered user)")
+    @Tag("Single_Searched_Product_Addition_To_Checkout")
+    @Tag("Test_As_A_Reg_User")
+    void singleSearchedProductAddToCheckoutRegUserTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //single searched product ("Dustpan & Brush") addition to cart test method (as a registered user)
+        addSingleSearchedDustpanProductToCartRegUserTest();
+        //single searched product ("Dustpan & Brush") addition to check out test method (as a registered user)
+        addProductToCheckoutTest();
+    }
+
 }
