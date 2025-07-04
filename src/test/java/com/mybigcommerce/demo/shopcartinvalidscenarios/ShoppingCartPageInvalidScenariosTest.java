@@ -117,4 +117,19 @@ public class ShoppingCartPageInvalidScenariosTest extends TestMethods{
         invalidAddProductToCheckoutTooLongShipPostCodeTest();
     }
 
+    //invalid singular input format
+
+    //Test 023h -> invalid products addition to check out test method (as a guest) - invalid shipping city format (special symbols only) (addition to check out wasn't aborted, test has failed)
+    @Test
+    @DisplayName("Invalid Product Addition To Checkout Test (as a guest) - Invalid Shipping City Format")
+    @Tag("Multiple_Searched_Products_Addition_To_Checkout")
+    @Tag("Invalid_Singular_Input_Format")
+    @Tag("Test_As_A_Guest")
+    void invalidProductsAdditionToCheckoutInvalidShipCityFormatTest() {
+        //single category dashboard page set single product ("Canvas Laundry Cart") addition to cart test method (as a guest)
+        addSingleUtilityLaundryCartProductToCartTest();
+        //invalid products addition to check out test method (as a guest) - invalid shipping city format (special symbols only)
+        invalidAddProductToCheckoutInvalidShipCityFormatTest();
+    }
+
 }

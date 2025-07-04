@@ -24,6 +24,9 @@ public class ShoppingCartPageInvalidScenarios extends BasePage{
     private String tooLongShopCartShipCity = "Jhfgdsgdtwetrtjdsfgrfdgjhkjmngbfdsfffhkjgsedhgtfgsdetgtujyhgdsfgdfhtgfsdfdffgdsgfgfdgdsfgfdhgfdhgdfd"; //100 chars
     private int tooLongShopCartShipPostCode = 784563; //6 digits
 
+    //invalid input shipping data - invalid singular input format
+    private String invalidShopCartShipCityFormat = "@$#$%^%*&^&"; //special symbols only
+
     public ShoppingCartPageInvalidScenarios(WebDriver driver) {super(driver);}
 
     //input no shipping city into shipping city input field method
@@ -59,5 +62,10 @@ public class ShoppingCartPageInvalidScenarios extends BasePage{
         shoppingCartPageShippingPostCodeInputField.sendKeys(String.valueOf(tooLongShopCartShipPostCode));
     }
 
+    //input invalid shipping city format into shipping city input field method
+    public void inputInvalidShippingCityFormatIntoShippingCityInputField() {
+        logger.info("Invalid shipping city format (shopping cart): " + invalidShopCartShipCityFormat);
+        shoppingCartPageShippingCityInputField.sendKeys(invalidShopCartShipCityFormat);
+    }
 
 }
