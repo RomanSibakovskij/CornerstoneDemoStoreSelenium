@@ -91,4 +91,22 @@ public class CheckoutPageTest extends TestMethods{
         validGuestProductOrderCheckoutTest();
     }
 
+    //Test 025a -> single new product ("Kinfolk Issue 16") check out confirmation test method (as a registered user)
+    @Test
+    @DisplayName("Single New Product Checkout Confirmation Test (as a registered user)")
+    @Tag("Single_New_Product_Checkout_Confirmation")
+    @Tag("Test_As_A_Reg_User")
+    void singleNewProductCheckoutConfirmationRegUserTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //single new popular product ("Kinfolk Issue 16") addition to cart test method (as a registered user)
+        addSingleNewProductToCartRegUserTest();
+        //single new product ("Kinfolk Issue 16") addition to check out test method (as a registered user)
+        addProductToCheckoutTest();
+        //single new product ("Kinfolk Issue 16") check out confirmation test method (as a registered user)
+        validRegUserProductOrderCheckoutTest();
+    }
+
 }
