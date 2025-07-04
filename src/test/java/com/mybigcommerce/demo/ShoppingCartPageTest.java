@@ -229,4 +229,20 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutTest();
     }
 
+    //Test 019c -> multiple searched products ("Dustpan & Brush") addition to check out test method (as a registered user)
+    @Test
+    @DisplayName("Multiple Searched Products Addition To Checkout Test (as a registered user)")
+    @Tag("Multiple_Searched_Products_Addition_To_Checkout")
+    @Tag("Test_As_A_Reg_User")
+    void multipleSearchedProductsAddToCheckoutRegUserTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //multiple searched products ("1L Le Parfait Jar") addition to cart test method (as a registered user)
+        addMultipleSearchedJarProductToCartRegUserTest();
+        //multiple searched products ("Dustpan & Brush") addition to check out test method (as a registered user)
+        addProductToCheckoutTest();
+    }
+
 }

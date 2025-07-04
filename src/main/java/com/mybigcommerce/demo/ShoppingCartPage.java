@@ -175,7 +175,7 @@ public class ShoppingCartPage extends BasePage{
 
     //click "Checkout" button method
     public void clickCheckoutButton() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1500));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(2000));
         wait.until(ExpectedConditions.elementToBeClickable(shoppingCartPageCheckoutButton));
         shoppingCartPageCheckoutButton.click();
     }
