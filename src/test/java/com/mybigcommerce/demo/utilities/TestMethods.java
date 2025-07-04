@@ -9086,6 +9086,89 @@ public class TestMethods extends BaseTest{
         assertTrue(addToCompareListPage.isAddToCompareListPageProductOtherDetailsDisplayed(), "The add to compare page product other details aren't displayed");
     }
 
+    //shopping cart page web element assert test method
+    protected void isShoppingCartPageWebElementDisplayed(ShoppingCartPage shoppingCartPage) {
+        //assert shopping cart page title is displayed
+        assertTrue(shoppingCartPage.isShoppingCartPageTitleDisplayed(), "The shopping cart page title isn't displayed");
+        //shopping cart table
+        //assert shopping cart table item subtext is displayed
+        assertTrue(shoppingCartPage.isShoppingCartTableItemSubtextDisplayed(), "The shopping cart table item subtext isn't displayed");
+        //assert shopping cart table price subtext is displayed
+        assertTrue(shoppingCartPage.isShoppingCartTablePriceSubtextDisplayed(), "The shopping cart table price subtext isn't displayed");
+        //assert shopping cart table quantity subtext is displayed
+        assertTrue(shoppingCartPage.isShoppingCartTableQuantitySubtextDisplayed(), "The shopping cart table quantity subtext isn't displayed");
+        //assert shopping cart table total subtext is displayed
+        assertTrue(shoppingCartPage.isShoppingCartTableTotalSubtextDisplayed(), "The shopping cart table total subtext isn't displayed");
+        //list elements
+        //assert shopping cart table product images are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartTableProductImageDisplayed(), "The shopping cart table product images aren't displayed");
+        //assert shopping cart table product brands are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartTableProductBrandDisplayed(), "The shopping cart table product brands aren't displayed");
+        //assert shopping cart table product name links are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartTableProductNameLinkDisplayed(), "The shopping cart table product name links aren't displayed");
+        //assert shopping cart table product gift wrap subtexts are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartTableProductGiftWrapSubtextDisplayed(), "The shopping cart table product gift wrap subtexts aren't displayed");
+        //assert shopping cart table product gift wrap links are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartTableProductGiftWrapLinkDisplayed(), "The shopping cart table product gift wrap links aren't displayed");
+        //assert shopping cart table product prices are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartTableProductPriceDisplayed(), "The shopping cart table product prices aren't displayed");
+        //assert shopping cart table product quantity decrease buttons are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartTableProductQtyDecreaseButtonDisplayed(), "The shopping cart table product quantity decrease buttons aren't displayed");
+        //assert shopping cart table product quantity input fields are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartTableProductQtyInputFieldDisplayed(), "The shopping cart table product quantity input fields aren't displayed");
+        //assert shopping cart table product quantity increase buttons are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartTableProductQtyIncreaseButtonDisplayed(), "The shopping cart table product quantity increase buttons aren't displayed");
+        //assert shopping cart table product total prices are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartTableProductTotalPriceDisplayed(), "The shopping cart table product total prices aren't displayed");
+        //assert shopping cart table product remove buttons are displayed (as a list)
+        assertTrue(shoppingCartPage.isShoppingCartTableProductPriceDisplayed(), "The shopping cart table product remove buttons aren't displayed");
+        //summary table
+        //assert shopping cart summary table subtotal subtext is displayed
+        assertTrue(shoppingCartPage.isShoppingCartSummaryTableSubtotalSubtextDisplayed(), "The shopping cart summary table subtotal subtext isn't displayed");
+        //assert shopping cart summary table subtotal price is displayed
+        assertTrue(shoppingCartPage.isShoppingCartSummaryTableSubtotalPriceDisplayed(), "The shopping cart summary table subtotal price isn't displayed");
+        //assert shopping cart summary table shipping subtext is displayed
+        assertTrue(shoppingCartPage.isShoppingCartSummaryTableShippingSubtextDisplayed(), "The shopping cart summary table shipping subtext isn't displayed");
+        //assert shopping cart summary table shipping add info link is displayed
+        assertTrue(shoppingCartPage.isShoppingCartSummaryTableShippingAddInfoLinkDisplayed(), "The shopping cart summary table shipping add info link isn't displayed");
+        //assert shopping cart summary table coupon code subtext is displayed
+        assertTrue(shoppingCartPage.isShoppingCartSummaryTableCouponCodeSubtextDisplayed(), "The shopping cart summary table coupon code subtext isn't displayed");
+        //assert shopping cart summary table coupon code add coupon link is displayed
+        assertTrue(shoppingCartPage.isShoppingCartSummaryTableAddCouponCodeLinkDisplayed(), "The shopping cart summary table coupon code add coupon link isn't displayed");
+        //assert shopping cart summary table gift certificate subtext is displayed
+        assertTrue(shoppingCartPage.isShoppingCartSummaryTableGiftCertificateSubtextDisplayed(), "The shopping cart summary table gift certificate subtext isn't displayed");
+        //assert shopping cart summary table gift certificate link is displayed
+        assertTrue(shoppingCartPage.isShoppingCartSummaryTableAddGiftCertificateLinkDisplayed(), "The shopping cart summary table gift certificate link isn't displayed");
+        //assert shopping cart summary table grand total subtext is displayed
+        assertTrue(shoppingCartPage.isShoppingCartSummaryTableGrandTotalSubtextDisplayed(), "The shopping cart summary table grand total subtext isn't displayed");
+        //assert shopping cart summary table grand total price is displayed
+        assertTrue(shoppingCartPage.isShoppingCartSummaryTableGrandTotalPriceDisplayed(), "The shopping cart summary table grand total price isn't displayed");
+        //assert shopping cart page checkout button is displayed
+        assertTrue(shoppingCartPage.isShoppingCartPageCheckoutButtonDisplayed(), "The shopping cart page checkout button isn't displayed");
+    }
+
+    //shopping cart page shipping section web element assert test method
+    protected void isShoppingCartPageShipSectionWebElementDisplayed(ShoppingCartPage shoppingCartPage) {
+        //assert shopping cart page shipping section country subtext is displayed
+        assertTrue(shoppingCartPage.isShoppingCartShippingCountrySubtextDisplayed(), "The shopping cart page shipping section country subtext isn't displayed");
+        //assert shopping cart page shipping section country dropdown menu is displayed
+        assertTrue(shoppingCartPage.isShoppingCartShippingCountryDropdownMenuDisplayed(), "The shopping cart page shipping section country dropdown menu isn't displayed");
+        //assert shopping cart page shipping section state subtext is displayed
+        assertTrue(shoppingCartPage.isShoppingCartShippingStateSubtextDisplayed(), "The shopping cart page shipping section state subtext isn't displayed");
+        //assert shopping cart page shipping section state dropdown menu is displayed (after country selection it becomes a dropdown menu0
+        //assertTrue(shoppingCartPage.isShoppingCartShippingStateDropdownMenuDisplayed(), "The shopping cart page shipping section state dropdown menu isn't displayed");
+        //assert shopping cart page shipping section city subtext is displayed
+        assertTrue(shoppingCartPage.isShoppingCartShippingCitySubtextDisplayed(), "The shopping cart page shipping section city subtext isn't displayed");
+        //assert shopping cart page shipping section city input field is displayed
+        assertTrue(shoppingCartPage.isShoppingCartShippingCityInputFieldDisplayed(), "The shopping cart page shipping section city input field isn't displayed");
+        //assert shopping cart page shipping section post code subtext is displayed
+        assertTrue(shoppingCartPage.isShoppingCartShippingPostCodeSubtextDisplayed(), "The shopping cart page shipping section post code subtext isn't displayed");
+        //assert shopping cart page shipping section post code input field is displayed
+        assertTrue(shoppingCartPage.isShoppingCartShippingPostCodeInputFieldDisplayed(), "The shopping cart page shipping section post code input field isn't displayed");
+        //assert shopping cart page shipping section estimate shipping button is displayed
+        assertTrue(shoppingCartPage.isShoppingCartEstimateShippingButtonDisplayed(), "The shopping cart page shipping section estimate shipping button isn't displayed");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert test method(elements that all pages have)
@@ -9361,6 +9444,44 @@ public class TestMethods extends BaseTest{
         assertEquals("Other Details", addToCompareListPage.getAddToCompareListPageOtherDetailsSubtext(), "The add to compare list page other details subtext doesn't match expectations.");
     }
 
+    //shopping cart page text element assert test method
+    protected void isShoppingCartPageTextElementAsExpected(ShoppingCartPage shoppingCartPage) {
+        //assert shopping cart page title is as expected
+        assertEquals("Your Cart", shoppingCartPage.getShoppingCartPageTitle(), "The shopping cart page title doesn't match expectations.");
+        //shopping cart table
+        //assert shopping cart table item subtext is as expected
+        assertEquals("Item", shoppingCartPage.getShoppingCartTableItemSubtext(), "The shopping cart table item subtext doesn't match expectations.");
+        //assert shopping cart table price subtext is as expected
+        assertEquals("Price", shoppingCartPage.getShoppingCartTablePriceSubtext(), "The shopping cart table price subtext doesn't match expectations.");
+        //assert shopping cart table quantity subtext is as expected
+        assertEquals("Quantity", shoppingCartPage.getShoppingCartTableQuantitySubtext(), "The shopping cart table quantity subtext doesn't match expectations.");
+        //assert shopping cart table total price subtext is as expected
+        assertEquals("Total", shoppingCartPage.getShoppingCartTableTotalSubtext(), "The shopping cart table total price subtext doesn't match expectations.");
+        //summary table
+        //assert shopping cart summary table subtotal price subtext is as expected
+        assertEquals("Subtotal:", shoppingCartPage.getShoppingCartSummaryTableSubtotalSubtext(), "The shopping cart summary table subtotal price subtext doesn't match expectations.");
+        //assert shopping cart summary table shipping subtext is as expected
+        assertEquals("Shipping:", shoppingCartPage.getShoppingCartSummaryTableShippingSubtext(), "The shopping cart summary table shipping subtext doesn't match expectations.");
+        //assert shopping cart summary table coupon code subtext is as expected
+        assertEquals("Coupon Code:", shoppingCartPage.getShoppingCartSummaryTableCouponCodeSubtext(), "The shopping cart summary table coupon code subtext doesn't match expectations.");
+        //assert shopping cart summary table gift certificate subtext is as expected
+        assertEquals("Gift Certificate:", shoppingCartPage.getShoppingCartSummaryTableGiftCertificateSubtext(), "The shopping cart summary table gift certificate subtext doesn't match expectations.");
+        //assert shopping cart summary table grand total price subtext is as expected
+        assertEquals("Grand total:", shoppingCartPage.getShoppingCartSummaryTableGrandTotalSubtext(), "The shopping cart summary table grand total price subtext doesn't match expectations.");
+    }
+
+    //shopping cart page shipping section text element assert test method
+    protected void isShoppingCartShipSectionTextElementAsExpected(ShoppingCartPage shoppingCartPage) {
+        //assert shopping cart summary table shipping section country subtext is as expected
+        assertEquals("Country", shoppingCartPage.getShoppingCartShippingCountrySubtext(), "The shopping cart summary table shipping section country subtext doesn't match expectations.");
+        //assert shopping cart summary table shipping section state subtext is as expected
+        assertEquals("State/province", shoppingCartPage.getShoppingCartShippingStateSubtext(), "The shopping cart summary table shipping section state subtext doesn't match expectations.");
+        //assert shopping cart summary table shipping section city subtext is as expected
+        assertEquals("Suburb/city", shoppingCartPage.getShoppingCartShippingCitySubtext(), "The shopping cart summary table shipping section city subtext doesn't match expectations.");
+        //assert shopping cart summary table shipping section post code subtext is as expected
+        assertEquals("Zip/postcode", shoppingCartPage.getShoppingCartShippingPostCodeSubtext(), "The shopping cart summary table shipping section post code subtext doesn't match expectations.");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //home page product data logger method
@@ -9460,6 +9581,23 @@ public class TestMethods extends BaseTest{
         logger.info("Add to compare list page product rating(s): " + addToCompareListPage.getAddToCompareListPageProductRating());
         logger.info("Add to compare list page product availability(ies): " + addToCompareListPage.getAddToCompareListPageProductAvailability());
         logger.info("Add to compare list page product other details: " + addToCompareListPage.getAddToCompareListPageProductOtherDetails());
+
+        System.out.println("\n");
+
+    }
+
+    //shopping cart page product data logger method
+    protected void logShoppingCartPageProductData(ShoppingCartPage shoppingCartPage) {
+
+        System.out.println("Shopping cart displayed product data: " + "\n");
+
+        logger.info("Displayed shopping cart product brand(s): " + shoppingCartPage.getShoppingCartTableProductBrand());
+        logger.info("Displayed shopping cart product name(s): " + shoppingCartPage.getShoppingCartTableProductName());
+        logger.info("Displayed shopping cart product price(s): " + shoppingCartPage.getShoppingCartTableProductPrice());
+        logger.info("Displayed shopping cart product quantity(ies): " + shoppingCartPage.getShoppingCartTableProductQty());
+        logger.info("Displayed shopping cart product total prices): " + shoppingCartPage.getShoppingCartTableProductTotalPrice());
+        logger.info("Displayed shopping cart summary subtotal price: " + shoppingCartPage.getShoppingCartSummaryTableSubtotalPrice());
+        logger.info("Displayed shopping cart summary grand total price: " + shoppingCartPage.getShoppingCartSummaryTableGrandTotalPrice());
 
         System.out.println("\n");
 
