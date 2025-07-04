@@ -8861,6 +8861,41 @@ public class TestMethods extends BaseTest{
         assertTrue(singleCategoryDashboardPage.isSingleCategoryDashboardPageSearchLinkListDisplayed(), "The single category dashboard page search section links aren't displayed");
     }
 
+    //add to compare list page web element assert test method
+    protected void isAddToCompareListPageWebElementDisplayed(AddToCompareListPage addToCompareListPage) {
+        //assert add to compare list page title is displayed
+        assertTrue(addToCompareListPage.isAddToCompareListPageTitleDisplayed(), "The add to compare page title isn't displayed");
+        //assert add to compare list page description subtext is displayed
+        assertTrue(addToCompareListPage.isAddToCompareListPageDescriptionSubtextDisplayed(), "The add to compare page description subtext isn't displayed");
+        //assert add to compare list page rating subtext is displayed
+        assertTrue(addToCompareListPage.isAddToCompareListPageRatingSubtextDisplayed(), "The add to compare page rating subtext isn't displayed");
+        //assert add to compare list page availability subtext is displayed
+        assertTrue(addToCompareListPage.isAddToCompareListPageAvailabilitySubtextDisplayed(), "The add to compare page availability subtext isn't displayed");
+        //assert add to compare list page other details subtext is displayed
+        assertTrue(addToCompareListPage.isAddToCompareListPageOtherDetailsSubtextDisplayed(), "The add to compare page other details subtext isn't displayed");
+        //list elements
+        //assert add to compare list page product remove buttons are displayed (as a list)
+        assertTrue(addToCompareListPage.isAddToCompareListPageProductRemoveButtonDisplayed(), "The add to compare page product remove buttons aren't displayed");
+        //assert add to compare list page product images are displayed (as a list)
+        assertTrue(addToCompareListPage.isAddToCompareListPageProductImgDisplayed(), "The add to compare page product images aren't displayed");
+        //assert add to compare list page product brand links are displayed (as a list)
+        assertTrue(addToCompareListPage.isAddToCompareListPageProductBrandLinkDisplayed(), "The add to compare page product brand links aren't displayed");
+        //assert add to compare list page product name links are displayed (as a list)
+        assertTrue(addToCompareListPage.isAddToCompareListPageProductNameLinkDisplayed(), "The add to compare page product name links aren't displayed");
+        //assert add to compare list page product unit prices are displayed (as a list)
+        assertTrue(addToCompareListPage.isAddToCompareListPageProductUnitPriceDisplayed(), "The add to compare page product unit prices aren't displayed");
+        //assert add to compare list page product add to cart buttons are displayed (as a list)
+        assertTrue(addToCompareListPage.isAddToCompareListPageProductAddToCartButtonDisplayed(), "The add to compare page product remove buttons aren't displayed");
+        //assert add to compare list page product descriptions are displayed (as a list)
+        assertTrue(addToCompareListPage.isAddToCompareListPageProductDescDisplayed(), "The add to compare page product descriptions aren't displayed");
+        //assert add to compare list page product ratings are displayed (as a list)
+        assertTrue(addToCompareListPage.isAddToCompareListPageProductRatingDisplayed(), "The add to compare page product ratings aren't displayed");
+        //assert add to compare list page product availabilities are displayed (as a list)
+        assertTrue(addToCompareListPage.isAddToCompareListPageProductAvailabilityDisplayed(), "The add to compare page product availabilities aren't displayed");
+        //assert add to compare list page product other details are displayed (as a list)
+        assertTrue(addToCompareListPage.isAddToCompareListPageProductOtherDetailsDisplayed(), "The add to compare page product other details aren't displayed");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert test method(elements that all pages have)
@@ -9122,6 +9157,18 @@ public class TestMethods extends BaseTest{
         assertEquals("Brand", singleCategoryDashboardPage.getSingleCategoryDashboardPageBrandSubtitle(), "The single category dashboard page brand section subtitle doesn't match expectations.");
         //assert single category dashboard page price section subtitle is as expected (sometimes it isn't displayed, due to additional div change)
         //assertEquals("Price", singleCategoryDashboardPage.getSingleCategoryDashboardPagePriceSubtitle(), "The single category dashboard page price section subtitle doesn't match expectations.");
+    }
+
+    //add to compare list page text element assert test method
+    protected void isAddToCompareListPageTextElementAsExpected(AddToCompareListPage addToCompareListPage) {
+        //assert add to compare list page description subtext is as expected
+        assertEquals("Description", addToCompareListPage.getAddToCompareListPageDescriptionSubtext(), "The add to compare list page description subtext doesn't match expectations.");
+        //assert add to compare list page rating subtext is as expected
+        assertEquals("Rating", addToCompareListPage.getAddToCompareListPageRatingSubtext(), "The add to compare list page rating subtext doesn't match expectations.");
+        //assert add to compare list page availability subtext is as expected
+        assertEquals("Availability:", addToCompareListPage.getAddToCompareListPageAvailabilitySubtext(), "The add to compare list page availability subtext doesn't match expectations.");
+        //assert add to compare list page other details subtext is as expected
+        assertEquals("Other Details", addToCompareListPage.getAddToCompareListPageOtherDetailsSubtext(), "The add to compare list page other details subtext doesn't match expectations.");
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
