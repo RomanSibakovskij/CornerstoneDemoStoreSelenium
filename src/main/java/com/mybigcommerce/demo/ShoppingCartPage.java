@@ -132,6 +132,9 @@ public class ShoppingCartPage extends BasePage{
     //select "United States" option method
     public void selectUSCountryOption() {shoppingCartPageShippingUSCountryOption.click();}
 
+    //select "Select a country" option method
+    public void selectCountryOption() {shoppingCartPageShippingSelectCountryOption.click();}
+
     //input valid shipping city into shipping city input field method
     public void inputValidShippingCityIntoShippingCityInputField() {
         logger.info("Valid shipping city (shopping cart): " + validShopCartShipCity);
@@ -211,6 +214,19 @@ public class ShoppingCartPage extends BasePage{
         wait.until(ExpectedConditions.elementToBeClickable(shoppingCartPageCheckoutButton));
         shoppingCartPageCheckoutButton.click();
     }
+
+    //shopping cart page shipping section singular input error message getters
+    public String getShopCartPageShipSingularInputError() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1000));
+        wait.until(ExpectedConditions.visibilityOf(shoppingCartPageShipSingularInputError));
+        return shoppingCartPageShipSingularInputError.getText();
+    }
+    public String getShopCartPageShipSingularInputAlert() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1000));
+        wait.until(ExpectedConditions.visibilityOf(shoppingCartPageShipSingularInputAlert));
+        return shoppingCartPageShipSingularInputAlert.getText();
+    }
+
 
     //shopping cart product data getters
     //shopping cart table

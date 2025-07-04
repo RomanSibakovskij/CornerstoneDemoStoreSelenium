@@ -8838,6 +8838,61 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Product Removal From Shopping Cart Test Result");
     }
 
+    //invalid product(s) addition to check out (invalid shipping data) tests
+
+    //no singular input
+
+    //add product(products) from shopping cart to check out test method - no shipping country
+    protected void invalidAddProductToCheckoutNoShipCountryTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        AccountDashboardPage accountDashboardPage = new AccountDashboardPage(driver);
+        ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //shopping cart page web element assert
+        isShoppingCartPageWebElementDisplayed(shoppingCartPage);
+        //shopping cart page text element assert
+        isShoppingCartPageTextElementAsExpected(shoppingCartPage);
+        //account dashboard page breadcrumb web element assert
+        isAccountDashboardPageBreadcrumbWebElementDisplayed(accountDashboardPage);
+        //capture screenshot of shopping cart page display
+        captureScreenshot(driver, "Shopping Cart Page Display");
+        //log shopping cart data (before shipping application)
+        logShoppingCartPageProductData(shoppingCartPage);
+        //click shipping "Add info" link
+        shoppingCartPage.clickAddInfoLink();
+        //capture screenshot of shopping cart page shipping section display before data input
+        captureScreenshot(driver, "Shipping Method Section Display Before Data Input (shopping cart)");
+        //shopping cart page shipping section web element assert
+        isShoppingCartPageShipSectionWebElementDisplayed(shoppingCartPage);
+        //shopping cart page shipping section text element assert
+        isShoppingCartShipSectionTextElementAsExpected(shoppingCartPage);
+        //click shipping country dropdown menu
+        shoppingCartPage.clickCountryDropdownMenu();
+        //select "Select a country" option
+        shoppingCartPage.selectCountryOption();
+        //input valid shipping city into shipping city input field
+        shoppingCartPage.inputValidShippingCityIntoShippingCityInputField();
+        //input valid shipping post code into shipping post code input field
+        shoppingCartPage.inputValidShippingPostCodeIntoShippingPostCodeInputField();
+        //assert the user gets expected error message
+        assertEquals("The 'Country' field cannot be blank.", shoppingCartPage.getShopCartPageShipSingularInputError(), "The shopping cart page missing shipping country input error doesn't match expectations or the error wasn't triggered.");
+        //capture screenshot of shopping cart page shipping section display after invalid data input - no shipping country
+        captureScreenshot(driver, "Shipping Method Section Display After Invalid Data Input (shopping cart) - No Shipping Country");
+        //click "Estimate shipping" button
+        shoppingCartPage.clickEstimateShippingButton();
+        //wait for element to load
+        generalPage.waitForElementsToLoad();
+        //click "Checkout" button
+        shoppingCartPage.clickCheckoutButton();
+        //click "Checkout" button (during automation single click method doesn't seem to work)
+        //shoppingCartPage.clickCheckoutButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Add Product (Products) To Checkout Test Result - No Shipping Country");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)
