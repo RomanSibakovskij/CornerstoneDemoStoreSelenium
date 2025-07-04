@@ -109,4 +109,20 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutTest();
     }
 
+    //Test 017c -> multiple new product ("Kinfolk Issue 16") addition to check out test method (as a registered user)
+    @Test
+    @DisplayName("Multiple New Products Addition To Checkout Test (as a registered user)")
+    @Tag("Single_New_Product_Addition_To_Checkout")
+    @Tag("Test_As_A_Reg_User")
+    void multipleNewProductsAddToCheckoutRegUserTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //multiple new products ("Kinfolk Issue 16") addition to cart test method (as a registered user)
+        addMultipleNewProductsToCartRegUserTest();
+        //multiple new product ("Kinfolk Issue 16") addition to check out test method (as a registered user)
+        addProductToCheckoutTest();
+    }
+
 }
