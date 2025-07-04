@@ -104,4 +104,17 @@ public class ShoppingCartPageInvalidScenariosTest extends TestMethods{
         invalidAddProductToCheckoutTooLongShipCityTest();
     }
 
+    //Test 023g -> invalid product addition to check out test method (as a guest) - too long shipping post code (6 digits) (addition to check out wasn't aborted, test has failed)
+    @Test
+    @DisplayName("Invalid Product Addition To Checkout Test (as a guest) - Too Long Shipping Post Code")
+    @Tag("Multiple_Searched_Products_Addition_To_Checkout")
+    @Tag("Too_Long_Singular_Input")
+    @Tag("Test_As_A_Guest")
+    void invalidProductsAdditionToCheckoutTooLongShipPostCodeTest() {
+        //single category dashboard page set single product ("Canvas Laundry Cart") addition to cart test method (as a guest)
+        addSingleUtilityLaundryCartProductToCartTest();
+        //invalid products addition to check out test method (as a guest) - too long shipping post code (6 digits)
+        invalidAddProductToCheckoutTooLongShipPostCodeTest();
+    }
+
 }
