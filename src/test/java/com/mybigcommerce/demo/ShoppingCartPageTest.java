@@ -185,4 +185,18 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutTest();
     }
 
+    //single searched product addition to check out tests
+
+    //Test 019 -> single searched product ("Living with Plants") addition to check out test method (as a guest)
+    @Test
+    @DisplayName("Single Searched Product Addition To Checkout Test (as a guest)")
+    @Tag("Single_Searched_Product_Addition_To_Checkout")
+    @Tag("Test_As_A_Guest")
+    void singleSearchedProductAddToCartTest() {
+        //single searched product ("Living with Plants") addition to cart test method (as a guest)
+        addSingleSearchedPlantPictureProductToCartTest();
+        //single searched product ("Living with Plants") addition to check out test method (as a guest)
+        addProductToCheckoutTest();
+    }
+
 }
