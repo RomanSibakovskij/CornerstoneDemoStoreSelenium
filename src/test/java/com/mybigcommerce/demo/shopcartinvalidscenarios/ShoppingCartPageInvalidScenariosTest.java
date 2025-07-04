@@ -61,4 +61,19 @@ public class ShoppingCartPageInvalidScenariosTest extends TestMethods{
         invalidAddProductToCheckoutNoShipPostCodeTest();
     }
 
+    //too short singular input
+
+    //Test 023d -> invalid products addition to check out test method (as a guest) - too short shipping city (1 char) (addition to check out wasn't aborted, test has failed)
+    @Test
+    @DisplayName("Invalid Products Addition To Checkout Test (as a guest) - Too Short Shipping City")
+    @Tag("Multiple_Searched_Products_Addition_To_Checkout")
+    @Tag("Too_Short_Singular_Input")
+    @Tag("Test_As_A_Guest")
+    void invalidProductsAdditionToCheckoutTooShortShipCityTest() {
+        //multiple searched products ("Orbit Terrarium (Large)" addition to cart test method (as a guest)
+        addMultipleSearchedLargeTerrariumProductToCartTest();
+        //invalid products addition to check out test method (as a guest) - too short shipping city (1 char)
+        invalidAddProductToCheckoutTooShortShipCityTest();
+    }
+
 }

@@ -9063,6 +9063,66 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid Add Product (Products) To Checkout Test Result - No Shipping Post Code");
     }
 
+    //too short singular input
+
+    //add product(products) from shopping cart to check out test method - too short shipping city (1 char)
+    protected void invalidAddProductToCheckoutTooShortShipCityTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        AccountDashboardPage accountDashboardPage = new AccountDashboardPage(driver);
+        ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);
+        ShoppingCartPageInvalidScenarios shoppingCartPageInvalidScenarios = new ShoppingCartPageInvalidScenarios(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //shopping cart page web element assert
+        isShoppingCartPageWebElementDisplayed(shoppingCartPage);
+        //shopping cart page text element assert
+        isShoppingCartPageTextElementAsExpected(shoppingCartPage);
+        //account dashboard page breadcrumb web element assert
+        isAccountDashboardPageBreadcrumbWebElementDisplayed(accountDashboardPage);
+        //capture screenshot of shopping cart page display
+        captureScreenshot(driver, "Shopping Cart Page Display");
+        //log shopping cart data (before shipping application)
+        logShoppingCartPageProductData(shoppingCartPage);
+        //click shipping "Add info" link
+        shoppingCartPage.clickAddInfoLink();
+        //capture screenshot of shopping cart page shipping section display before data input
+        captureScreenshot(driver, "Shipping Method Section Display Before Data Input (shopping cart)");
+        //shopping cart page shipping section web element assert
+        isShoppingCartPageShipSectionWebElementDisplayed(shoppingCartPage);
+        //shopping cart page shipping section text element assert
+        isShoppingCartShipSectionTextElementAsExpected(shoppingCartPage);
+        //click shipping country dropdown menu
+        shoppingCartPage.clickCountryDropdownMenu();
+        //select "United States" option
+        shoppingCartPage.selectUSCountryOption();
+        //input too short shipping city into shipping city input field (1 char)
+        shoppingCartPageInvalidScenarios.inputTooShortShippingCityIntoShippingCityInputField();
+        //input valid shipping post code into shipping post code input field
+        shoppingCartPage.inputValidShippingPostCodeIntoShippingPostCodeInputField();
+        //click shipping state dropdown menu
+        shoppingCartPage.clickStateDropdownMenu();
+        //select "Illinois" state option
+        shoppingCartPage.selectIllinoisStateOption();
+        //capture screenshot of shopping cart page shipping section display after invalid data input - too short shipping city
+        captureScreenshot(driver, "Shipping Method Section Display After Invalid Data Input (shopping cart) - Too Short Shipping City");
+        //click "Estimate shipping" button
+        shoppingCartPage.clickEstimateShippingButton();
+        //assert the user gets expected error message, log the issue otherwise
+        try {
+            assertEquals("City is too short.", shoppingCartPage.getShopCartPageShipSingularInputError(), "The shopping cart page too short shipping city input error doesn't match expectations.");
+        } catch (Exception e) {
+            logger.error("The too short shipping city error wasn't triggered, test has failed.");
+        }
+        //wait for element to load
+        generalPage.waitForElementsToLoad();
+        //click "Checkout" button
+        shoppingCartPage.clickCheckoutButton();
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Add Product (Products) To Checkout Test Result - Too Short Shipping City");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)
