@@ -41,4 +41,20 @@ public class CheckoutPageTest extends TestMethods{
         validRegUserProductOrderCheckoutTest();
     }
 
+    //multiple most popular products check out confirmation tests
+
+    //Test 024b -> multiple most popular products ("Tiered Wire Basket") check out confirmation test method (as a guest)
+    @Test
+    @DisplayName("Multiple Most Popular Products Checkout Confirmation Test (as a guest)")
+    @Tag("Multiple_Most_Popular_Products_Checkout_Confirmation")
+    @Tag("Test_As_A_Guest")
+    void multipleMostPopularProductsCheckoutConfirmationTest() {
+        //multiple most popular products ("Tiered Wire Basket") addition to cart test method (as a guest)
+        addMultipleMostPopularProductsToCartGuestTest();
+        //multiple most popular products ("Tiered Wire Basket") addition to check out test method (as a guest)
+        addProductToCheckoutTest();
+        //multiple most popular products ("Tiered Wire Basket") check out confirmation test method (as a guest)
+        validGuestProductOrderCheckoutTest();
+    }
+
 }
