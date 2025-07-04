@@ -201,6 +201,9 @@ public class ShoppingCartPage extends BasePage{
     //select "Illinois" state option method
     public void selectIllinoisStateOption() {shoppingCartPageShippingIllinoisStateOption.click();}
 
+    //select state option method
+    public void selectStateOption() {shoppingCartPageShippingSelectStateOption.click();}
+
     //click "Update shipping cost" button method
     public void clickUpdateShippingCostButton() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1500));
