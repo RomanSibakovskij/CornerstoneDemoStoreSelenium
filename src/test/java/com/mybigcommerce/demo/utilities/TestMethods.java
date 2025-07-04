@@ -8595,6 +8595,8 @@ public class TestMethods extends BaseTest{
         String expectedURL = "https://cornerstone-light-demo.mybigcommerce.com/checkout";
         //click "Checkout" button
         shoppingCartPage.clickCheckoutButton();
+        //wait for element to load
+        generalPage.waitForElementsToLoad();
         //if the click fails to redirect the user to next page, perform the click again
         if(!Objects.equals(driver.getCurrentUrl(), expectedURL)) {
             //click "Checkout" button (during automation single click method doesn't seem to work)

@@ -172,7 +172,7 @@ public class GeneralPage extends BasePage {
 
     //wait for elements to load method
     public void waitForElementsToLoad() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(3500));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(3000));
         //wait for the document to be fully loaded
         wait.until(webDriver -> Objects.equals(((JavascriptExecutor) webDriver)
                 .executeScript("return document.readyState"), "complete"));
