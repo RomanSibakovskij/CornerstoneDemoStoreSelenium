@@ -279,4 +279,20 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutTest();
     }
 
+    //update product quantity in shopping cart tests (guest and registered user will have the same output, so only guest branch is being tested to avoid redundancy)
+
+    //Test 021 -> update products quantity in shopping cart test method (as a guest) (the quantity fails to be updated during automation run)
+    @Test
+    @DisplayName("Update Products Quantity In Shopping Cart Test (as a guest)")
+    @Tag("Update_Products_Quantity_In_Shopping_Cart")
+    @Tag("Test_As_A_Guest")
+    void updateProductsShopCartQuantityTest() {
+        //products ("S Shaped Scrub Brush", "Dish Detergent", "Feather Duster") addition to compare list test method (as a guest)
+        addProductsToCompareListTest();
+        //products ("S Shaped Scrub Brush", "Dish Detergent", "Feather Duster") addition from compare list to cart test method (as a guest)
+        addProductsFromCompareListToCartTest();
+        //update products quantity in shopping cart test method (as a guest)
+        updateProductQtyShopCartTest();
+    }
+
 }

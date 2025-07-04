@@ -143,6 +143,14 @@ public class ShoppingCartPage extends BasePage{
         shoppingCartPageShippingPostCodeInputField.sendKeys(validShopCartShipPostCode);
     }
 
+    //input set product quantity into product quantity input field
+    public void inputSetProductQuantityIntoProductQtyInputField(int index, int quantity) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1500));
+        wait.until(ExpectedConditions.elementToBeClickable(shoppingCartTableProductQtyInputFieldElements.get(index)));
+        shoppingCartTableProductQtyInputFieldElements.get(index).clear();
+        shoppingCartTableProductQtyInputFieldElements.get(index).sendKeys(String.valueOf(quantity));
+    }
+
     //click "Estimate shipping" button method
     public void clickEstimateShippingButton() {
         Actions action = new Actions(driver);
