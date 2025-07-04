@@ -211,4 +211,20 @@ public class CheckoutPageTest extends TestMethods{
         validRegUserProductOrderCheckoutTest();
     }
 
+    //single searched product check out confirmation tests
+
+    //Test 027 -> single searched product ("Living with Plants") check out confirmation test method (as a guest)
+    @Test
+    @DisplayName("Single Searched Product Checkout Confirmation Test (as a guest)")
+    @Tag("Single_Searched_Product_Checkout_Confirmation")
+    @Tag("Test_As_A_Guest")
+    void singleSearchedProductCheckoutConfirmationTest() {
+        //single searched product ("Living with Plants") addition to cart test method (as a guest)
+        addSingleSearchedPlantPictureProductToCartTest();
+        //single searched product ("Living with Plants") addition to check out test method (as a guest)
+        addProductToCheckoutTest();
+        //single searched product ("Living with Plants") check out confirmation test method (as a guest)
+        validGuestProductOrderCheckoutTest();
+    }
+
 }
