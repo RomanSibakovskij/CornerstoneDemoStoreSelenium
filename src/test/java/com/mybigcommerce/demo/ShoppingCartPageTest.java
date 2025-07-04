@@ -325,7 +325,7 @@ public class ShoppingCartPageTest extends TestMethods{
 
     //product removal from shopping cart test (guest and registered user will have the same output, so only guest branch is being tested to avoid redundancy)
 
-    //Test 022 -> product(s) removal from shopping cart test method (the modal disappears after appearing shortly after without any click involved, test has failed)
+    //Test 022 -> product(s) removal from shopping cart test method
     @Test
     @DisplayName("Product(s) Quantity Removal Shopping Cart Test")
     @Tag("Product_Removal_From_Shopping_Cart")
