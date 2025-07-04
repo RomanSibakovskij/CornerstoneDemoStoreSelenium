@@ -76,4 +76,17 @@ public class ShoppingCartPageInvalidScenariosTest extends TestMethods{
         invalidAddProductToCheckoutTooShortShipCityTest();
     }
 
+    //Test 023e -> invalid products addition to check out test method (as a guest) - too short shipping post code (4 digits) (addition to check out wasn't aborted, test has failed)
+    @Test
+    @DisplayName("Invalid Products Addition To Checkout Test (as a guest) - Too Short Shipping Post Code")
+    @Tag("Multiple_Searched_Products_Addition_To_Checkout")
+    @Tag("Too_Short_Singular_Input")
+    @Tag("Test_As_A_Guest")
+    void invalidProductsAdditionToCheckoutTooShortShipPostCodeTest() {
+        //multiple searched products ("Orbit Terrarium (Large)" addition to cart test method (as a guest)
+        addMultipleSearchedLargeTerrariumProductToCartTest();
+        //invalid products addition to check out test method (as a guest) - too short shipping post code (4 digits)
+        invalidAddProductToCheckoutTooShortShipPostCodeTest();
+    }
+
 }
