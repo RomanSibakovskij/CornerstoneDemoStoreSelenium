@@ -57,4 +57,22 @@ public class CheckoutPageTest extends TestMethods{
         validGuestProductOrderCheckoutTest();
     }
 
+    //Test 024c -> multiple most popular products ("Oak Cheese Grater") check out confirmation test method (as a registered user)
+    @Test
+    @DisplayName("Multiple Most Popular Products Checkout Confirmation Test (as a registered user)")
+    @Tag("Multiple_Most_Popular_Products_Checkout_Confirmation")
+    @Tag("Test_As_A_Reg_User")
+    void multipleMostPopularProductsCheckoutConfirmationRegUserTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //multiple most popular products ("Oak Cheese Grater") addition to cart test method (as a registered user)
+        addMultipleMostPopularProductsToCartRegUserTest();
+        //multiple most popular products ("Oak Cheese Grater") addition to check out test method (as a registered user)
+        addProductToCheckoutTest();
+        //multiple most popular products ("Oak Cheese Grater") check out confirmation test method (as a registered user)
+        validRegUserProductOrderCheckoutTest();
+    }
+
 }
