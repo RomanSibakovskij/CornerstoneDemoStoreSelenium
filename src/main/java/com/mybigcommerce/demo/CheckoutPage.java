@@ -253,6 +253,111 @@ public class CheckoutPage extends BasePage{
 
     public CheckoutPage(WebDriver driver) {super(driver);}
 
+    //checkout section
+
+    //click checkout section "Continue" button method
+    public void clickCheckoutSectionContinueButton() {
+        Actions action = new Actions(driver);
+        action.moveToElement(checkoutPageCheckoutSectionContinueButton).click().perform();
+    }
+
+    //click checkout section "Privacy policy" checkbox method
+    public void clickCheckoutSectionPrivacyPolicyCheckbox() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", checkoutPageCheckoutSectionPrivacyPolicyCheckbox);
+    }
+
+    //shipping address section
+
+    //click shipping address section country dropdown menu method
+    public void clickShipAddressSectionCountryDropdownMenu() {
+        Actions action = new Actions(driver);
+        action.moveToElement(checkoutPageShippingCountryDropdownMenu).click().perform();
+    }
+
+    //select "United States" option method
+    public void selectShipUSCountryOption() {checkoutPageShippingUSCountryOption.click();}
+
+    //select "Select a country" option method
+    public void selectShipSelectCountryOption() {checkoutPageShippingSelectCountryOption.click();}
+
+    //click shipping address section state dropdown menu method
+    public void clickShipAddressSectionStateDropdownMenu() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", checkoutPageShippingStateDropdownMenu);
+    }
+
+    //select "United States" option method
+    public void selectShipSelectStateOption() {checkoutPageShippingSelectStateOption.click();}
+
+    //click shipping address section "Shipping and Billing address are same" checkbox method (to unselect it)
+    public void clickShipAddressSectionShipBillAddressSameCheckbox() {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", checkoutPageShippingAndBillAddressSameCheckbox);
+    }
+
+    //click shipping address section "Continue" button method
+    public void clickShipAddressSectionContinueButton() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(2100));
+        wait.until(ExpectedConditions.elementToBeClickable(checkoutPageShippingContinueButton));
+        Actions action = new Actions(driver);
+        action.moveToElement(checkoutPageShippingContinueButton).click().perform();
+    }
+
+    //billing address section
+
+    //click billing address section country dropdown menu method
+    public void clickBillAddressSectionCountryDropdownMenu() {
+        Actions action = new Actions(driver);
+        action.moveToElement(checkoutPageBillingCountryDropdownMenu).click().perform();
+    }
+
+    //select "United States" option method
+    public void selectBillUSCountryOption() {checkoutPageBillingUSCountryOption.click();}
+
+    //select "Select a country" option method
+    public void selectBillSelectCountryOption() {checkoutPageBillingSelectCountryOption.click();}
+
+    //click billing address section state dropdown menu method
+    public void clickBillAddressSectionStateDropdownMenu() {
+        Actions action = new Actions(driver);
+        action.moveToElement(checkoutPageBillingStateDropdownMenu).click().perform();
+    }
+
+    //select "Select a state" option method
+    public void selectBillSelectStateOption() {checkoutPageBillingSelectStateOption.click();}
+
+    //click billing address section "Continue" button method
+    public void clickBillAddressSectionContinueButton() {
+        Actions action = new Actions(driver);
+        action.moveToElement(checkoutPageBillingContinueButton).click().perform();
+    }
+
+    //payment section
+
+    //click payment section "Place order" button method
+    public void clickPaymentSectionPlaceOrderButton() {
+        Actions action = new Actions(driver);
+        action.moveToElement(checkoutPagePaymentPlaceOrderButton).click().perform();
+    }
+
+    //order confirmation section
+
+    //click order confirmation section header home link method
+    public void clickConfirmationSectionHeaderHomeLink() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(2100));
+        wait.until(ExpectedConditions.elementToBeClickable(checkoutConfirmationHeaderHomeLink));
+        checkoutConfirmationHeaderHomeLink.click();
+    }
+
+    //click order confirmation section "Continue shopping" button method
+    public void clickConfirmationSectionContinueShoppingButton() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(2100));
+        wait.until(ExpectedConditions.elementToBeClickable(checkoutConfirmationContinueShoppingButton));
+        Actions action = new Actions(driver);
+        action.moveToElement(checkoutConfirmationContinueShoppingButton).click().perform();
+    }
+
     //checkout page order summary product data getters
     public String getCheckoutPageOrderSummaryProductCount() {return checkoutPageOrderSummaryProductCount.getText();}
 
