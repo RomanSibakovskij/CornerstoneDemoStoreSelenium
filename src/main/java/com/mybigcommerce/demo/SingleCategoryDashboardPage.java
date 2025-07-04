@@ -148,6 +148,12 @@ public class SingleCategoryDashboardPage extends BasePage {
         action.moveToElement(singleCategoryDashboardPageProductNameLinkElements.get(index)).click().perform();
     }
 
+    //click set product compare checkbox method
+    public void clickSetProductCompareCheckbox(int index){
+        Actions action = new Actions(driver);
+        action.moveToElement(singleCategoryDashboardPageProductCompareCheckboxElements.get(index)).click().perform();
+    }
+
     //single category dashboard page text element getters
     public String getSingleCategoryDashboardPageTitle() {return singleCategoryDashboardPageTitle.getText();}
     public String getSingleCategoryDashboardPageRefinedBySubtitle(){return singleCategoryDashboardPageRefineBySubtitle.getText();}

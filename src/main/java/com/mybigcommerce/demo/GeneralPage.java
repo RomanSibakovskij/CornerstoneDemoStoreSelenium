@@ -167,6 +167,9 @@ public class GeneralPage extends BasePage {
         headerUpperNavSearchInputField.sendKeys(Keys.ENTER);
     }
 
+    //click 'Compare' link method
+    public void clickCompareLink(){headerUpperNavCompareLink.click();}
+
     //wait for elements to load method
     public void waitForElementsToLoad() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(2500));
