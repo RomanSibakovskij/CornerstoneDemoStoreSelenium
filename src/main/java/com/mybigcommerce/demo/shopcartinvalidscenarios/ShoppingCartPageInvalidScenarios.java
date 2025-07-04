@@ -20,6 +20,9 @@ public class ShoppingCartPageInvalidScenarios extends BasePage{
     private String tooShortShopCartShipCity = "K"; //1 char
     private int tooShortShopCartShipPostCode = 4563; //4 digits
 
+    //invalid input shipping data - too long singular input
+    private String tooLongShopCartShipCity = "Jhfgdsgdtwetrtjdsfgrfdgjhkjmngbfdsfffhkjgsedhgtfgsdetgtujyhgdsfgdfhtgfsdfdffgdsgfgfdgdsfgfdhgfdhgdfd"; //100 chars
+
     public ShoppingCartPageInvalidScenarios(WebDriver driver) {super(driver);}
 
     //input no shipping city into shipping city input field method
@@ -42,6 +45,12 @@ public class ShoppingCartPageInvalidScenarios extends BasePage{
     public void inputTooShortShippingPostCodeIntoShippingPostCodeInputField() {
         logger.info("Too short shipping post code (shopping cart): " + tooShortShopCartShipPostCode);
         shoppingCartPageShippingPostCodeInputField.sendKeys(String.valueOf(tooShortShopCartShipPostCode));
+    }
+
+    //input too long shipping city into shipping city input field method
+    public void inputTooLongShippingCityIntoShippingCityInputField() {
+        logger.info("Too long shipping city (shopping cart): " + tooLongShopCartShipCity);
+        shoppingCartPageShippingCityInputField.sendKeys(tooLongShopCartShipCity);
     }
 
 

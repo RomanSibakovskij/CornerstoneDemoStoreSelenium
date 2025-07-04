@@ -89,4 +89,19 @@ public class ShoppingCartPageInvalidScenariosTest extends TestMethods{
         invalidAddProductToCheckoutTooShortShipPostCodeTest();
     }
 
+    //too long singular input
+
+    //Test 023f -> invalid product addition to check out test method (as a guest) - too long shipping city (100 chars) (addition to check out wasn't aborted, test has failed)
+    @Test
+    @DisplayName("Invalid Product Addition To Checkout Test (as a guest) - Too Long Shipping City")
+    @Tag("Multiple_Searched_Products_Addition_To_Checkout")
+    @Tag("Too_Long_Singular_Input")
+    @Tag("Test_As_A_Guest")
+    void invalidProductsAdditionToCheckoutTooLongShipCityTest() {
+        //single category dashboard page set single product ("Canvas Laundry Cart") addition to cart test method (as a guest)
+        addSingleUtilityLaundryCartProductToCartTest();
+        //invalid products addition to check out test method (as a guest) - too long shipping city (100 chars)
+        invalidAddProductToCheckoutTooLongShipCityTest();
+    }
+
 }
