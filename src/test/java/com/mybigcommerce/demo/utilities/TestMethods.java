@@ -8510,6 +8510,31 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Products Addition From Compare List To Cart Test Result");
     }
 
+    //remove product from compare list test (both registered user and guest have the same method) => the compare list MUST have two products
+
+    //remove products from compare list test method
+    protected void removeProductsFromCompareListTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        AddToCompareListPage addToCompareListPage = new AddToCompareListPage(driver);
+        AccountDashboardPage accountDashboardPage = new AccountDashboardPage(driver);
+        //add to compare list page web element assert
+        isAddToCompareListPageWebElementDisplayed(addToCompareListPage);
+        //add to compare list page text element assert
+        isAddToCompareListPageTextElementAsExpected(addToCompareListPage);
+        //account dashboard page breadcrumb web elements assert
+        isAccountDashboardPageBreadcrumbWebElementDisplayed(accountDashboardPage);
+        //click set 'Remove' button
+        addToCompareListPage.clickSetRemoveButton(0);
+        //capture screenshot of the set product addition from compare list
+        captureScreenshot(driver, "Set Product Removal From Compare List");
+        //click set 'Remove' button
+        addToCompareListPage.clickSetRemoveButton(1);
+        //assert any of the two products can't be removed and the user receives an expected message
+        assertEquals("At least 2 products are needed to make a valid comparison.", addToCompareListPage.getAddToCompareListPageProductRemovalFailureMessage(), "The product removal from compare list failure message doesn't match expectations.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Products Removal From Compare List To Cart Test Result");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)

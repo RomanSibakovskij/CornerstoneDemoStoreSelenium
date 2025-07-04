@@ -60,4 +60,18 @@ public class AddToCompareListPageTest extends TestMethods{
         addProductsFromCompareListToCartTest();
     }
 
+    //product removal from compare list tests
+
+    //Test 015 -> products ("S Shaped Scrub Brush", "Dish Detergent", "Feather Duster") removal from compare list test method (as a guest)
+    @Test
+    @DisplayName("Multiple Products Removal From Compare List Test (as a guest)")
+    @Tag("Multiple_Products_Removal_From_Compare_List")
+    @Tag("Test_As_A_Guest")
+    void productsRemoveFromCompareListToCartTest() {
+        //products ("S Shaped Scrub Brush", "Dish Detergent", "Feather Duster") addition to compare list test method (as a guest)
+        addProductsToCompareListTest();
+        //products ("S Shaped Scrub Brush", "Dish Detergent", "Feather Duster") removal from compare list test method (as a guest)
+        removeProductsFromCompareListTest();
+    }
+
 }

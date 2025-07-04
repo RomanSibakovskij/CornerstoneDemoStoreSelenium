@@ -56,6 +56,12 @@ public class AddToCompareListPage extends BasePage {
         action.moveToElement(addToCompareListPageProductAddToCartButtonElements.get(index)).click().perform();
     }
 
+    //click set product "Remove" button method
+    public void clickSetRemoveButton(int index){
+        Actions action = new Actions(driver);
+        action.moveToElement(addToCompareListPageProductRemoveButtonElements.get(index)).click().perform();
+    }
+
     //add to compare page text element getters
     public String getAddToCompareListPageTitle() {return addToCompareListPageTitle.getText();}
     public String getAddToCompareListPageDescriptionSubtext() {return addToCompareListPageDescriptionSubtext.getText();}
