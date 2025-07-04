@@ -215,4 +215,18 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutTest();
     }
 
+    //multiple searched products addition to check out tests
+
+    //Test 019b -> multiple searched products ("Orbit Terrarium (Large)") addition to check out test method (as a guest)
+    @Test
+    @DisplayName("Multiple Searched Products Addition To Checkout Test (as a guest)")
+    @Tag("Multiple_Searched_Products_Addition_To_Checkout")
+    @Tag("Test_As_A_Guest")
+    void multipleSearchedProductsAddToCheckoutTest() {
+        //multiple searched products ("Orbit Terrarium (Large)") addition to cart test method (as a guest)
+        addMultipleSearchedLargeTerrariumProductToCartTest();
+        //multiple searched products ("Orbit Terrarium (Large)") addition to check out test method (as a guest)
+        addProductToCheckoutTest();
+    }
+
 }
