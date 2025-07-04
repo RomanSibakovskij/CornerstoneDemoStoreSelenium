@@ -151,6 +151,12 @@ public class ShoppingCartPage extends BasePage{
         shoppingCartTableProductQtyInputFieldElements.get(index).sendKeys(String.valueOf(quantity));
     }
 
+    //click "Increase" quantity button method
+    public void clickIncreaseQtyButton(int index) {
+        Actions action = new Actions(driver);
+        action.moveToElement(shoppingCartTableProductQtyIncreaseButtonElements.get(index)).click().perform();
+    }
+
     //click "Estimate shipping" button method
     public void clickEstimateShippingButton() {
         Actions action = new Actions(driver);

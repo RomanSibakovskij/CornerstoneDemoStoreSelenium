@@ -295,4 +295,19 @@ public class ShoppingCartPageTest extends TestMethods{
         updateProductQtyShopCartTest();
     }
 
+    //Test 021a -> update products quantity (with increase button) in shopping cart test method (as a guest) (the quantity fails to be updated during automation run)
+    @Test
+    @DisplayName("Update Products Quantity (Increase Button) In Shopping Cart Test (as a guest)")
+    @Tag("Update_Products_Quantity_In_Shopping_Cart")
+    @Tag("Quantity_Button")
+    @Tag("Test_As_A_Guest")
+    void updateProductsShopCartQtyIncreaseBtnTest() {
+        //products ("S Shaped Scrub Brush", "Dish Detergent", "Feather Duster") addition to compare list test method (as a guest)
+        addProductsToCompareListTest();
+        //products ("S Shaped Scrub Brush", "Dish Detergent", "Feather Duster") addition from compare list to cart test method (as a guest)
+        addProductsFromCompareListToCartTest();
+        //update products quantity (with increase button) in shopping cart test method (as a guest)
+        updateProductQtyIncreaseBtnShopCartTest();
+    }
+
 }
