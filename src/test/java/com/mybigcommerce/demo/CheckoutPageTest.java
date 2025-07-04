@@ -109,4 +109,20 @@ public class CheckoutPageTest extends TestMethods{
         validRegUserProductOrderCheckoutTest();
     }
 
+    //multiple new products check out confirmation tests
+
+    //Test 025b -> multiple new products ("Smith Journal 13") check out confirmation test method (as a guest)
+    @Test
+    @DisplayName("Multiple New Products Checkout Confirmation Test (as a guest)")
+    @Tag("Multiple_New_Products_Checkout_Confirmation")
+    @Tag("Test_As_A_Guest")
+    void multipleNewProductsCheckoutConfirmationTest() {
+        //multiple new products ("Smith Journal 13") addition to cart test method (as a guest)
+        addMultipleNewProductsToCartGuestTest();
+        //multiple new products ("Smith Journal 13") addition to check out test method (as a guest)
+        addProductToCheckoutTest();
+        //multiple new products ("Smith Journal 13") check out confirmation test method (as a guest)
+        validGuestProductOrderCheckoutTest();
+    }
+
 }

@@ -89,7 +89,7 @@ public class ShoppingCartPageTest extends TestMethods{
         navigateToRegisterPageTest();
         //valid user account creation test
         validUserAccountCreationTest();
-        //single new popular product ("Kinfolk Issue 16") addition to cart test method (as a registered user)
+        //single new product ("Kinfolk Issue 16") addition to cart test method (as a registered user)
         addSingleNewProductToCartRegUserTest();
         //single new product ("Kinfolk Issue 16") addition to check out test method (as a registered user)
         addProductToCheckoutTest();
@@ -121,7 +121,7 @@ public class ShoppingCartPageTest extends TestMethods{
         validUserAccountCreationTest();
         //multiple new products ("Kinfolk Issue 16") addition to cart test method (as a registered user)
         addMultipleNewProductsToCartRegUserTest();
-        //multiple new product ("Kinfolk Issue 16") addition to check out test method (as a registered user)
+        //multiple new products ("Kinfolk Issue 16") addition to check out test method (as a registered user)
         addProductToCheckoutTest();
     }
 
