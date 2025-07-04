@@ -132,4 +132,17 @@ public class ShoppingCartPageInvalidScenariosTest extends TestMethods{
         invalidAddProductToCheckoutInvalidShipCityFormatTest();
     }
 
+    //Test 023i -> invalid products addition to check out test method (as a guest) - invalid shipping post code format (special symbols only) (addition to check out wasn't aborted, test has failed)
+    @Test
+    @DisplayName("Invalid Product Addition To Checkout Test (as a guest) - Invalid Shipping Post Code Format")
+    @Tag("Multiple_Searched_Products_Addition_To_Checkout")
+    @Tag("Invalid_Singular_Input_Format")
+    @Tag("Test_As_A_Guest")
+    void invalidProductsAdditionToCheckoutInvalidShipPostCodeFormatTest() {
+        //single category dashboard page set single product ("Canvas Laundry Cart") addition to cart test method (as a guest)
+        addSingleUtilityLaundryCartProductToCartTest();
+        //invalid products addition to check out test method (as a guest) - invalid shipping post code format (special symbols only)
+        invalidAddProductToCheckoutInvalidShipPostCodeFormatTest();
+    }
+
 }

@@ -26,6 +26,7 @@ public class ShoppingCartPageInvalidScenarios extends BasePage{
 
     //invalid input shipping data - invalid singular input format
     private String invalidShopCartShipCityFormat = "@$#$%^%*&^&"; //special symbols only
+    private String invalidShopCartShipPostCodeFormat = "@#%$#%"; //special symbols only
 
     public ShoppingCartPageInvalidScenarios(WebDriver driver) {super(driver);}
 
@@ -66,6 +67,11 @@ public class ShoppingCartPageInvalidScenarios extends BasePage{
     public void inputInvalidShippingCityFormatIntoShippingCityInputField() {
         logger.info("Invalid shipping city format (shopping cart): " + invalidShopCartShipCityFormat);
         shoppingCartPageShippingCityInputField.sendKeys(invalidShopCartShipCityFormat);
+    }
+    //input invalid shipping post code format into shipping post code input field method
+    public void inputInvalidShippingPostCodeFormatIntoShippingPostCodeInputField() {
+        logger.info("Invalid shipping post code format (shopping cart): " + invalidShopCartShipPostCodeFormat);
+        shoppingCartPageShippingPostCodeInputField.sendKeys(String.valueOf(invalidShopCartShipPostCodeFormat));
     }
 
 }
