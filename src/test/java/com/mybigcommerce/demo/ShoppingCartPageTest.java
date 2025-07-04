@@ -35,4 +35,18 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutTest();
     }
 
+    //multiple most popular products addition to check out tests
+
+    //Test 016b -> multiple most popular products ("Tiered Wire Basket") addition to check out test method (as a guest)
+    @Test
+    @DisplayName("Multiple Most Popular Products Addition To Checkout Test (as a guest)")
+    @Tag("Multiple_Most_Popular_Products_Addition_To_Checkout")
+    @Tag("Test_As_A_Guest")
+    void multipleMostPopularProductsAddToCheckoutTest() {
+        //multiple most popular products ("Tiered Wire Basket") addition to cart test method (as a guest)
+        addMultipleMostPopularProductsToCartGuestTest();
+        //multiple most popular products ("Tiered Wire Basket") addition to check out test method (as a guest)
+        addProductToCheckoutTest();
+    }
+
 }
