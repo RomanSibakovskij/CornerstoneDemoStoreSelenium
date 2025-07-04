@@ -245,4 +245,20 @@ public class ShoppingCartPageTest extends TestMethods{
         addProductToCheckoutTest();
     }
 
+    //add products from compare list to check out tests
+
+    //Test 020 -> products ("S Shaped Scrub Brush", "Dish Detergent", "Feather Duster") addition from compare list to check out test method (as a guest)
+    @Test
+    @DisplayName("Multiple Products Addition From Compare List To Checkout Test (as a guest)")
+    @Tag("Multiple_Products_Addition_From_Compare_List_To_Checkout")
+    @Tag("Test_As_A_Guest")
+    void productsAddFromCompareListToCheckoutTest() {
+        //products ("S Shaped Scrub Brush", "Dish Detergent", "Feather Duster") addition to compare list test method (as a guest)
+        addProductsToCompareListTest();
+        //products ("S Shaped Scrub Brush", "Dish Detergent", "Feather Duster") addition from compare list to cart test method (as a guest)
+        addProductsFromCompareListToCartTest();
+        //products ("S Shaped Scrub Brush", "Dish Detergent", "Feather Duster") addition from compare list to check out test method (as a guest)
+        addProductToCheckoutTest();
+    }
+
 }
