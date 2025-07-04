@@ -14,6 +14,7 @@ public class ShoppingCartPageInvalidScenarios extends BasePage{
 
     //invalid input shipping data - no singular input
     private String noShopCartShipCity = "";
+    private String noShopCartShipPostCode = "";
 
     public ShoppingCartPageInvalidScenarios(WebDriver driver) {super(driver);}
 
@@ -21,6 +22,11 @@ public class ShoppingCartPageInvalidScenarios extends BasePage{
     public void inputNoShippingCityIntoShippingCityInputField() {
         logger.info("No shipping city (shopping cart): " + noShopCartShipCity);
         shoppingCartPageShippingCityInputField.sendKeys(noShopCartShipCity);
+    }
+    //input no shipping post code into shipping post code input field method
+    public void inputNoShippingPostCodeIntoShippingPostCodeInputField() {
+        logger.info("No shipping post code (shopping cart): " + noShopCartShipPostCode);
+        shoppingCartPageShippingPostCodeInputField.sendKeys(noShopCartShipPostCode);
     }
 
 

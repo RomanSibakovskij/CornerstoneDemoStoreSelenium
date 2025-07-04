@@ -48,4 +48,17 @@ public class ShoppingCartPageInvalidScenariosTest extends TestMethods{
         invalidAddProductToCheckoutNoShipCityTest();
     }
 
+    //Test 023c -> invalid products addition to check out test method (as a guest) - no shipping post code (addition to check out wasn't aborted, test has failed)
+    @Test
+    @DisplayName("Invalid Products Addition To Checkout Test (as a guest) - No Shipping Post Code")
+    @Tag("Multiple_Searched_Products_Addition_To_Checkout")
+    @Tag("No_Singular_Input")
+    @Tag("Test_As_A_Guest")
+    void invalidProductsAdditionToCheckoutNoShipPostCodeTest() {
+        //multiple searched products ("Orbit Terrarium (Large)" addition to cart test method (as a guest)
+        addMultipleSearchedLargeTerrariumProductToCartTest();
+        //invalid products addition to check out test method (as a guest) - no shipping post code
+        invalidAddProductToCheckoutNoShipPostCodeTest();
+    }
+
 }
