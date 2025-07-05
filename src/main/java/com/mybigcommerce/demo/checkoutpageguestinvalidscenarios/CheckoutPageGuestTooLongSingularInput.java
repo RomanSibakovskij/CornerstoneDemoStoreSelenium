@@ -79,6 +79,7 @@ public class CheckoutPageGuestTooLongSingularInput extends BasePage{
     private String tooLongBillingGuestAddress;
     private String tooLongBillingGuestCity;
     private int tooLongBillingGuestPostCode;
+    private String tooLongBillingGuestPhone;
 
     public CheckoutPageGuestTooLongSingularInput(WebDriver driver) {super(driver);}
 
@@ -360,6 +361,29 @@ public class CheckoutPageGuestTooLongSingularInput extends BasePage{
 
     }
 
+    //invalid guest billing address input data getter - too long billing phone (30 digits)
+    public void invalidGuestBillAddressInputDataTooLongPhoneGetter(){
+
+        validBillingGuestFirstName = TestDataGenerator.getRandomFirstName();
+        validBillingGuestLastName = TestDataGenerator.getRandomLastName();
+        validBillingGuestAddress = TestDataGenerator.generateRandomAddress(8);
+        validBillingGuestCity = TestDataGenerator.getRandomCity();
+        validBillingGuestPostCode = String.valueOf(TestDataGenerator.getRandomPostalCode());
+        tooLongBillingGuestPhone = "234458723456789098765432345678";
+
+        System.out.println("Invalid generated checkout guest billing address input data (too long billing phone): " + "\n");
+
+        logger.info("Valid guest billing address first name (too long billing phone): " + validBillingGuestFirstName);
+        logger.info("Valid guest billing address last name (too long billing phone): " + validBillingGuestLastName);
+        logger.info("Valid guest billing address (too long billing phone): " + validBillingGuestAddress);
+        logger.info("Valid guest billing address city (too long billing phone): " + validBillingGuestCity);
+        logger.info("Valid guest billing address post code (too long billing phone): " + validBillingGuestPostCode);
+        logger.info("Too long billing address phone number: " + tooLongBillingGuestPhone);
+
+        System.out.println("\n");
+
+    }
+
     //invalid guest billing address data input methods - too long singular inputs
     public void inputTooLongBillingGuestFirstNameIntoFirstNameInputField(){checkoutPageBillingFirstNameInputField.sendKeys(tooLongBillingGuestFirstName);}
     public void inputTooLongBillingGuestLastNameIntoLastNameInputField(){checkoutPageBillingLastNameInputField.sendKeys(tooLongBillingGuestLastName);}
@@ -375,6 +399,10 @@ public class CheckoutPageGuestTooLongSingularInput extends BasePage{
     public void inputTooLongBillingGuestPostCodeIntoPostCodeInputField(){
         checkoutPageBillingPostCodeInputField.clear();
         checkoutPageBillingPostCodeInputField.sendKeys(String.valueOf(tooLongBillingGuestPostCode));
+    }
+    public void inputTooLongBillingGuestPhoneIntoPhoneInputField(){
+        checkoutPageBillingPhoneInputField.clear();
+        checkoutPageBillingPhoneInputField.sendKeys(String.valueOf(tooLongBillingGuestPhone));
     }
 
     //valid guest billing address data input methods (for remaining inputs)
