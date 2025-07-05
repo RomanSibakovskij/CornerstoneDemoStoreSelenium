@@ -77,6 +77,7 @@ public class CheckoutPageGuestTooShortSingularInput extends BasePage{
     private String tooShortBillingGuestFirstName;
     private String tooShortBillingGuestLastName;
     private String tooShortBillingGuestAddress;
+    private String tooShortBillingGuestCity;
 
     public CheckoutPageGuestTooShortSingularInput(WebDriver driver) {super(driver);}
 
@@ -312,6 +313,29 @@ public class CheckoutPageGuestTooShortSingularInput extends BasePage{
 
     }
 
+    //invalid guest billing address input data getter - too short billing city (1 char)
+    public void invalidGuestBillAddressInputDataTooShortCityGetter(){
+
+        validBillingGuestFirstName = TestDataGenerator.getRandomFirstName();
+        validBillingGuestLastName = TestDataGenerator.getRandomLastName();
+        validBillingGuestAddress = TestDataGenerator.generateRandomAddress(8);
+        tooShortBillingGuestCity = "D";
+        validBillingGuestPostCode = String.valueOf(TestDataGenerator.getRandomPostalCode());
+        validBillingGuestPhone = TestDataGenerator.generatePhoneNumber(9);
+
+        System.out.println("Invalid generated checkout guest billing address input data (too short billing city): " + "\n");
+
+        logger.info("Valid guest billing address first name (too short billing city): " + validBillingGuestFirstName);
+        logger.info("Valid guest billing address last name (too short billing city): " + validBillingGuestLastName);
+        logger.info("Valid guest billing address (too short billing city): " + validBillingGuestAddress);
+        logger.info("Too short billing address city: " + tooShortBillingGuestCity);
+        logger.info("Valid guest billing address post code (too short billing city): " + validBillingGuestPostCode);
+        logger.info("Valid guest billing address phone number (too short billing city): " + validBillingGuestPhone);
+
+        System.out.println("\n");
+
+    }
+
     //invalid guest billing address data input methods - too short singular input
     public void inputTooShortBillingGuestFirstNameIntoFirstNameInputField(){checkoutPageBillingFirstNameInputField.sendKeys(tooShortBillingGuestFirstName);}
     public void inputTooShortBillingGuestLastNameIntoLastNameInputField(){checkoutPageBillingLastNameInputField.sendKeys(tooShortBillingGuestLastName);}
@@ -319,6 +343,10 @@ public class CheckoutPageGuestTooShortSingularInput extends BasePage{
     public void inputTooShortBillingGuestAddressIntoAddressInputField(){
         checkoutPageBillingAddressInputField.clear();
         checkoutPageBillingAddressInputField.sendKeys(tooShortBillingGuestAddress);
+    }
+    public void inputTooShortBillingGuestCityIntoCityInputField(){
+        checkoutPageBillingCityInputField.clear();
+        checkoutPageBillingCityInputField.sendKeys(tooShortBillingGuestCity);
     }
 
     //valid guest billing address data input methods (for remaining inputs)
