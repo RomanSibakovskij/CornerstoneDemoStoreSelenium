@@ -11,6 +11,7 @@ import com.mybigcommerce.demo.accountpageinvalidscenarios.*;
 import com.mybigcommerce.demo.addaddresspageinvalidscenarios.*;
 import com.mybigcommerce.demo.logindashpageinvalidscenarios.*;
 import com.mybigcommerce.demo.shopcartinvalidscenarios.*;
+import com.mybigcommerce.demo.checkoutpageguestinvalidscenarios.*;
 
 import java.io.File;
 import java.nio.file.*;
@@ -9624,6 +9625,45 @@ public class TestMethods extends BaseTest{
         isCheckoutPageOrderSummarySectionTextElementAsExpected(checkoutPage);
         //capture screenshot of the test result
         captureScreenshot(driver, "Valid Registered User Product Order Checkout Confirmation Test");
+    }
+
+    //invalid guest checkout tests (registered user will have the same output, so only guest branch is being tested to avoid redundancy)
+
+    //no singular input
+
+    //invalid guest checkout test method - no guest email
+    protected void invalidGuestProductOrderCheckoutNoGuestEmailTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        CheckoutPageGuestNoSingularInput checkoutPageGuestNoSingularInput = new CheckoutPageGuestNoSingularInput(driver);
+        //checkout page checkout section web element assert (guest)
+        isCheckoutPageCheckoutSectionWebElementDisplayed(checkoutPage);
+        //checkout page checkout section text element assert (guest)
+        isCheckoutPageCheckoutSectionTextElementAsExpected(checkoutPage);
+        //capture screenshot of the checkout page display before data input
+        captureScreenshot(driver, "Checkout Page Display Before Data Input");
+        //checkout page order summary section web element assert
+        isCheckoutPageOrderSummarySectionWebElementDisplayed(checkoutPage);
+        //checkout page order summary section text element assert
+        isCheckoutPageOrderSummarySectionTextElementAsExpected(checkoutPage);
+        //log order summary data
+        logCheckoutPageOrderSummaryProductData(checkoutPage);
+        //invalid guest email input data getter - no guest email
+        checkoutPageGuestNoSingularInput.invalidGuestNoEmailInputDataGetter();
+        //click 'Privacy policy' checkbox
+        checkoutPage.clickCheckoutSectionPrivacyPolicyCheckbox();
+        //don't input guest email into checkout email input field
+        checkoutPageGuestNoSingularInput.inputNoGuestEmailIntoEmailInputField();
+        //capture screenshot of the checkout page checkout section display after invalid data input - no guest email
+        captureScreenshot(driver, "Checkout Page Checkout Section Display After Invalid Guest Data Input - No Guest Email");
+        //click checkout section "Continue" button
+        checkoutPage.clickCheckoutSectionContinueButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad();
+        //assert the user gets an expected error
+        assertEquals("Email address is required", checkoutPage.getCheckoutPageSingularInputError(), "The checkout page checkout section missing guest email input error doesn't match expectations or the error wasn't triggered.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Guest Product Order Checkout Confirmation Test - No Guest Email");
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

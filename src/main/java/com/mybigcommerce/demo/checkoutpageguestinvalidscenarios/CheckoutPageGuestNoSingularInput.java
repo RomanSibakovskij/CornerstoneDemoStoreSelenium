@@ -49,7 +49,34 @@ public class CheckoutPageGuestNoSingularInput extends BasePage {
     @FindBy(xpath = "//div[@class='paymentMethod paymentMethod--creditCard']//input[@id='ccCvv']")
     private WebElement checkoutPagePaymentCVVNumberInputField;
 
+    //valid guest shipping address input data (for remaining inputs)
+    private String validGuestEmail;
+    private String validShippingGuestFirstName;
+    private String validShippingGuestLastName;
+    private String validShippingGuestAddress;
+    private String validShippingGuestPhone;
+
+    //invalid guest shipping address input data - no singular input (for remaining inputs)
+    private String noGuestEmail;
+
     public CheckoutPageGuestNoSingularInput(WebDriver driver) {super(driver);}
+
+    //invalid guest email address input data getter - no email
+    public void invalidGuestNoEmailInputDataGetter(){
+
+        noGuestEmail = "";
+
+        System.out.println("Invalid generated checkout guest email address (no guest email): " + "\n");
+
+        logger.info("No guest shipping address email: " + noGuestEmail);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid guest email address input method - no guest email
+    public void inputNoGuestEmailIntoEmailInputField(){checkoutPageGuestEmailInputField.sendKeys(noGuestEmail);}
+
 
 
 }
