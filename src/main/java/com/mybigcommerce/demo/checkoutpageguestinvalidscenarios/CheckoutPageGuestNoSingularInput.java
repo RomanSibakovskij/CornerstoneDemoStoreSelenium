@@ -81,6 +81,15 @@ public class CheckoutPageGuestNoSingularInput extends BasePage {
     private String noBillingGuestPostCode;
     private String noBillingGuestPhone;
 
+    //valid guest payment section input data (for remaining inputs)
+    private String validTestCreditCardNumber = "4111 1111 1111 1111"; //only this number is functional
+    private String validGuestCreditCardExpDate;
+    private String validGuestCreditCardName;
+    private String validGuestCreditCardCVVNumber;
+
+    //invalid guest payment section input data - no singular input
+    private String noTestCreditCardNumber;
+
     public CheckoutPageGuestNoSingularInput(WebDriver driver) {super(driver);}
 
     //invalid guest email address input data getter - no email
@@ -426,5 +435,35 @@ public class CheckoutPageGuestNoSingularInput extends BasePage {
         checkoutPageBillingPhoneInputField.clear();
         checkoutPageBillingPhoneInputField.sendKeys(validBillingGuestPhone);
     }
+
+    //credit card data input
+
+    //invalid guest payment input data getter - no guest credit card number
+    public void invalidGuestPaymentInputDataNoCredCardNumberGetter(){
+
+        noTestCreditCardNumber = "";
+        validGuestCreditCardExpDate = TestDataGenerator.generateExpirationDate();
+        validGuestCreditCardName = TestDataGenerator.getRandomFirstName() + " " + TestDataGenerator.getRandomLastName();
+        validGuestCreditCardCVVNumber = TestDataGenerator.generateCVV();
+
+        System.out.println("Invalid generated checkout guest payment input data (no guest credit card number): " + "\n");
+
+        logger.info("No test credit card number: " + noTestCreditCardNumber);
+        logger.info("Valid guest credit card expiration date (no guest credit card number): " + validGuestCreditCardExpDate);
+        logger.info("Valid guest credit card full name (no guest credit card number): " + validGuestCreditCardName);
+        logger.info("Valid guest credit card CVV number (no guest credit card number): " + validGuestCreditCardCVVNumber);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid guest payment data input methods - no singular input
+    public void inputNoPaymentTestCreditCardNumberIntoCreditCardNumberInputField(){checkoutPagePaymentCreditCardNumberInputField.sendKeys(noTestCreditCardNumber);}
+
+    //valid guest payment data input methods
+    public void inputValidPaymentTestCreditCardNumberIntoCreditCardNumberInputField(){checkoutPagePaymentCreditCardNumberInputField.sendKeys(validTestCreditCardNumber);}
+    public void inputValidPaymentGuestCreditCardNameIntoCreditCardNameInputField(){checkoutPagePaymentCreditCardNameInputField.sendKeys(validGuestCreditCardName);}
+    public void inputValidPaymentGuestCreditCardExpDateIntoCreditCardExpDateInputField(){checkoutPagePaymentCreditCardExpDateInputField.sendKeys(validGuestCreditCardExpDate);}
+    public void inputValidPaymentGuestCreditCardCVVIntoCreditCardCVVInputField(){checkoutPagePaymentCVVNumberInputField.sendKeys(validGuestCreditCardCVVNumber);}
 
 }
