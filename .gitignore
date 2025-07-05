@@ -37,5 +37,10 @@ build/
 ### Mac OS ###
 .DS_Store
 
+# Ignore all .png files in the resources folder
+/src/test/resources/*.png
+# Ignore all .png files in resources and its subdirectories
+/src/test/*.png
+
 # Ignore all .png files under src/test/resources and all its subfolders
 /src/test/resources/**/*.png
