@@ -90,6 +90,7 @@ public class CheckoutPageGuestTooShortSingularInput extends BasePage{
     //invalid guest payment section input data - too short singular input
     private String tooShortTestCreditCardNumber;
     private String tooShortGuestCreditCardExpDate;
+    private String tooShortGuestCreditCardName;
 
     public CheckoutPageGuestTooShortSingularInput(WebDriver driver) {super(driver);}
 
@@ -474,9 +475,28 @@ public class CheckoutPageGuestTooShortSingularInput extends BasePage{
 
     }
 
+    //invalid guest payment input data getter - too short guest credit card name (1 char)
+    public void invalidGuestPaymentInputDataTooShortCreditCardNameGetter(){
+
+        validGuestCreditCardExpDate = TestDataGenerator.generateExpirationDate();
+        tooShortGuestCreditCardName =  "G" ;
+        validGuestCreditCardCVVNumber = TestDataGenerator.generateCVV();
+
+        System.out.println("Invalid generated checkout guest payment input data (too short guest credit card name): " + "\n");
+
+        logger.info("Valid test credit card number (too short guest credit card name): " + validTestCreditCardNumber);
+        logger.info("Valid guest credit card expiration date (too short guest credit card name): " + validGuestCreditCardExpDate);
+        logger.info("Too short credit card full name: " + tooShortGuestCreditCardName);
+        logger.info("Valid guest credit card CVV number (too short guest credit card name): " + validGuestCreditCardCVVNumber);
+
+        System.out.println("\n");
+
+    }
+
     //invalid guest payment data input methods - too short singular input
     public void inputTooShortPaymentTestCreditCardNumberIntoCreditCardNumberInputField(){checkoutPagePaymentCreditCardNumberInputField.sendKeys(tooShortTestCreditCardNumber);}
     public void inputTooShortPaymentGuestCreditCardExpDateIntoCreditCardExpDateInputField(){checkoutPagePaymentCreditCardExpDateInputField.sendKeys(tooShortGuestCreditCardExpDate);}
+    public void inputTooShortPaymentGuestCreditCardNameIntoCreditCardNameInputField(){checkoutPagePaymentCreditCardNameInputField.sendKeys(tooShortGuestCreditCardName);}
 
     //valid guest payment data input methods
     public void inputValidPaymentTestCreditCardNumberIntoCreditCardNumberInputField(){checkoutPagePaymentCreditCardNumberInputField.sendKeys(validTestCreditCardNumber);}
