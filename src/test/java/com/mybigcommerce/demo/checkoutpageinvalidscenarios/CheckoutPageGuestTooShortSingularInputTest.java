@@ -203,7 +203,7 @@ public class CheckoutPageGuestTooShortSingularInputTest extends TestMethods {
         invalidGuestProductOrderCheckoutTooShortBillGuestPhoneTest();
     }
 
-    //Test 026ah -> invalid single most popular product ("Tiered Wire Basket") check out confirmation test method (as a guest) - too short guest credit card number (15 digits)
+    //Test 029ah -> invalid single most popular product ("Tiered Wire Basket") check out confirmation test method (as a guest) - too short guest credit card number (15 digits)
     @Test
     @DisplayName("Invalid Single Most Popular Product Addition To Checkout Test (as a guest) - Too Short Credit Card Number")
     @Tag("Invalid_Single_Most_Popular_Product_Checkout_Confirmation")
@@ -216,6 +216,21 @@ public class CheckoutPageGuestTooShortSingularInputTest extends TestMethods {
         addProductToCheckoutTest();
         //invalid single most popular product ("Tiered Wire Basket") check out confirmation test method (as a guest) - too short guest credit card number (15 digits)
         invalidGuestProductOrderCheckoutTooShortPayGuestCredCardNumberTest();
+    }
+
+    //Test 029ai -> invalid single most popular product ("Tiered Wire Basket") check out confirmation test method (as a guest) - too short guest credit card expiration date (3 digits)
+    @Test
+    @DisplayName("Invalid Single Most Popular Product Addition To Checkout Test (as a guest) - Too Short Credit Card Expiration Date")
+    @Tag("Invalid_Single_Most_Popular_Product_Checkout_Confirmation")
+    @Tag("Too_Short_Singular_Input")
+    @Tag("Test_As_A_Guest")
+    void invalidSingleMostPopularProductCheckoutConfirmationTooShortGuestCredCardExpDateTest() {
+        //single most popular product ("Tiered Wire Basket") addition to cart test method (as a guest)
+        addSingleMostPopularProductToCartGuestTest();
+        //single most popular product ("Tiered Wire Basket") addition to check out test method (as a guest)
+        addProductToCheckoutTest();
+        //invalid single most popular product ("Tiered Wire Basket") check out confirmation test method (as a guest) - too short guest credit card expiration date (3 digits)
+        invalidGuestProductOrderCheckoutTooShortPayGuestCredCardExpDateTest();
     }
 
 }
