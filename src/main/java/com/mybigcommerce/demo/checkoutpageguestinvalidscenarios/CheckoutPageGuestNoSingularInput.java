@@ -89,6 +89,7 @@ public class CheckoutPageGuestNoSingularInput extends BasePage {
 
     //invalid guest payment section input data - no singular input
     private String noTestCreditCardNumber;
+    private String noGuestCreditCardExpDate;
 
     public CheckoutPageGuestNoSingularInput(WebDriver driver) {super(driver);}
 
@@ -457,8 +458,27 @@ public class CheckoutPageGuestNoSingularInput extends BasePage {
 
     }
 
+    //invalid guest payment input data getter - no guest credit card exp date
+    public void invalidGuestPaymentInputDataNoCredCardExpDateGetter(){
+
+        noGuestCreditCardExpDate = "";
+        validGuestCreditCardName = TestDataGenerator.getRandomFirstName() + " " + TestDataGenerator.getRandomLastName();
+        validGuestCreditCardCVVNumber = TestDataGenerator.generateCVV();
+
+        System.out.println("Invalid generated checkout guest payment input data (no guest credit card exp date): " + "\n");
+
+        logger.info("Valid test credit card number (no guest credit card exp date): " + validTestCreditCardNumber);
+        logger.info("No guest credit card expiration date: " + noGuestCreditCardExpDate);
+        logger.info("Valid guest credit card full name (no guest credit card exp date): " + validGuestCreditCardName);
+        logger.info("Valid guest credit card CVV number (no guest credit card exp date): " + validGuestCreditCardCVVNumber);
+
+        System.out.println("\n");
+
+    }
+
     //invalid guest payment data input methods - no singular input
     public void inputNoPaymentTestCreditCardNumberIntoCreditCardNumberInputField(){checkoutPagePaymentCreditCardNumberInputField.sendKeys(noTestCreditCardNumber);}
+    public void inputNoPaymentGuestCreditCardExpDateIntoCreditCardExpDateInputField(){checkoutPagePaymentCreditCardExpDateInputField.sendKeys(noGuestCreditCardExpDate);}
 
     //valid guest payment data input methods
     public void inputValidPaymentTestCreditCardNumberIntoCreditCardNumberInputField(){checkoutPagePaymentCreditCardNumberInputField.sendKeys(validTestCreditCardNumber);}
