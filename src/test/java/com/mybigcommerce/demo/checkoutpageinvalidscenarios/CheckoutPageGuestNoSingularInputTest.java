@@ -54,4 +54,19 @@ public class CheckoutPageGuestNoSingularInputTest extends TestMethods{
         invalidGuestProductOrderCheckoutNoGuestFirstNameTest();
     }
 
+    //Test 029c -> invalid single most popular product ("Tiered Wire Basket") check out confirmation test method (as a guest) - no guest shipping last name
+    @Test
+    @DisplayName("Invalid Single Most Popular Product Addition To Checkout Test (as a guest) - No Shipping Last Name")
+    @Tag("Invalid_Single_Most_Popular_Product_Checkout_Confirmation")
+    @Tag("No_Singular_Input")
+    @Tag("Test_As_A_Guest")
+    void invalidSingleMostPopularProductCheckoutConfirmationNoGuestShipLastNameTest() {
+        //single most popular product ("Tiered Wire Basket") addition to cart test method (as a guest)
+        addSingleMostPopularProductToCartGuestTest();
+        //single most popular product ("Tiered Wire Basket") addition to check out test method (as a guest)
+        addProductToCheckoutTest();
+        //invalid single most popular product ("Tiered Wire Basket") check out confirmation test method (as a guest) - no guest shipping last name
+        invalidGuestProductOrderCheckoutNoGuestLastNameTest();
+    }
+
 }

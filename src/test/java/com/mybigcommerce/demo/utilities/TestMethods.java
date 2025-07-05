@@ -9790,6 +9790,68 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid Guest Product Order Checkout Confirmation Test - No Guest Shipping First Name");
     }
 
+    //invalid guest checkout test method - no guest shipping address last name
+    protected void invalidGuestProductOrderCheckoutNoGuestLastNameTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        CheckoutPageGuestValidCheckout checkoutPageGuestValidCheckout = new CheckoutPageGuestValidCheckout(driver);
+        CheckoutPageGuestNoSingularInput checkoutPageGuestNoSingularInput = new CheckoutPageGuestNoSingularInput(driver);
+        //checkout page checkout section web element assert (guest)
+        isCheckoutPageCheckoutSectionWebElementDisplayed(checkoutPage);
+        //checkout page checkout section text element assert (guest)
+        isCheckoutPageCheckoutSectionTextElementAsExpected(checkoutPage);
+        //capture screenshot of the checkout page display before data input
+        captureScreenshot(driver, "Checkout Page Display Before Data Input");
+        //checkout page order summary section web element assert
+        isCheckoutPageOrderSummarySectionWebElementDisplayed(checkoutPage);
+        //checkout page order summary section text element assert
+        isCheckoutPageOrderSummarySectionTextElementAsExpected(checkoutPage);
+        //log order summary data
+        logCheckoutPageOrderSummaryProductData(checkoutPage);
+        //valid guest email input data getter
+        checkoutPageGuestValidCheckout.validGuestEmailInputDataGetter();
+        //click 'Privacy policy' checkbox
+        checkoutPage.clickCheckoutSectionPrivacyPolicyCheckbox();
+        //input valid guest email into checkout email input field
+        checkoutPageGuestValidCheckout.inputValidGuestEmailIntoEmailInputField();
+        //capture screenshot of the checkout page checkout section display after valid data input
+        captureScreenshot(driver, "Checkout Page Checkout Section Display After Valid Guest Data Input");
+        //click checkout section "Continue" button
+        checkoutPage.clickCheckoutSectionContinueButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad();
+        //checkout page shipping address section web element assert (Selenium can't seem to find the elements with VALID selectors)
+        //isCheckoutPageShippingAddressSectionWebElementDisplayed(checkoutPage);
+        //checkout page shipping address section text element assert (Selenium can't seem to find the elements with VALID selectors)
+        //isCheckoutPageShippingAddressSectionTextElementAsExpected(checkoutPage);
+        //invalid guest shipping address input data getter - no guest shipping last name
+        checkoutPageGuestNoSingularInput.invalidGuestShipAddressInputDataNoLastNameGetter();
+        //capture screenshot of the checkout page shipping address section display before data input
+        captureScreenshot(driver, "Checkout Page Shipping Address Section Display Before Data Input");
+        //click shipping address section country dropdown menu
+        checkoutPage.clickShipAddressSectionCountryDropdownMenu();
+        //select "United States" shipping country option
+        checkoutPage.selectShipUSCountryOption();
+        //input valid guest shipping address first name into first name input field
+        checkoutPageGuestNoSingularInput.inputValidShippingGuestFirstNameIntoFirstNameInputField();
+        //don't input guest shipping address last name into last name input field
+        checkoutPageGuestNoSingularInput.inputNoShippingGuestLastNameIntoLastNameInputField();
+        //input valid guest shipping address into shipping address input field
+        checkoutPageGuestNoSingularInput.inputValidShippingGuestAddressIntoAddressInputField();
+        //input valid guest shipping address phone into phone input field
+        checkoutPageGuestNoSingularInput.inputValidShippingGuestPhoneIntoPhoneInputField();
+        //capture screenshot of the checkout page shipping address section display after invalid data input - no guest shipping last name
+        captureScreenshot(driver, "Checkout Page Shipping Address Section Display After Invalid Guest Data Input - No Last Name");
+        //wait for elements to load
+        generalPage.waitForElementsToLoad();
+        //click shipping address section "Continue" button
+        checkoutPage.clickShipAddressSectionContinueButton();
+        //assert the user gets an expected error
+        assertEquals("Last Name is required", checkoutPage.getCheckoutPageSingularInputError(), "The checkout page shipping address section missing last name input error doesn't match expectations or the error wasn't triggered.");
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Guest Product Order Checkout Confirmation Test - No Guest Shipping Last Name");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)
