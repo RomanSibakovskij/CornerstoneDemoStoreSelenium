@@ -127,4 +127,19 @@ public class CheckoutPageGuestTooLongSingularInputTest extends TestMethods{
         invalidGuestProductOrderCheckoutTooLongBillGuestFirstNameTest();
     }
 
+    //Test 029at -> invalid single most popular product ("Tiered Wire Basket") check out confirmation test method (as a guest) - too long guest billing last name (100 chars) (the error wasn't triggered, test has failed)
+    @Test
+    @DisplayName("Invalid Single Most Popular Product Addition To Checkout Test (as a guest) - Too Long Billing Last Name")
+    @Tag("Invalid_Single_Most_Popular_Product_Checkout_Confirmation")
+    @Tag("Too_Long_Singular_Input")
+    @Tag("Test_As_A_Guest")
+    void invalidSingleMostPopularProductCheckoutConfirmationTooLongGuestBillLastNameTest() {
+        //single most popular product ("Tiered Wire Basket") addition to cart test method (as a guest)
+        addSingleMostPopularProductToCartGuestTest();
+        //single most popular product ("Tiered Wire Basket") addition to check out test method (as a guest)
+        addProductToCheckoutTest();
+        //invalid single most popular product ("Tiered Wire Basket") check out confirmation test method (as a guest) - too long guest billing last name (100 chars)
+        invalidGuestProductOrderCheckoutTooLongBillGuestLastNameTest();
+    }
+
 }

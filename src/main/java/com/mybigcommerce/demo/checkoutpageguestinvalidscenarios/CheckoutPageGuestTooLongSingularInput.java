@@ -75,6 +75,7 @@ public class CheckoutPageGuestTooLongSingularInput extends BasePage{
 
     //invalid guest billing address input data - too long singular input
     private String tooLongBillingGuestFirstName;
+    private String tooLongBillingGuestLastName;
 
     public CheckoutPageGuestTooLongSingularInput(WebDriver driver) {super(driver);}
 
@@ -264,8 +265,32 @@ public class CheckoutPageGuestTooLongSingularInput extends BasePage{
 
     }
 
+    //invalid guest billing address input data getter - too long billing last name (100 chars)
+    public void invalidGuestBillAddressInputDataTooLongLastNameGetter(){
+
+        validBillingGuestFirstName = TestDataGenerator.getRandomFirstName();
+        tooLongBillingGuestLastName = "Shfgdsgdtwetrtjdsfgrfdgjhkjmngbfdsfffhkjgsedhgtfgsdetgtujyhgdsfgdfhtgfsdfdffgdsgfgfdgdsfgfdhgfdhgdfd";
+        validBillingGuestAddress = TestDataGenerator.generateRandomAddress(8);
+        validBillingGuestCity = TestDataGenerator.getRandomCity();
+        validBillingGuestPostCode = String.valueOf(TestDataGenerator.getRandomPostalCode());
+        validBillingGuestPhone = TestDataGenerator.generatePhoneNumber(9);
+
+        System.out.println("Invalid generated checkout guest billing address input data (too long billing last name): " + "\n");
+
+        logger.info("Valid guest billing address first name (too long billing last name): " + validBillingGuestFirstName);
+        logger.info("Too long billing address last name: " + tooLongBillingGuestLastName);
+        logger.info("Valid guest billing address (too long billing last name): " + validBillingGuestAddress);
+        logger.info("Valid guest billing address city (too long billing last name): " + validBillingGuestCity);
+        logger.info("Valid guest billing address post code (too long billing last name): " + validBillingGuestPostCode);
+        logger.info("Valid guest billing address phone number (too long billing last name): " + validBillingGuestPhone);
+
+        System.out.println("\n");
+
+    }
+
     //invalid guest billing address data input methods - too long singular inputs
     public void inputTooLongBillingGuestFirstNameIntoFirstNameInputField(){checkoutPageBillingFirstNameInputField.sendKeys(tooLongBillingGuestFirstName);}
+    public void inputTooLongBillingGuestLastNameIntoLastNameInputField(){checkoutPageBillingLastNameInputField.sendKeys(tooLongBillingGuestLastName);}
 
     //valid guest billing address data input methods (for remaining inputs)
     public void inputValidBillingGuestFirstNameIntoFirstNameInputField(){checkoutPageBillingFirstNameInputField.sendKeys(validBillingGuestFirstName);}
