@@ -82,4 +82,19 @@ public class CheckoutPageGuestTooLongSingularInputTest extends TestMethods{
         invalidGuestProductOrderCheckoutTooLongGuestShipCityTest();
     }
 
+    //Test 029aq -> invalid single most popular product ("Tiered Wire Basket") check out confirmation test method (as a guest) - too long guest shipping post code (6 digits) (the error wasn't triggered, test has failed)
+    @Test
+    @DisplayName("Invalid Single Most Popular Product Addition To Checkout Test (as a guest) - Too Long Shipping Post Code")
+    @Tag("Invalid_Single_Most_Popular_Product_Checkout_Confirmation")
+    @Tag("Too_Long_Singular_Input")
+    @Tag("Test_As_A_Guest")
+    void invalidSingleMostPopularProductCheckoutConfirmationTooLongGuestShipPostCodeTest() {
+        //single most popular product ("Tiered Wire Basket") addition to cart test method (as a guest)
+        addSingleMostPopularProductToCartGuestTest();
+        //single most popular product ("Tiered Wire Basket") addition to check out test method (as a guest)
+        addProductToCheckoutTest();
+        //invalid single most popular product ("Tiered Wire Basket") check out confirmation test method (as a guest) - too long guest post code (6 digits)
+        invalidGuestProductOrderCheckoutTooLongGuestShipPostCodeTest();
+    }
+
 }
