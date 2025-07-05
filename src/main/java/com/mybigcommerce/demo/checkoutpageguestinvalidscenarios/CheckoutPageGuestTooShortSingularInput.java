@@ -76,6 +76,7 @@ public class CheckoutPageGuestTooShortSingularInput extends BasePage{
     //invalid guest billing address input data - too short singular input
     private String tooShortBillingGuestFirstName;
     private String tooShortBillingGuestLastName;
+    private String tooShortBillingGuestAddress;
 
     public CheckoutPageGuestTooShortSingularInput(WebDriver driver) {super(driver);}
 
@@ -288,9 +289,37 @@ public class CheckoutPageGuestTooShortSingularInput extends BasePage{
 
     }
 
+    //invalid guest billing address input data getter - too short billing address (3 chars)
+    public void invalidGuestBillAddressInputDataTooShortAddressGetter(){
+
+        validBillingGuestFirstName = TestDataGenerator.getRandomFirstName();
+        validBillingGuestLastName = TestDataGenerator.getRandomLastName();
+        tooShortBillingGuestAddress = "2.K";
+        validBillingGuestCity = TestDataGenerator.getRandomCity();
+        validBillingGuestPostCode = String.valueOf(TestDataGenerator.getRandomPostalCode());
+        validBillingGuestPhone = TestDataGenerator.generatePhoneNumber(9);
+
+        System.out.println("Invalid generated checkout guest billing address input data (too short billing address): " + "\n");
+
+        logger.info("Valid guest billing address first name (too short billing address): " + validBillingGuestFirstName);
+        logger.info("Valid guest billing address last name (too short billing address): " + validBillingGuestLastName);
+        logger.info("Too short billing address: " + tooShortBillingGuestAddress);
+        logger.info("Valid guest billing address city (too short billing address): " + validBillingGuestCity);
+        logger.info("Valid guest billing address post code (too short billing address): " + validBillingGuestPostCode);
+        logger.info("Valid guest billing address phone number (too short billing address): " + validBillingGuestPhone);
+
+        System.out.println("\n");
+
+    }
+
     //invalid guest billing address data input methods - too short singular input
     public void inputTooShortBillingGuestFirstNameIntoFirstNameInputField(){checkoutPageBillingFirstNameInputField.sendKeys(tooShortBillingGuestFirstName);}
     public void inputTooShortBillingGuestLastNameIntoLastNameInputField(){checkoutPageBillingLastNameInputField.sendKeys(tooShortBillingGuestLastName);}
+
+    public void inputTooShortBillingGuestAddressIntoAddressInputField(){
+        checkoutPageBillingAddressInputField.clear();
+        checkoutPageBillingAddressInputField.sendKeys(tooShortBillingGuestAddress);
+    }
 
     //valid guest billing address data input methods (for remaining inputs)
     public void inputValidBillingGuestFirstNameIntoFirstNameInputField(){checkoutPageBillingFirstNameInputField.sendKeys(validBillingGuestFirstName);}
