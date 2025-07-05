@@ -297,4 +297,24 @@ public class CheckoutPageTest extends TestMethods{
         validGuestProductOrderCheckoutTest();
     }
 
+    //Test 028a -> products ("Gather Journal Issue 7", "The Kinfolk Table", "Living With Plants") addition from compare list check out confirmation test method (as a registered user)
+    @Test
+    @DisplayName("Multiple Products Addition From Compare List Checkout Confirmation Test (as a registered user)")
+    @Tag("Multiple_Products_Addition_From_Compare_List_Checkout_Confirmation")
+    @Tag("Test_As_A_Reg_User")
+    void productsAddFromCompareListCheckoutConfirmationRegUserTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //single searched product ("Gather Journal Issue 7", "The Kinfolk Table", "Living With Plants") addition to cart test method (as a registered user)
+        addProductsToCompareListRegUserTest();
+        //products ("Gather Journal Issue 7", "The Kinfolk Table", "Living With Plants") addition from compare list to cart test method (as a registered user)
+        addProductsFromCompareListToCartTest();
+        //products ("Gather Journal Issue 7", "The Kinfolk Table", "Living With Plants") addition from compare list to check out test method (as a registered user)
+        addProductToCheckoutTest();
+        //products ("Gather Journal Issue 7", "The Kinfolk Table", "Living With Plants") addition from compare list check out confirmation test method (as a registered user)
+        validRegUserProductOrderCheckoutTest();
+    }
+
 }

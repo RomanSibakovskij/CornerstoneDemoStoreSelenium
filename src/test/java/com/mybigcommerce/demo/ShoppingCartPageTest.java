@@ -271,7 +271,7 @@ public class ShoppingCartPageTest extends TestMethods{
         navigateToRegisterPageTest();
         //valid user account creation test
         validUserAccountCreationTest();
-        //single searched product ("Dustpan & Brush") addition to cart test method (as a registered user)
+        //single searched product ("Gather Journal Issue 7", "The Kinfolk Table", "Living With Plants") addition to cart test method (as a registered user)
         addProductsToCompareListRegUserTest();
         //products ("Gather Journal Issue 7", "The Kinfolk Table", "Living With Plants") addition from compare list to cart test method (as a registered user)
         addProductsFromCompareListToCartTest();
