@@ -283,12 +283,18 @@ public class CheckoutPage extends BasePage{
 
     //click shipping address section state dropdown menu method
     public void clickShipAddressSectionStateDropdownMenu() {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        js.executeScript("arguments[0].click();", checkoutPageShippingStateDropdownMenu);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(1300));
+        wait.until(ExpectedConditions.elementToBeClickable(checkoutPageShippingStateDropdownMenu));
+        Actions action = new Actions(driver);
+        action.moveToElement(checkoutPageShippingStateDropdownMenu).click().perform();
     }
 
     //select "United States" option method
-    public void selectShipSelectStateOption() {checkoutPageShippingSelectStateOption.click();}
+    public void selectShipSelectStateOption() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofMillis(800));
+        wait.until(ExpectedConditions.elementToBeClickable(checkoutPageShippingSelectStateOption));
+        checkoutPageShippingSelectStateOption.click();
+    }
 
     //click shipping address section "Shipping and Billing address are same" checkbox method (to unselect it)
     public void clickShipAddressSectionShipBillAddressSameCheckbox() {
