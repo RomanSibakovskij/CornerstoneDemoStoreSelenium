@@ -60,6 +60,7 @@ public class CheckoutPageGuestNoSingularInput extends BasePage {
     private String noGuestEmail;
     private String noShippingGuestFirstName;
     private String noShippingGuestLastName;
+    private String noShippingGuestAddress;
 
     public CheckoutPageGuestNoSingularInput(WebDriver driver) {super(driver);}
 
@@ -119,9 +120,29 @@ public class CheckoutPageGuestNoSingularInput extends BasePage {
 
     }
 
+    //invalid guest shipping address input data getter - no shipping address
+    public void invalidGuestShipAddressInputDataNoAddressGetter(){
+
+        validShippingGuestFirstName = TestDataGenerator.getRandomFirstName();
+        validShippingGuestLastName = TestDataGenerator.getRandomLastName();
+        noShippingGuestAddress = "";
+        validShippingGuestPhone = TestDataGenerator.generatePhoneNumber(9);
+
+        System.out.println("Invalid generated checkout guest shipping address input data (no shipping address): " + "\n");
+
+        logger.info("Valid guest shipping address first name (no shipping address): " + validShippingGuestFirstName);
+        logger.info("Valid guest shipping address last name (no shipping address): " + validShippingGuestLastName);
+        logger.info("No shipping address: " + noShippingGuestAddress);
+        logger.info("Valid guest shipping address phone number (no shipping address): " + validShippingGuestPhone);
+
+        System.out.println("\n");
+
+    }
+
     //invalid guest shipping data input methods - no singular input
     public void inputNoShippingGuestFirstNameIntoFirstNameInputField(){checkoutPageShippingFirstNameInputField.sendKeys(noShippingGuestFirstName);}
     public void inputNoShippingGuestLastNameIntoLastNameInputField(){checkoutPageShippingLastNameInputField.sendKeys(noShippingGuestLastName);}
+    public void inputNoShippingGuestAddressIntoAddressInputField(){checkoutPageShippingAddressInputField.sendKeys(noShippingGuestAddress);}
 
     //valid input methods
 
