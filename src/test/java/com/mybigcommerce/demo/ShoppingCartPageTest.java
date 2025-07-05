@@ -241,7 +241,7 @@ public class ShoppingCartPageTest extends TestMethods{
         validUserAccountCreationTest();
         //multiple searched products ("1L Le Parfait Jar") addition to cart test method (as a registered user)
         addMultipleSearchedJarProductToCartRegUserTest();
-        //multiple searched products ("Dustpan & Brush") addition to check out test method (as a registered user)
+        //multiple searched products ("1L Le Parfait Jar") addition to check out test method (as a registered user)
         addProductToCheckoutTest();
     }
 

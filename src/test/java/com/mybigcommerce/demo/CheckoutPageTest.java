@@ -261,4 +261,22 @@ public class CheckoutPageTest extends TestMethods{
         validGuestProductOrderCheckoutTest();
     }
 
+    //Test 027c -> multiple searched products ("1L Le Parfait Jar") check out confirmation test method (as a registered user)
+    @Test
+    @DisplayName("Multiple Searched Products Checkout Confirmation Test (as a registered user)")
+    @Tag("Multiple_Searched_Products_Checkout_Confirmation")
+    @Tag("Test_As_A_Reg_User")
+    void multipleSearchedProductsCheckoutConfirmationRegUserTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //multiple searched products ("1L Le Parfait Jar") addition to cart test method (as a registered user)
+        addMultipleSearchedJarProductToCartRegUserTest();
+        //multiple searched products ("1L Le Parfait Jar") addition to check out test method (as a registered user)
+        addProductToCheckoutTest();
+        //multiple searched products ("1L Le Parfait Jar") check out confirmation test method (as a registered user)
+        validRegUserProductOrderCheckoutTest();
+    }
+
 }
