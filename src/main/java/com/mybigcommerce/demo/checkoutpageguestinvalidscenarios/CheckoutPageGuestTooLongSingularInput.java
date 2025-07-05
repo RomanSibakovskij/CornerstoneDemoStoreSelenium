@@ -61,6 +61,7 @@ public class CheckoutPageGuestTooLongSingularInput extends BasePage{
     private String tooLongShippingGuestFirstName;
     private String tooLongShippingGuestLastName;
     private String tooLongShippingGuestAddress;
+    private String tooLongShippingGuestCity;
 
     public CheckoutPageGuestTooLongSingularInput(WebDriver driver) {super(driver);}
 
@@ -136,11 +137,37 @@ public class CheckoutPageGuestTooLongSingularInput extends BasePage{
 
     }
 
+    //invalid guest shipping address input data getter - too long shipping city (100 chars)
+    public void invalidGuestShipAddressInputDataTooLongCityGetter(){
+
+        validShippingGuestFirstName = TestDataGenerator.getRandomFirstName();
+        validShippingGuestLastName = TestDataGenerator.getRandomLastName();
+        validShippingGuestAddress = TestDataGenerator.generateRandomAddress(8);
+        tooLongShippingGuestCity = "Rhfgdsgdtwetrtjdsfgrfdgjhkjmngbfdsfffhkjgsedhgtfgsdetgtujyhgdsfgdfhtgfsdfdffgdsgfgfdgdsfgfdhgfdhgdfd";
+        validShippingGuestPhone = TestDataGenerator.generatePhoneNumber(9);
+
+        System.out.println("Invalid generated checkout guest shipping address input data (too long shipping city): " + "\n");
+
+        logger.info("Valid guest shipping address first name (too short shipping city): " + validShippingGuestFirstName);
+        logger.info("Valid guest shipping address last name (too short shipping city): " + validShippingGuestLastName);
+        logger.info("Valid guest shipping address (too short shipping city): " + validShippingGuestAddress);
+        logger.info("Too short shipping city: " + tooLongShippingGuestCity);
+        logger.info("Valid guest shipping address phone number (too short shipping city): " + validShippingGuestPhone);
+
+        System.out.println("\n");
+
+    }
+
     //invalid guest email address input method - too long guest email
     public void inputTooLongGuestEmailIntoEmailInputField(){checkoutPageGuestEmailInputField.sendKeys(tooLongGuestEmail);}
     public void inputTooLongShippingGuestFirstNameIntoFirstNameInputField(){checkoutPageShippingFirstNameInputField.sendKeys(tooLongShippingGuestFirstName);}
     public void inputTooLongShippingGuestLastNameIntoLastNameInputField(){checkoutPageShippingLastNameInputField.sendKeys(tooLongShippingGuestLastName);}
     public void inputTooLongShippingGuestAddressIntoAddressInputField(){checkoutPageShippingAddressInputField.sendKeys(tooLongShippingGuestAddress);}
+
+    public void inputTooLongShippingGuestCityIntoCityInputField(){
+        checkoutPageShippingCityInputField.clear();
+        checkoutPageShippingCityInputField.sendKeys(tooLongShippingGuestCity);
+    }
 
     //valid input methods
 
