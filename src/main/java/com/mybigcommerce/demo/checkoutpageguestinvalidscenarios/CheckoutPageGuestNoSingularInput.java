@@ -63,6 +63,7 @@ public class CheckoutPageGuestNoSingularInput extends BasePage {
     private String noShippingGuestAddress;
     private String noShippingGuestCity;
     private String noShippingGuestPostCode;
+    private String noShippingGuestPhone;
 
     public CheckoutPageGuestNoSingularInput(WebDriver driver) {super(driver);}
 
@@ -183,6 +184,25 @@ public class CheckoutPageGuestNoSingularInput extends BasePage {
 
     }
 
+    //invalid guest shipping address input data getter - no shipping phone
+    public void invalidGuestShipAddressInputDataNoPhoneGetter(){
+
+        validShippingGuestFirstName = TestDataGenerator.getRandomFirstName();
+        validShippingGuestLastName = TestDataGenerator.getRandomLastName();
+        validShippingGuestAddress = TestDataGenerator.generateRandomAddress(8);
+        noShippingGuestPhone = "";
+
+        System.out.println("Invalid generated checkout guest shipping address input data (no shipping phone): " + "\n");
+
+        logger.info("Valid guest shipping address first name (no shipping phone): " + validShippingGuestFirstName);
+        logger.info("Valid guest shipping address last name (no shipping phone): " + validShippingGuestLastName);
+        logger.info("Valid guest shipping address (no shipping phone): " + validShippingGuestAddress);
+        logger.info("No shipping address phone number: " + noShippingGuestPhone);
+
+        System.out.println("\n");
+
+    }
+
     //invalid guest shipping data input methods - no singular input
     public void inputNoShippingGuestFirstNameIntoFirstNameInputField(){checkoutPageShippingFirstNameInputField.sendKeys(noShippingGuestFirstName);}
     public void inputNoShippingGuestLastNameIntoLastNameInputField(){checkoutPageShippingLastNameInputField.sendKeys(noShippingGuestLastName);}
@@ -196,6 +216,8 @@ public class CheckoutPageGuestNoSingularInput extends BasePage {
         checkoutPageShippingPostCodeInputField.clear();
         checkoutPageShippingPostCodeInputField.sendKeys(noShippingGuestPostCode);
     }
+
+    public void inputNoShippingGuestPhoneIntoPhoneInputField(){checkoutPageShippingPhoneInputField.sendKeys(noShippingGuestPhone);}
 
     //valid input methods
 
