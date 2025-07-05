@@ -81,6 +81,15 @@ public class CheckoutPageGuestTooShortSingularInput extends BasePage{
     private int tooShortBillingGuestPostCode;
     private int tooShortBillingGuestPhone;
 
+    //valid guest payment section input data (for remaining inputs)
+    private String validTestCreditCardNumber = "4111 1111 1111 1111"; //only this number is functional
+    private String validGuestCreditCardExpDate;
+    private String validGuestCreditCardName;
+    private String validGuestCreditCardCVVNumber;
+
+    //invalid guest payment section input data - too short singular input
+    private String tooShortTestCreditCardNumber;
+
     public CheckoutPageGuestTooShortSingularInput(WebDriver driver) {super(driver);}
 
     //invalid guest email address input data getter - too short email (1 char -> name, domain)
@@ -424,5 +433,36 @@ public class CheckoutPageGuestTooShortSingularInput extends BasePage{
         checkoutPageBillingPhoneInputField.clear();
         checkoutPageBillingPhoneInputField.sendKeys(validBillingGuestPhone);
     }
+
+    //credit card input data
+
+    //invalid guest payment input data getter - too short guest credit card number (15 digits)
+    public void invalidGuestPaymentInputDataTooShortCredCardNumberGetter(){
+
+        tooShortTestCreditCardNumber = "4111 1111 1111 111";
+        validGuestCreditCardExpDate = TestDataGenerator.generateExpirationDate();
+        validGuestCreditCardName = TestDataGenerator.getRandomFirstName() + " " + TestDataGenerator.getRandomLastName();
+        validGuestCreditCardCVVNumber = TestDataGenerator.generateCVV();
+
+        System.out.println("Invalid generated checkout guest payment input data (too short guest credit card number): " + "\n");
+
+        logger.info("Too short test credit card number: " + tooShortTestCreditCardNumber);
+        logger.info("Valid guest credit card expiration date (too short guest credit card number): " + validGuestCreditCardExpDate);
+        logger.info("Valid guest credit card full name (too short guest credit card number): " + validGuestCreditCardName);
+        logger.info("Valid guest credit card CVV number (too short guest credit card number): " + validGuestCreditCardCVVNumber);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid guest payment data input methods - too short singular input
+    public void inputTooShortPaymentTestCreditCardNumberIntoCreditCardNumberInputField(){checkoutPagePaymentCreditCardNumberInputField.sendKeys(tooShortTestCreditCardNumber);}
+
+    //valid guest payment data input methods
+    public void inputValidPaymentTestCreditCardNumberIntoCreditCardNumberInputField(){checkoutPagePaymentCreditCardNumberInputField.sendKeys(validTestCreditCardNumber);}
+    public void inputValidPaymentGuestCreditCardNameIntoCreditCardNameInputField(){checkoutPagePaymentCreditCardNameInputField.sendKeys(validGuestCreditCardName);}
+    public void inputValidPaymentGuestCreditCardExpDateIntoCreditCardExpDateInputField(){checkoutPagePaymentCreditCardExpDateInputField.sendKeys(validGuestCreditCardExpDate);}
+    public void inputValidPaymentGuestCreditCardCVVIntoCreditCardCVVInputField(){checkoutPagePaymentCVVNumberInputField.sendKeys(validGuestCreditCardCVVNumber);}
+
 
 }
