@@ -508,7 +508,7 @@ public class CheckoutPageGuestNoSingularInput extends BasePage {
         logger.info("Valid test credit card number (no guest credit card CVV number): " + validTestCreditCardNumber);
         logger.info("Valid guest credit card expiration date (no guest credit card CVV number): " + validGuestCreditCardExpDate);
         logger.info("Valid guest credit card full name (no guest credit card CVV number): " + validGuestCreditCardName);
-        logger.info("No guest credit card CVV number: " + validGuestCreditCardCVVNumber);
+        logger.info("No guest credit card CVV number: " + noGuestCreditCardCVVNumber);
 
         System.out.println("\n");
 
