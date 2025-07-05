@@ -13000,6 +13000,47 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid Guest Product Order Checkout Confirmation Test - Too Short Guest Credit Card CVV Number");
     }
 
+    //too long singular input
+
+    //invalid guest checkout test method - too long guest email (100 chars -> name, domain)
+    protected void invalidGuestProductOrderCheckoutTooLongGuestEmailTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        CheckoutPageGuestTooLongSingularInput checkoutPageGuestTooLongSingularInput = new CheckoutPageGuestTooLongSingularInput(driver);
+        //checkout page checkout section web element assert (guest)
+        isCheckoutPageCheckoutSectionWebElementDisplayed(checkoutPage);
+        //checkout page checkout section text element assert (guest)
+        isCheckoutPageCheckoutSectionTextElementAsExpected(checkoutPage);
+        //capture screenshot of the checkout page display before data input
+        captureScreenshot(driver, "Checkout Page Display Before Data Input");
+        //checkout page order summary section web element assert
+        isCheckoutPageOrderSummarySectionWebElementDisplayed(checkoutPage);
+        //checkout page order summary section text element assert
+        isCheckoutPageOrderSummarySectionTextElementAsExpected(checkoutPage);
+        //log order summary data
+        logCheckoutPageOrderSummaryProductData(checkoutPage);
+        //invalid guest email input data getter - too long guest email (100 chars -> name, domain)
+        checkoutPageGuestTooLongSingularInput.invalidGuestTooLongEmailInputDataGetter();
+        //click 'Privacy policy' checkbox
+        checkoutPage.clickCheckoutSectionPrivacyPolicyCheckbox();
+        //input too long guest email into checkout email input field (100 chars -> name, domain)
+        checkoutPageGuestTooLongSingularInput.inputTooLongGuestEmailIntoEmailInputField();
+        //capture screenshot of the checkout page checkout section display after invalid data input - too long guest email
+        captureScreenshot(driver, "Checkout Page Checkout Section Display After Invalid Guest Data Input - Too Long Guest Email");
+        //click checkout section "Continue" button
+        checkoutPage.clickCheckoutSectionContinueButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad();
+        //assert the user gets an expected error, log the issue otherwise
+        try {
+            assertEquals("Email address is too long.", checkoutPage.getCheckoutPageSingularInputError(), "The checkout page checkout section too long email input error doesn't match expectations.");
+        } catch (Exception e) {
+            logger.error("The checkout page checkout section too long email input error wasn't triggered, test has failed");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Guest Product Order Checkout Confirmation Test - Too Long Guest Email");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)
