@@ -58,6 +58,7 @@ public class CheckoutPageGuestTooLongSingularInput extends BasePage{
 
     //invalid guest shipping address input data - too long singular input
     private String tooLongGuestEmail;
+    private String tooLongShippingGuestFirstName;
 
     public CheckoutPageGuestTooLongSingularInput(WebDriver driver) {super(driver);}
 
@@ -74,8 +75,30 @@ public class CheckoutPageGuestTooLongSingularInput extends BasePage{
 
     }
 
+    //shipping address input
+
+    //invalid guest shipping address input data getter - too long shipping first name (100 chars)
+    public void invalidGuestShipAddressInputDataTooLongFirstNameGetter(){
+
+        tooLongShippingGuestFirstName = "Shfgdsgdtwetrtjdsfgrfdgjhkjmngbfdsfffhkjgsedhgtfgsdetgtujyhgdsfgdfhtgfsdfdffgdsgfgfdgdsfgfdhgfdhgdfd";
+        validShippingGuestLastName = TestDataGenerator.getRandomLastName();
+        validShippingGuestAddress = TestDataGenerator.generateRandomAddress(8);
+        validShippingGuestPhone = TestDataGenerator.generatePhoneNumber(9);
+
+        System.out.println("Invalid generated checkout guest shipping address input data (too long shipping first name): " + "\n");
+
+        logger.info("Too long shipping address first name: " + tooLongShippingGuestFirstName);
+        logger.info("Valid guest shipping address last name (too long shipping first name): " + validShippingGuestLastName);
+        logger.info("Valid guest shipping address (too long shipping first name): " + validShippingGuestAddress);
+        logger.info("Valid guest shipping address phone number (too long shipping first name): " + validShippingGuestPhone);
+
+        System.out.println("\n");
+
+    }
+
     //invalid guest email address input method - too long guest email
     public void inputTooLongGuestEmailIntoEmailInputField(){checkoutPageGuestEmailInputField.sendKeys(tooLongGuestEmail);}
+    public void inputTooLongShippingGuestFirstNameIntoFirstNameInputField(){checkoutPageShippingFirstNameInputField.sendKeys(tooLongShippingGuestFirstName);}
 
     //valid input methods
 
