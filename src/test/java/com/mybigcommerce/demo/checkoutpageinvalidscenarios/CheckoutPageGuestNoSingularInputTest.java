@@ -249,4 +249,19 @@ public class CheckoutPageGuestNoSingularInputTest extends TestMethods{
         invalidGuestProductOrderCheckoutNoBillGuestPhoneTest();
     }
 
+    //Test 029p -> invalid single most popular product ("Tiered Wire Basket") check out confirmation test method (as a guest) - no guest billing state
+    @Test
+    @DisplayName("Invalid Single Most Popular Product Addition To Checkout Test (as a guest) - No Billing State")
+    @Tag("Invalid_Single_Most_Popular_Product_Checkout_Confirmation")
+    @Tag("No_Singular_Input")
+    @Tag("Test_As_A_Guest")
+    void invalidSingleMostPopularProductCheckoutConfirmationNoGuestBillStateTest() {
+        //single most popular product ("Tiered Wire Basket") addition to cart test method (as a guest)
+        addSingleMostPopularProductToCartGuestTest();
+        //single most popular product ("Tiered Wire Basket") addition to check out test method (as a guest)
+        addProductToCheckoutTest();
+        //invalid single most popular product ("Tiered Wire Basket") check out confirmation test method (as a guest) - no guest billing state
+        invalidGuestProductOrderCheckoutNoBillGuestStateTest();
+    }
+
 }
