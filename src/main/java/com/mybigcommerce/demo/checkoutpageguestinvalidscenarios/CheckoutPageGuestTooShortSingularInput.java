@@ -61,6 +61,7 @@ public class CheckoutPageGuestTooShortSingularInput extends BasePage{
     private String tooShortShippingGuestFirstName;
     private String tooShortShippingGuestLastName;
     private String tooShortShippingGuestAddress;
+    private String tooShortShippingGuestCity;
 
     public CheckoutPageGuestTooShortSingularInput(WebDriver driver) {super(driver);}
 
@@ -139,10 +140,36 @@ public class CheckoutPageGuestTooShortSingularInput extends BasePage{
 
     }
 
+    //invalid guest shipping address input data getter - too short shipping city (1 char)
+    public void invalidGuestShipAddressInputDataTooShortCityGetter(){
+
+        validShippingGuestFirstName = TestDataGenerator.getRandomFirstName();
+        validShippingGuestLastName = TestDataGenerator.getRandomLastName();
+        validShippingGuestAddress = TestDataGenerator.generateRandomAddress(8);
+        tooShortShippingGuestCity = "R";
+        validShippingGuestPhone = TestDataGenerator.generatePhoneNumber(9);
+
+        System.out.println("Invalid generated checkout guest shipping address input data (too short shipping city): " + "\n");
+
+        logger.info("Valid guest shipping address first name (too short shipping city): " + validShippingGuestFirstName);
+        logger.info("Valid guest shipping address last name (too short shipping city): " + validShippingGuestLastName);
+        logger.info("Valid guest shipping address (too short shipping city): " + validShippingGuestAddress);
+        logger.info("Too short shipping city: " + tooShortShippingGuestCity);
+        logger.info("Valid guest shipping address phone number (too short shipping city): " + validShippingGuestPhone);
+
+        System.out.println("\n");
+
+    }
+
     //invalid guest shipping data input methods - too short singular input
     public void inputTooShortShippingGuestFirstNameIntoFirstNameInputField(){checkoutPageShippingFirstNameInputField.sendKeys(tooShortShippingGuestFirstName);}
     public void inputTooShortShippingGuestLastNameIntoLastNameInputField(){checkoutPageShippingLastNameInputField.sendKeys(tooShortShippingGuestLastName);}
     public void inputTooShortShippingGuestAddressIntoAddressInputField(){checkoutPageShippingAddressInputField.sendKeys(tooShortShippingGuestAddress);}
+
+    public void inputTooShortShippingGuestCityIntoCityInputField(){
+        checkoutPageShippingCityInputField.clear();
+        checkoutPageShippingCityInputField.sendKeys(tooShortShippingGuestCity);
+    }
 
     //valid guest email address input method (for remaining inputs)
     public void inputValidGuestEmailIntoEmailInputField(){checkoutPageGuestEmailInputField.sendKeys(validGuestEmail);}
@@ -152,8 +179,5 @@ public class CheckoutPageGuestTooShortSingularInput extends BasePage{
     public void inputValidShippingGuestLastNameIntoLastNameInputField(){checkoutPageShippingLastNameInputField.sendKeys(validShippingGuestLastName);}
     public void inputValidShippingGuestAddressIntoAddressInputField(){checkoutPageShippingAddressInputField.sendKeys(validShippingGuestAddress);}
     public void inputValidShippingGuestPhoneIntoPhoneInputField(){checkoutPageShippingPhoneInputField.sendKeys(validShippingGuestPhone);}
-
-
-
 
 }

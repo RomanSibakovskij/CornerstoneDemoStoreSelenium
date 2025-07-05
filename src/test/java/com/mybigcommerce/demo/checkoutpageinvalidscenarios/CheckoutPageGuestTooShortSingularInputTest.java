@@ -68,4 +68,19 @@ public class CheckoutPageGuestTooShortSingularInputTest extends TestMethods {
         invalidGuestProductOrderCheckoutTooShortGuestShipAddressTest();
     }
 
+    //Test 029y -> invalid single most popular product ("Tiered Wire Basket") check out confirmation test method (as a guest) - too short guest shipping city (1 char) (the error wasn't triggered, test has failed)
+    @Test
+    @DisplayName("Invalid Single Most Popular Product Addition To Checkout Test (as a guest) - Too Short Shipping City")
+    @Tag("Invalid_Single_Most_Popular_Product_Checkout_Confirmation")
+    @Tag("Too_Short_Singular_Input")
+    @Tag("Test_As_A_Guest")
+    void invalidSingleMostPopularProductCheckoutConfirmationTooShortGuestShipCityTest() {
+        //single most popular product ("Tiered Wire Basket") addition to cart test method (as a guest)
+        addSingleMostPopularProductToCartGuestTest();
+        //single most popular product ("Tiered Wire Basket") addition to check out test method (as a guest)
+        addProductToCheckoutTest();
+        //invalid single most popular product ("Tiered Wire Basket") check out confirmation test method (as a guest) - too short guest shipping city (1 char)
+        invalidGuestProductOrderCheckoutTooShortGuestShipCityTest();
+    }
+
 }

@@ -11552,6 +11552,8 @@ public class TestMethods extends BaseTest{
         checkoutPageGuestTooShortSingularInput.inputValidShippingGuestPhoneIntoPhoneInputField();
         //capture screenshot of the checkout page shipping address section display after invalid data input - too short guest shipping first name
         captureScreenshot(driver, "Checkout Page Shipping Address Section Display After Invalid Guest Data Input - Too Short First Name");
+        //click "Shipping and Billing address are same" checkbox (to prevent the billing address to be matched with shipping address)
+        checkoutPage.clickShipAddressSectionShipBillAddressSameCheckbox();
         //wait for elements to load
         generalPage.waitForElementsToLoad();
         //click shipping address section "Continue" button
@@ -11618,6 +11620,8 @@ public class TestMethods extends BaseTest{
         checkoutPageGuestTooShortSingularInput.inputValidShippingGuestPhoneIntoPhoneInputField();
         //capture screenshot of the checkout page shipping address section display after invalid data input - too short guest shipping last name
         captureScreenshot(driver, "Checkout Page Shipping Address Section Display After Invalid Guest Data Input - Too Short Last Name");
+        //click "Shipping and Billing address are same" checkbox (to prevent the billing address to be matched with shipping address)
+        checkoutPage.clickShipAddressSectionShipBillAddressSameCheckbox();
         //wait for elements to load
         generalPage.waitForElementsToLoad();
         //click shipping address section "Continue" button
@@ -11684,6 +11688,8 @@ public class TestMethods extends BaseTest{
         checkoutPageGuestTooShortSingularInput.inputValidShippingGuestPhoneIntoPhoneInputField();
         //capture screenshot of the checkout page shipping address section display after invalid data input - too short guest shipping address
         captureScreenshot(driver, "Checkout Page Shipping Address Section Display After Invalid Guest Data Input - Too Short Address");
+        //click "Shipping and Billing address are same" checkbox (to prevent the billing address to be matched with shipping address)
+        checkoutPage.clickShipAddressSectionShipBillAddressSameCheckbox();
         //wait for elements to load
         generalPage.waitForElementsToLoad();
         //click shipping address section "Continue" button
@@ -11696,6 +11702,76 @@ public class TestMethods extends BaseTest{
         }
         //capture screenshot of the test result
         captureScreenshot(driver, "Invalid Guest Product Order Checkout Confirmation Test - Too Short Guest Shipping Address");
+    }
+
+    //invalid guest checkout test method - too short guest shipping city (1 char)
+    protected void invalidGuestProductOrderCheckoutTooShortGuestShipCityTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        CheckoutPageGuestValidCheckout checkoutPageGuestValidCheckout = new CheckoutPageGuestValidCheckout(driver);
+        CheckoutPageGuestTooShortSingularInput checkoutPageGuestTooShortSingularInput = new CheckoutPageGuestTooShortSingularInput(driver);
+        //checkout page checkout section web element assert (guest)
+        isCheckoutPageCheckoutSectionWebElementDisplayed(checkoutPage);
+        //checkout page checkout section text element assert (guest)
+        isCheckoutPageCheckoutSectionTextElementAsExpected(checkoutPage);
+        //capture screenshot of the checkout page display before data input
+        captureScreenshot(driver, "Checkout Page Display Before Data Input");
+        //checkout page order summary section web element assert
+        isCheckoutPageOrderSummarySectionWebElementDisplayed(checkoutPage);
+        //checkout page order summary section text element assert
+        isCheckoutPageOrderSummarySectionTextElementAsExpected(checkoutPage);
+        //log order summary data
+        logCheckoutPageOrderSummaryProductData(checkoutPage);
+        //valid guest email input data getter
+        checkoutPageGuestValidCheckout.validGuestEmailInputDataGetter();
+        //click 'Privacy policy' checkbox
+        checkoutPage.clickCheckoutSectionPrivacyPolicyCheckbox();
+        //input valid guest email into checkout email input field
+        checkoutPageGuestValidCheckout.inputValidGuestEmailIntoEmailInputField();
+        //capture screenshot of the checkout page checkout section display after valid data input
+        captureScreenshot(driver, "Checkout Page Checkout Section Display After Valid Guest Data Input");
+        //click checkout section "Continue" button
+        checkoutPage.clickCheckoutSectionContinueButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad();
+        //checkout page shipping address section web element assert (Selenium can't seem to find the elements with VALID selectors)
+        //isCheckoutPageShippingAddressSectionWebElementDisplayed(checkoutPage);
+        //checkout page shipping address section text element assert (Selenium can't seem to find the elements with VALID selectors)
+        //isCheckoutPageShippingAddressSectionTextElementAsExpected(checkoutPage);
+        //invalid guest shipping address input data getter - too short guest shipping city (1 char)
+        checkoutPageGuestTooShortSingularInput.invalidGuestShipAddressInputDataTooShortCityGetter();
+        //capture screenshot of the checkout page shipping address section display before data input
+        captureScreenshot(driver, "Checkout Page Shipping Address Section Display Before Data Input");
+        //click shipping address section country dropdown menu
+        checkoutPage.clickShipAddressSectionCountryDropdownMenu();
+        //select "United States" shipping country option
+        checkoutPage.selectShipUSCountryOption();
+        //input valid guest shipping address first name into first name input field
+        checkoutPageGuestTooShortSingularInput.inputValidShippingGuestFirstNameIntoFirstNameInputField();
+        //input valid guest shipping address last name into last name input field
+        checkoutPageGuestTooShortSingularInput.inputValidShippingGuestLastNameIntoLastNameInputField();
+        //input valid guest shipping address into shipping address input field
+        checkoutPageGuestTooShortSingularInput.inputValidShippingGuestAddressIntoAddressInputField();
+        //input too short guest shipping city into shipping city input field (1 char)
+        checkoutPageGuestTooShortSingularInput.inputTooShortShippingGuestCityIntoCityInputField();
+        //input valid guest shipping address phone into phone input field
+        checkoutPageGuestTooShortSingularInput.inputValidShippingGuestPhoneIntoPhoneInputField();
+        //capture screenshot of the checkout page shipping address section display after invalid data input - too short guest shipping city
+        captureScreenshot(driver, "Checkout Page Shipping Address Section Display After Invalid Guest Data Input - Too Short City");
+        //click "Shipping and Billing address are same" checkbox (to prevent the billing address to be matched with shipping address)
+        checkoutPage.clickShipAddressSectionShipBillAddressSameCheckbox();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad();
+        //click shipping address section "Continue" button
+        checkoutPage.clickShipAddressSectionContinueButton();
+        //assert the user gets an expected error, log the issue otherwise
+        try {
+            assertEquals("City is too short.", checkoutPage.getCheckoutPageSingularInputError(), "The checkout page shipping address section too short city input error doesn't match expectations.");
+        } catch (Exception e) {
+            logger.error("The checkout page shipping address section too short city input error wasn't triggered, test has failed");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Guest Product Order Checkout Confirmation Test - Too Short Guest Shipping City");
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
