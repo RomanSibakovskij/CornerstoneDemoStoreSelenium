@@ -62,6 +62,7 @@ public class CheckoutPageGuestNoSingularInput extends BasePage {
     private String noShippingGuestLastName;
     private String noShippingGuestAddress;
     private String noShippingGuestCity;
+    private String noShippingGuestPostCode;
 
     public CheckoutPageGuestNoSingularInput(WebDriver driver) {super(driver);}
 
@@ -161,6 +162,27 @@ public class CheckoutPageGuestNoSingularInput extends BasePage {
 
     }
 
+    //invalid guest shipping address input data getter - no shipping post code
+    public void invalidGuestShipAddressInputDataNoPostCodeGetter(){
+
+        validShippingGuestFirstName = TestDataGenerator.getRandomFirstName();
+        validShippingGuestLastName = TestDataGenerator.getRandomLastName();
+        validShippingGuestAddress = TestDataGenerator.generateRandomAddress(8);
+        noShippingGuestPostCode = "";
+        validShippingGuestPhone = TestDataGenerator.generatePhoneNumber(9);
+
+        System.out.println("Invalid generated checkout guest shipping address input data (no shipping post code): " + "\n");
+
+        logger.info("Valid guest shipping address first name (no shipping post code): " + validShippingGuestFirstName);
+        logger.info("Valid guest shipping address last name (no shipping post code): " + validShippingGuestLastName);
+        logger.info("Valid guest shipping address (no shipping post code): " + validShippingGuestAddress);
+        logger.info("No shipping post code: " +noShippingGuestPostCode);
+        logger.info("Valid guest shipping address phone number (no shipping post code): " + validShippingGuestPhone);
+
+        System.out.println("\n");
+
+    }
+
     //invalid guest shipping data input methods - no singular input
     public void inputNoShippingGuestFirstNameIntoFirstNameInputField(){checkoutPageShippingFirstNameInputField.sendKeys(noShippingGuestFirstName);}
     public void inputNoShippingGuestLastNameIntoLastNameInputField(){checkoutPageShippingLastNameInputField.sendKeys(noShippingGuestLastName);}
@@ -169,6 +191,10 @@ public class CheckoutPageGuestNoSingularInput extends BasePage {
     public void inputNoShippingGuestCityIntoCityInputField(){
         checkoutPageShippingCityInputField.clear();
         checkoutPageShippingCityInputField.sendKeys(noShippingGuestCity);
+    }
+    public void inputNoShippingGuestPostCodeIntoPostCodeInputField(){
+        checkoutPageShippingPostCodeInputField.clear();
+        checkoutPageShippingPostCodeInputField.sendKeys(noShippingGuestPostCode);
     }
 
     //valid input methods
