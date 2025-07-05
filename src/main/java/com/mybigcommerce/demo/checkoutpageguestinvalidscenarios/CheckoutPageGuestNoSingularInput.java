@@ -61,6 +61,7 @@ public class CheckoutPageGuestNoSingularInput extends BasePage {
     private String noShippingGuestFirstName;
     private String noShippingGuestLastName;
     private String noShippingGuestAddress;
+    private String noShippingGuestCity;
 
     public CheckoutPageGuestNoSingularInput(WebDriver driver) {super(driver);}
 
@@ -139,10 +140,36 @@ public class CheckoutPageGuestNoSingularInput extends BasePage {
 
     }
 
+    //invalid guest shipping address input data getter - no shipping city
+    public void invalidGuestShipAddressInputDataNoCityGetter(){
+
+        validShippingGuestFirstName = TestDataGenerator.getRandomFirstName();
+        validShippingGuestLastName = TestDataGenerator.getRandomLastName();
+        validShippingGuestAddress = TestDataGenerator.generateRandomAddress(8);
+        noShippingGuestCity = "";
+        validShippingGuestPhone = TestDataGenerator.generatePhoneNumber(9);
+
+        System.out.println("Invalid generated checkout guest shipping address input data (no shipping city): " + "\n");
+
+        logger.info("Valid guest shipping address first name (no shipping city): " + validShippingGuestFirstName);
+        logger.info("Valid guest shipping address last name (no shipping city): " + validShippingGuestLastName);
+        logger.info("Valid guest shipping address (no shipping city): " + validShippingGuestAddress);
+        logger.info("No shipping city: " +noShippingGuestCity);
+        logger.info("Valid guest shipping address phone number (no shipping city): " + validShippingGuestPhone);
+
+        System.out.println("\n");
+
+    }
+
     //invalid guest shipping data input methods - no singular input
     public void inputNoShippingGuestFirstNameIntoFirstNameInputField(){checkoutPageShippingFirstNameInputField.sendKeys(noShippingGuestFirstName);}
     public void inputNoShippingGuestLastNameIntoLastNameInputField(){checkoutPageShippingLastNameInputField.sendKeys(noShippingGuestLastName);}
     public void inputNoShippingGuestAddressIntoAddressInputField(){checkoutPageShippingAddressInputField.sendKeys(noShippingGuestAddress);}
+
+    public void inputNoShippingGuestCityIntoCityInputField(){
+        checkoutPageShippingCityInputField.clear();
+        checkoutPageShippingCityInputField.sendKeys(noShippingGuestCity);
+    }
 
     //valid input methods
 
