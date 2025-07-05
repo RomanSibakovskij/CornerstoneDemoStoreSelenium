@@ -6,7 +6,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class CheckoutPageGuestNoSingularInput extends BasePage {
 
-    //checkout page web elements (relevant web element only)
+    //checkout page web elements (relevant web elements only)
     //checkout section
     @FindBy(xpath = "//ol[@class='checkout-steps']/li[1]//input[@id='email']")
     private WebElement checkoutPageGuestEmailInputField;
