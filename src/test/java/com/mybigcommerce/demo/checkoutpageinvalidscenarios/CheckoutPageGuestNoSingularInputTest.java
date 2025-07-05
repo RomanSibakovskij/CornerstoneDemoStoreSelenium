@@ -219,7 +219,7 @@ public class CheckoutPageGuestNoSingularInputTest extends TestMethods{
         invalidGuestProductOrderCheckoutNoBillGuestCityTest();
     }
 
-    //Test 026n -> invalid single most popular product ("Tiered Wire Basket") check out confirmation test method (as a guest) - no guest billing post code (the error wasn't triggered, test has failed(the error gets triggered during manual testing))
+    //Test 029n -> invalid single most popular product ("Tiered Wire Basket") check out confirmation test method (as a guest) - no guest billing post code (the error wasn't triggered, test has failed(the error gets triggered during manual testing))
     @Test
     @DisplayName("Invalid Single Most Popular Product Addition To Checkout Test (as a guest) - No Billing Post Code")
     @Tag("Invalid_Single_Most_Popular_Product_Checkout_Confirmation")
@@ -232,6 +232,21 @@ public class CheckoutPageGuestNoSingularInputTest extends TestMethods{
         addProductToCheckoutTest();
         //invalid single most popular product ("Tiered Wire Basket") check out confirmation test method (as a guest) - no guest billing post code
         invalidGuestProductOrderCheckoutNoBillGuestPostCodeTest();
+    }
+
+    //Test 029o -> invalid single most popular product ("Tiered Wire Basket") check out confirmation test method (as a guest) - no guest billing phone
+    @Test
+    @DisplayName("Invalid Single Most Popular Product Addition To Checkout Test (as a guest) - No Billing Phone")
+    @Tag("Invalid_Single_Most_Popular_Product_Checkout_Confirmation")
+    @Tag("No_Singular_Input")
+    @Tag("Test_As_A_Guest")
+    void invalidSingleMostPopularProductCheckoutConfirmationNoGuestBillPhoneTest() {
+        //single most popular product ("Tiered Wire Basket") addition to cart test method (as a guest)
+        addSingleMostPopularProductToCartGuestTest();
+        //single most popular product ("Tiered Wire Basket") addition to check out test method (as a guest)
+        addProductToCheckoutTest();
+        //invalid single most popular product ("Tiered Wire Basket") check out confirmation test method (as a guest) - no guest billing phone
+        invalidGuestProductOrderCheckoutNoBillGuestPhoneTest();
     }
 
 }
