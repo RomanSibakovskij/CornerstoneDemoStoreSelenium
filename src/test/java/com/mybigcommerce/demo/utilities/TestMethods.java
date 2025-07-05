@@ -11459,6 +11459,47 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid Guest Product Order Checkout Confirmation Test - No Guest Credit Card CVV Number");
     }
 
+    //too short singular input
+
+    //invalid guest checkout test method - too short guest email (1 char -> name, domain)
+    protected void invalidGuestProductOrderCheckoutTooShortGuestEmailTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        CheckoutPageGuestTooShortSingularInput checkoutPageGuestTooShortSingularInput = new CheckoutPageGuestTooShortSingularInput(driver);
+        //checkout page checkout section web element assert (guest)
+        isCheckoutPageCheckoutSectionWebElementDisplayed(checkoutPage);
+        //checkout page checkout section text element assert (guest)
+        isCheckoutPageCheckoutSectionTextElementAsExpected(checkoutPage);
+        //capture screenshot of the checkout page display before data input
+        captureScreenshot(driver, "Checkout Page Display Before Data Input");
+        //checkout page order summary section web element assert
+        isCheckoutPageOrderSummarySectionWebElementDisplayed(checkoutPage);
+        //checkout page order summary section text element assert
+        isCheckoutPageOrderSummarySectionTextElementAsExpected(checkoutPage);
+        //log order summary data
+        logCheckoutPageOrderSummaryProductData(checkoutPage);
+        //invalid guest email input data getter - too short guest email (1 char -> name, domain)
+        checkoutPageGuestTooShortSingularInput.invalidGuestTooShortEmailInputDataGetter();
+        //click 'Privacy policy' checkbox
+        checkoutPage.clickCheckoutSectionPrivacyPolicyCheckbox();
+        //input too short guest email into checkout email input field (1 char -> name, domain)
+        checkoutPageGuestTooShortSingularInput.inputTooShortGuestEmailIntoEmailInputField();
+        //capture screenshot of the checkout page checkout section display after invalid data input - too short guest email
+        captureScreenshot(driver, "Checkout Page Checkout Section Display After Invalid Guest Data Input - Too Short Guest Email");
+        //click checkout section "Continue" button
+        checkoutPage.clickCheckoutSectionContinueButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad();
+        //assert the user gets an expected error, log the issue otherwise
+        try {
+            assertEquals("Email address is too short.", checkoutPage.getCheckoutPageSingularInputError(), "The checkout page checkout section too short email input error doesn't match expectations.");
+        } catch (Exception e) {
+            logger.error("The checkout page checkout section too short email input error wasn't triggered, test has failed");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Guest Product Order Checkout Confirmation Test - Too Short Guest Email");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)

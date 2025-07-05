@@ -49,6 +49,32 @@ public class CheckoutPageGuestTooShortSingularInput extends BasePage{
     @FindBy(xpath = "//div[@class='paymentMethod paymentMethod--creditCard']//input[@id='ccCvv']")
     private WebElement checkoutPagePaymentCVVNumberInputField;
 
+    //valid guest shipping address input data (for remaining inputs)
+    private String validGuestEmail;
+    private String validShippingGuestFirstName;
+    private String validShippingGuestLastName;
+    private String validShippingGuestAddress;
+    private String validShippingGuestPhone;
+
+    //invalid guest shipping address input data - too short singular input
+    private String tooShortGuestEmail;
+
     public CheckoutPageGuestTooShortSingularInput(WebDriver driver) {super(driver);}
+
+    //invalid guest email address input data getter - too short email (1 char -> name, domain)
+    public void invalidGuestTooShortEmailInputDataGetter(){
+
+        tooShortGuestEmail = TestDataGenerator.generateRandomTooShortEmailAddress(1);
+
+        System.out.println("Invalid generated checkout guest email address (too short guest email): " + "\n");
+
+        logger.info("Too short guest shipping address email: " + tooShortGuestEmail);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid guest email address input method - too short guest email
+    public void inputTooShortGuestEmailIntoEmailInputField(){checkoutPageGuestEmailInputField.sendKeys(tooShortGuestEmail);}
 
 }
