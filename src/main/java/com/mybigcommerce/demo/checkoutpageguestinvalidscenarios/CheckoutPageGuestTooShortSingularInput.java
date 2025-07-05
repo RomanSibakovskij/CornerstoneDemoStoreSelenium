@@ -63,6 +63,7 @@ public class CheckoutPageGuestTooShortSingularInput extends BasePage{
     private String tooShortShippingGuestAddress;
     private String tooShortShippingGuestCity;
     private int tooShortShippingGuestPostCode;
+    private int tooShortShippingGuestPhone;
 
     public CheckoutPageGuestTooShortSingularInput(WebDriver driver) {super(driver);}
 
@@ -183,6 +184,25 @@ public class CheckoutPageGuestTooShortSingularInput extends BasePage{
 
     }
 
+    //invalid guest shipping address input data getter - too short shipping phone (2 digits)
+    public void invalidGuestShipAddressInputDataTooShortPhoneGetter(){
+
+        validShippingGuestFirstName = TestDataGenerator.getRandomFirstName();
+        validShippingGuestLastName = TestDataGenerator.getRandomLastName();
+        validShippingGuestAddress = TestDataGenerator.generateRandomAddress(8);
+        tooShortShippingGuestPhone = 45;
+
+        System.out.println("Invalid generated checkout guest shipping address input data (too short shipping phone): " + "\n");
+
+        logger.info("Valid guest shipping address first name (too short shipping phone): " + validShippingGuestFirstName);
+        logger.info("Valid guest shipping address last name (too short shipping phone): " + validShippingGuestLastName);
+        logger.info("Valid guest shipping address (too short shipping phone): " + validShippingGuestAddress);
+        logger.info("Too short shipping address phone number: " + tooShortShippingGuestPhone);
+
+        System.out.println("\n");
+
+    }
+
     //invalid guest shipping data input methods - too short singular input
     public void inputTooShortShippingGuestFirstNameIntoFirstNameInputField(){checkoutPageShippingFirstNameInputField.sendKeys(tooShortShippingGuestFirstName);}
     public void inputTooShortShippingGuestLastNameIntoLastNameInputField(){checkoutPageShippingLastNameInputField.sendKeys(tooShortShippingGuestLastName);}
@@ -196,6 +216,8 @@ public class CheckoutPageGuestTooShortSingularInput extends BasePage{
         checkoutPageShippingPostCodeInputField.clear();
         checkoutPageShippingPostCodeInputField.sendKeys(String.valueOf(tooShortShippingGuestPostCode));
     }
+
+    public void inputTooShortShippingGuestPhoneIntoPhoneInputField(){checkoutPageShippingPhoneInputField.sendKeys(String.valueOf(tooShortShippingGuestPhone));}
 
     //valid guest email address input method (for remaining inputs)
     public void inputValidGuestEmailIntoEmailInputField(){checkoutPageGuestEmailInputField.sendKeys(validGuestEmail);}
