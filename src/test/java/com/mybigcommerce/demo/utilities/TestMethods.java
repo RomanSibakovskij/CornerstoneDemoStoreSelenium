@@ -13453,6 +13453,106 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid Guest Product Order Checkout Confirmation Test - Too Long Guest Shipping Phone");
     }
 
+    //invalid guest checkout test method - too long guest billing address first name (100 chars)
+    protected void invalidGuestProductOrderCheckoutTooLongBillGuestFirstNameTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        CheckoutPageGuestValidCheckout checkoutPageGuestValidCheckout = new CheckoutPageGuestValidCheckout(driver);
+        CheckoutPageGuestTooLongSingularInput checkoutPageGuestTooLongSingularInput = new CheckoutPageGuestTooLongSingularInput(driver);
+        //checkout page checkout section web element assert (guest)
+        isCheckoutPageCheckoutSectionWebElementDisplayed(checkoutPage);
+        //checkout page checkout section text element assert (guest)
+        isCheckoutPageCheckoutSectionTextElementAsExpected(checkoutPage);
+        //capture screenshot of the checkout page display before data input
+        captureScreenshot(driver, "Checkout Page Display Before Data Input");
+        //checkout page order summary section web element assert
+        isCheckoutPageOrderSummarySectionWebElementDisplayed(checkoutPage);
+        //checkout page order summary section text element assert
+        isCheckoutPageOrderSummarySectionTextElementAsExpected(checkoutPage);
+        //log order summary data
+        logCheckoutPageOrderSummaryProductData(checkoutPage);
+        //valid guest email input data getter
+        checkoutPageGuestValidCheckout.validGuestEmailInputDataGetter();
+        //click 'Privacy policy' checkbox
+        checkoutPage.clickCheckoutSectionPrivacyPolicyCheckbox();
+        //input valid guest email into checkout email input field
+        checkoutPageGuestValidCheckout.inputValidGuestEmailIntoEmailInputField();
+        //capture screenshot of the checkout page checkout section display after valid data input
+        captureScreenshot(driver, "Checkout Page Checkout Section Display After Valid Guest Data Input");
+        //click checkout section "Continue" button
+        checkoutPage.clickCheckoutSectionContinueButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad();
+        //checkout page shipping address section web element assert (Selenium can't seem to find the elements with VALID selectors)
+        //isCheckoutPageShippingAddressSectionWebElementDisplayed(checkoutPage);
+        //checkout page shipping address section text element assert (Selenium can't seem to find the elements with VALID selectors)
+        //isCheckoutPageShippingAddressSectionTextElementAsExpected(checkoutPage);
+        //valid guest shipping address input data getter
+        checkoutPageGuestValidCheckout.validGuestShipAddressInputDataGetter();
+        //capture screenshot of the checkout page shipping address section display before data input
+        captureScreenshot(driver, "Checkout Page Shipping Address Section Display Before Data Input");
+        //click shipping address section country dropdown menu
+        checkoutPage.clickShipAddressSectionCountryDropdownMenu();
+        //select "United States" shipping country option
+        checkoutPage.selectShipUSCountryOption();
+        //input valid guest shipping address first name into first name input field
+        checkoutPageGuestValidCheckout.inputValidShippingGuestFirstNameIntoFirstNameInputField();
+        //input valid guest shipping address last name into last name input field
+        checkoutPageGuestValidCheckout.inputValidShippingGuestLastNameIntoLastNameInputField();
+        //input valid guest shipping address into shipping address input field
+        checkoutPageGuestValidCheckout.inputValidShippingGuestAddressIntoAddressInputField();
+        //input valid guest shipping address phone into phone input field
+        checkoutPageGuestValidCheckout.inputValidShippingGuestPhoneIntoPhoneInputField();
+        //capture screenshot of the checkout page shipping address section display after valid data input
+        captureScreenshot(driver, "Checkout Page Shipping Address Section Display After Valid Guest Data Input");
+        //click "Shipping and Billing address are same" checkbox
+        checkoutPage.clickShipAddressSectionShipBillAddressSameCheckbox();
+        //shipping address shipping method section web element assert
+        isCheckoutPageShippingAddressSectionShipMethodWebElementDisplayed(checkoutPage);
+        //shipping address shipping method section text element assert
+        isCheckoutPageShippingMethodSectionTextElementAsExpected(checkoutPage);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad();
+        //click shipping address section "Continue" button
+        checkoutPage.clickShipAddressSectionContinueButton();
+        //checkout page billing address section web element assert (Selenium can't seem to find the elements with VALID selectors)
+        //isCheckoutPageBillingAddressSectionWebElementDisplayed(checkoutPage);
+        //checkout page billing address section text element assert (Selenium can't seem to find the elements with VALID selectors)
+        //isCheckoutPageBillingAddressSectionTextElementAsExpected(checkoutPage);
+        //capture screenshot of the checkout page billing address section display before data input
+        captureScreenshot(driver, "Checkout Page Billing Address Section Display Before Data Input");;
+        //invalid guest billing address input data getter - too long guest billing first name (100 chars)
+        checkoutPageGuestTooLongSingularInput.invalidGuestBillAddressInputDataTooLongFirstNameGetter();
+        //click billing address section country dropdown menu
+        checkoutPage.clickBillAddressSectionCountryDropdownMenu();
+        //select "United States" billing country option
+        checkoutPage.selectBillUSCountryOption();
+        //input too long guest billing address first name into first name input field (100 chars)
+        checkoutPageGuestTooLongSingularInput.inputTooLongBillingGuestFirstNameIntoFirstNameInputField();
+        //input valid guest billing address last name into last name input field
+        checkoutPageGuestTooLongSingularInput.inputValidBillingGuestLastNameIntoLastNameInputField();
+        //input valid guest billing address into shipping address input field
+        checkoutPageGuestTooLongSingularInput.inputValidBillingGuestAddressIntoAddressInputField();
+        //input valid guest billing address city into city input field
+        checkoutPageGuestTooLongSingularInput.inputValidBillingGuestCityIntoCityInputField();
+        //input valid guest billing address post code into post code input field
+        checkoutPageGuestTooLongSingularInput.inputValidBillingGuestPostCodeIntoPostCodeInputField();
+        //input valid guest billing address phone into phone input field
+        checkoutPageGuestTooLongSingularInput.inputValidBillingGuestPhoneIntoPhoneInputField();
+        //capture screenshot of the checkout page billing address section display after invalid data input - too long guest billing first name
+        captureScreenshot(driver, "Checkout Page Billing Address Section Display After Invalid Guest Data Input - Too Long Billing First Name");
+        //click billing address section "Continue" button
+        checkoutPage.clickBillAddressSectionContinueButton();
+        //assert the user gets an expected error, log the issue otherwise
+        try {
+            assertEquals("First Name is too long.", checkoutPage.getCheckoutPageSingularInputError(), "The checkout page billing address section too long first name input error doesn't match expectations.");
+        } catch (Exception e) {
+            logger.error("The checkout page billing address section too long first name input error wasn't triggered, test has failed");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Guest Product Order Checkout Confirmation Test - Too Long Guest Billing First Name");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)

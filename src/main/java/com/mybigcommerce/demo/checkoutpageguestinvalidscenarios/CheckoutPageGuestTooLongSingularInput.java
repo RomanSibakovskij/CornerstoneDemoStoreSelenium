@@ -65,6 +65,17 @@ public class CheckoutPageGuestTooLongSingularInput extends BasePage{
     private int tooLongShippingGuestPostCode;
     private String tooLongShippingGuestPhone;
 
+    //valid guest billing address input data (for remaining inputs)
+    private String validBillingGuestFirstName;
+    private String validBillingGuestLastName;
+    private String validBillingGuestAddress;
+    private String validBillingGuestCity;
+    private String validBillingGuestPostCode;
+    private String validBillingGuestPhone;
+
+    //invalid guest billing address input data - too long singular input
+    private String tooLongBillingGuestFirstName;
+
     public CheckoutPageGuestTooLongSingularInput(WebDriver driver) {super(driver);}
 
     //invalid guest email address input data getter - too long email (100 chars -> name, domain)
@@ -227,6 +238,54 @@ public class CheckoutPageGuestTooLongSingularInput extends BasePage{
     public void inputValidShippingGuestLastNameIntoLastNameInputField(){checkoutPageShippingLastNameInputField.sendKeys(validShippingGuestLastName);}
     public void inputValidShippingGuestAddressIntoAddressInputField(){checkoutPageShippingAddressInputField.sendKeys(validShippingGuestAddress);}
     public void inputValidShippingGuestPhoneIntoPhoneInputField(){checkoutPageShippingPhoneInputField.sendKeys(validShippingGuestPhone);}
+
+    //billing address input
+
+    //invalid guest billing address input data getter - too long billing first name (100 chars)
+    public void invalidGuestBillAddressInputDataTooLongFirstNameGetter(){
+
+        tooLongBillingGuestFirstName = "Dhfgdsgdtwetrtjdsfgrfdgjhkjmngbfdsfffhkjgsedhgtfgsdetgtujyhgdsfgdfhtgfsdfdffgdsgfgfdgdsfgfdhgfdhgdfd";
+        validBillingGuestLastName = TestDataGenerator.getRandomLastName();
+        validBillingGuestAddress = TestDataGenerator.generateRandomAddress(8);
+        validBillingGuestCity = TestDataGenerator.getRandomCity();
+        validBillingGuestPostCode = String.valueOf(TestDataGenerator.getRandomPostalCode());
+        validBillingGuestPhone = TestDataGenerator.generatePhoneNumber(9);
+
+        System.out.println("Invalid generated checkout guest billing address input data (too long billing first name): " + "\n");
+
+        logger.info("Too long billing address first name: " + tooLongBillingGuestFirstName);
+        logger.info("Valid guest billing address last name (too long billing first name): " + validBillingGuestLastName);
+        logger.info("Valid guest billing address (too long billing first name): " + validBillingGuestAddress);
+        logger.info("Valid guest billing address city (too long billing first name): " + validBillingGuestCity);
+        logger.info("Valid guest billing address post code (too long billing first name): " + validBillingGuestPostCode);
+        logger.info("Valid guest billing address phone number (too long billing first name): " + validBillingGuestPhone);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid guest billing address data input methods - too long singular inputs
+    public void inputTooLongBillingGuestFirstNameIntoFirstNameInputField(){checkoutPageBillingFirstNameInputField.sendKeys(tooLongBillingGuestFirstName);}
+
+    //valid guest billing address data input methods (for remaining inputs)
+    public void inputValidBillingGuestFirstNameIntoFirstNameInputField(){checkoutPageBillingFirstNameInputField.sendKeys(validBillingGuestFirstName);}
+    public void inputValidBillingGuestLastNameIntoLastNameInputField(){checkoutPageBillingLastNameInputField.sendKeys(validBillingGuestLastName);}
+    public void inputValidBillingGuestAddressIntoAddressInputField(){
+        checkoutPageBillingAddressInputField.clear();
+        checkoutPageBillingAddressInputField.sendKeys(validBillingGuestAddress);
+    }
+    public void inputValidBillingGuestCityIntoCityInputField(){
+        checkoutPageBillingCityInputField.clear();
+        checkoutPageBillingCityInputField.sendKeys(validBillingGuestCity);
+    }
+    public void inputValidBillingGuestPostCodeIntoPostCodeInputField(){
+        checkoutPageBillingPostCodeInputField.clear();
+        checkoutPageBillingPostCodeInputField.sendKeys(validBillingGuestPostCode);
+    }
+    public void inputValidBillingGuestPhoneIntoPhoneInputField(){
+        checkoutPageBillingPhoneInputField.clear();
+        checkoutPageBillingPhoneInputField.sendKeys(validBillingGuestPhone);
+    }
 
 
 }
