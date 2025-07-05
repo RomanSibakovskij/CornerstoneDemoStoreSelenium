@@ -63,6 +63,7 @@ public class CheckoutPageGuestTooLongSingularInput extends BasePage{
     private String tooLongShippingGuestAddress;
     private String tooLongShippingGuestCity;
     private int tooLongShippingGuestPostCode;
+    private String tooLongShippingGuestPhone;
 
     public CheckoutPageGuestTooLongSingularInput(WebDriver driver) {super(driver);}
 
@@ -180,6 +181,25 @@ public class CheckoutPageGuestTooLongSingularInput extends BasePage{
 
     }
 
+    //invalid guest shipping address input data getter - too long shipping phone (30 digits)
+    public void invalidGuestShipAddressInputDataTooLongPhoneGetter(){
+
+        validShippingGuestFirstName = TestDataGenerator.getRandomFirstName();
+        validShippingGuestLastName = TestDataGenerator.getRandomLastName();
+        validShippingGuestAddress = TestDataGenerator.generateRandomAddress(8);
+        tooLongShippingGuestPhone = "234458723456789098765432345678";
+
+        System.out.println("Invalid generated checkout guest shipping address input data (too long shipping phone): " + "\n");
+
+        logger.info("Valid guest shipping address first name (too long shipping phone): " + validShippingGuestFirstName);
+        logger.info("Valid guest shipping address last name (too long shipping phone): " + validShippingGuestLastName);
+        logger.info("Valid guest shipping address (too long shipping phone): " + validShippingGuestAddress);
+        logger.info("Too long shipping address phone number: " + tooLongShippingGuestPhone);
+
+        System.out.println("\n");
+
+    }
+
     //invalid guest email address input method - too long guest email
     public void inputTooLongGuestEmailIntoEmailInputField(){checkoutPageGuestEmailInputField.sendKeys(tooLongGuestEmail);}
     public void inputTooLongShippingGuestFirstNameIntoFirstNameInputField(){checkoutPageShippingFirstNameInputField.sendKeys(tooLongShippingGuestFirstName);}
@@ -194,6 +214,8 @@ public class CheckoutPageGuestTooLongSingularInput extends BasePage{
         checkoutPageShippingPostCodeInputField.clear();
         checkoutPageShippingPostCodeInputField.sendKeys(String.valueOf(tooLongShippingGuestPostCode));
     }
+
+    public void inputTooLongShippingGuestPhoneIntoPhoneInputField(){checkoutPageShippingPhoneInputField.sendKeys(String.valueOf(tooLongShippingGuestPhone));}
 
     //valid input methods
 
