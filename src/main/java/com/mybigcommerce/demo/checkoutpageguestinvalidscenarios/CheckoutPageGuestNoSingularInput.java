@@ -75,6 +75,7 @@ public class CheckoutPageGuestNoSingularInput extends BasePage {
 
     //invalid guest billing address input data - no singular input (for remaining inputs)
     private String noBillingGuestFirstName;
+    private String noBillingGuestLastName;
 
     public CheckoutPageGuestNoSingularInput(WebDriver driver) {super(driver);}
 
@@ -266,6 +267,33 @@ public class CheckoutPageGuestNoSingularInput extends BasePage {
 
     }
 
+    //invalid guest billing address input data getter - no billing last name
+    public void invalidGuestBillAddressInputDataNoLastNameGetter(){
+
+        validBillingGuestFirstName = TestDataGenerator.getRandomFirstName();
+        noBillingGuestLastName = "";
+        validBillingGuestAddress = TestDataGenerator.generateRandomAddress(8);
+        validBillingGuestCity = TestDataGenerator.getRandomCity();
+        validBillingGuestPostCode = String.valueOf(TestDataGenerator.getRandomPostalCode());
+        validBillingGuestPhone = TestDataGenerator.generatePhoneNumber(9);
+
+        System.out.println("Invalid generated checkout guest billing address input data (no billing last name): " + "\n");
+
+        logger.info("Valid guest billing address first name (no billing last name): " + validBillingGuestFirstName);
+        logger.info("No billing address last name: " + noBillingGuestLastName);
+        logger.info("Valid guest billing address (no billing last name): " + validBillingGuestAddress);
+        logger.info("Valid guest billing address city (no billing last name): " + validBillingGuestCity);
+        logger.info("Valid guest billing address post code (no billing last name): " + validBillingGuestPostCode);
+        logger.info("Valid guest billing address phone number (no billing last name): " + validBillingGuestPhone);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid guest billing address data input methods - no singular input
+    public void inputNoBillingGuestFirstNameIntoFirstNameInputField(){checkoutPageBillingFirstNameInputField.sendKeys(noBillingGuestFirstName);}
+    public void inputNoBillingGuestLastNameIntoLastNameInputField(){checkoutPageBillingLastNameInputField.sendKeys(noBillingGuestLastName);}
+
     //valid guest billing address data input methods (for remaining inputs)
     public void inputValidBillingGuestFirstNameIntoFirstNameInputField(){checkoutPageBillingFirstNameInputField.sendKeys(validBillingGuestFirstName);}
     public void inputValidBillingGuestLastNameIntoLastNameInputField(){checkoutPageBillingLastNameInputField.sendKeys(validBillingGuestLastName);}
@@ -285,10 +313,5 @@ public class CheckoutPageGuestNoSingularInput extends BasePage {
         checkoutPageBillingPhoneInputField.clear();
         checkoutPageBillingPhoneInputField.sendKeys(validBillingGuestPhone);
     }
-
-    //invalid guest billing address data input methods - no singular input
-    public void inputNoBillingGuestFirstNameIntoFirstNameInputField(){checkoutPageBillingFirstNameInputField.sendKeys(noBillingGuestFirstName);}
-
-
 
 }
