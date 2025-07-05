@@ -59,6 +59,7 @@ public class CheckoutPageGuestTooShortSingularInput extends BasePage{
     //invalid guest shipping address input data - too short singular input
     private String tooShortGuestEmail;
     private String tooShortShippingGuestFirstName;
+    private String tooShortShippingGuestLastName;
 
     public CheckoutPageGuestTooShortSingularInput(WebDriver driver) {super(driver);}
 
@@ -99,8 +100,28 @@ public class CheckoutPageGuestTooShortSingularInput extends BasePage{
 
     }
 
+    //invalid guest shipping address input data getter - too short shipping last name
+    public void invalidGuestShipAddressInputDataTooShortLastNameGetter(){
+
+        validShippingGuestFirstName = TestDataGenerator.getRandomFirstName();
+        tooShortShippingGuestLastName = "A";
+        validShippingGuestAddress = TestDataGenerator.generateRandomAddress(8);
+        validShippingGuestPhone = TestDataGenerator.generatePhoneNumber(9);
+
+        System.out.println("Invalid generated checkout guest shipping address input data (too short shipping last name): " + "\n");
+
+        logger.info("Valid guest shipping address first name (too short shipping last name): " + validShippingGuestFirstName);
+        logger.info("Too short shipping address last name: " + tooShortShippingGuestLastName);
+        logger.info("Valid guest shipping address (too short shipping last name): " + validShippingGuestAddress);
+        logger.info("Valid guest shipping address phone number (too short shipping last name): " + validShippingGuestPhone);
+
+        System.out.println("\n");
+
+    }
+
     //invalid guest shipping data input methods - too short singular input
     public void inputTooShortShippingGuestFirstNameIntoFirstNameInputField(){checkoutPageShippingFirstNameInputField.sendKeys(tooShortShippingGuestFirstName);}
+    public void inputTooShortShippingGuestLastNameIntoLastNameInputField(){checkoutPageShippingLastNameInputField.sendKeys(tooShortShippingGuestLastName);}
 
     //valid guest email address input method (for remaining inputs)
     public void inputValidGuestEmailIntoEmailInputField(){checkoutPageGuestEmailInputField.sendKeys(validGuestEmail);}
