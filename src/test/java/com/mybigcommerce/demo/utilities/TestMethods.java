@@ -16399,8 +16399,8 @@ public class TestMethods extends BaseTest{
 
     //valid add product review tests (this works only after product purchase)
 
-    //valid add product ("Oak Cheese Grater") review test method (as a guest)
-    protected void addOakGraterProductReviewTest(){
+    //valid add product ("Oak Cheese Grater") review test method (as a registered user)
+    protected void addOakGraterProductReviewRegUserTest(){
         GeneralPage generalPage = new GeneralPage(driver);
         HomePage homePage = new HomePage(driver);
         SingleProductPage singleProductPage = new SingleProductPage(driver);
@@ -16438,11 +16438,7 @@ public class TestMethods extends BaseTest{
         //select set rating review stars
         addReviewModalPage.selectSetReviewRatingStarOption(4);
         //valid guest review input data
-        addReviewModalPage.validGuestReviewInputDataGetter();
-        //input valid user name into name input field
-        //addReviewModalPage.inputValidGuestNameIntoNameInputField();
-        //input valid user email into email input field
-        //addReviewModalPage.inputValidUserEmailIntoEmailInputField();
+        addReviewModalPage.validRegUserReviewInputDataGetter();
         //input valid review title into review subject input field
         addReviewModalPage.inputValidReviewTitleIntoReviewSubjectInputField();
         //input valid review into comments textarea
@@ -16455,6 +16451,105 @@ public class TestMethods extends BaseTest{
         if(singleProductPage.getSingleProductPageErrorBoxMessage().equals("Only customers who have purchased this item can review it.")){
             logger.error("The register user cannot leave review onto a purchased item, test has failed");
         }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Add Single Category Dashboard Page Set Single (Canvas Laundry Cart (Utility)) Product To Cart Test Result (as a guest)");
+    }
+
+    //valid add product ("Canvas Laundry Cart") review test method (as a guest)
+    protected void addUtilityLaundryCartProductReviewTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        HomePage homePage = new HomePage(driver);
+        SingleCategoryDashboardPage singleCategoryDashboardPage = new SingleCategoryDashboardPage(driver);
+        SingleProductPage singleProductPage = new SingleProductPage(driver);
+        AddReviewModalPage addReviewModalPage = new AddReviewModalPage(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //home page web element assert
+        isHomePageWebElementDisplayed(homePage);
+        //home page text element assert
+        isHomePageTextElementAsExpected(homePage);
+        //capture screenshot of the home page display
+        captureScreenshot(driver, "Home Page Display");
+        //log home page product data
+        logHomePageProductData(homePage);
+        //click header lower navbar "Utility" category link
+        generalPage.clickHeaderLowerNavUtilityLink();
+        //click "Other" dropdown button
+        singleCategoryDashboardPage.clickOtherDropdownButton();
+        //single category dashboard page web element assert
+        isSingleProductCategoryDashboardPageWebElementDisplayed(singleCategoryDashboardPage);
+        //single category dashboard page text element assert
+        isSingleCategoryDashboardPageTextElementAsExpected(singleCategoryDashboardPage);
+        //log single category dashboard page subtext (these are dynamic, depending on the category)
+        logSingleCategoryDashboardPageSubtext(singleCategoryDashboardPage);
+        //log single category dashboard page product data
+        logSingleCategoryDashboardPageProductData(singleCategoryDashboardPage);
+        //capture screenshot of the single category dashboard page display
+        captureScreenshot(driver, "Single Category Dashboard Page Display");
+        //click "Sort by" dropdown menu
+        singleCategoryDashboardPage.clickSortByDropdownMenu();
+        //select "Sort by" newest option
+        singleCategoryDashboardPage.selectSortByNewestOption();
+        //capture screenshot of the single category dashboard page display after selected set sort by (newest) option
+        captureScreenshot(driver, "Single Category Dashboard Page Display After Selecting 'Sort By Newest' Option");
+        //log single category dashboard page product data (to verify the product list has been sorted)
+        logSingleCategoryDashboardPageProductData(singleCategoryDashboardPage);
+        //click "Sort by" dropdown menu
+        singleCategoryDashboardPage.clickSortByDropdownMenu();
+        //select "Sort by bestselling" option
+        singleCategoryDashboardPage.selectSortByBestSellingOption();
+        //capture screenshot of the single category dashboard page display after selected set sort by (bestselling) option
+        captureScreenshot(driver, "Single Category Dashboard Page Display After Selecting 'Sort By Bestselling' Option");
+        //log single category dashboard page product data (to verify the product list has been sorted)
+        logSingleCategoryDashboardPageProductData(singleCategoryDashboardPage);
+        //click "Sort by" dropdown menu
+        singleCategoryDashboardPage.clickSortByDropdownMenu();
+        //select "Sort by name A to Z" option
+        singleCategoryDashboardPage.selectSortByAToZOption();
+        //capture screenshot of the single category dashboard page display after selected set sort by (name A to Z) option
+        captureScreenshot(driver, "Single Category Dashboard Page Display After Selecting 'Sort By Name A to Z' Option");
+        //log single category dashboard page product data (to verify the product list has been sorted)
+        logSingleCategoryDashboardPageProductData(singleCategoryDashboardPage);
+        //click set product ("Canvas Laundry Cart") name link
+        singleCategoryDashboardPage.clickSetProductNameLink(1);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad();
+        //single product page web element assert
+        isSingleProductPageWebElementDisplayed(singleProductPage);
+        //single product page text element assert
+        isSingleProductPageTextElementAsExpected(singleProductPage);
+        //log single product page data
+        logSingleProductPageData(singleProductPage);
+        //click 'Write a Review' link
+        singleProductPage.clickWriteAReviewLink();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad();
+        //add review modal page web element assert (Selenium can't find these element with VALID selectors -> guest side)
+        //isAddReviewModalPageWebElementDisplayed(addReviewModalPage);
+        //add review modal page text element assert (Selenium can't find these element with VALID selectors -> guest side)
+        //isAddReviewModalPageTextElementAsExpected(addReviewModalPage);
+        //capture screenshot of the add review modal page display before guest data input
+        captureScreenshot(driver, "Add Review Modal Page Display Before Guest Data Input");
+        //click "Rating" dropdown menu
+        addReviewModalPage.clickRatingDropdownMenu();
+        //select set rating review stars
+        addReviewModalPage.selectSetReviewRatingStarOption(4);
+        //valid guest review input data
+        addReviewModalPage.validGuestReviewInputDataGetter();
+        //input valid guest name into name input field
+        addReviewModalPage.inputValidUserNameIntoNameInputField();
+        //input valid guest email into email input field
+        addReviewModalPage.inputValidUserEmailIntoEmailInputField();
+        //input valid review title into review subject input field
+        addReviewModalPage.inputValidReviewTitleIntoReviewSubjectInputField();
+        //input valid review into comments textarea
+        addReviewModalPage.inputValidReviewIntoCommentsTextArea();
+        //capture screenshot of the add review modal page display after valid guest data input
+        captureScreenshot(driver, "Add Review Modal Page Display After Valid Guest Data Input");
+        //click 'Submit review' button
+        addReviewModalPage.clickSubmitReviewButton();
         //capture screenshot of the test result
         captureScreenshot(driver, "Add Single Category Dashboard Page Set Single (Canvas Laundry Cart (Utility)) Product To Cart Test Result (as a guest)");
     }
