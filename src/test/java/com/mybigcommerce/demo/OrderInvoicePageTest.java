@@ -29,4 +29,26 @@ public class OrderInvoicePageTest extends TestMethods {
         orderInvoicePageOrderConfirmationTest();
     }
 
+    //Test 030a -> multiple most popular products ("Oak Cheese Grater") order submission confirmation test method (as a registered user)
+    @Test
+    @DisplayName("Multiple Most Popular Products Order Submission Confirmation Test (as a registered user)")
+    @Tag("Multiple_Most_Popular_Products_Checkout_Submission_Confirmation")
+    @Tag("Test_As_A_Reg_User")
+    void multipleMostPopularProductsOrderConfirmationRegUserTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //multiple most popular products ("Oak Cheese Grater") addition to cart test method (as a registered user)
+        addMultipleMostPopularProductsToCartRegUserTest();
+        //multiple most popular products ("Oak Cheese Grater") addition to check out test method (as a registered user)
+        addProductToCheckoutTest();
+        //multiple most popular products ("Oak Cheese Grater") check out confirmation test method (as a registered user)
+        validRegUserProductOrderCheckoutTest();
+        //navigate back to home page (with driver) (the header home link nor "Continue shopping" button seem to be working during automation run(manually, everything works)
+        navigateToHomePageTest();
+        //multiple most popular products ("Oak Cheese Grater") order submission confirmation test method (as a registered user)
+        orderInvoicePageOrderConfirmationTest();
+    }
+
 }
