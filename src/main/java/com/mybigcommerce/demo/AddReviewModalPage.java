@@ -49,7 +49,72 @@ public class AddReviewModalPage extends BasePage{
     @FindBy(xpath = "//fieldset[@class='form-fieldset']//input[@class='button button--primary']")
     private WebElement addReviewPageModalSubmitReviewButton;
 
+    //valid review input data
+    private String validReviewTitle;
+    private String validReviewGuestName;
+    private String validReviewRegUserName;
+    private String validReviewGuestEmail;
+    private String validReview;
+
     public AddReviewModalPage(WebDriver driver) {super(driver);}
+
+    //valid review input data getters
+    public void validGuestReviewInputDataGetter(){
+
+        validReviewGuestName = TestDataGenerator.getRandomFirstName() + " " + TestDataGenerator.getRandomLastName();
+        validReviewGuestEmail = TestDataGenerator.generateRandomEmailAddress(8);
+        validReviewTitle = TestDataGenerator.getRandomReviewTitle();
+        validReview = TestDataGenerator.getRandomReview();
+
+        System.out.println("Valid generated review input data(guest): " + "\n");
+
+        logger.info("Valid generated guest name: " + validReviewGuestName);
+        logger.info("Valid generated guest email: " + validReviewGuestEmail);
+        logger.info("Valid generated review title (guest): " + validReviewTitle);
+        logger.info("Valid generated review (guest): " + validReview);
+
+        System.out.println("\n");
+
+    }
+
+    public void validRegUserReviewInputDataGetter(){
+
+        RegisterPage registerPage = new RegisterPage(driver);
+
+        validReviewRegUserName = registerPage.getValidRegisterFirstName() + " " + registerPage.getValidRegisterLastName();
+        validReviewTitle = TestDataGenerator.getRandomReviewTitle();
+        validReview = TestDataGenerator.getRandomReview();
+
+        System.out.println("Valid generated review input data(registered user): " + "\n");
+
+        logger.info("Valid generated registered user email: " + validReviewGuestEmail);
+        logger.info("Valid generated review title (registered user): " + validReviewTitle);
+        logger.info("Valid generated review (registered user): " + validReview);
+
+        System.out.println("\n");
+
+    }
+
+    //valid review input data methods
+    public void inputValidUserNameIntoNameInputField(){addReviewPageModalNameInputField.sendKeys(validReviewGuestName);}
+    public void inputValidUserEmailIntoEmailInputField(){addReviewPageModalEmailInputField.sendKeys(validReviewGuestEmail);}
+    public void inputValidReviewTitleIntoReviewSubjectInputField(){addReviewPageModalReviewSubjectInputField.sendKeys(validReviewTitle);}
+    public void inputValidReviewIntoCommentsTextArea(){addReviewPageModalCommentsTextArea.sendKeys(validReview);}
+
+    //click 'Rating' dropdown menu method
+    public void clickRatingDropdownMenu(){
+        Actions action = new Actions(driver);
+        action.moveToElement(addReviewPageModalRatingDropdownMenu).click().perform();
+    }
+
+    //select set rating star option method
+    public void selectSetReviewRatingStarOption(int index){addReviewPageModalRatingStarOptionElements.get(index).click();}
+
+    //click "Submit review" button method
+    public void clickSubmitReviewButton(){
+        Actions action = new Actions(driver);
+        action.moveToElement(addReviewPageModalSubmitReviewButton).click().perform();
+    }
 
     //add review page text element getters
     public String getAddReviewPageModalTitle() {return addReviewPageModalTitle.getText();}

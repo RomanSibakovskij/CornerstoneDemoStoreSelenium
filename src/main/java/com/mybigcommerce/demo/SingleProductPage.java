@@ -120,6 +120,9 @@ public class SingleProductPage extends BasePage {
         action.moveToElement(shoppingCartModalViewOrEditCartButton).click().perform();
     }
 
+    //click 'Write a Review' link method
+    public void clickWriteAReviewLink(){singleProductPageWriteAReviewLink.click();}
+
     //single product page product data getters
     public String getSingleProductPageTitle() {return singleProductPageTitle.getText();}
     public String getSingleProductPageProductBrandLinkText(){return singleProductPageBrandLink.getText();}
