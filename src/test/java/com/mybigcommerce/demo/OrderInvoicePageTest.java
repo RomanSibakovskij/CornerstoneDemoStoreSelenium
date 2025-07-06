@@ -121,4 +121,26 @@ public class OrderInvoicePageTest extends TestMethods {
         orderInvoicePageOrderConfirmationTest();
     }
 
+    //Test 032a -> single category dashboard page set multiple products ("Openhouse No. 3") order submission confirmation test method (as a registered user)
+    @Test
+    @DisplayName("Single Category Dashboard Page Set Multiple Products Order Submission Confirmation Test (as a registered user)")
+    @Tag("Multiple_Set_Category_Products_Checkout_Submission_Confirmation")
+    @Tag("Test_As_A_Reg_User")
+    void multipleSetCategoryOrderCheckoutConfirmationRegUserTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //single category dashboard page set multiple products ("Openhouse No. 3") addition to cart test method (as a registered user)
+        addMultiplePublicationOpenHouseProductToCartRegUserTest();
+        //single category dashboard page set multiple products ("Openhouse No. 3") addition to check out test method (as a registered user)
+        addProductToCheckoutTest();
+        //single category dashboard page set multiple products ("Openhouse No. 3") check out confirmation test method (as a registered user)
+        validRegUserProductOrderCheckoutTest();
+        //navigate back to home page (with driver) (the header home link nor "Continue shopping" button seem to be working during automation run(manually, everything works)
+        navigateToHomePageTest();
+        //single category dashboard page set multiple products ("Openhouse No. 3") order submission confirmation test method (as a registered user)
+        orderInvoicePageOrderConfirmationTest();
+    }
+
 }
