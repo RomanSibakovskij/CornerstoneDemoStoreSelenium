@@ -97,4 +97,28 @@ public class OrderInvoicePageTest extends TestMethods {
         orderInvoicePageOrderConfirmationTest();
     }
 
+    //single category dashboard page set product(s) order submission confirmation tests
+
+    //Test 032 -> single category dashboard page set single product ("Gather Journal Issue 7") order submission confirmation test method (as a registered user)
+    @Test
+    @DisplayName("Single Category Dashboard Page Set Single Product Order Submission Confirmation Test (as a registered user)")
+    @Tag("Single_Set_Category_Product_Checkout_Submission_Confirmation")
+    @Tag("Test_As_A_Reg_User")
+    void singleSetCategoryProductOrderConfirmationRegUserTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //single category dashboard page set single product ("Gather Journal Issue 7") addition to cart test method (as a registered user)
+        addSinglePublicationsGatherJournalProductToCartRegUserTest();
+        //single category dashboard page set single product ("Gather Journal Issue 7") addition to check out test method (as a registered user)
+        addProductToCheckoutTest();
+        //single category dashboard page set single product ("Gather Journal Issue 7") check out confirmation test method (as a registered user)
+        validRegUserProductOrderCheckoutTest();
+        //navigate back to home page (with driver) (the header home link nor "Continue shopping" button seem to be working during automation run(manually, everything works)
+        navigateToHomePageTest();
+        //single category dashboard page set single product ("Gather Journal Issue 7") order submission confirmation test method (as a registered user)
+        orderInvoicePageOrderConfirmationTest();
+    }
+
 }
