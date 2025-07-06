@@ -90,6 +90,7 @@ public class CheckoutPageGuestTooLongSingularInput extends BasePage{
     //invalid guest payment section input data - too long singular input
     private String tooLongTestCreditCardNumber ; //17 digits
     private String tooLongGuestCreditCardExpDate;
+    private String tooLongGuestCreditCardName;
 
     public CheckoutPageGuestTooLongSingularInput(WebDriver driver) {super(driver);}
 
@@ -474,9 +475,28 @@ public class CheckoutPageGuestTooLongSingularInput extends BasePage{
 
     }
 
+    //invalid guest payment input data getter - too long guest credit card name (100 chars)
+    public void invalidGuestPaymentInputDataTooLongCreditCardNameGetter(){
+
+        validGuestCreditCardExpDate = TestDataGenerator.generateExpirationDate();
+        tooLongGuestCreditCardName =  "Ghfgdsgdtwetrtjdsfgrfdgjhkjmngbfdsfffhkjgsedhgtfgsdetgtujyhgdsfgdfhtgfsdfdffgdsgfgfdgdsfgfdhgfdhgdfd" ;
+        validGuestCreditCardCVVNumber = TestDataGenerator.generateCVV();
+
+        System.out.println("Invalid generated checkout guest payment input data (too long guest credit card name): " + "\n");
+
+        logger.info("Valid test credit card number (too long guest credit card name): " + validTestCreditCardNumber);
+        logger.info("Valid guest credit card expiration date (too long guest credit card name): " + validGuestCreditCardExpDate);
+        logger.info("Too long credit card full name: " + tooLongGuestCreditCardName);
+        logger.info("Valid guest credit card CVV number (too long guest credit card name): " + validGuestCreditCardCVVNumber);
+
+        System.out.println("\n");
+
+    }
+
     //invalid guest payment data input methods - too long singular input
     public void inputTooLongPaymentTestCreditCardNumberIntoCreditCardNumberInputField(){checkoutPagePaymentCreditCardNumberInputField.sendKeys(tooLongTestCreditCardNumber);}
     public void inputTooLongPaymentGuestCreditCardExpDateIntoCreditCardExpDateInputField(){checkoutPagePaymentCreditCardExpDateInputField.sendKeys(tooLongGuestCreditCardExpDate);}
+    public void inputTooLongPaymentGuestCreditCardNameIntoCreditCardNameInputField(){checkoutPagePaymentCreditCardNameInputField.sendKeys(tooLongGuestCreditCardName);}
 
     //valid guest payment data input methods
     public void inputValidPaymentTestCreditCardNumberIntoCreditCardNumberInputField(){checkoutPagePaymentCreditCardNumberInputField.sendKeys(validTestCreditCardNumber);}
