@@ -17366,6 +17366,45 @@ public class TestMethods extends BaseTest{
         assertTrue(orderInvoicePage.isOrderContentsReorderButtonDisplayed(), "The order invoice page reorder button isn't displayed");
     }
 
+    //add review modal page web element assert test method
+    protected void isAddReviewModalPageWebElementDisplayed(AddReviewModalPage addReviewModalPage) {
+        //assert add review modal page title is displayed
+        assertTrue(addReviewModalPage.isAddReviewPageModalTitleDisplayed(), "The add review modal page title isn't displayed");
+        //assert add review modal page close button is displayed
+        assertTrue(addReviewModalPage.isAddReviewPageModalCloseButtonDisplayed(), "The add review modal page close button isn't displayed");
+        //assert add review modal page product image is displayed
+        assertTrue(addReviewModalPage.isAddReviewPageModalProductImageDisplayed(), "The add review modal page product image isn't displayed");
+        //assert add review modal page product brand is displayed
+        assertTrue(addReviewModalPage.isAddReviewPageModalProductBrandDisplayed(), "The add review modal page product brand isn't displayed");
+        //assert add review modal page product name is displayed
+        assertTrue(addReviewModalPage.isAddReviewPageModalProductNameDisplayed(), "The add review modal page product name isn't displayed");
+        //assert add review modal page rating subtext is displayed
+        assertTrue(addReviewModalPage.isAddReviewPageModalRatingSubtextDisplayed(), "The add review modal page rating subtext isn't displayed");
+        //assert add review modal page rating dropdown menu is displayed
+        assertTrue(addReviewModalPage.isAddReviewPageModalRatingDropdownMenuDisplayed(), "The add review modal page rating dropdown menu isn't displayed");
+        //assert add review modal page name subtext is displayed
+        assertTrue(addReviewModalPage.isAddReviewPageModalNameSubtextDisplayed(), "The add review modal page name subtext isn't displayed");
+        //assert add review modal page name input field is displayed
+        assertTrue(addReviewModalPage.isAddReviewPageModalNameInputFieldDisplayed(), "The add review modal page name input field isn't displayed");
+        //assert add review modal page email subtext is displayed
+        assertTrue(addReviewModalPage.isAddReviewPageModalEmailSubtextDisplayed(), "The add review modal page email subtext isn't displayed");
+        //assert add review modal page email input field is displayed
+        assertTrue(addReviewModalPage.isAddReviewPageModalEmailInputFieldDisplayed(), "The add review modal page email input field isn't displayed");
+        //assert add review modal page review subject subtext is displayed
+        assertTrue(addReviewModalPage.isAddReviewPageModalReviewSubjectSubtextDisplayed(), "The add review modal page review subject subtext isn't displayed");
+        //assert add review modal page review subject input field is displayed
+        assertTrue(addReviewModalPage.isAddReviewPageModalReviewSubjectInputFieldDisplayed(), "The add review modal page review subject input field isn't displayed");
+        //assert add review modal page review subtext is displayed
+        assertTrue(addReviewModalPage.isAddReviewPageModalCommentsSubtextDisplayed(), "The add review modal page review subtext isn't displayed");
+        //assert add review modal page review textarea is displayed
+        assertTrue(addReviewModalPage.isAddReviewPageModalCommentsInputFieldDisplayed(), "The add review modal page review textarea isn't displayed");
+        //assert add review modal page submit review button is displayed
+        assertTrue(addReviewModalPage.isAddReviewPageModalSubmitReviewButtonDisplayed(), "The add review modal page submit review isn't displayed");
+        //list elements
+        //assert add review modal page required tags are displayed (as a list)
+        assertTrue(addReviewModalPage.isAddReviewPageModalNameRequiredTagDisplayed(), "The add review modal page required tags aren't displayed");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert test method(elements that all pages have)
@@ -17855,6 +17894,26 @@ public class TestMethods extends BaseTest{
         assertTrue(orderAwaitFulfillTags.stream().allMatch("AWAITING FULFILLMENT"::equals),
                 "The account dashboard page orders section awaiting fulfillment tags don't match expectations.");
 
+    }
+
+    //add review modal page text element assert test method
+    protected void isAddReviewModalPageTextElementAsExpected(AddReviewModalPage addReviewModalPage) {
+        //assert add review modal page title is as expected
+        assertEquals("Write a Review", addReviewModalPage.getAddReviewPageModalTitle(), "The add review modal page title doesn't match expectations.");
+        //assert add review modal page rating subtext is as expected
+        assertEquals("Rating", addReviewModalPage.getAddReviewPageModalRatingSubtext(), "The add review modal page rating subtext doesn't match expectations.");
+        //assert add review modal page name subtext is as expected
+        assertEquals("Rating", addReviewModalPage.getAddReviewPageModalNameSubtext(), "The add review modal page name subtext doesn't match expectations.");
+        //assert add review modal page email subtext is as expected
+        assertEquals("Rating", addReviewModalPage.getAddReviewPageModalEmailSubtext(), "The add review modal page email subtext doesn't match expectations.");
+        //assert add review modal page review subject subtext is as expected
+        assertEquals("Rating", addReviewModalPage.getAddReviewPageModalReviewSubjectSubtext(), "The add review modal page review subject subtext doesn't match expectations.");
+        //assert add review modal page comments subtext is as expected
+        assertEquals("Rating", addReviewModalPage.getAddReviewPageModalCommentsSubtext(), "The add review modal page comments subtext doesn't match expectations.");
+        //list elements
+        //assert register page required tags and their count are as expected
+        List<String> expected = Collections.nCopies(5, "REQUIRED"); //assert the tag count and content is as expected (since it's an array of tags)
+        assertEquals(expected, addReviewModalPage.getAddReviewPageModalRequiredTag(), "The add review modal page required tags don't match expectations.");
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
