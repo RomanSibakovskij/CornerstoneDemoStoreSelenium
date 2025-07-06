@@ -157,4 +157,19 @@ public class CheckoutPageGuestInvalidSingularInputFormatTest extends TestMethods
         invalidGuestProductOrderCheckoutInvalidBillGuestAddressFormatTest();
     }
 
+    //Test 026aam -> invalid single most popular product ("Tiered Wire Basket") check out confirmation test method (as a guest) - invalid guest billing city format (special symbols only) (the error wasn't triggered, test has failed)
+    @Test
+    @DisplayName("Invalid Single Most Popular Product Addition To Checkout Test (as a guest) - Invalid Billing City Format")
+    @Tag("Invalid_Single_Most_Popular_Product_Checkout_Confirmation")
+    @Tag("Invalid_Singular_Input_Format")
+    @Tag("Test_As_A_Guest")
+    void invalidSingleMostPopularProductCheckoutConfirmationInvalidGuestBillCityFormatTest() {
+        //single most popular product ("Tiered Wire Basket") addition to cart test method (as a guest)
+        addSingleMostPopularProductToCartGuestTest();
+        //single most popular product ("Tiered Wire Basket") addition to check out test method (as a guest)
+        addProductToCheckoutTest();
+        //invalid single most popular product ("Tiered Wire Basket") check out confirmation test method (as a guest) - invalid guest billing city format (special symbols only)
+        invalidGuestProductOrderCheckoutInvalidBillGuestCityFormatTest();
+    }
+
 }
