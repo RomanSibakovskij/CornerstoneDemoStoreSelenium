@@ -58,6 +58,7 @@ public class CheckoutPageGuestInvalidSingularInputFormat extends BasePage{
 
     //invalid guest shipping address input data - invalid singular input format
     private String invalidGuestEmailFormat;
+    private String invalidShippingGuestFirstNameFormat;
 
     public CheckoutPageGuestInvalidSingularInputFormat(WebDriver driver) {super(driver);}
 
@@ -76,6 +77,29 @@ public class CheckoutPageGuestInvalidSingularInputFormat extends BasePage{
 
     //invalid guest email address input method - invalid guest email format
     public void inputInvalidGuestEmailFormatIntoEmailInputField(){checkoutPageGuestEmailInputField.sendKeys(invalidGuestEmailFormat);}
+
+    //shipping address input
+
+    //invalid guest shipping address input data getter - invalid shipping first name format (special symbols only)
+    public void invalidGuestShipAddressInputDataInvalidFirstNameFormatGetter(){
+
+        invalidShippingGuestFirstNameFormat = "#$#$^%";
+        validShippingGuestLastName = TestDataGenerator.getRandomLastName();
+        validShippingGuestAddress = TestDataGenerator.generateRandomAddress(8);
+        validShippingGuestPhone = TestDataGenerator.generatePhoneNumber(9);
+
+        System.out.println("Invalid generated checkout guest shipping address input data (invalid shipping first name format): " + "\n");
+
+        logger.info("Invalid shipping address first name format: " + invalidShippingGuestFirstNameFormat);
+        logger.info("Valid guest shipping address last name (invalid shipping first name format): " + validShippingGuestLastName);
+        logger.info("Valid guest shipping address (invalid shipping first name format): " + validShippingGuestAddress);
+        logger.info("Valid guest shipping address phone number (invalid shipping first name format): " + validShippingGuestPhone);
+
+        System.out.println("\n");
+
+    }
+
+    public void inputInvalidShippingGuestFirstNameFormatIntoFirstNameInputField(){checkoutPageShippingFirstNameInputField.sendKeys(invalidShippingGuestFirstNameFormat);}
 
     //valid input methods
 
