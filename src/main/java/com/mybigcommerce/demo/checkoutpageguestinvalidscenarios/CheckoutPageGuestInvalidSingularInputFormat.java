@@ -63,6 +63,7 @@ public class CheckoutPageGuestInvalidSingularInputFormat extends BasePage{
     private String invalidShippingGuestAddressFormat;
     private String invalidShippingGuestCityFormat;
     private String invalidShippingGuestPostCodeFormat;
+    private String invalidShippingGuestPhoneFormat;
 
     public CheckoutPageGuestInvalidSingularInputFormat(WebDriver driver) {super(driver);}
 
@@ -183,6 +184,25 @@ public class CheckoutPageGuestInvalidSingularInputFormat extends BasePage{
 
     }
 
+    //invalid guest shipping address input data getter - invalid shipping phone format (special symbols only)
+    public void invalidGuestShipAddressInputDataInvalidPhoneFormatGetter(){
+
+        validShippingGuestFirstName = TestDataGenerator.getRandomFirstName();
+        validShippingGuestLastName = TestDataGenerator.getRandomLastName();
+        validShippingGuestAddress = TestDataGenerator.generateRandomAddress(8);
+        invalidShippingGuestPhoneFormat = "@$#$^%&^";
+
+        System.out.println("Invalid generated checkout guest shipping address input data (invalid shipping phone format): " + "\n");
+
+        logger.info("Valid guest shipping address first name (invalid shipping phone format): " + validShippingGuestFirstName);
+        logger.info("Valid guest shipping address last name (invalid shipping phone format): " + validShippingGuestLastName);
+        logger.info("Valid guest shipping address (invalid shipping phone format): " + validShippingGuestAddress);
+        logger.info("Invalid shipping address phone format: " + invalidShippingGuestPhoneFormat);
+
+        System.out.println("\n");
+
+    }
+
     //invalid guest shipping data input methods - invalid singular input format
     public void inputInvalidShippingGuestFirstNameFormatIntoFirstNameInputField(){checkoutPageShippingFirstNameInputField.sendKeys(invalidShippingGuestFirstNameFormat);}
     public void inputInvalidShippingGuestLastNameFormatIntoLastNameInputField(){checkoutPageShippingLastNameInputField.sendKeys(invalidShippingGuestLastNameFormat);}
@@ -196,6 +216,8 @@ public class CheckoutPageGuestInvalidSingularInputFormat extends BasePage{
         checkoutPageShippingPostCodeInputField.clear();
         checkoutPageShippingPostCodeInputField.sendKeys(invalidShippingGuestPostCodeFormat);
     }
+
+    public void inputInvalidShippingGuestPhoneFormatIntoPhoneInputField(){checkoutPageShippingPhoneInputField.sendKeys(invalidShippingGuestPhoneFormat);}
 
     //valid input methods
 
