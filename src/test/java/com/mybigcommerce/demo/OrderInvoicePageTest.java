@@ -167,4 +167,26 @@ public class OrderInvoicePageTest extends TestMethods {
         orderInvoicePageOrderConfirmationTest();
     }
 
+    //Test 033a -> multiple searched products ("Dustpan & Brush") order submission confirmation test method (as a registered user)
+    @Test
+    @DisplayName("Multiple Searched Products Order Submission Confirmation Test (as a registered user)")
+    @Tag("Multiple_Searched_Products_Checkout_Submission_Confirmation")
+    @Tag("Test_As_A_Reg_User")
+    void multipleSearchedOrderCheckoutConfirmationRegUserTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //multiple searched products ("1L Le Parfait Jar") addition to cart test method (as a registered user)
+        addMultipleSearchedJarProductToCartRegUserTest();
+        //multiple searched products ("Dustpan & Brush") addition to check out test method (as a registered user)
+        addProductToCheckoutTest();
+        //multiple searched products ("Dustpan & Brush") check out confirmation test method (as a registered user)
+        validRegUserProductOrderCheckoutTest();
+        //navigate back to home page (with driver) (the header home link nor "Continue shopping" button seem to be working during automation run(manually, everything works)
+        navigateToHomePageTest();
+        //multiple searched products ("Dustpan & Brush") order submission confirmation test method (as a registered user)
+        orderInvoicePageOrderConfirmationTest();
+    }
+
 }
