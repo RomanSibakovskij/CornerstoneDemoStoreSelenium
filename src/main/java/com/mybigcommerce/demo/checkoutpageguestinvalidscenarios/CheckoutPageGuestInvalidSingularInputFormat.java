@@ -76,6 +76,7 @@ public class CheckoutPageGuestInvalidSingularInputFormat extends BasePage{
     //invalid guest billing address input data - invalid singular input format
     private String invalidBillingGuestFirstNameFormat;
     private String invalidBillingGuestLastNameFormat;
+    private String invalidBillingGuestAddressFormat;
 
     public CheckoutPageGuestInvalidSingularInputFormat(WebDriver driver) {super(driver);}
 
@@ -279,9 +280,37 @@ public class CheckoutPageGuestInvalidSingularInputFormat extends BasePage{
 
     }
 
+    //invalid guest billing address input data getter - invalid billing address format (special symbols only)
+    public void invalidGuestBillAddressInputDataInvalidAddressFormatGetter(){
+
+        validBillingGuestFirstName = TestDataGenerator.getRandomFirstName();
+        validBillingGuestLastName = TestDataGenerator.getRandomLastName();
+        invalidBillingGuestAddressFormat = TestDataGenerator.generateRandomAddress(93);
+        validBillingGuestCity = TestDataGenerator.getRandomCity();
+        validBillingGuestPostCode = String.valueOf(TestDataGenerator.getRandomPostalCode());
+        validBillingGuestPhone = TestDataGenerator.generatePhoneNumber(9);
+
+        System.out.println("Invalid generated checkout guest billing address input data (invalid billing address format): " + "\n");
+
+        logger.info("Valid guest billing address first name (invalid billing address format): " + validBillingGuestFirstName);
+        logger.info("Valid guest billing address last name (invalid billing address format): " + validBillingGuestLastName);
+        logger.info("Invalid billing address format: " + invalidBillingGuestAddressFormat);
+        logger.info("Valid guest billing address city (invalid billing address format): " + validBillingGuestCity);
+        logger.info("Valid guest billing address post code (invalid billing address format): " + validBillingGuestPostCode);
+        logger.info("Valid guest billing address phone number (invalid billing address format): " + validBillingGuestPhone);
+
+        System.out.println("\n");
+
+    }
+
     //invalid guest billing address data input methods - invalid singular input format
     public void inputInvalidBillingGuestFirstNameFormatIntoFirstNameInputField(){checkoutPageBillingFirstNameInputField.sendKeys(invalidBillingGuestFirstNameFormat);}
     public void inputInvalidBillingGuestLastNameFormatIntoLastNameInputField(){checkoutPageBillingLastNameInputField.sendKeys(invalidBillingGuestLastNameFormat);}
+
+    public void inputInvalidBillingGuestAddressFormatIntoAddressInputField(){
+        checkoutPageBillingAddressInputField.clear();
+        checkoutPageBillingAddressInputField.sendKeys(invalidBillingGuestAddressFormat);
+    }
 
     //valid input methods
 
