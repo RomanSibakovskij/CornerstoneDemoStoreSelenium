@@ -16325,6 +16325,76 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid Guest Product Order Checkout Confirmation Test - Invalid Guest Credit Card CVV Number Format");
     }
 
+ /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    //order invoice page test (for order submission confirmation => only registered user has this feature since it requires an account)
+
+    //navigate back to homepage (since header home link nor button do appear to work during automation run)
+    protected void navigateToHomePageTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad();
+        //checkout page order confirmation section web element assert (Selenium can't seem to find the elements with VALID selectors)
+        //isCheckoutPageConfirmationSectionWebElementDisplayed(checkoutPage);
+        //checkout page checkout confirmation section text element assert (Selenium can't seem to find the elements with VALID selectors)
+        //isCheckoutPageConfirmationSectionTextElementAsExpected(checkoutPage);
+        //checkout page order summary section web element assert
+        isCheckoutPageOrderSummarySectionWebElementDisplayed(checkoutPage);
+        //checkout page order summary section text element assert
+        isCheckoutPageOrderSummarySectionTextElementAsExpected(checkoutPage);
+        //click "Continue shopping" button (the header home link nor "Continue shopping" button seem to be working during automation run(manually, everything works))
+        checkoutPage.clickConfirmationSectionContinueShoppingButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad();
+        //navigate back to home page (with driver)
+        String baseURL = "https://cornerstone-light-demo.mybigcommerce.com/";
+        driver.get(baseURL);
+        //execute the driver if it doesn't get executed by any reason
+        if (!Objects.equals(driver.getCurrentUrl(), baseURL)) {
+            driver.get(baseURL);
+        }
+        //wait for elements to load
+        generalPage.waitForElementsToLoad();
+        //capture screenshot of the home page display (after the user returns to it with driver)
+        captureScreenshot(driver, "Home Page Display After Navigating Back with Driver");
+    }
+
+    //order invoice page test method
+    protected void orderInvoicePageOrderConfirmationTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        AccountDashboardPage accountDashboardPage = new AccountDashboardPage(driver);
+        OrderInvoicePage orderInvoicePage = new OrderInvoicePage(driver);
+        //general page web element assert (elements that all pages have)
+        isGeneralPageWebElementDisplayed(generalPage);
+        //general page text element assert (elements that all pages have)
+        isGeneralPageTextElementAsExpected(generalPage);
+        //click 'Account' navbar link
+        generalPage.clickAccountLink();
+        //capture screenshot of the account dashboard page display (by default it's set on "Orders")
+        captureScreenshot(driver, "Account Dashboard Page Display After Order Placement");
+        //account dashboard page orders section web elements assert
+        isAccountDashboardPageOrdersSectionWebElementDisplayed(accountDashboardPage);
+        //account dashboard page orders section text elements assert
+        isOrdersPageAfterOrderTextElementsAsExpected(accountDashboardPage);
+        //log order summary product data (displayed on "Orders" section page of the account dashboard page)
+        logAccountDashboardOrdersDisplayedData(accountDashboardPage);
+        //click set order number link
+        accountDashboardPage.clickSetOrderNumberLink(0);
+        //wait for elements to load
+        generalPage.waitForElementsToLoad();
+        //order invoice page web element assert
+        isOrderInvoicePageWebElementDisplayed(orderInvoicePage);
+        //order invoice page text element assert
+        isOrderInvoicePageTextElementAsExpected(orderInvoicePage);
+        //capture screenshot of the order invoice page display
+        captureScreenshot(driver, "Order Invoice Page Display");
+        //log order invoice page order data
+        logOrderInvoicePageOrderData(orderInvoicePage);
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Order Submission Confirmation Test Result");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)
@@ -16555,6 +16625,26 @@ public class TestMethods extends BaseTest{
     protected void isAccountDashboardPageBreadcrumbWebElementDisplayed(AccountDashboardPage accountDashboardPage) {
         //assert account dashboard page breadcrumb elements are displayed (as a list)
         assertTrue(accountDashboardPage.isAccountDashboardPageBreadcrumbDisplayed(), "The account dashboard page breadcrumb elements aren't displayed");
+    }
+
+    //account dashboard page orders section web element assert test method
+    protected void isAccountDashboardPageOrdersSectionWebElementDisplayed(AccountDashboardPage accountDashboardPage) {
+        //assert account dashboard page order section product images are displayed (as a list)
+        assertTrue(accountDashboardPage.isAccountDashboardPageOrdersProductImgElementsDisplayed(), "The account dashboard page order section product images aren't displayed");
+        //assert account dashboard page order section number links are displayed (as a list)
+        assertTrue(accountDashboardPage.isAccountDashboardPageOrderNumberLinkDisplayed(), "The account dashboard page order section number links aren't displayed");
+        //assert account dashboard page order section product count and total costs are displayed (as a list)
+        assertTrue(accountDashboardPage.isAccountDashboardPageProductCountTotalCostDisplayed(), "The account dashboard page order section product count and total costs aren't displayed");
+        //assert account dashboard page order section order placed subtexts are displayed (as a list)
+        assertTrue(accountDashboardPage.isAccountDashboardPageOrdersPlacedSubtextDisplayed(), "The account dashboard page order section order placed subtexts aren't displayed");
+        //assert account dashboard page order section order last update subtexts are displayed (as a list)
+        assertTrue(accountDashboardPage.isAccountDashboardPageOrdersLastUpdateSubtextDisplayed(), "The account dashboard page order section order last update subtexts aren't displayed");
+        //assert account dashboard page order section order awaiting fulfillment tags are displayed (as a list)
+        assertTrue(accountDashboardPage.isAccountDashboardPageOrdersAwaitFulfillTagDisplayed(), "The account dashboard page order section order awaiting fulfillment tags aren't displayed");
+        //assert account dashboard page order section order placed dates are displayed (as a list)
+        assertTrue(accountDashboardPage.isAccountDashboardPageOrderPlacedDateDisplayed(), "The account dashboard page order section order placed dates aren't displayed");
+        //assert account dashboard page order section order last update dates are displayed (as a list)
+        assertTrue(accountDashboardPage.isAccountDashboardPageOrderLastUpdateDateDisplayed(), "The account dashboard page order section order last update dates aren't displayed");
     }
 
     //account settings page web element assert test method
@@ -17750,6 +17840,23 @@ public class TestMethods extends BaseTest{
         assertEquals("Actions", orderInvoicePage.getOrderContentsActionsSectionTitle(), "The order invoice page actions section title doesn't match expectations.");
     }
 
+    //orders page text element assert test method (after order placement)
+    protected void isOrdersPageAfterOrderTextElementsAsExpected(AccountDashboardPage accountDashboardPage) {
+        //assert account dashboard page orders section orders placed subtexts are as expected (as a list)
+        List<String> orderPlacedSubtexts = accountDashboardPage.getAccountDashboardPageOrdersPlacedSubtext();
+        assertTrue(orderPlacedSubtexts.stream().allMatch("ORDER PLACED"::equals),
+                "The account dashboard page orders section order placed subtexts don't match expectations.");
+        //assert account dashboard page orders section orders last update subtexts are as expected (as a list)
+        List<String> orderLastUpdateSubtexts = accountDashboardPage.getAccountDashboardPageOrdersLastUpdateSubtext();
+        assertTrue(orderLastUpdateSubtexts.stream().allMatch("LAST UPDATE"::equals),
+                "The account dashboard page orders section order last update subtexts don't match expectations.");
+        //assert account dashboard page orders section awaiting fulfillment tags are as expected (as a list)
+        List<String> orderAwaitFulfillTags = accountDashboardPage.getAccountDashboardPageOrdersAwaitFulfillTag();
+        assertTrue(orderAwaitFulfillTags.stream().allMatch("AWAITING FULFILLMENT"::equals),
+                "The account dashboard page orders section awaiting fulfillment tags don't match expectations.");
+
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //home page product data logger method
@@ -17763,6 +17870,18 @@ public class TestMethods extends BaseTest{
         logger.info("Home page new product category tag(s): " + homePage.getHomePageNewProductCategoryTag());
         logger.info("Home page new product name(s): " + homePage.getHomePageNewProductName());
         logger.info("Home page new product unit price(s): " + homePage.getHomePageNewProductUnitPrice());
+
+        System.out.println("\n");
+    }
+
+    //address dashboard page orders section (page) data logger method
+    protected void logAccountDashboardOrdersDisplayedData(AccountDashboardPage accountDashboardPage) {
+        System.out.println("Address dashboard page orders displayed data: " + "\n");
+
+        logger.info("Displayed order number(s): " + accountDashboardPage.getAccountDashboardPageOrderNumber());
+        logger.info("Displayed order product count and total cost: " + accountDashboardPage.getAccountDashboardPageOrderProductCountTotalCost());
+        logger.info("Displayed order placed date(s): " + accountDashboardPage.getAccountDashboardPageOrderPlacedDate());
+        logger.info("Displayed order last update date(s): " + accountDashboardPage.getAccountDashboardPageOrderLastUpdateDate());
 
         System.out.println("\n");
     }
@@ -17883,6 +18002,32 @@ public class TestMethods extends BaseTest{
         logger.info("Displayed order summary product shipping price: " + checkoutPage.getCheckoutPageOrderSummaryShippingPrice());
         logger.info("Displayed order summary product tax amount: " + checkoutPage.getCheckoutPageOrderSummaryTaxAmount());
         logger.info("Displayed order summary product total price: " + checkoutPage.getCheckoutPageOrderSummaryTotalPrice());
+
+        System.out.println("\n");
+
+    }
+
+    //order invoice page order data logger method
+    protected void logOrderInvoicePageOrderData(OrderInvoicePage orderInvoicePage){
+
+        System.out.println("Displayed order invoice page confirmed order data: " + "\n");
+
+        logger.info("Displayed order number: " + orderInvoicePage.getOrderNumber());
+        logger.info("Displayed order items shipped: " + orderInvoicePage.getOrderContentsItemShippedSubtext());
+        logger.info("Displayed order items name and count: " + orderInvoicePage.getOrderContentsItemNameCount());
+        logger.info("Displayed order items unit price: " + orderInvoicePage.getOrderContentsItemUnitPriceCount());
+        logger.info("Displayed order status: " + orderInvoicePage.getOrderStatus());
+        logger.info("Displayed order date: " + orderInvoicePage.getOrderDate());
+        logger.info("Displayed order total price: " + orderInvoicePage.getOrderTotal());
+        logger.info("Displayed order payment method: " + orderInvoicePage.getOrderPaymentMethod());
+        logger.info("Displayed order shipping address full name: " + orderInvoicePage.getOrderShippingName());
+        logger.info("Displayed order shipping address: " + orderInvoicePage.getOrderShippingAddress());
+        logger.info("Displayed order shipping address line two: " + orderInvoicePage.getOrderShippingAddressTwo());
+        logger.info("Displayed order shipping country: " + orderInvoicePage.getOrderShippingCountry());
+        logger.info("Displayed order billing address full name: " + orderInvoicePage.getOrderBillingName());
+        logger.info("Displayed order billing address: " + orderInvoicePage.getOrderBillingAddress());
+        logger.info("Displayed order billing address line two: " + orderInvoicePage.getOrderBillingAddressTwo());
+        logger.info("Displayed order billing country: " + orderInvoicePage.getOrderBillingCountry());
 
         System.out.println("\n");
 
