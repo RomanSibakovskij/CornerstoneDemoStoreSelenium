@@ -202,4 +202,19 @@ public class CheckoutPageGuestInvalidSingularInputFormatTest extends TestMethods
         invalidGuestProductOrderCheckoutInvalidBillGuestPhoneFormatTest();
     }
 
+    //Test 026aap -> invalid single most popular product ("Tiered Wire Basket") check out confirmation test method (as a guest) - invalid guest credit card number (any other than test number)
+    @Test
+    @DisplayName("Invalid Single Most Popular Product Addition To Checkout Test (as a guest) - Invalid Credit Card Number")
+    @Tag("Invalid_Single_Most_Popular_Product_Checkout_Confirmation")
+    @Tag("Invalid_Singular_Input_Format")
+    @Tag("Test_As_A_Guest")
+    void invalidSingleMostPopularProductCheckoutConfirmationInvalidGuestCredCardNumberTest() {
+        //single most popular product ("Tiered Wire Basket") addition to cart test method (as a guest)
+        addSingleMostPopularProductToCartGuestTest();
+        //single most popular product ("Tiered Wire Basket") addition to check out test method (as a guest)
+        addProductToCheckoutTest();
+        //invalid single most popular product ("Tiered Wire Basket") check out confirmation test method (as a guest) - invalid guest credit card number (any other than test number)
+        invalidGuestProductOrderCheckoutInvalidPayGuestCredCardNumberTest();
+    }
+
 }

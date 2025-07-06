@@ -81,6 +81,15 @@ public class CheckoutPageGuestInvalidSingularInputFormat extends BasePage{
     private String invalidBillingGuestPostCodeFormat;
     private String invalidBillingGuestPhoneFormat;
 
+    //valid guest payment section input data (for remaining inputs)
+    private String validTestCreditCardNumber; //only this number is functional
+    private String validGuestCreditCardExpDate;
+    private String validGuestCreditCardName;
+    private String validGuestCreditCardCVVNumber;
+
+    //invalid guest payment section input data - invalid singular input format
+    private String invalidTestCreditCardNumber;//any other than test number
+
     public CheckoutPageGuestInvalidSingularInputFormat(WebDriver driver) {super(driver);}
 
     //invalid guest email address input data getter - invalid email format (missing '@')
@@ -426,5 +435,35 @@ public class CheckoutPageGuestInvalidSingularInputFormat extends BasePage{
         checkoutPageBillingPhoneInputField.clear();
         checkoutPageBillingPhoneInputField.sendKeys(validBillingGuestPhone);
     }
+
+    //credit card input data
+
+    //invalid guest payment input data getter - invalid guest credit card number (any other than test number)
+    public void invalidGuestPaymentInputDataInvalidCredCardNumberGetter(){
+
+        invalidTestCreditCardNumber = "3423 1234 6785 4346";
+        validGuestCreditCardExpDate = TestDataGenerator.generateExpirationDate();
+        validGuestCreditCardName = TestDataGenerator.getRandomFirstName() + " " + TestDataGenerator.getRandomLastName();
+        validGuestCreditCardCVVNumber = TestDataGenerator.generateCVV();
+
+        System.out.println("Invalid generated checkout guest payment input data (invalid guest credit card number): " + "\n");
+
+        logger.info("Invalid test credit card number: " + invalidTestCreditCardNumber);
+        logger.info("Valid guest credit card expiration date (invalid guest credit card number): " + validGuestCreditCardExpDate);
+        logger.info("Valid guest credit card full name (invalid guest credit card number): " + validGuestCreditCardName);
+        logger.info("Valid guest credit card CVV number (invalid guest credit card number): " + validGuestCreditCardCVVNumber);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid guest payment data input methods - invalid singular input
+    public void inputInvalidPaymentTestCreditCardNumberIntoCreditCardNumberInputField(){checkoutPagePaymentCreditCardNumberInputField.sendKeys(invalidTestCreditCardNumber);}
+
+    //valid guest payment data input methods
+    public void inputValidPaymentTestCreditCardNumberIntoCreditCardNumberInputField(){checkoutPagePaymentCreditCardNumberInputField.sendKeys(validTestCreditCardNumber);}
+    public void inputValidPaymentGuestCreditCardNameIntoCreditCardNameInputField(){checkoutPagePaymentCreditCardNameInputField.sendKeys(validGuestCreditCardName);}
+    public void inputValidPaymentGuestCreditCardExpDateIntoCreditCardExpDateInputField(){checkoutPagePaymentCreditCardExpDateInputField.sendKeys(validGuestCreditCardExpDate);}
+    public void inputValidPaymentGuestCreditCardCVVIntoCreditCardCVVInputField(){checkoutPagePaymentCVVNumberInputField.sendKeys(validGuestCreditCardCVVNumber);}
 
 }
