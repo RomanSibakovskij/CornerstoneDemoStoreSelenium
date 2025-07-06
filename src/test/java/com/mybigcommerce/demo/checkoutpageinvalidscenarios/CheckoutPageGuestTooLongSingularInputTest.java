@@ -217,4 +217,19 @@ public class CheckoutPageGuestTooLongSingularInputTest extends TestMethods{
         invalidGuestProductOrderCheckoutTooLongPayGuestCredCardNumberTest();
     }
 
+    //Test 029az -> invalid single most popular product ("Tiered Wire Basket") check out confirmation test method (as a guest) - too long guest credit card expiration date (5 digits) (the input form doesn't allow too long input, test has passed)
+    @Test
+    @DisplayName("Invalid Single Most Popular Product Addition To Checkout Test (as a guest) - Too Long Credit Card Exp Date")
+    @Tag("Invalid_Single_Most_Popular_Product_Checkout_Confirmation")
+    @Tag("Too_Long_Singular_Input")
+    @Tag("Test_As_A_Guest")
+    void invalidSingleMostPopularProductCheckoutConfirmationTooLongGuestCredCardExpDateTest() {
+        //single most popular product ("Tiered Wire Basket") addition to cart test method (as a guest)
+        addSingleMostPopularProductToCartGuestTest();
+        //single most popular product ("Tiered Wire Basket") addition to check out test method (as a guest)
+        addProductToCheckoutTest();
+        //invalid single most popular product ("Tiered Wire Basket") check out confirmation test method (as a guest) - too long guest credit card expiration date (5 digits)
+        invalidGuestProductOrderCheckoutTooLongPayGuestCredCardExpDateTest();
+    }
+
 }

@@ -89,6 +89,7 @@ public class CheckoutPageGuestTooLongSingularInput extends BasePage{
 
     //invalid guest payment section input data - too long singular input
     private String tooLongTestCreditCardNumber ; //17 digits
+    private String tooLongGuestCreditCardExpDate;
 
     public CheckoutPageGuestTooLongSingularInput(WebDriver driver) {super(driver);}
 
@@ -455,8 +456,27 @@ public class CheckoutPageGuestTooLongSingularInput extends BasePage{
 
     }
 
+    //invalid guest payment input data getter - too long guest credit card exp date (5 digits)
+    public void invalidGuestPaymentInputDataTooLongCredCardExpDateGetter(){
+
+        tooLongGuestCreditCardExpDate = "11/119";
+        validGuestCreditCardName = TestDataGenerator.getRandomFirstName() + " " + TestDataGenerator.getRandomLastName();
+        validGuestCreditCardCVVNumber = TestDataGenerator.generateCVV();
+
+        System.out.println("Invalid generated checkout guest payment input data (too long guest credit card exp date): " + "\n");
+
+        logger.info("Valid test credit card number (too long guest credit card exp date): " + validTestCreditCardNumber);
+        logger.info("Too long guest credit card expiration date: " + tooLongGuestCreditCardExpDate);
+        logger.info("Valid guest credit card full name (too long guest credit card exp date): " + validGuestCreditCardName);
+        logger.info("Valid guest credit card CVV number (too long guest credit card exp date): " + validGuestCreditCardCVVNumber);
+
+        System.out.println("\n");
+
+    }
+
     //invalid guest payment data input methods - too long singular input
     public void inputTooLongPaymentTestCreditCardNumberIntoCreditCardNumberInputField(){checkoutPagePaymentCreditCardNumberInputField.sendKeys(tooLongTestCreditCardNumber);}
+    public void inputTooLongPaymentGuestCreditCardExpDateIntoCreditCardExpDateInputField(){checkoutPagePaymentCreditCardExpDateInputField.sendKeys(tooLongGuestCreditCardExpDate);}
 
     //valid guest payment data input methods
     public void inputValidPaymentTestCreditCardNumberIntoCreditCardNumberInputField(){checkoutPagePaymentCreditCardNumberInputField.sendKeys(validTestCreditCardNumber);}
