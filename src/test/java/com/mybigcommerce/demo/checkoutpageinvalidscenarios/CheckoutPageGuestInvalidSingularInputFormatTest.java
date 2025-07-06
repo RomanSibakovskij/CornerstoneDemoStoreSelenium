@@ -217,4 +217,19 @@ public class CheckoutPageGuestInvalidSingularInputFormatTest extends TestMethods
         invalidGuestProductOrderCheckoutInvalidPayGuestCredCardNumberTest();
     }
 
+    //Test 026aaq -> invalid single most popular product ("Tiered Wire Basket") check out confirmation test method (as a guest) - invalid guest credit card number format (chars only) (the input form doesn't allow strings input, test has passed)
+    @Test
+    @DisplayName("Invalid Single Most Popular Product Addition To Checkout Test (as a guest) - Invalid Credit Card Number Format")
+    @Tag("Invalid_Single_Most_Popular_Product_Checkout_Confirmation")
+    @Tag("Invalid_Singular_Input_Format")
+    @Tag("Test_As_A_Guest")
+    void invalidSingleMostPopularProductCheckoutConfirmationInvalidGuestCredCardNumberFormatTest() {
+        //single most popular product ("Tiered Wire Basket") addition to cart test method (as a guest)
+        addSingleMostPopularProductToCartGuestTest();
+        //single most popular product ("Tiered Wire Basket") addition to check out test method (as a guest)
+        addProductToCheckoutTest();
+        //invalid single most popular product ("Tiered Wire Basket") check out confirmation test method (as a guest) - invalid guest credit card number format (chars only)
+        invalidGuestProductOrderCheckoutInvalidPayGuestCredCardNumberFormatTest();
+    }
+
 }
