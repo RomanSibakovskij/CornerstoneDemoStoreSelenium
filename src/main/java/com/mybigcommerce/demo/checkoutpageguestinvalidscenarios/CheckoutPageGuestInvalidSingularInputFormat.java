@@ -92,6 +92,7 @@ public class CheckoutPageGuestInvalidSingularInputFormat extends BasePage{
     private String invalidTestCreditCardNumberFormat;
     private String invalidGuestCreditCardExpDateFormat;
     private String invalidGuestCreditCardReversedExpDate;
+    private String invalidGuestCreditCardNameFormat;
 
     public CheckoutPageGuestInvalidSingularInputFormat(WebDriver driver) {super(driver);}
 
@@ -517,11 +518,31 @@ public class CheckoutPageGuestInvalidSingularInputFormat extends BasePage{
 
     }
 
+    //invalid guest payment input data getter - invalid guest credit card name format (special symbols only)
+    public void invalidGuestPaymentInputDataInvalidCreditCardNameFormatGetter(){
+
+        validTestCreditCardNumber = "4111 1111 1111 1111";
+        validGuestCreditCardExpDate = TestDataGenerator.generateExpirationDate();
+        invalidGuestCreditCardNameFormat =  "#%$%^%$^%" ;
+        validGuestCreditCardCVVNumber = TestDataGenerator.generateCVV();
+
+        System.out.println("Invalid generated checkout guest payment input data (invalid guest credit card name format): " + "\n");
+
+        logger.info("Valid test credit card number (invalid guest credit card name format): " + validTestCreditCardNumber);
+        logger.info("Valid guest credit card expiration date (invalid guest credit card name format): " + validGuestCreditCardExpDate);
+        logger.info("Invalid credit card full name format: " + invalidGuestCreditCardNameFormat);
+        logger.info("Valid guest credit card CVV number (invalid guest credit card name format): " + validGuestCreditCardCVVNumber);
+
+        System.out.println("\n");
+
+    }
+
     //invalid guest payment data input methods - invalid singular input
     public void inputInvalidPaymentTestCreditCardNumberIntoCreditCardNumberInputField(){checkoutPagePaymentCreditCardNumberInputField.sendKeys(invalidTestCreditCardNumber);}
     public void inputInvalidPaymentTestCreditCardNumberFormatIntoCreditCardNumberInputField(){checkoutPagePaymentCreditCardNumberInputField.sendKeys(invalidTestCreditCardNumberFormat);}
     public void inputInvalidPaymentGuestCreditCardExpDateFormatIntoCreditCardExpDateInputField(){checkoutPagePaymentCreditCardExpDateInputField.sendKeys(invalidGuestCreditCardExpDateFormat);}
     public void inputInvalidPaymentGuestCreditCardReversedExpDateIntoCreditCardExpDateInputField(){checkoutPagePaymentCreditCardExpDateInputField.sendKeys(invalidGuestCreditCardReversedExpDate);}
+    public void inputInvalidPaymentGuestCreditCardNameFormatIntoCreditCardNameInputField(){checkoutPagePaymentCreditCardNameInputField.sendKeys(invalidGuestCreditCardNameFormat);}
 
     //valid guest payment data input methods
     public void inputValidPaymentTestCreditCardNumberIntoCreditCardNumberInputField(){checkoutPagePaymentCreditCardNumberInputField.sendKeys(validTestCreditCardNumber);}
