@@ -14649,6 +14649,74 @@ public class TestMethods extends BaseTest{
         captureScreenshot(driver, "Invalid Guest Product Order Checkout Confirmation Test - Invalid Guest Shipping First Name Format");
     }
 
+    //invalid guest checkout test method - invalid guest shipping address last name format (special symbols only)
+    protected void invalidGuestProductOrderCheckoutInvalidGuestShipLastNameFormatTest(){
+        GeneralPage generalPage = new GeneralPage(driver);
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        CheckoutPageGuestValidCheckout checkoutPageGuestValidCheckout = new CheckoutPageGuestValidCheckout(driver);
+        CheckoutPageGuestInvalidSingularInputFormat checkoutPageGuestInvalidSingularInputFormat = new CheckoutPageGuestInvalidSingularInputFormat(driver);
+        //checkout page checkout section web element assert (guest)
+        isCheckoutPageCheckoutSectionWebElementDisplayed(checkoutPage);
+        //checkout page checkout section text element assert (guest)
+        isCheckoutPageCheckoutSectionTextElementAsExpected(checkoutPage);
+        //capture screenshot of the checkout page display before data input
+        captureScreenshot(driver, "Checkout Page Display Before Data Input");
+        //checkout page order summary section web element assert
+        isCheckoutPageOrderSummarySectionWebElementDisplayed(checkoutPage);
+        //checkout page order summary section text element assert
+        isCheckoutPageOrderSummarySectionTextElementAsExpected(checkoutPage);
+        //log order summary data
+        logCheckoutPageOrderSummaryProductData(checkoutPage);
+        //valid guest email input data getter
+        checkoutPageGuestValidCheckout.validGuestEmailInputDataGetter();
+        //click 'Privacy policy' checkbox
+        checkoutPage.clickCheckoutSectionPrivacyPolicyCheckbox();
+        //input valid guest email into checkout email input field
+        checkoutPageGuestValidCheckout.inputValidGuestEmailIntoEmailInputField();
+        //capture screenshot of the checkout page checkout section display after valid data input
+        captureScreenshot(driver, "Checkout Page Checkout Section Display After Valid Guest Data Input");
+        //click checkout section "Continue" button
+        checkoutPage.clickCheckoutSectionContinueButton();
+        //wait for elements to load
+        generalPage.waitForElementsToLoad();
+        //checkout page shipping address section web element assert (Selenium can't seem to find the elements with VALID selectors)
+        //isCheckoutPageShippingAddressSectionWebElementDisplayed(checkoutPage);
+        //checkout page shipping address section text element assert (Selenium can't seem to find the elements with VALID selectors)
+        //isCheckoutPageShippingAddressSectionTextElementAsExpected(checkoutPage);
+        //invalid guest shipping address input data getter - invalid guest shipping last name format (special symbols only)
+        checkoutPageGuestInvalidSingularInputFormat.invalidGuestShipAddressInputDataInvalidLastNameFormatGetter();
+        //capture screenshot of the checkout page shipping address section display before data input
+        captureScreenshot(driver, "Checkout Page Shipping Address Section Display Before Data Input");
+        //click shipping address section country dropdown menu
+        checkoutPage.clickShipAddressSectionCountryDropdownMenu();
+        //select "United States" shipping country option
+        checkoutPage.selectShipUSCountryOption();
+        //input valid guest shipping address first name into first name input field
+        checkoutPageGuestInvalidSingularInputFormat.inputValidShippingGuestFirstNameIntoFirstNameInputField();
+        //input invalid guest shipping address last name format into last name input field (special symbols only)
+        checkoutPageGuestInvalidSingularInputFormat.inputInvalidShippingGuestLastNameFormatIntoLastNameInputField();
+        //input valid guest shipping address into shipping address input field
+        checkoutPageGuestInvalidSingularInputFormat.inputValidShippingGuestAddressIntoAddressInputField();
+        //input valid guest shipping address phone into phone input field
+        checkoutPageGuestInvalidSingularInputFormat.inputValidShippingGuestPhoneIntoPhoneInputField();
+        //capture screenshot of the checkout page shipping address section display after invalid data input - invalid guest shipping last name format
+        captureScreenshot(driver, "Checkout Page Shipping Address Section Display After Invalid Guest Data Input - Invalid Last Name Format");
+        //wait for elements to load
+        generalPage.waitForElementsToLoad();
+        //click "Shipping and Billing address are same" checkbox (to prevent the billing address to be matched with shipping address)
+        checkoutPage.clickShipAddressSectionShipBillAddressSameCheckbox();
+        //click shipping address section "Continue" button
+        checkoutPage.clickShipAddressSectionContinueButton();
+        //assert the user gets an expected error, log the issue otherwise
+        try {
+            assertEquals("Last name cannot consist of special symbols only.", checkoutPage.getCheckoutPageSingularInputError(), "The checkout page shipping address section invalid last name input format error doesn't match expectations.");
+        } catch (Exception e) {
+            logger.error("The checkout page shipping address section invalid last name input format error wasn't triggered, test has failed");
+        }
+        //capture screenshot of the test result
+        captureScreenshot(driver, "Invalid Guest Product Order Checkout Confirmation Test - Invalid Guest Shipping Last Name Format");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page web element assert test method (elements that all pages share -> header / footer)

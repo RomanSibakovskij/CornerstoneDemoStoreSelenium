@@ -59,6 +59,7 @@ public class CheckoutPageGuestInvalidSingularInputFormat extends BasePage{
     //invalid guest shipping address input data - invalid singular input format
     private String invalidGuestEmailFormat;
     private String invalidShippingGuestFirstNameFormat;
+    private String invalidShippingGuestLastNameFormat;
 
     public CheckoutPageGuestInvalidSingularInputFormat(WebDriver driver) {super(driver);}
 
@@ -99,7 +100,28 @@ public class CheckoutPageGuestInvalidSingularInputFormat extends BasePage{
 
     }
 
+    //invalid guest shipping address input data getter - invalid shipping last name format (special symbols only)
+    public void invalidGuestShipAddressInputDataInvalidLastNameFormatGetter(){
+
+        validShippingGuestFirstName = TestDataGenerator.getRandomFirstName();
+        invalidShippingGuestLastNameFormat = "@$##%^%$^";
+        validShippingGuestAddress = TestDataGenerator.generateRandomAddress(8);
+        validShippingGuestPhone = TestDataGenerator.generatePhoneNumber(9);
+
+        System.out.println("Invalid generated checkout guest shipping address input data (invalid shipping last name format): " + "\n");
+
+        logger.info("Valid guest shipping address first name (invalid shipping last name format): " + validShippingGuestFirstName);
+        logger.info("Invalid shipping address last name format: " + invalidShippingGuestLastNameFormat);
+        logger.info("Valid guest shipping address (invalid shipping last name format): " + validShippingGuestAddress);
+        logger.info("Valid guest shipping address phone number (invalid shipping last name format): " + validShippingGuestPhone);
+
+        System.out.println("\n");
+
+    }
+
+    //invalid guest shipping data input methods - invalid singular input format
     public void inputInvalidShippingGuestFirstNameFormatIntoFirstNameInputField(){checkoutPageShippingFirstNameInputField.sendKeys(invalidShippingGuestFirstNameFormat);}
+    public void inputInvalidShippingGuestLastNameFormatIntoLastNameInputField(){checkoutPageShippingLastNameInputField.sendKeys(invalidShippingGuestLastNameFormat);}
 
     //valid input methods
 
