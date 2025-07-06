@@ -189,4 +189,30 @@ public class OrderInvoicePageTest extends TestMethods {
         orderInvoicePageOrderConfirmationTest();
     }
 
+    //products addition from compare list order submission confirmation tests
+
+    //Test 034 -> products ("Gather Journal Issue 7", "The Kinfolk Table", "Living With Plants") addition from compare list order submission confirmation test method (as a registered user)
+    @Test
+    @DisplayName("Multiple Products Addition From Compare List Order Submission Confirmation Test (as a registered user)")
+    @Tag("Multiple_Products_Addition_From_Compare_List_Checkout_Submission_Confirmation")
+    @Tag("Test_As_A_Reg_User")
+    void productsAddFromCompareListOrderConfirmationRegUserTest() {
+        //user navigation to register page test
+        navigateToRegisterPageTest();
+        //valid user account creation test
+        validUserAccountCreationTest();
+        //single searched product ("Dustpan & Brush") addition to cart test method (as a registered user)
+        addProductsToCompareListRegUserTest();
+        //products ("Gather Journal Issue 7", "The Kinfolk Table", "Living With Plants") addition from compare list to cart test method (as a registered user)
+        addProductsFromCompareListToCartTest();
+        //products ("Gather Journal Issue 7", "The Kinfolk Table", "Living With Plants") addition from compare list to check out test method (as a registered user)
+        addProductToCheckoutTest();
+        //products ("Gather Journal Issue 7", "The Kinfolk Table", "Living With Plants") addition from compare list check out confirmation test method (as a registered user)
+        validRegUserProductOrderCheckoutTest();
+        //navigate back to home page (with driver) (the header home link nor "Continue shopping" button seem to be working during automation run(manually, everything works)
+        navigateToHomePageTest();
+        //products ("Gather Journal Issue 7", "The Kinfolk Table", "Living With Plants") addition from compare list order submission confirmation test method (as a registered user)
+        orderInvoicePageOrderConfirmationTest();
+    }
+
 }
