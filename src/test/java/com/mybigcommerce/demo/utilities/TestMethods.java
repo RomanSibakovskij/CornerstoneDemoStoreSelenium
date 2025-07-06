@@ -17199,6 +17199,83 @@ public class TestMethods extends BaseTest{
         assertTrue(checkoutPage.isCheckoutConfirmationContinueShoppingButtonDisplayed(), "The checkout page checkout confirmation section 'Continue' button isn't displayed");
     }
 
+    //order invoice page web element assert test method
+    protected void isOrderInvoicePageWebElementDisplayed(OrderInvoicePage orderInvoicePage){
+        //assert order invoice page order number is displayed
+        assertTrue(orderInvoicePage.isOrderNumberDisplayed(), "The order invoice page order number isn't displayed");
+        //order contents section
+        //assert order invoice page order content section title is displayed
+        assertTrue(orderInvoicePage.isOrderContentsSectionTitleDisplayed(), "The order invoice page order content section title isn't displayed");
+        //assert order invoice page order content section item shipped subtext is displayed
+        assertTrue(orderInvoicePage.isOrderContentsSectionItemShippedSubtextDisplayed(), "The order invoice page order content section item shipped subtext isn't displayed");
+        //list elements
+        //assert order invoice page order content section item checkbox(es) are displayed (as a list)
+        assertTrue(orderInvoicePage.isOrderContentsItemCheckboxElementDisplayed(), "The order invoice page order content section item checkbox(es) aren't displayed");
+        //assert order invoice page order content section item image(s) are displayed (as a list)
+        assertTrue(orderInvoicePage.isOrderContentsItemImgElementDisplayed(), "The order invoice page order content section item image(s) aren't displayed");
+        //assert order invoice page order content section item name count(s) are displayed (as a list)
+        assertTrue(orderInvoicePage.isOrderContentsItemNameCountElementDisplayed(), "The order invoice page order content section item name count(s) aren't displayed");
+        //assert order invoice page order content section item unit price(s) are displayed (as a list)
+        assertTrue(orderInvoicePage.isOrderContentsItemUnitPriceElementDisplayed(), "The order invoice page order content section item unit price(s) aren't displayed");
+        //order summary section
+        //assert order invoice page order content subtotal subtext is displayed
+        assertTrue(orderInvoicePage.isOrderContentsSubtotalSubtextDisplayed(), "The order invoice page order content section subtotal subtext isn't displayed");
+        //assert order invoice page order content subtotal price is displayed
+        assertTrue(orderInvoicePage.isOrderContentsSubtotalPriceDisplayed(), "The order invoice page order content section subtotal price isn't displayed");
+        //assert order invoice page order content grand total subtext is displayed
+        assertTrue(orderInvoicePage.isOrderContentsGrandTotalSubtextDisplayed(), "The order invoice page order content section grand total subtext isn't displayed");
+        //assert order invoice page order content grand total price is displayed
+        assertTrue(orderInvoicePage.isOrderContentsGrandTotalPriceDisplayed(), "The order invoice page order content section grand total price isn't displayed");
+        //order details section
+        //assert order invoice page order details section title is displayed
+        assertTrue(orderInvoicePage.isOrderContentsOrderDetailsSectionTitleDisplayed(), "The order invoice page order details section title isn't displayed");
+        //assert order invoice page order status subtext is displayed
+        assertTrue(orderInvoicePage.isOrderContentsOrderStatusSubtextDisplayed(), "The order invoice page order status subtext isn't displayed");
+        //assert order invoice page order status is displayed
+        assertTrue(orderInvoicePage.isOrderContentsOrderStatusDisplayed(), "The order invoice page order status isn't displayed");
+        //assert order invoice page order date subtext is displayed
+        assertTrue(orderInvoicePage.isOrderContentsOrderDateSubtextDisplayed(), "The order invoice page order date subtext isn't displayed");
+        //assert order invoice page order date is displayed
+        assertTrue(orderInvoicePage.isOrderContentsOrderDateDisplayed(), "The order invoice page order date isn't displayed");
+        //assert order invoice page order total subtext is displayed
+        assertTrue(orderInvoicePage.isOrderContentsOrderTotalSubtextDisplayed(), "The order invoice page order total subtext isn't displayed");
+        //assert order invoice page order total price is displayed
+        assertTrue(orderInvoicePage.isOrderContentsOrderTotalDisplayed(), "The order invoice page order total price isn't displayed");
+        //assert order invoice page payment method subtext is displayed
+        assertTrue(orderInvoicePage.isOrderContentsPayMethodSubtextDisplayed(), "The order invoice page payment method subtext isn't displayed");
+        //assert order invoice page payment method is displayed
+        assertTrue(orderInvoicePage.isOrderContentsPayMethodDisplayed(), "The order invoice page payment method isn't displayed");
+        //assert order invoice page print invoice button is displayed
+        assertTrue(orderInvoicePage.isOrderContentsPrintInvoiceButtonDisplayed(), "The order invoice page print invoice button isn't displayed");
+        //shipping to address section
+        //assert order invoice page shipping to address section title is displayed
+        assertTrue(orderInvoicePage.isOrderContentsShipToSectionTitleDisplayed(), "The order invoice page shipping to address section title isn't displayed");
+        //assert order invoice page shipping to address name is displayed
+        assertTrue(orderInvoicePage.isOrderContentsShippingNameDisplayed(), "The order invoice page shipping to address name isn't displayed");
+        //assert order invoice page shipping to address is displayed
+        assertTrue(orderInvoicePage.isOrderContentsShippingAddressDisplayed(), "The order invoice page shipping to address isn't displayed");
+        //assert order invoice page shipping to address two is displayed
+        assertTrue(orderInvoicePage.isOrderContentsShippingAddressTwoDisplayed(), "The order invoice page shipping to address two isn't displayed");
+        //assert order invoice page shipping to country is displayed
+        assertTrue(orderInvoicePage.isOrderContentsShippingCountryDisplayed(), "The order invoice page shipping to country isn't displayed");
+        //billing to address section
+        //assert order invoice page billing to address section title is displayed
+        assertTrue(orderInvoicePage.isOrderContentsBillToSectionTitleDisplayed(), "The order invoice page billing to address section title isn't displayed");
+        //assert order invoice page billing to address name is displayed
+        assertTrue(orderInvoicePage.isOrderContentsBillingNameDisplayed(), "The order invoice page billing to address name isn't displayed");
+        //assert order invoice page billing to address is displayed
+        assertTrue(orderInvoicePage.isOrderContentsBillingAddressDisplayed(), "The order invoice page billing to address isn't displayed");
+        //assert order invoice page billing to address two is displayed
+        assertTrue(orderInvoicePage.isOrderContentsBillingAddressTwoDisplayed(), "The order invoice page billing to address two isn't displayed");
+        //assert order invoice page billing to country is displayed
+        assertTrue(orderInvoicePage.isOrderContentsBillingCountryDisplayed(), "The order invoice page billing to country isn't displayed");
+        //actions section
+        //assert order invoice page actions section title is displayed
+        assertTrue(orderInvoicePage.isOrderContentsActionsSectionTitleDisplayed(), "The order invoice page actions section title isn't displayed");
+        //assert order invoice page reorder button is displayed
+        assertTrue(orderInvoicePage.isOrderContentsReorderButtonDisplayed(), "The order invoice page reorder button isn't displayed");
+    }
+
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //general page text element assert test method(elements that all pages have)
@@ -17641,6 +17718,36 @@ public class TestMethods extends BaseTest{
         assertEquals("Your order number is ", checkoutPage.getCheckoutConfirmationOrderNumberSubtext(), "The checkout page checkout confirmation section order number subtext doesn't match expectations.");
         //assert checkout page checkout confirmation section success message is as expected
         assertEquals("An email will be sent containing information about your purchase. If you have any questions about your purchase, email us at cory+bc@pixelunion.net or call us at (415) 555-5555.", checkoutPage.getCheckoutConfirmationMessage(), "The checkout page checkout confirmation section success message doesn't match expectations.");
+    }
+
+    //order invoice page text element assert test method
+    protected void isOrderInvoicePageTextElementAsExpected(OrderInvoicePage orderInvoicePage){
+        //assert order invoice page order contents section title is as expected
+        assertEquals("Order Contents", orderInvoicePage.getOrderContentsSectionTitle(), "The order invoice page order contents section title doesn't match expectations.");
+        //assert order invoice page order contents subtotal price subtext is as expected
+        assertEquals("Subtotal:", orderInvoicePage.getOrderContentsSubtotalSubtext(), "The order invoice page order contents section subtotal price subtext doesn't match expectations.");
+        //assert order invoice page order contents grand total price subtext is as expected (sometimes it can be "Shipping:")
+        //assertEquals("Grand total:", orderInvoicePage.getOrderContentsGrandTotalSubtext(), "The order invoice page order contents section grand total price subtext doesn't match expectations.");
+        //order details section
+        //assert order invoice page order details section title is as expected
+        assertEquals("Order Details", orderInvoicePage.getOrderContentsOrderDetailsSectionTitle(), "The order invoice page order details section title doesn't match expectations.");
+        //assert order invoice page order status subtext is as expected
+        assertEquals("Order status:", orderInvoicePage.getOrderContentsOrderStatusSubtext(), "The order invoice page order status subtext doesn't match expectations.");
+        //assert order invoice page order date subtext is as expected
+        assertEquals("Order date:", orderInvoicePage.getOrderContentsOrderDateSubtext(), "The order invoice page order date subtext doesn't match expectations.");
+        //assert order invoice page order total subtext is as expected
+        assertEquals("Order total:", orderInvoicePage.getOrderContentsOrderTotalSubtext(), "The order invoice page order total subtext doesn't match expectations.");
+        //assert order invoice page payment method subtext is as expected
+        assertEquals("Payment method:", orderInvoicePage.getOrderContentsPayMethodSubtext(), "The order invoice page payment methods subtext doesn't match expectations.");
+        //shipping to address section
+        //assert order invoice page shipping to address section title is as expected
+        assertEquals("Ship To", orderInvoicePage.getOrderContentsShipToSectionTitle(), "The order invoice page shipping to address section title doesn't match expectations.");
+        //billing to address section
+        //assert order invoice page billing to address section title is as expected
+        assertEquals("Bill To", orderInvoicePage.getOrderContentsBillToSectionTitle(), "The order invoice page billing to address section title doesn't match expectations.");
+        //shipping to address section
+        //assert order invoice page actions section title is as expected
+        assertEquals("Actions", orderInvoicePage.getOrderContentsActionsSectionTitle(), "The order invoice page actions section title doesn't match expectations.");
     }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
